@@ -6,20 +6,26 @@
     <script src="./js/jquery.js"></script>
 
     <script>
-        
+        $(function (){
+            $("#browser").load("./html/main.html");  
+        });
+        $(function (){
+            $("#main_but").on("click", function(){
+                    $("#browser").load("./html/main.html"); 
+            }) 
+        });
+        $(function (){
+            $("#about_but").on("click", function(){
+                    $("#browser").load("./html/about.html"); 
+            }) 
+        });
     </script>
 </head>
 
 
 
-
-<h1>
-    Welcome to HackJobGames
-</h1>
-<p>
-    This is a dogshit site, made by fucking losers. This is really an excuse to work on various computer science skills. If you found this website, it must be by some weird fucking mistake lol.
-</p>
-
+<a id = "main_but" class = "button">Main</a>
+<a id = "about_but" class = "button">About Us</a>
 <a href = "./html/games.html" class = "button">Games</a>
 
 <div id="browser">
