@@ -14,7 +14,7 @@
     cursor: pointer;  
 
 } 
-.mybutton:hover{
+.button:hover{
     background-color: white;
     color: black
 }  
