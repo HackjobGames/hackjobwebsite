@@ -18,15 +18,13 @@ $(function (){
 
 //games
 $(function (){
-    $("#birds_about").on("click", function(){
-            $("#browser").load("./game_info/birdsaway/howto.html"); 
-    }) 
+    $("#games_browser").load("./game_info/landing_page.html");  
 });
-$(function (){
-    $("#birds_howto").on("click", function(){
-            $("#browser").load("./game_info/birdsaway/about.html"); 
-    }) 
-});
+
+function load_game(page){
+    $("#games_browser").load(page); 
+}
+
 //end_games
 
 function hide_show(input){
