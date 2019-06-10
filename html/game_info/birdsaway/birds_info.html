@@ -1,5 +1,24 @@
+<!DOCTYPE html>
+
+<head>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/jquery.js"></script>
+        <script src="../js/scripts.js"></script>
+
+        <script>
+            $(function (){
+                $("#bird_browser").load("./game_info/birdsaway/about.html");  
+            });
+        </script>
+</head>
+
+
 <div class ="center">
-        <a id = "howto_birds" class = "hidden button">How To Play</a>
-        <a id = "about_birds" class = "hidden button">About The Game</a>
-        <a href="../birdsaway/birds.html" id = "play_birds" class = "hidden button">Play</a>
-    </div>
+        <a onclick="load_bird('./game_info/birdsaway/about.html')" id = "about_birds" class = "button">About The Game</a>
+        <a onclick="load_bird('./game_info/birdsaway/how_to.html')" class = "button">How To Play</a>
+        <a href="../birdsaway/birds.html" id = "play_birds" class = "button">Play</a>
+</div>
+
+<div id="bird_browser">
+
+</div>

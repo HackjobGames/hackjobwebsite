@@ -17,15 +17,20 @@ $(function (){
 //end_main
 
 //games
-$(function (){
-    $("#games_browser").load("./game_info/landing_page.html");  
-});
-
 function load_game(page){
     $("#games_browser").load(page); 
 }
-
 //end_games
+
+
+//bird_info
+
+function load_bird(page){
+    $("#bird_browser").load(page); 
+}
+
+
+//end bird_info
 
 function hide_show(input){
     var elem = document.getElementById(input);
