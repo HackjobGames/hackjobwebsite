@@ -11,15 +11,21 @@
     display: inline-block;
     font-size: 20px;
     margin: 4px 2px;
-    cursor: pointer;  
+    cursor: pointer;
 
-} 
+}
 .button:hover{
     background-color: white;
     color: black
-}  
+}
 
 .center{
     margin: auto;
     text-align: center;
+}
+.twitter-timeline{
+  position: relative;
+  right: 20px;
+  bottom: 20px;
+
 }
