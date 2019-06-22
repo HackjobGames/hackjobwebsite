@@ -27,5 +27,6 @@
   position: relative;
   right: 20px;
   bottom: 20px;
-
+  width: attr(data-width);
+  height: attr(data-height);
 }
