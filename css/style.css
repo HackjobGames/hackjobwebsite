@@ -1,10 +1,14 @@
-
+body{
+    background-color: black;
+}
 .button{
+    height: 50px;
+    width: 100px;
     background-color: black;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     border: 2px solid black;
-    color: white;
+    color: gray;
     padding: 20px 34px;
     text-align: center;
     text-decoration: none;
@@ -14,18 +18,22 @@
     cursor: pointer;
 }
 .button:hover{
-    background-color: white;
-    color: black
+    color: white
 }
-
+h1{
+    color: white;
+}
+p{  
+    color: white;
+}
 .center{
     margin: auto;
     text-align: center;
 }
 .twitter-timeline{
-  position: relative;
-  right: 20px;
-  bottom: 20px;
-  width: attr(data-width);
-  height: attr(data-height);
+    position: relative;
+    right: 20px;
+    bottom: 20px;
+    width: attr(data-width);
+    height: attr(data-height);
 }
