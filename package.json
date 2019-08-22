@@ -1,8 +1,0 @@
-{
-    "name": "my-awesome-package",
-    "version": "1.0.0",
-    "dependencies": {
-        "express": "^4.17.1",
-        "twilio": "^3.33.4"
-    }
-}
