@@ -159,7 +159,22 @@ p{
     position: absolute;
     left: 230px;
     top: 20px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
+    background-image:url("../img/capicon/png/white/286.png");
+    filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(50deg) saturate(1000%) contrast(0.8);
+    background-repeat:no-repeat;
+}
+.sidebar .toggle-button-off {
+    position: absolute;
+    left: 230px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-image:url("../img/capicon/png/white/287.png");
+    background-repeat:no-repeat;
 }
 
 .sidebar .toggle-button span {
@@ -167,6 +182,5 @@ p{
     width: 30px;
     height: 5px;
     background: #45b80b;
-    margin: 5px 0px;
-    
+    margin: 5px 0px; 
 }
