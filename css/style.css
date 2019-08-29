@@ -66,9 +66,17 @@ p{
     transform: translate(-50%,-50%);
 
 }
-
+/*
+.head-main{
+    position: relative;
+    height: 95vh;
+    background-size: cover;
+    background-position: top;
+    background-image: url(../img/capicon/old_computer.jpg);
+}
+*/
 .heading-primary{
-    color: #45b80b;
+    
     text-transform: uppercase;
 }
 
@@ -125,4 +133,40 @@ p{
     100% {
         width : 42ch;
     }
+}
+
+.sidebar {
+   position: fixed;
+   width: 200px;
+   height: 100%;
+   margin-left: -200px;
+   background: #151719;
+   transition: .8s all; 
+}
+
+.side {
+    margin-left: 0;
+}
+.sidebar ul li {
+    color:rgba(230, 230, 230, .9);
+    list-style: none;
+    padding:15px 10px;
+    border-bottom: 1px solid rgba(100, 100, 100, .3);
+    cursor: pointer;
+}
+
+.sidebar .toggle-button {
+    position: absolute;
+    left: 230px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.sidebar .toggle-button span {
+    display: block;
+    width: 30px;
+    height: 5px;
+    background: #45b80b;
+    margin: 5px 0px;
+    
 }

@@ -14,6 +14,11 @@ $(function (){
             $("#browser").load("./html/about.html"); 
     }) 
 });
+$(function (){
+    $(".toggle-button").on("click", function(){
+            $(".sidebar").toggleClass("side"); 
+    }) 
+});
 //end_main
 
 //games
