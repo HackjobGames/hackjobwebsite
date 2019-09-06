@@ -14,6 +14,13 @@ $(function (){
             $("#browser").load("./html/about.html"); 
     }) 
 });
+$(function (){
+    $(".toggle-button").on("click", function(){
+            $(".sidebar").toggleClass("side"); 
+            $(".toggle-button").toggleClass("toggle-button-off");
+    }) 
+});
+
 //end_main
 
 //games

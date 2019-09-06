@@ -2,6 +2,14 @@ body{
     background-color: black;
     
 }
+.body-shift {
+    margin-left: 0px;
+}
+
+.body-unshift {
+    margin-left: -200px;
+}
+
 .button{
     height: 50px;
     width: 100px;
@@ -60,17 +68,28 @@ p{
 }
 
 .text-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     position: absolute;
 
 
 }
-
-.heading-primary{
-    color: #45b80b;
+/*
+.head-main{
+    position: relative;
+    height: 95vh;
+    background-size: cover;
+    background-position: top;
+    background-image: url(../img/capicon/old_computer.jpg);
+}
+*/
+#heading-primary{
+    
     text-transform: uppercase;
 }
 
-.heading-primary-main{
+#heading-primary-main{
     display: block;
     font-size: 100px;
     font-weight: 400;
@@ -83,11 +102,11 @@ p{
     overflow: hidden;
     white-space: nowrap;
     border-right: 4px solid #45b80b;
-    width: 17ch;
+    width: 19ch;
     
 }
 
-.heading-primary-sub{
+#heading-primary-sub{
     display: block;
     font-size: 50px;
     font-weight: 400;
@@ -95,13 +114,17 @@ p{
     font-family: "VT323", monospace;
     line-height: 1.7;
     color: #45b80b;
-    padding: 30px;
+    padding: 0px;
     animation: sub-text-animation 2s steps(30);
     overflow: hidden;
     white-space: nowrap;
-    border-right: 4px solid #45b80b;
-    width: 42ch;
     
+    width: 44ch;
+    
+}
+
+.heading-end {
+    border-right: 0px solid #45b80b;
 }
 
 @keyframes main-text-animation{
@@ -109,7 +132,7 @@ p{
         width: 0ch;
     }
     100% {
-        width : 17ch;
+        width : 19ch;
     }
 }
 
@@ -117,10 +140,90 @@ p{
     0% {
         width: 0ch;
     }
+    49.9% {
+        width : 0ch;
+        border-right: 0px solid #45b80b;
+    }
     50% {
         width : 0ch;
+        border-right: 4px solid #45b80b;
     }
     100% {
-        width : 42ch;
+        width : 44ch;
+        border-right: 4px solid #45b80b;
     }
+}
+
+.sidebar {
+   position: fixed;
+   width: 200px;
+   height: 100%;
+   margin-left: -200px;
+   background: #151719;
+   transition: .8s all; 
+}
+
+.side {
+    margin-left: 0;
+}
+.sidebar ul li {
+    color:#45b80b;
+    list-style: none;
+    padding:15px 10px;
+    border-bottom: 1px solid rgba(100, 100, 100, .3);
+    cursor: pointer;
+}
+
+.sidebar .toggle-button {
+    position: absolute;
+    left: 230px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-image:url("../img/baseline_menu_white_36dp.png");
+    filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(50deg) saturate(1000%) contrast(0.8);
+    background-repeat:no-repeat;
+}
+.sidebar .toggle-button-off {
+    position: absolute;
+    left: 230px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-image:url("../img/baseline_close_white_36dp.png");
+    background-repeat:no-repeat;
+}
+
+.sidebar .toggle-button span {
+    display: block;
+    width: 30px;
+    height: 5px;
+    background: #45b80b;
+    margin: 5px 0px; 
+}
+
+
+#home_img {
+    position: absolute;
+    top: 2%;
+    right: 15%;
+}
+
+#about_img {
+    position: absolute;
+    top: 7.25%;
+    right: 15%;
+}
+
+#games_img {
+    position: absolute;
+    top: 12.5%;
+    right: 15%;
+}
+
+#games_text {
+    text-decoration: none;
+    color: #45b80b;
 }
