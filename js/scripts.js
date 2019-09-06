@@ -20,6 +20,7 @@ $(function (){
             $(".toggle-button").toggleClass("toggle-button-off");
     }) 
 });
+
 //end_main
 
 //games
