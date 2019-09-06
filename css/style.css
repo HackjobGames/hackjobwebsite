@@ -76,15 +76,6 @@ p{
     left: 50%;
     transform: translate(-50%,-50%);
 }
-/*
-.head-main{
-    position: relative;
-    height: 95vh;
-    background-size: cover;
-    background-position: top;
-    background-image: url(../img/capicon/old_computer.jpg);
-}
-*/
 #heading-primary{
     
     text-transform: uppercase;
