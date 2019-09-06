@@ -72,8 +72,9 @@ p{
     flex-direction: column;
     justify-content: flex-start;
     position: absolute;
-
-
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 /*
 .head-main{
@@ -118,9 +119,7 @@ p{
     animation: sub-text-animation 2s steps(30);
     overflow: hidden;
     white-space: nowrap;
-    
     width: 44ch;
-    
 }
 
 .heading-end {
