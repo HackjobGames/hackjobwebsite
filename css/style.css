@@ -86,12 +86,12 @@ p{
     background-image: url(../img/capicon/old_computer.jpg);
 }
 */
-.heading-primary{
+#heading-primary{
     
     text-transform: uppercase;
 }
 
-.heading-primary-main{
+#heading-primary-main{
     display: block;
     font-size: 100px;
     font-weight: 400;
@@ -108,7 +108,7 @@ p{
     
 }
 
-.heading-primary-sub{
+#heading-primary-sub{
     display: block;
     font-size: 50px;
     font-weight: 400;
