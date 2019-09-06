@@ -148,14 +148,15 @@ p{
    position: fixed;
    width: 200px;
    height: 100%;
-   margin-left: -200px;
+   margin-top: -10px;
+   margin-left: -210px;
    background: #151719;
    transition: .8s all; 
    z-index: 99999;
 }
 
 .side {
-    margin-left: 0;
+    margin-left: -10px;
 }
 .sidebar ul li {
     color:#45b80b;
