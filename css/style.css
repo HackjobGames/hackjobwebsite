@@ -151,6 +151,7 @@ p{
    margin-left: -200px;
    background: #151719;
    transition: .8s all; 
+   z-index: 99999;
 }
 
 .side {
