@@ -1,6 +1,7 @@
 body{
     background-color: black;
-    
+    color:white;
+    font-family: "VT323", monospace;
 }
 .body-shift {
     margin-left: 0px;
@@ -28,12 +29,6 @@ body{
 }
 .button:hover{
     color: white
-}
-h1{
-    color: white;
-}
-p{  
-    color: white;
 }
 .center{
     margin: auto;
@@ -86,7 +81,6 @@ p{
     font-size: 100px;
     font-weight: 400;
     letter-spacing: 15px;
-    font-family: "VT323", monospace;
     line-height: 1.7;
     color: #45b80b;
     padding: 30px;
@@ -100,14 +94,16 @@ p{
 
 #heading-primary-sub{
     display: block;
+    visibility: hidden;
+    width:0ch;
     font-size: 50px;
     font-weight: 400;
     letter-spacing: 7.5px;
-    font-family: "VT323", monospace;
     line-height: 1.7;
     color: #45b80b;
     padding: 0px;
     animation: sub-text-animation 2s steps(30);
+    animation-delay: 1s;
     overflow: hidden;
     white-space: nowrap;
     width: 44ch;
@@ -129,13 +125,6 @@ p{
 @keyframes sub-text-animation{
     0% {
         width: 0ch;
-    }
-    49.9% {
-        width : 0ch;
-        border-right: 0px solid #45b80b;
-    }
-    50% {
-        width : 0ch;
         border-right: 4px solid #45b80b;
     }
     100% {
