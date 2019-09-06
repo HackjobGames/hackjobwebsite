@@ -120,8 +120,8 @@ p{
     animation: sub-text-animation 2s steps(30);
     overflow: hidden;
     white-space: nowrap;
-    border-right: 4px solid #45b80b;
-    width: 44ch;
+    
+    width: 39ch;
     
 }
 
@@ -142,11 +142,17 @@ p{
     0% {
         width: 0ch;
     }
+    49.9% {
+        width : 0ch;
+        border-right: 0px solid #45b80b;
+    }
     50% {
         width : 0ch;
+        border-right: 4px solid #45b80b;
     }
     100% {
-        width : 44ch;
+        width : 39ch;
+        border-right: 4px solid #45b80b;
     }
 }
 
