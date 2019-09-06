@@ -7,12 +7,16 @@ var endbar = function(item){
 var startbar = function(item){
     item.srcElement.style.visibility = "visible";
 }
-document.getElementById("heading-primary-main").addEventListener('animationend',endbar, false);
-let sub = document.getElementById("heading-primary-sub")
-sub.addEventListener('animationend',endbar, false);
-sub.addEventListener('animationstart', startbar, false);
+if(typeof main === 'undefined'){
+    const main = document.getElementById("heading-primary-main");
+    main.addEventListener('animationend',endbar, false);
 
-
+}
+if(typeof sub === 'undefined'){
+    const sub = document.getElementById("heading-primary-sub");
+    sub.addEventListener('animationend',endbar, false);
+    sub.addEventListener('animationstart', startbar, false);
+}
 
 $(function(){
     $("#includedContent").load("./html/index.html"); 
