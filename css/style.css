@@ -177,14 +177,7 @@ p{
     background-repeat:no-repeat;
 }
 .sidebar .toggle-button-off {
-    position: absolute;
-    left: 230px;
-    top: 20px;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
     background-image:url("../img/baseline_close_white_36dp.png");
-    background-repeat:no-repeat;
 }
 
 .sidebar .toggle-button span {
