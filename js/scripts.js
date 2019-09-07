@@ -2,16 +2,33 @@
 
 //main
 $(function (){
-    $("#browser").load("./html/main.html");  
+    if(document.referrer.includes('birds')){
+        $("#browser").load("./html/games.html"); 
+    }
+    else{
+        $("#browser").load("./html/main.html");  
+    }
+    
 });
 $(function (){
     $("#main_but").on("click", function(){
             $("#browser").load("./html/main.html"); 
+            $(".sidebar").toggleClass("side"); 
+            (".toggle-button").toggleClass("toggle-button-off");
     }) 
 });
 $(function (){
     $("#about_but").on("click", function(){
             $("#browser").load("./html/about.html"); 
+            $(".sidebar").toggleClass("side"); 
+            (".toggle-button").toggleClass("toggle-button-off");
+    }) 
+});
+$(function (){
+    $("#games_but").on("click", function(){
+            $("#browser").load("./html/games.html");
+            $(".sidebar").toggleClass("side"); 
+            (".toggle-button").toggleClass("toggle-button-off");
     }) 
 });
 $(function (){
