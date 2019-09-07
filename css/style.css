@@ -3,6 +3,9 @@ body{
     color:white;
     font-family: "VT323", monospace;
 }
+p{
+    font-size: 20px;
+}
 .body-shift {
     margin-left: 0px;
 }
@@ -71,67 +74,11 @@ body{
     left: 50%;
     transform: translate(-50%,-50%);
 }
-#heading-primary{
-    
-    text-transform: uppercase;
-}
-
-#heading-primary-main{
-    display: block;
-    font-size: 100px;
-    font-weight: 400;
-    letter-spacing: 15px;
-    line-height: 1.7;
-    color: #45b80b;
-    padding: 30px;
-    animation: main-text-animation 1s steps(13);
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 4px solid #45b80b;
-    width: 19ch;
-    
-}
-
-#heading-primary-sub{
-    display: block;
-    visibility: hidden;
-    width:0ch;
-    font-size: 50px;
-    font-weight: 400;
-    letter-spacing: 7.5px;
-    line-height: 1.7;
-    color: #45b80b;
-    padding: 0px;
-    animation: sub-text-animation 2s steps(30);
-    animation-delay: 1s;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 44ch;
-}
 
 .heading-end {
     border-right: 0px solid #45b80b;
 }
 
-@keyframes main-text-animation{
-    0% {
-        width: 0ch;
-    }
-    100% {
-        width : 19ch;
-    }
-}
-
-@keyframes sub-text-animation{
-    0% {
-        width: 0ch;
-        border-right: 4px solid #45b80b;
-    }
-    100% {
-        width : 44ch;
-        border-right: 4px solid #45b80b;
-    }
-}
 
 .sidebar {
    position: fixed;
@@ -177,7 +124,47 @@ body{
     background: #45b80b;
     margin: 5px 0px; 
 }
+#heading-primary{
+    
+    text-transform: uppercase;
+}
 
+#heading-primary-main{
+    display: block;
+    font-size: 100px;
+    font-weight: 400;
+    letter-spacing: 15px;
+    line-height: 1.7;
+    color: #45b80b;
+    padding: 30px;
+    animation: main-text-animation 1s steps(13);
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid #45b80b;
+    width: 19ch;
+    
+}
+
+#heading-primary-sub{
+    display: block;
+    visibility: hidden;
+    width:0ch;
+    font-size: 50px;
+    font-weight: 400;
+    letter-spacing: 7.5px;
+    line-height: 1.7;
+    color: #45b80b;
+    padding: 0px;
+    animation: sub-text-animation 2s steps(30);
+    animation-delay: 1s;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 44ch;
+}
+
+#twitch-embed{
+    margin-left: 200px;
+}
 
 #home_img {
     position: absolute;
@@ -201,6 +188,22 @@ body{
     text-decoration: none;
     color: #45b80b;
 }
-p{
-    font-size: 20px;
+@keyframes main-text-animation{
+    0% {
+        width: 0ch;
+    }
+    100% {
+        width : 19ch;
+    }
+}
+
+@keyframes sub-text-animation{
+    0% {
+        width: 0ch;
+        border-right: 4px solid #45b80b;
+    }
+    100% {
+        width : 44ch;
+        border-right: 4px solid #45b80b;
+    }
 }

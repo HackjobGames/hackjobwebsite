@@ -15,6 +15,11 @@ $(function (){
     }) 
 });
 $(function (){
+    $("#stream_but").on("click", function(){
+            $("#browser").load("./html/stream.html"); 
+    }) 
+});
+$(function (){
     $(".toggle-button").on("click", function(){
             $(".sidebar").toggleClass("side"); 
             $(".toggle-button").toggleClass("toggle-button-off");
@@ -49,3 +54,9 @@ function hide_show(input){
         elem.style.display = "none";
     }
 }
+
+
+//stream
+$.getJSON('https://api.twitch.tv/kraken/streams/hackjobgames', function(channel) {
+    console.log(channel);
+});
