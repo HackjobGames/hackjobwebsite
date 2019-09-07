@@ -124,6 +124,13 @@ p{
     background: #45b80b;
     margin: 5px 0px; 
 }
+.how_to_text {
+    text-align: left;
+}
+.how_to_image {
+    width:50%;
+    text-align: right;
+}
 #heading-primary{
     
     text-transform: uppercase;
@@ -185,7 +192,6 @@ p{
     top: 12.5%;
     right: 15%;
 }
-
 #games_text {
     text-decoration: none;
     color: #45b80b;
