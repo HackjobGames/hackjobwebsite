@@ -17,6 +17,8 @@ $(function (){
 $(function (){
     $("#stream_but").on("click", function(){
             $("#browser").load("./html/stream.html"); 
+            $(".sidebar").toggleClass("side"); 
+            (".toggle-button").toggleClass("toggle-button-off");
     }) 
 });
 $(function (){
@@ -54,9 +56,40 @@ function hide_show(input){
         elem.style.display = "none";
     }
 }
-
-
 //stream
-$.getJSON('https://api.twitch.tv/kraken/streams/hackjobgames', function(channel) {
-    console.log(channel);
-});
+
+let init = function(){
+    let live = document.getElementById('live_img');
+    console.log(live);
+    $.ajax({ 
+        url:'https://api.twitch.tv/helix/streams?client_id=6369pt9m8t9fbisq4qww1mdejejvn4&user_login=hackjobgames',
+        headers: {
+            "Client-ID": "6369pt9m8t9fbisq4qww1mdejejvn4"
+        },
+        success:function(channel) { 
+            if(channel.data.length > 0){
+                live.style.visibility = "visible";
+            }
+            else{
+                live.style.visibility = "hidden";
+            }
+        },
+        error:function() {
+            //request failed
+        }
+    });
+}
+
+var readyStateCheckInterval = setInterval(function() {
+    if (document.readyState === "complete") {
+        clearInterval(readyStateCheckInterval);
+        init();
+    }
+}, 10);
+
+
+
+
+
+
+// end stream

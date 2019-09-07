@@ -10,7 +10,6 @@ var startbar = function(item){
 if(typeof main === 'undefined'){
     const main = document.getElementById("heading-primary-main");
     main.addEventListener('animationend',endbar, false);
-
 }
 if(typeof sub === 'undefined'){
     const sub = document.getElementById("heading-primary-sub");
