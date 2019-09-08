@@ -75,15 +75,16 @@ function hide_show(input){
 }
 //stream
 
-let init = function(){
+ function liveCheck(){
     let live = document.getElementById('live_img');
     console.log(live);
     $.ajax({ 
-        url:'https://api.twitch.tv/helix/streams?client_id=6369pt9m8t9fbisq4qww1mdejejvn4&user_login=hackjobgames',
+        url:'https://api.twitch.tv/helix/streams?client_id=6369pt9m8t9fbisq4qww1mdejejvn4&user_login=gampleton',
         headers: {
             "Client-ID": "6369pt9m8t9fbisq4qww1mdejejvn4"
         },
         success:function(channel) { 
+            console.log(channel)
             if(channel.data.length > 0){
                 live.style.visibility = "visible";
             }
@@ -96,13 +97,10 @@ let init = function(){
         }
     });
 }
+setInterval(function() {
 
-var readyStateCheckInterval = setInterval(function() {
-    if (document.readyState === "complete") {
-        clearInterval(readyStateCheckInterval);
-        init();
-    }
-}, 10);
+        liveCheck();
+    }, 10000)
 
 
 
