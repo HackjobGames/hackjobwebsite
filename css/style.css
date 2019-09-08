@@ -170,6 +170,9 @@ p{
     width: 44ch;
 }
 
+#twitch-embed{
+    margin-left: 75px;
+}
 
 #home_img {
     position: absolute;
