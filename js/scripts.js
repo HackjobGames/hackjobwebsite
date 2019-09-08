@@ -74,19 +74,18 @@ function hide_show(input){
     }
 }
 //stream
-
- function liveCheck(){
+var channels;
+const liveCheck = function(){
     let live = document.getElementById('live_img');
-    console.log(live);
     $.ajax({ 
-        url:'https://api.twitch.tv/helix/streams?client_id=6369pt9m8t9fbisq4qww1mdejejvn4&user_login=gampleton',
+        url:'https://api.twitch.tv/helix/streams?client_id=6369pt9m8t9fbisq4qww1mdejejvn4&user_login=hackjobgames&user_login=captain_ezekiel&user_login=greengogg&user_login=rjpurple&user_login=gampleton',
         headers: {
             "Client-ID": "6369pt9m8t9fbisq4qww1mdejejvn4"
         },
-        success:function(channel) { 
-            console.log(channel)
+        success:function(channel) {
             if(channel.data.length > 0){
                 live.style.visibility = "visible";
+                channels = channel;
             }
             else{
                 live.style.visibility = "hidden";
@@ -98,13 +97,10 @@ function hide_show(input){
     });
 }
 setInterval(function() {
-
         liveCheck();
-    }, 10000)
+}, 10000)
 
-
-
-
-
-
-// end stream
+$(document).ready(function() { 
+    liveCheck();
+});
+//end stream
