@@ -106,16 +106,12 @@ p{
     position: absolute;
     left: 230px;
     top: 20px;
-    width: 50px;
-    height: 50px;
     cursor: pointer;
-    background-image:url("../img/baseline_menu_white_36dp.png");
-    filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(50deg) saturate(1000%) contrast(0.8);
+    color: #45b80b;
+    font-size: 1.5em;
     background-repeat:no-repeat;
 }
-.sidebar .toggle-button-off {
-    background-image:url("../img/baseline_close_white_36dp.png");
-}
+
 
 .sidebar .toggle-button span {
     display: block;
