@@ -14,34 +14,34 @@ $(function (){
     $("#main_but").on("click", function(){
             $("#browser").load("./html/main.html"); 
             $(".sidebar").toggleClass("side"); 
-            $(".toggle-button").toggleClass("toggle-button-off");
+            $(".toggle-button").toggleClass("fa-times");
     }) 
 });
 $(function (){
     $("#about_but").on("click", function(){
             $("#browser").load("./html/about.html"); 
             $(".sidebar").toggleClass("side"); 
-            $(".toggle-button").toggleClass("toggle-button-off");
+            $(".toggle-button").toggleClass("fa-times");
     }) 
 });
 $(function (){
     $("#games_but").on("click", function(){
             $("#browser").load("./html/games.html");
             $(".sidebar").toggleClass("side"); 
-            $(".toggle-button").toggleClass("toggle-button-off");
+            $(".toggle-button").toggleClass("fa-times");
     }) 
 });
 $(function (){
     $("#stream_but").on("click", function(){
             $("#browser").load("./html/stream.html"); 
             $(".sidebar").toggleClass("side"); 
-            $(".toggle-button").toggleClass("toggle-button-off");
+            $(".toggle-button").toggleClass("fa-times");
     }) 
 });
 $(function (){
     $(".toggle-button").on("click", function(){
             $(".sidebar").toggleClass("side"); 
-            $(".toggle-button").toggleClass("toggle-button-off");
+            $(".toggle-button").toggleClass("fa-times");
     }) 
 });
 
