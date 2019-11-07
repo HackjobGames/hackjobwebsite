@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Root page of the website.">
+    <title>Welcome To Hackjob Games</title>
+    <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css"> 
+    <link rel="stylesheet" href="./img/fontawesome/css/all.css">
+    <script src="./js/jquery.js"></script>
+    <script src="./js/scripts.js"></script>   
+</head>
+    <nav id="navbar" class = "sidebar">
+        <div class="fas fa-bars toggle-button">
+        </div>
+        <ul>
+            <li id = "main_but">
+                <div id = "home_text">Home</div> 
+               <!-- <img src="./img/baseline_home_white_36dp.png" id = "home_img"> -->
+            </li>
+            <li id = "about_but">
+                    <div id = "about_text">About Us</div> 
+                 <!--   <img src="./img/baseline_info_white_36dp.png" id = "about_img"> -->
+            </li>
+            <li id ="games_but"> Games
+                 <!--   <img src="./img/baseline_games_white_36dp.png" id = "games_img"> -->
+            </li>
+            <li id = "stream_but">  Stream <img id="live_img" src="./img/live.png"></img>
+           </li>
+           <li id = "devlog_but">Devlog
+           </li>
+        </ul>
+        
+    </nav>
+<body>
+
+    <div id="browser">  </div>
+    <div class="twitterborder">
+            <a class="twitter-timeline " data-width= "300" data-height= "300" data-theme= "dark" data-link-color = "#9266CC" href="https://twitter.com/HackJobGaming?ref_src=twsrc%5Etfw"></a>
+    </div>  
+</body>
+
+
+</html>

@@ -1,15 +1,16 @@
 
 
-//main
+
+
 $(function (){
-    if(document.referrer.includes('birds')){
+    if(document.referrer.includes('birds') || document.referrer.includes('potato')){
         $("#browser").load("./html/games.html"); 
     }
     else{
         $("#browser").load("./html/main.html");  
     }
-    
 });
+
 $(function (){
     $("#main_but").on("click", function(){
             $("#browser").load("./html/main.html"); 
@@ -39,6 +40,13 @@ $(function (){
     }) 
 });
 $(function (){
+    $("#devlog_but").on("click", function(){
+            $("#browser").load("./php/devlog.php"); 
+            $(".sidebar").toggleClass("side"); 
+            $(".toggle-button").toggleClass("fa-times");
+    }) 
+});
+$(function (){
     $(".toggle-button").on("click", function(){
             $(".sidebar").toggleClass("side"); 
             $(".toggle-button").toggleClass("fa-times");
@@ -56,8 +64,8 @@ function load_game(page){
 
 //bird_info
 
-function load_bird(page){
-    $("#bird_browser").load(page); 
+function load_info(page){
+    $("#info_browser").load(page); 
 }
 
 
