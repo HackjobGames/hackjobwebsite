@@ -1,0 +1,22 @@
+{
+  "name": "hackjobgames",
+  "version": "1.0.0",
+  "description": "The Website For HackjobGames",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "node ./index.js",
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-json": "^4.0.1",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "@rollup/plugin-replace": "^2.3.0",
+    "rollup-plugin-postcss": "^2.0.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
