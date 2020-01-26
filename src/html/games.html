@@ -6,25 +6,17 @@
     <meta charset="utf-8">
     <meta name="description" content="Games main page.">
     <title>Try Our Fresh Games</title>
-    <script>
-        $(function (){
-                $("#games_browser").load("./html/game_info/landing_page.html");  
-        });
-    </script>
-
 </head>
 
 <body>
     <div class="center">
-        <a id = "bird_button" onclick="load_game('./html/game_info/birdsaway/birds_info.html')" class = "button">Birds Away</a>
-        <a id = "potato_button" onclick="load_game('./html/game_info/potato/potato_info.html')" class = "button">Plant The Potato</a>
+        <a id = "bird_button" class = "button">Birds Away</a>
+        <a id = "potato_button" class = "button">Plant The Potato</a>
     </div>
 
-
-
-    <div id="games_browser">
-
-    </div>
+    <div id="games_buttons"></div>
+    <div align='center' id="game_player" overflow='hidden'></div>
+    <div id="info_browser"></div>
     
 </body>
 

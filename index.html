@@ -7,11 +7,12 @@
     <meta name="description" content="Root page of the website.">
     <title>Welcome To Hackjob Games</title>
     <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css"> 
-    <link rel="stylesheet" href="./img/fontawesome/css/all.css">
-    <script src="./js/jquery.js"></script>
-    <script src="./js/scripts.js"></script>   
+    
+    <link rel="stylesheet" href="./src/css/style.css"> 
+    <link rel="stylesheet" href="./lib/img/fontawesome/css/all.css"> 
+
 </head>
+<body>
     <nav id="navbar" class = "sidebar">
         <div class="fas fa-bars toggle-button">
         </div>
@@ -27,20 +28,18 @@
             <li id ="games_but"> Games
                  <!--   <img src="./img/baseline_games_white_36dp.png" id = "games_img"> -->
             </li>
-            <li id = "stream_but">  Stream <img id="live_img" src="./img/live.png"></img>
+            <li id = "stream_but">  Stream <img id="live_img" src="./lib/img/live.png"></img>
            </li>
            <li id = "devlog_but">Devlog
            </li>
         </ul>
         
     </nav>
-<body>
-
     <div id="browser">  </div>
     <div class="twitterborder">
             <a class="twitter-timeline " data-width= "300" data-height= "300" data-theme= "dark" data-link-color = "#9266CC" href="https://twitter.com/HackJobGaming?ref_src=twsrc%5Etfw"></a>
     </div>  
 </body>
-
+<script src= './renderer.js'></script> 
 
 </html>
