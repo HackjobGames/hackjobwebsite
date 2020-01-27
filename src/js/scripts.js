@@ -96,7 +96,7 @@ $("#stream_but").on("click", function(){
         $("#browser").load("./src/html/stream.html"); 
         $(".sidebar").toggleClass("side"); 
         $(".toggle-button").toggleClass("fa-times");
-}) 
+})
 
 $(".toggle-button").on("click", function(){
         $(".sidebar").toggleClass("side"); 
