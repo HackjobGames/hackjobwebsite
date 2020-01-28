@@ -12923,7 +12923,7 @@
 	});
 
 	var getDevlogs = function getDevlogs() {
-	  return axios('https://hackjob.games', {
+	  return axios('https://hackjob.games/backendServer', {
 	    proxy: {
 	      host: '127.0.0.1',
 	      port: 4400

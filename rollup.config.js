@@ -25,7 +25,7 @@ const plugins = [
 
 if(isProduction){
   plugins.push(replace({
-    'http://localhost:3000': 'https://hackjob.games',
+    'http://localhost:3000': 'https://hackjob.games/backendServer',
     'process.env.NODE_ENV': JSON.stringify('production')
   }))
 }
