@@ -11,6 +11,7 @@ const devlogReact = () => {
 
 getDevlogs().then(results => {
     let keyNum = 0
+    console.log(results)
     results.data.forEach(r =>{
         keyNum += 1
         devlogSummaries.push(<div align='center' key={keyNum} dangerouslySetInnerHTML={{__html: r.summary}}></div>)

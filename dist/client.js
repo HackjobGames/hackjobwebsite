@@ -12953,6 +12953,7 @@
 
 	getDevlogs().then(function (results) {
 	  var keyNum = 0;
+	  console.log(results);
 	  results.data.forEach(function (r) {
 	    keyNum += 1;
 	    devlogSummaries.push(react.createElement("div", {
