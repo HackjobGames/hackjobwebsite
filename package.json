@@ -5,7 +5,7 @@
   "scripts": {
     "test": "test",
     "start": "node ./index.js",
-    "build": "rollup -c; npm install --production",
+    "build": "rollup -c",
     "dev": "rollup -c -w -i 'src/index.js' -o 'dist/client.js'",
     "serve": "node ./server"
   },
@@ -25,13 +25,8 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "@koa/cors": "^3.0.0",
     "axios": "^0.19.2",
-    "esm": "^3.2.25",
     "jquery": "^3.4.1",
-    "koa": "^2.11.0",
-    "koa-static": "^5.0.0",
-    "mysql": "^2.18.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
