@@ -12923,7 +12923,7 @@
 	});
 
 	var getDevlogs = function getDevlogs() {
-	  return axios.get('https://hackjob.games:3000', {
+	  return axios.get('https://hackjob.games/backendServer', {
 	    headers: {
 	      request: 'devlogMain'
 	    }
