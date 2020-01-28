@@ -30,7 +30,7 @@ export default {
   plugins,
   input: 'src/index.js',
   output: {
-    file: './renderer.js',
+    file: `./dist/client.js`,
     format: 'iife',
     name: 'HackjobWebsite',
     sourcemap: true,

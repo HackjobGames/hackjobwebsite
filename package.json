@@ -5,9 +5,9 @@
   "scripts": {
     "test": "test",
     "start": "node ./index.js",
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "serve": "node ./server.js"
+    "build": "rollup -c; npm install --production",
+    "dev": "rollup -c -w -i 'src/index.js' -o 'dist/client.js'",
+    "serve": "node ./server"
   },
   "author": "",
   "license": "ISC",

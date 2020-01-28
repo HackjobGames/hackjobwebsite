@@ -1,7 +1,6 @@
 import $ from 'jquery'
 import React from 'react'
 import ReactDOM from 'react-dom'
-const e = React.createElement
 
 const emptyGame = ()=>
 {
@@ -11,12 +10,12 @@ const emptyGame = ()=>
 }
 
 const potatoGame = () => {
- return(
-    <iframe frameBorder="0" src="https://itch.io/embed-upload/1776960?color=333333" 
-    allowFullScreen={true} width="1000" height="660">
-        <a href="https://hackjobgames.itch.io/plant-the-potato">Play Plant The Potato on itch.io</a>
-    </iframe>
- )
+    return(
+        <iframe frameBorder="0" src="https://itch.io/embed-upload/1776960?color=333333" 
+        allowFullScreen={true} width="1000" height="660">
+            <a href="https://hackjobgames.itch.io/plant-the-potato">Play Plant The Potato on itch.io</a>
+        </iframe>
+    )
 }
 
 
