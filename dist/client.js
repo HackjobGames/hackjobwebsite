@@ -40645,7 +40645,7 @@
 	/***/ })
 	/******/ ])
 	});
-
+	//# sourceMappingURL=axios.map
 	});
 
 	var getDevlogs = function getDevlogs() {
@@ -40689,6 +40689,8 @@
 	      }
 	    }));
 	  });
+	})["catch"](function (err) {
+	  console.log(err);
 	});
 	jquery('#devlog_but').on('click', function () {
 	  jquery("#browser").load("./src/html/devlog.html", function () {

@@ -15,6 +15,8 @@ getDevlogs().then(results => {
         keyNum += 1
         devlogSummaries.push(<div align='center' key={keyNum} dangerouslySetInnerHTML={{__html: r.summary}}></div>)
     })
+}).catch(err => {
+    console.log(err)
 })
 
 $('#devlog_but').on('click', () =>{
