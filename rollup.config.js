@@ -7,9 +7,6 @@ import babel from 'rollup-plugin-babel'
 const isProduction = !process.env.ROLLUP_WATCH
 
 const plugins = [
-  replace({
-    'process.env.NODE_ENV': JSON.stringify('development')
-  }),
   resolve(),
   postcss({
     extensions: [ '.css' ]
@@ -26,6 +23,17 @@ const plugins = [
   }),
 ]
 
+if(isProduction){
+  plugins.push(replace({
+    'localhost': 'hackjob.games',
+    'process.env.NODE_ENV': JSON.stringify('production')
+  }))
+}
+else {
+  plugins.push(replace({
+    'process.env.NODE_ENV': JSON.stringify('development')
+  }))
+}
 export default {
   plugins,
   input: 'src/index.js',
