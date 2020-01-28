@@ -1,7 +1,7 @@
 import axios from 'axios/dist/axios'
 
 const getDevlogs = () => {
-    return axios.get('http://localhost:3000',
+    return axios.get('https://localhost:3000',
     {
         headers: {
             request: 'devlogMain'
