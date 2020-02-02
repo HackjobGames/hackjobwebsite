@@ -20,7 +20,7 @@ p{
     background-color: black;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
-    border: 2px solid black;
+    border: 2px solid white;
     color: gray;
     padding: 20px 34px;
     text-align: center;
@@ -194,6 +194,11 @@ p{
 #games_text {
     text-decoration: none;
     color: #45b80b;
+}
+.devlog {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 @keyframes main-text-animation{
     0% {
