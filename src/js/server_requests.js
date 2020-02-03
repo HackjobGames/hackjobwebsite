@@ -9,4 +9,17 @@ const getDevlogs = () => {
     })
 }
 
-export { getDevlogs }
+const login = (args) => {
+    console.log(args)
+    return axios('http://localhost:3000',
+        {
+            headers: {
+                method: 'post',
+                request: 'login',
+                args: JSON.stringify(args)
+            }
+        }
+    )
+}
+
+export { getDevlogs, login }
