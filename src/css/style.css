@@ -200,6 +200,32 @@ p{
     margin-left: auto;
     margin-right: auto;
 }
+.signin {
+height: 100vh; /* Magic here */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.outerSignin{
+    width: 100%;
+    height: 100%;
+}
+.innerSignin{
+    float: left;
+    width: 50%;
+    padding: 6px;
+}
+.textAreaSignin {
+    width: 100%;
+    position: relative;
+}
+input[type = "text"], select, textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+}
 @keyframes main-text-animation{
     0% {
         width: 0ch;

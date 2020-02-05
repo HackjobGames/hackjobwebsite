@@ -8,5 +8,12 @@ const getDevlogs = () => {
         }
     })
 }
-
-export { getDevlogs }
+const getUsers = () => {
+    return axios('http://localhost:3000',
+    {
+        headers: {
+            request: 'Users'
+        }
+    })
+}
+export { getDevlogs, getUsers }
