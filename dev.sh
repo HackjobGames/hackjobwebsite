@@ -1,0 +1,1 @@
+./node_modules/rollup/dist/bin/rollup -c -w -i 'src/index.js' -o 'dist/client.js'
