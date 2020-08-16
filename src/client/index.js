@@ -23,17 +23,6 @@ export default class Browser extends React.Component {
     }
   }
   componentDidMount() {
-    // axios({
-    //   method: 'get',
-    //   url: 'https://api.twitch.tv/helix/streams/?user_login=greengogg',
-    //   headers: {
-    //     client_id: 'afhwrarvbwldeiakmulex2f2px65iw'
-    //   } 
-    // }).then(res => {
-    //   console.log(res.data)
-    // }).catch(err => {
-    //   console.log(err)
-    // })
   }
   handleClick() {
     $(".sidebar").toggleClass("side"); 
