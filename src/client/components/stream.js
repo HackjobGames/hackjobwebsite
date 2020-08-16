@@ -4,7 +4,7 @@ import '../js/twitch-embed'
 export class stream extends React.Component {
   componentDidMount() {
     new Twitch.Embed("twitch-embed", {
-      width: '100%',
+      width: 1280,
       height: 720,
       channel: "greengogg"
     })
