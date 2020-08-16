@@ -27,5 +27,5 @@ const options = {
   cert: fs.readFileSync('certificate.crt')
 }
 
-app.listen(3000)
+https.createServer(options, app.callback()).listen(4400)
 console.log('Listening...')
