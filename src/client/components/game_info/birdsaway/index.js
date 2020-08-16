@@ -45,6 +45,6 @@ export default {
         <p>This fiber rich powerup allows your bird to unleash a devastating bowl movement on the people below. After obtaining the beans powerup, 
             your next poop will be many time bigger and grosser. I'm sorry about the sound, but I'm not changing it lol.</p>
   </div>,
-  name: 'BirdsAway',
+  name: 'birds-away',
   itchId: '1917788'
 }

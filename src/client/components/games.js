@@ -5,20 +5,15 @@ import birds from './game_info/birdsaway'
 export class games extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      browserData: birds.about,
-      about: birds.about,
-      howTo: birds.howTo,
-      name: birds.name,
-      itchId: birds.itchId,
-      gamePlayer: null
-    }
+    this.state = birds
   }
   changeGame(game) {
     this.setState({
       browserData: game.about,
       about: game.about,
       howTo: game.howTo,
+      itchId: game.itchId,
+      name: game.name,
       gamePlayer: null
     })
   }
@@ -42,7 +37,7 @@ export class games extends React.Component {
             <div className="center">
               <a onClick={() => this.setState({ browserData: this.state.about })} className="button">About The Game</a>
               <a onClick={() => this.setState({ browserData: this.state.howTo })} className="button">How To Play</a>
-              <a onClick={() => this.loadPlayer()}className="button">Play</a>
+              <a onClick={() => this.loadPlayer()} className="button">Play</a>
             </div>
           </div>
         </div>
