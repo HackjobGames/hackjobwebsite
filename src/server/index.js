@@ -8,7 +8,7 @@ import fs from 'fs'
 const app = new Koa()
 
 const requests = {
-    devlogMain: () => {return query('SELECT * FROM devlog')}
+  devlogMain: () => {return query('SELECT * FROM devlog')}
 }
 
 app.use(ssl({
@@ -24,7 +24,8 @@ app.use(async (ctx) => {
 
 const options = {
   key: fs.readFileSync('private.key'),
-  cert: fs.readFileSync('certificate.crt')
+  cert: fs.readFileSync('certificate.crt'),
+  ca: fs.readFileSync('ca_bundle.crt')
 }
 
 https.createServer(options, app.callback()).listen(4400)
