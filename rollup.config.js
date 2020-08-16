@@ -4,23 +4,24 @@ import replace from '@rollup/plugin-replace'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import babel from 'rollup-plugin-babel'
+import cProps from '@babel/plugin-syntax-class-properties'
 const isProduction = !process.env.ROLLUP_WATCH
 
 const plugins = [
+  babel({ 
+    exclude: 'node_modules/**',
+    presets: ['@babel/preset-react', '@babel/env']
+  }),
   resolve(),
   postcss({
     extensions: [ '.css' ]
   }),
   json(),
-  babel({ 
-    exclude: 'node_modules/**',
-    presets: ['@babel/env', '@babel/preset-react']
-  }),
   commonjs({
     namedExports: {
       'react-js': ['isValidElementType'],
     }
-  }),
+  })
 ]
 
 if(isProduction){
