@@ -1,8 +1,0 @@
-
-<br> tag indicates a line break does not require a closing tag
-<dl> definition list
-<dt> definition tag
-
-Named character entities: https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references
-
-All white space is ignored past the first character.
