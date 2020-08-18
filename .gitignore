@@ -3,3 +3,4 @@
 *.crt
 node_modules
 ssl
+dist
