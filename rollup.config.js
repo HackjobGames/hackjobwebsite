@@ -19,7 +19,7 @@ const plugins = [
   json(),
   commonjs({
     namedExports: {
-      'react-js': ['isValidElementType'],
+      'react-js': ['isValidElementType']
     }
   })
 ]
