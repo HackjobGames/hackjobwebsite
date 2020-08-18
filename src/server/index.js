@@ -19,13 +19,13 @@ app.use(router)
 
 //app.listen(4400)
 
-const http = http.createServer();
+const unsafe = http.createServer();
 
-http.get('*', function(req, res) {  
+unsafe.get('*', function(req, res) {  
   res.redirect('https://' + req.headers.host + req.url)
 })
 
-http.listen(80)
+unsafe.listen(80)
 
 https.createServer(config, app.callback()).listen(443)
 
