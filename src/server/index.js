@@ -20,7 +20,11 @@ app.use(router)
 //app.listen(4400)
 
 const unsafe = http.createServer(function(req, res) {  
-  res.redirect('https://' + req.headers.host + req.url)
+  res.writeHead(302, {
+    'Location': 'https://' + req.headers.host + req.url
+  })
+  res.end()
+  
 });
 
 unsafe.listen(80)
