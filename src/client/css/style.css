@@ -80,45 +80,14 @@ p{
 }
 
 
-.sidebar {
-   position: fixed;
-   width: 200px;
-   height: 100%;
-   margin-top: -10px;
-   margin-left: -210px;
-   background: #151719;
-   transition: .8s all; 
-   z-index: 99999;
-}
-
-.side {
-    margin-left: -10px;
-}
-.sidebar ul li {
-    color:#45b80b;
-    list-style: none;
-    padding:15px 10px;
-    border-bottom: 1px solid rgba(100, 100, 100, .3);
-    cursor: pointer;
-}
-
-.sidebar .toggle-button {
-    position: absolute;
-    left: 230px;
-    top: 20px;
-    cursor: pointer;
-    color: #45b80b;
-    font-size: 1.5em;
-    background-repeat:no-repeat;
-}
-
-
-.sidebar .toggle-button span {
+.toggle-button {
     display: block;
-    width: 30px;
-    height: 5px;
-    background: #45b80b;
-    margin: 5px 0px; 
+    color: #45b80b;
+    margin: 5px 0px;
+    position: absolute;
+    cursor: pointer;
+    font-size: 2em;
+    background-repeat:no-repeat; 
 }
 .how_to_text {
     text-align: left;

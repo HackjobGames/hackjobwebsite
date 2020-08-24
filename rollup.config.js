@@ -4,7 +4,7 @@ import replace from '@rollup/plugin-replace'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import babel from 'rollup-plugin-babel'
-import cProps from '@babel/plugin-syntax-class-properties'
+
 const isProduction = !process.env.ROLLUP_WATCH
 
 const plugins = [
@@ -19,11 +19,17 @@ const plugins = [
   json(),
   commonjs({
     namedExports: {
-      'react-js': ['isValidElementType']
+      'react': ['isValidElement', 'Children', 'cloneElement', 'useRef', 'useEffect', 'useState','memo',
+      'Fragment', 'createElement', 'forwardRef', 'useMemo', 'createContext', 'findDOMNode',
+      'useCallback', 'useImperativeHandle', 'useContext', 'useLayoutEffect', 'Component', 'useDebugValue'],
+      'react-dom': ['findDOMNode', 'createPortal'],
+      'prop-types': ['elementType'],
+      'react-js': ['isValidElementType', 'isValidElement', 'isFragment'],
+      'react-is': ['ForwardRef', 'Memo', 'isFragment', 'isValidElementType']
     }
   })
-]
 
+]
 if(isProduction){
   plugins.push(replace({
     'http://localhost:3000': 'https://hackjob.games/backendServer',

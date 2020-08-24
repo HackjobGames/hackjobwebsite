@@ -7,7 +7,7 @@ const startbar = function(item){
   item.srcElement.style.visibility = "visible";
 }
 
-export class splash extends React.Component {
+export class Splash extends React.Component {
   componentDidMount() {
     const main = document.getElementById("heading-primary-main");
     main.addEventListener('animationend',endbar, false);

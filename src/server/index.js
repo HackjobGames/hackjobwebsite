@@ -1,6 +1,4 @@
 import Koa from 'koa'
-import serve from 'koa-static'
-import path from 'path'
 import router from './routes'
 import https from 'https'
 import http from 'http'
@@ -13,22 +11,20 @@ const config = {
   ca: fs.readFileSync('./ssl/hackjob_games.ca-bundle', 'utf8')
 }
 
-app.use(serve(path.resolve('dist')))
-
 app.use(router)
 
-//app.listen(4400)
+app.listen(4401)
 
-const unsafe = http.createServer(function(req, res) {  
-  res.writeHead(302, {
-    'Location': 'https://' + req.headers.host + req.url
-  })
-  res.end()
+// const unsafe = http.createServer(function(req, res) {  
+//   res.writeHead(302, {
+//     'Location': 'https://' + req.headers.host + req.url
+//   })
+//   res.end()
   
-});
+// });
 
-unsafe.listen(80)
+// unsafe.listen(80)
 
-https.createServer(config, app.callback()).listen(443)
+// https.createServer(config, app.callback()).listen(443)
 
 console.log('Listening...')
