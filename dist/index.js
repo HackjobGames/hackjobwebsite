@@ -2502,6 +2502,8 @@
     about: /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("h1", null, "About the Game"), /*#__PURE__*/react.createElement("p", null, "We were working on a physics based 2D platformer with 3D graphics, but that was too hard, so we threw it in the dumpster. We wanted to make a small, fun game that would be a good step up from what we made before. Enter Plant The Potato. A game where you try to fling a potato to plant it. We have a demo out now, and we will be updated regularly in the future.")),
     howTo: /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("h1", null, "Controls"), /*#__PURE__*/react.createElement("p", null, "To fling the potato, simply click and drag anywhere on the screen. Think of it like a sling shot. Let go of the mouse to send the potato flying. Once per level, if you click while the potato is in mid-air, you can use a slow down effect for a more accurate shot. Just try to get it in the exposed dirt. That's really it for now. This page will hopefully be more fleshed out as we update the game.")),
     name: 'plant-the-potato',
+    displayName: 'Plant The Potato',
+    img: './lib/images/PlantThePotatoTitle.png',
     itchId: '1776960'
   };
 
@@ -2509,3611 +2511,202 @@
     about: /*#__PURE__*/react.createElement("p", null, "This is the first game that was ever made by HackJob games. First, a little history. Back in the school year of 2018-2019, Grant (Co-Founder) and Dylan (Co-founder), both computer science majors in college, wanted to work on a small project to improve thier coding skills. Some dumb idiot (Grant) came up with the idea for a mobile app about a bird pooping on people. About a month of coding and making fart noises into a microphone later, Birds Away was born. I made a whole 23 cents on the Google Play store before being taking down for \"distributing sensitive user information.\" So after that disaster, they decided to put it on their website for free and never think about it ever again. Not sure if we will ever work on it again, but if you have suggestions for how we can improve the game, feel free to contact us at contact@hackjob.games."),
     howTo: /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("h1", null, "Introduction"), /*#__PURE__*/react.createElement("p", null, "Birds Away is a very simple game. When starting the game, first you will need to select a difficulty. There are four difficulties, and you unlock them as you beat the previous difficulty. The controls are simply up, down, left, and right to move, and space bar to poop. You get one point for pooping on normal people and five points for pooping on the illusive golden man If you would like to discover the game for yourself, I would suggest you stop reading now because I'm going to spoil all of the game's content."), /*#__PURE__*/react.createElement("h1", null, "Enemies"), /*#__PURE__*/react.createElement("p", null, "There are a few enemy types within the game. They each have different patterns and properties that you should be aware of."), /*#__PURE__*/react.createElement("h2", null, "White Bird"), /*#__PURE__*/react.createElement("p", null, "We don't really have a name for this bird. It's just your bird but white. We aren't artists lol. This bird is pretty basic appearing in all difficulties. They will come from the right side of the screen giving you plenty of time to react and move out of the way."), /*#__PURE__*/react.createElement("h2", null, "Woodpecker"), /*#__PURE__*/react.createElement("p", null, "The woodpecker enemy start appearing in normal difficulty. They appear from the left sid of the screen and are significantly faster than the white bird enemy. Be careful, and try to stick to the middle of the screen so you can react properly."), /*#__PURE__*/react.createElement("h2", null, "Chickadee"), /*#__PURE__*/react.createElement("p", null, "Watch out for this fat boi. The chickadee enemy first gets introduced in the hard difficulty. It appears from the right side of the screen and bounces from top to bottom as it goes. It has a much larger hitbox than previous enemies, so watch out."), /*#__PURE__*/react.createElement("h1", null, "PowerUps"), /*#__PURE__*/react.createElement("p", null, "There are three different powerups in the game for you to collect and use. They are all available in all difficulties and provide some fun variation on the normal gameplay flow."), /*#__PURE__*/react.createElement("h2", null, "Shield"), /*#__PURE__*/react.createElement("p", null, "The shield powerup does exactly as it says; It give you a shield that will absorb one hit. The shield will stay on your bird until you get hit and they do not stack."), /*#__PURE__*/react.createElement("h2", null, "Poop Speed"), /*#__PURE__*/react.createElement("p", null, "This colon cleansing powerup cleans you out real good and allows to poop twice as fast for a short amount of time."), /*#__PURE__*/react.createElement("h2", null, "Beans"), /*#__PURE__*/react.createElement("p", null, "This fiber rich powerup allows your bird to unleash a devastating bowl movement on the people below. After obtaining the beans powerup, your next poop will be many time bigger and grosser. I'm sorry about the sound, but I'm not changing it lol.")),
     name: 'birds-away',
+    displayName: 'Birds Away',
+    img: './lib/images/BirdsAwayTitle.png',
     itchId: '1917788'
   };
 
-  var games = /*#__PURE__*/function (_React$Component) {
-    _inherits(games, _React$Component);
+  var common = {
+    black: '#000',
+    white: '#fff'
+  };
 
-    var _super = _createSuper(games);
+  var red = {
+    50: '#ffebee',
+    100: '#ffcdd2',
+    200: '#ef9a9a',
+    300: '#e57373',
+    400: '#ef5350',
+    500: '#f44336',
+    600: '#e53935',
+    700: '#d32f2f',
+    800: '#c62828',
+    900: '#b71c1c',
+    A100: '#ff8a80',
+    A200: '#ff5252',
+    A400: '#ff1744',
+    A700: '#d50000'
+  };
 
-    function games(props) {
-      var _this;
+  var pink = {
+    50: '#fce4ec',
+    100: '#f8bbd0',
+    200: '#f48fb1',
+    300: '#f06292',
+    400: '#ec407a',
+    500: '#e91e63',
+    600: '#d81b60',
+    700: '#c2185b',
+    800: '#ad1457',
+    900: '#880e4f',
+    A100: '#ff80ab',
+    A200: '#ff4081',
+    A400: '#f50057',
+    A700: '#c51162'
+  };
 
-      _classCallCheck(this, games);
+  var indigo = {
+    50: '#e8eaf6',
+    100: '#c5cae9',
+    200: '#9fa8da',
+    300: '#7986cb',
+    400: '#5c6bc0',
+    500: '#3f51b5',
+    600: '#3949ab',
+    700: '#303f9f',
+    800: '#283593',
+    900: '#1a237e',
+    A100: '#8c9eff',
+    A200: '#536dfe',
+    A400: '#3d5afe',
+    A700: '#304ffe'
+  };
 
-      _this = _super.call(this, props);
-      _this.state = birds;
-      return _this;
+  var blue = {
+    50: '#e3f2fd',
+    100: '#bbdefb',
+    200: '#90caf9',
+    300: '#64b5f6',
+    400: '#42a5f5',
+    500: '#2196f3',
+    600: '#1e88e5',
+    700: '#1976d2',
+    800: '#1565c0',
+    900: '#0d47a1',
+    A100: '#82b1ff',
+    A200: '#448aff',
+    A400: '#2979ff',
+    A700: '#2962ff'
+  };
+
+  var green = {
+    50: '#e8f5e9',
+    100: '#c8e6c9',
+    200: '#a5d6a7',
+    300: '#81c784',
+    400: '#66bb6a',
+    500: '#4caf50',
+    600: '#43a047',
+    700: '#388e3c',
+    800: '#2e7d32',
+    900: '#1b5e20',
+    A100: '#b9f6ca',
+    A200: '#69f0ae',
+    A400: '#00e676',
+    A700: '#00c853'
+  };
+
+  var orange = {
+    50: '#fff3e0',
+    100: '#ffe0b2',
+    200: '#ffcc80',
+    300: '#ffb74d',
+    400: '#ffa726',
+    500: '#ff9800',
+    600: '#fb8c00',
+    700: '#f57c00',
+    800: '#ef6c00',
+    900: '#e65100',
+    A100: '#ffd180',
+    A200: '#ffab40',
+    A400: '#ff9100',
+    A700: '#ff6d00'
+  };
+
+  var grey = {
+    50: '#fafafa',
+    100: '#f5f5f5',
+    200: '#eeeeee',
+    300: '#e0e0e0',
+    400: '#bdbdbd',
+    500: '#9e9e9e',
+    600: '#757575',
+    700: '#616161',
+    800: '#424242',
+    900: '#212121',
+    A100: '#d5d5d5',
+    A200: '#aaaaaa',
+    A400: '#303030',
+    A700: '#616161'
+  };
+
+  function chainPropTypes(propType1, propType2) {
+
+    return function validate() {
+      return propType1.apply(void 0, arguments) || propType2.apply(void 0, arguments);
+    };
+  }
+
+  function _extends() {
+    _extends = Object.assign || function (target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
+
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+
+      return target;
+    };
+
+    return _extends.apply(this, arguments);
+  }
+
+  function _typeof$1(obj) {
+    "@babel/helpers - typeof";
+
+    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+      _typeof$1 = function _typeof(obj) {
+        return typeof obj;
+      };
+    } else {
+      _typeof$1 = function _typeof(obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+      };
     }
 
-    _createClass(games, [{
-      key: "changeGame",
-      value: function changeGame(game) {
-        this.setState({
-          browserData: game.about,
-          about: game.about,
-          howTo: game.howTo,
-          itchId: game.itchId,
-          name: game.name,
-          gamePlayer: null
-        });
-      }
-    }, {
-      key: "loadPlayer",
-      value: function loadPlayer() {
-        this.setState({
-          gamePlayer: /*#__PURE__*/react.createElement("iframe", {
-            frameBorder: "0",
-            src: "https://itch.io/embed-upload/".concat(this.state.itchId, "?color=333333"),
-            allowFullScreen: true,
-            width: "1000",
-            height: "660"
-          }, /*#__PURE__*/react.createElement("a", {
-            href: "https://hackjobgames.itch.io/".concat(this.state.name)
-          }, "Play Plant The Potato on itch.io"))
-        });
-      }
-    }, {
-      key: "render",
-      value: function render() {
-        var _this2 = this;
-
-        return /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("div", {
-          className: "center"
-        }, /*#__PURE__*/react.createElement("a", {
-          onClick: function onClick() {
-            return _this2.changeGame(birds);
-          },
-          className: "button"
-        }, "Birds Away"), /*#__PURE__*/react.createElement("a", {
-          onClick: function onClick() {
-            return _this2.changeGame(potato);
-          },
-          className: "button"
-        }, "Plant The Potato"), /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("div", {
-          className: "center"
-        }, /*#__PURE__*/react.createElement("a", {
-          onClick: function onClick() {
-            return _this2.setState({
-              browserData: _this2.state.about
-            });
-          },
-          className: "button"
-        }, "About The Game"), /*#__PURE__*/react.createElement("a", {
-          onClick: function onClick() {
-            return _this2.setState({
-              browserData: _this2.state.howTo
-            });
-          },
-          className: "button"
-        }, "How To Play"), /*#__PURE__*/react.createElement("a", {
-          onClick: function onClick() {
-            return _this2.loadPlayer();
-          },
-          className: "button"
-        }, "Play")))), /*#__PURE__*/react.createElement("div", {
-          className: "center"
-        }, /*#__PURE__*/react.createElement("div", null, this.state.buttons), /*#__PURE__*/react.createElement("div", null, this.state.gamePlayer), /*#__PURE__*/react.createElement("div", null, this.state.browserData)));
-      }
-    }]);
-
-    return games;
-  }(react.Component);
-
-  var axios = createCommonjsModule(function (module, exports) {
-  /* axios v0.19.2 | (c) 2020 by Matt Zabriskie */
-  (function webpackUniversalModuleDefinition(root, factory) {
-  	module.exports = factory();
-  })(commonjsGlobal, function() {
-  return /******/ (function(modules) { // webpackBootstrap
-  /******/ 	// The module cache
-  /******/ 	var installedModules = {};
-  /******/
-  /******/ 	// The require function
-  /******/ 	function __webpack_require__(moduleId) {
-  /******/
-  /******/ 		// Check if module is in cache
-  /******/ 		if(installedModules[moduleId])
-  /******/ 			return installedModules[moduleId].exports;
-  /******/
-  /******/ 		// Create a new module (and put it into the cache)
-  /******/ 		var module = installedModules[moduleId] = {
-  /******/ 			exports: {},
-  /******/ 			id: moduleId,
-  /******/ 			loaded: false
-  /******/ 		};
-  /******/
-  /******/ 		// Execute the module function
-  /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-  /******/
-  /******/ 		// Flag the module as loaded
-  /******/ 		module.loaded = true;
-  /******/
-  /******/ 		// Return the exports of the module
-  /******/ 		return module.exports;
-  /******/ 	}
-  /******/
-  /******/
-  /******/ 	// expose the modules object (__webpack_modules__)
-  /******/ 	__webpack_require__.m = modules;
-  /******/
-  /******/ 	// expose the module cache
-  /******/ 	__webpack_require__.c = installedModules;
-  /******/
-  /******/ 	// __webpack_public_path__
-  /******/ 	__webpack_require__.p = "";
-  /******/
-  /******/ 	// Load entry module and return exports
-  /******/ 	return __webpack_require__(0);
-  /******/ })
-  /************************************************************************/
-  /******/ ([
-  /* 0 */
-  /***/ (function(module, exports, __webpack_require__) {
-
-  	module.exports = __webpack_require__(1);
-
-  /***/ }),
-  /* 1 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var utils = __webpack_require__(2);
-  	var bind = __webpack_require__(3);
-  	var Axios = __webpack_require__(4);
-  	var mergeConfig = __webpack_require__(22);
-  	var defaults = __webpack_require__(10);
-  	
-  	/**
-  	 * Create an instance of Axios
-  	 *
-  	 * @param {Object} defaultConfig The default config for the instance
-  	 * @return {Axios} A new instance of Axios
-  	 */
-  	function createInstance(defaultConfig) {
-  	  var context = new Axios(defaultConfig);
-  	  var instance = bind(Axios.prototype.request, context);
-  	
-  	  // Copy axios.prototype to instance
-  	  utils.extend(instance, Axios.prototype, context);
-  	
-  	  // Copy context to instance
-  	  utils.extend(instance, context);
-  	
-  	  return instance;
-  	}
-  	
-  	// Create the default instance to be exported
-  	var axios = createInstance(defaults);
-  	
-  	// Expose Axios class to allow class inheritance
-  	axios.Axios = Axios;
-  	
-  	// Factory for creating new instances
-  	axios.create = function create(instanceConfig) {
-  	  return createInstance(mergeConfig(axios.defaults, instanceConfig));
-  	};
-  	
-  	// Expose Cancel & CancelToken
-  	axios.Cancel = __webpack_require__(23);
-  	axios.CancelToken = __webpack_require__(24);
-  	axios.isCancel = __webpack_require__(9);
-  	
-  	// Expose all/spread
-  	axios.all = function all(promises) {
-  	  return Promise.all(promises);
-  	};
-  	axios.spread = __webpack_require__(25);
-  	
-  	module.exports = axios;
-  	
-  	// Allow use of default import syntax in TypeScript
-  	module.exports.default = axios;
-
-
-  /***/ }),
-  /* 2 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var bind = __webpack_require__(3);
-  	
-  	/*global toString:true*/
-  	
-  	// utils is a library of generic helper functions non-specific to axios
-  	
-  	var toString = Object.prototype.toString;
-  	
-  	/**
-  	 * Determine if a value is an Array
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if value is an Array, otherwise false
-  	 */
-  	function isArray(val) {
-  	  return toString.call(val) === '[object Array]';
-  	}
-  	
-  	/**
-  	 * Determine if a value is undefined
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if the value is undefined, otherwise false
-  	 */
-  	function isUndefined(val) {
-  	  return typeof val === 'undefined';
-  	}
-  	
-  	/**
-  	 * Determine if a value is a Buffer
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if value is a Buffer, otherwise false
-  	 */
-  	function isBuffer(val) {
-  	  return val !== null && !isUndefined(val) && val.constructor !== null && !isUndefined(val.constructor)
-  	    && typeof val.constructor.isBuffer === 'function' && val.constructor.isBuffer(val);
-  	}
-  	
-  	/**
-  	 * Determine if a value is an ArrayBuffer
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if value is an ArrayBuffer, otherwise false
-  	 */
-  	function isArrayBuffer(val) {
-  	  return toString.call(val) === '[object ArrayBuffer]';
-  	}
-  	
-  	/**
-  	 * Determine if a value is a FormData
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if value is an FormData, otherwise false
-  	 */
-  	function isFormData(val) {
-  	  return (typeof FormData !== 'undefined') && (val instanceof FormData);
-  	}
-  	
-  	/**
-  	 * Determine if a value is a view on an ArrayBuffer
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
-  	 */
-  	function isArrayBufferView(val) {
-  	  var result;
-  	  if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
-  	    result = ArrayBuffer.isView(val);
-  	  } else {
-  	    result = (val) && (val.buffer) && (val.buffer instanceof ArrayBuffer);
-  	  }
-  	  return result;
-  	}
-  	
-  	/**
-  	 * Determine if a value is a String
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if value is a String, otherwise false
-  	 */
-  	function isString(val) {
-  	  return typeof val === 'string';
-  	}
-  	
-  	/**
-  	 * Determine if a value is a Number
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if value is a Number, otherwise false
-  	 */
-  	function isNumber(val) {
-  	  return typeof val === 'number';
-  	}
-  	
-  	/**
-  	 * Determine if a value is an Object
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if value is an Object, otherwise false
-  	 */
-  	function isObject(val) {
-  	  return val !== null && typeof val === 'object';
-  	}
-  	
-  	/**
-  	 * Determine if a value is a Date
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if value is a Date, otherwise false
-  	 */
-  	function isDate(val) {
-  	  return toString.call(val) === '[object Date]';
-  	}
-  	
-  	/**
-  	 * Determine if a value is a File
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if value is a File, otherwise false
-  	 */
-  	function isFile(val) {
-  	  return toString.call(val) === '[object File]';
-  	}
-  	
-  	/**
-  	 * Determine if a value is a Blob
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if value is a Blob, otherwise false
-  	 */
-  	function isBlob(val) {
-  	  return toString.call(val) === '[object Blob]';
-  	}
-  	
-  	/**
-  	 * Determine if a value is a Function
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if value is a Function, otherwise false
-  	 */
-  	function isFunction(val) {
-  	  return toString.call(val) === '[object Function]';
-  	}
-  	
-  	/**
-  	 * Determine if a value is a Stream
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if value is a Stream, otherwise false
-  	 */
-  	function isStream(val) {
-  	  return isObject(val) && isFunction(val.pipe);
-  	}
-  	
-  	/**
-  	 * Determine if a value is a URLSearchParams object
-  	 *
-  	 * @param {Object} val The value to test
-  	 * @returns {boolean} True if value is a URLSearchParams object, otherwise false
-  	 */
-  	function isURLSearchParams(val) {
-  	  return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
-  	}
-  	
-  	/**
-  	 * Trim excess whitespace off the beginning and end of a string
-  	 *
-  	 * @param {String} str The String to trim
-  	 * @returns {String} The String freed of excess whitespace
-  	 */
-  	function trim(str) {
-  	  return str.replace(/^\s*/, '').replace(/\s*$/, '');
-  	}
-  	
-  	/**
-  	 * Determine if we're running in a standard browser environment
-  	 *
-  	 * This allows axios to run in a web worker, and react-native.
-  	 * Both environments support XMLHttpRequest, but not fully standard globals.
-  	 *
-  	 * web workers:
-  	 *  typeof window -> undefined
-  	 *  typeof document -> undefined
-  	 *
-  	 * react-native:
-  	 *  navigator.product -> 'ReactNative'
-  	 * nativescript
-  	 *  navigator.product -> 'NativeScript' or 'NS'
-  	 */
-  	function isStandardBrowserEnv() {
-  	  if (typeof navigator !== 'undefined' && (navigator.product === 'ReactNative' ||
-  	                                           navigator.product === 'NativeScript' ||
-  	                                           navigator.product === 'NS')) {
-  	    return false;
-  	  }
-  	  return (
-  	    typeof window !== 'undefined' &&
-  	    typeof document !== 'undefined'
-  	  );
-  	}
-  	
-  	/**
-  	 * Iterate over an Array or an Object invoking a function for each item.
-  	 *
-  	 * If `obj` is an Array callback will be called passing
-  	 * the value, index, and complete array for each item.
-  	 *
-  	 * If 'obj' is an Object callback will be called passing
-  	 * the value, key, and complete object for each property.
-  	 *
-  	 * @param {Object|Array} obj The object to iterate
-  	 * @param {Function} fn The callback to invoke for each item
-  	 */
-  	function forEach(obj, fn) {
-  	  // Don't bother if no value provided
-  	  if (obj === null || typeof obj === 'undefined') {
-  	    return;
-  	  }
-  	
-  	  // Force an array if not already something iterable
-  	  if (typeof obj !== 'object') {
-  	    /*eslint no-param-reassign:0*/
-  	    obj = [obj];
-  	  }
-  	
-  	  if (isArray(obj)) {
-  	    // Iterate over array values
-  	    for (var i = 0, l = obj.length; i < l; i++) {
-  	      fn.call(null, obj[i], i, obj);
-  	    }
-  	  } else {
-  	    // Iterate over object keys
-  	    for (var key in obj) {
-  	      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-  	        fn.call(null, obj[key], key, obj);
-  	      }
-  	    }
-  	  }
-  	}
-  	
-  	/**
-  	 * Accepts varargs expecting each argument to be an object, then
-  	 * immutably merges the properties of each object and returns result.
-  	 *
-  	 * When multiple objects contain the same key the later object in
-  	 * the arguments list will take precedence.
-  	 *
-  	 * Example:
-  	 *
-  	 * ```js
-  	 * var result = merge({foo: 123}, {foo: 456});
-  	 * console.log(result.foo); // outputs 456
-  	 * ```
-  	 *
-  	 * @param {Object} obj1 Object to merge
-  	 * @returns {Object} Result of all merge properties
-  	 */
-  	function merge(/* obj1, obj2, obj3, ... */) {
-  	  var result = {};
-  	  function assignValue(val, key) {
-  	    if (typeof result[key] === 'object' && typeof val === 'object') {
-  	      result[key] = merge(result[key], val);
-  	    } else {
-  	      result[key] = val;
-  	    }
-  	  }
-  	
-  	  for (var i = 0, l = arguments.length; i < l; i++) {
-  	    forEach(arguments[i], assignValue);
-  	  }
-  	  return result;
-  	}
-  	
-  	/**
-  	 * Function equal to merge with the difference being that no reference
-  	 * to original objects is kept.
-  	 *
-  	 * @see merge
-  	 * @param {Object} obj1 Object to merge
-  	 * @returns {Object} Result of all merge properties
-  	 */
-  	function deepMerge(/* obj1, obj2, obj3, ... */) {
-  	  var result = {};
-  	  function assignValue(val, key) {
-  	    if (typeof result[key] === 'object' && typeof val === 'object') {
-  	      result[key] = deepMerge(result[key], val);
-  	    } else if (typeof val === 'object') {
-  	      result[key] = deepMerge({}, val);
-  	    } else {
-  	      result[key] = val;
-  	    }
-  	  }
-  	
-  	  for (var i = 0, l = arguments.length; i < l; i++) {
-  	    forEach(arguments[i], assignValue);
-  	  }
-  	  return result;
-  	}
-  	
-  	/**
-  	 * Extends object a by mutably adding to it the properties of object b.
-  	 *
-  	 * @param {Object} a The object to be extended
-  	 * @param {Object} b The object to copy properties from
-  	 * @param {Object} thisArg The object to bind function to
-  	 * @return {Object} The resulting value of object a
-  	 */
-  	function extend(a, b, thisArg) {
-  	  forEach(b, function assignValue(val, key) {
-  	    if (thisArg && typeof val === 'function') {
-  	      a[key] = bind(val, thisArg);
-  	    } else {
-  	      a[key] = val;
-  	    }
-  	  });
-  	  return a;
-  	}
-  	
-  	module.exports = {
-  	  isArray: isArray,
-  	  isArrayBuffer: isArrayBuffer,
-  	  isBuffer: isBuffer,
-  	  isFormData: isFormData,
-  	  isArrayBufferView: isArrayBufferView,
-  	  isString: isString,
-  	  isNumber: isNumber,
-  	  isObject: isObject,
-  	  isUndefined: isUndefined,
-  	  isDate: isDate,
-  	  isFile: isFile,
-  	  isBlob: isBlob,
-  	  isFunction: isFunction,
-  	  isStream: isStream,
-  	  isURLSearchParams: isURLSearchParams,
-  	  isStandardBrowserEnv: isStandardBrowserEnv,
-  	  forEach: forEach,
-  	  merge: merge,
-  	  deepMerge: deepMerge,
-  	  extend: extend,
-  	  trim: trim
-  	};
-
-
-  /***/ }),
-  /* 3 */
-  /***/ (function(module, exports) {
-  	
-  	module.exports = function bind(fn, thisArg) {
-  	  return function wrap() {
-  	    var args = new Array(arguments.length);
-  	    for (var i = 0; i < args.length; i++) {
-  	      args[i] = arguments[i];
-  	    }
-  	    return fn.apply(thisArg, args);
-  	  };
-  	};
-
-
-  /***/ }),
-  /* 4 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var utils = __webpack_require__(2);
-  	var buildURL = __webpack_require__(5);
-  	var InterceptorManager = __webpack_require__(6);
-  	var dispatchRequest = __webpack_require__(7);
-  	var mergeConfig = __webpack_require__(22);
-  	
-  	/**
-  	 * Create a new instance of Axios
-  	 *
-  	 * @param {Object} instanceConfig The default config for the instance
-  	 */
-  	function Axios(instanceConfig) {
-  	  this.defaults = instanceConfig;
-  	  this.interceptors = {
-  	    request: new InterceptorManager(),
-  	    response: new InterceptorManager()
-  	  };
-  	}
-  	
-  	/**
-  	 * Dispatch a request
-  	 *
-  	 * @param {Object} config The config specific for this request (merged with this.defaults)
-  	 */
-  	Axios.prototype.request = function request(config) {
-  	  /*eslint no-param-reassign:0*/
-  	  // Allow for axios('example/url'[, config]) a la fetch API
-  	  if (typeof config === 'string') {
-  	    config = arguments[1] || {};
-  	    config.url = arguments[0];
-  	  } else {
-  	    config = config || {};
-  	  }
-  	
-  	  config = mergeConfig(this.defaults, config);
-  	
-  	  // Set config.method
-  	  if (config.method) {
-  	    config.method = config.method.toLowerCase();
-  	  } else if (this.defaults.method) {
-  	    config.method = this.defaults.method.toLowerCase();
-  	  } else {
-  	    config.method = 'get';
-  	  }
-  	
-  	  // Hook up interceptors middleware
-  	  var chain = [dispatchRequest, undefined];
-  	  var promise = Promise.resolve(config);
-  	
-  	  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
-  	    chain.unshift(interceptor.fulfilled, interceptor.rejected);
-  	  });
-  	
-  	  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
-  	    chain.push(interceptor.fulfilled, interceptor.rejected);
-  	  });
-  	
-  	  while (chain.length) {
-  	    promise = promise.then(chain.shift(), chain.shift());
-  	  }
-  	
-  	  return promise;
-  	};
-  	
-  	Axios.prototype.getUri = function getUri(config) {
-  	  config = mergeConfig(this.defaults, config);
-  	  return buildURL(config.url, config.params, config.paramsSerializer).replace(/^\?/, '');
-  	};
-  	
-  	// Provide aliases for supported request methods
-  	utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
-  	  /*eslint func-names:0*/
-  	  Axios.prototype[method] = function(url, config) {
-  	    return this.request(utils.merge(config || {}, {
-  	      method: method,
-  	      url: url
-  	    }));
-  	  };
-  	});
-  	
-  	utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  	  /*eslint func-names:0*/
-  	  Axios.prototype[method] = function(url, data, config) {
-  	    return this.request(utils.merge(config || {}, {
-  	      method: method,
-  	      url: url,
-  	      data: data
-  	    }));
-  	  };
-  	});
-  	
-  	module.exports = Axios;
-
-
-  /***/ }),
-  /* 5 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var utils = __webpack_require__(2);
-  	
-  	function encode(val) {
-  	  return encodeURIComponent(val).
-  	    replace(/%40/gi, '@').
-  	    replace(/%3A/gi, ':').
-  	    replace(/%24/g, '$').
-  	    replace(/%2C/gi, ',').
-  	    replace(/%20/g, '+').
-  	    replace(/%5B/gi, '[').
-  	    replace(/%5D/gi, ']');
-  	}
-  	
-  	/**
-  	 * Build a URL by appending params to the end
-  	 *
-  	 * @param {string} url The base of the url (e.g., http://www.google.com)
-  	 * @param {object} [params] The params to be appended
-  	 * @returns {string} The formatted url
-  	 */
-  	module.exports = function buildURL(url, params, paramsSerializer) {
-  	  /*eslint no-param-reassign:0*/
-  	  if (!params) {
-  	    return url;
-  	  }
-  	
-  	  var serializedParams;
-  	  if (paramsSerializer) {
-  	    serializedParams = paramsSerializer(params);
-  	  } else if (utils.isURLSearchParams(params)) {
-  	    serializedParams = params.toString();
-  	  } else {
-  	    var parts = [];
-  	
-  	    utils.forEach(params, function serialize(val, key) {
-  	      if (val === null || typeof val === 'undefined') {
-  	        return;
-  	      }
-  	
-  	      if (utils.isArray(val)) {
-  	        key = key + '[]';
-  	      } else {
-  	        val = [val];
-  	      }
-  	
-  	      utils.forEach(val, function parseValue(v) {
-  	        if (utils.isDate(v)) {
-  	          v = v.toISOString();
-  	        } else if (utils.isObject(v)) {
-  	          v = JSON.stringify(v);
-  	        }
-  	        parts.push(encode(key) + '=' + encode(v));
-  	      });
-  	    });
-  	
-  	    serializedParams = parts.join('&');
-  	  }
-  	
-  	  if (serializedParams) {
-  	    var hashmarkIndex = url.indexOf('#');
-  	    if (hashmarkIndex !== -1) {
-  	      url = url.slice(0, hashmarkIndex);
-  	    }
-  	
-  	    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
-  	  }
-  	
-  	  return url;
-  	};
-
-
-  /***/ }),
-  /* 6 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var utils = __webpack_require__(2);
-  	
-  	function InterceptorManager() {
-  	  this.handlers = [];
-  	}
-  	
-  	/**
-  	 * Add a new interceptor to the stack
-  	 *
-  	 * @param {Function} fulfilled The function to handle `then` for a `Promise`
-  	 * @param {Function} rejected The function to handle `reject` for a `Promise`
-  	 *
-  	 * @return {Number} An ID used to remove interceptor later
-  	 */
-  	InterceptorManager.prototype.use = function use(fulfilled, rejected) {
-  	  this.handlers.push({
-  	    fulfilled: fulfilled,
-  	    rejected: rejected
-  	  });
-  	  return this.handlers.length - 1;
-  	};
-  	
-  	/**
-  	 * Remove an interceptor from the stack
-  	 *
-  	 * @param {Number} id The ID that was returned by `use`
-  	 */
-  	InterceptorManager.prototype.eject = function eject(id) {
-  	  if (this.handlers[id]) {
-  	    this.handlers[id] = null;
-  	  }
-  	};
-  	
-  	/**
-  	 * Iterate over all the registered interceptors
-  	 *
-  	 * This method is particularly useful for skipping over any
-  	 * interceptors that may have become `null` calling `eject`.
-  	 *
-  	 * @param {Function} fn The function to call for each interceptor
-  	 */
-  	InterceptorManager.prototype.forEach = function forEach(fn) {
-  	  utils.forEach(this.handlers, function forEachHandler(h) {
-  	    if (h !== null) {
-  	      fn(h);
-  	    }
-  	  });
-  	};
-  	
-  	module.exports = InterceptorManager;
-
-
-  /***/ }),
-  /* 7 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var utils = __webpack_require__(2);
-  	var transformData = __webpack_require__(8);
-  	var isCancel = __webpack_require__(9);
-  	var defaults = __webpack_require__(10);
-  	
-  	/**
-  	 * Throws a `Cancel` if cancellation has been requested.
-  	 */
-  	function throwIfCancellationRequested(config) {
-  	  if (config.cancelToken) {
-  	    config.cancelToken.throwIfRequested();
-  	  }
-  	}
-  	
-  	/**
-  	 * Dispatch a request to the server using the configured adapter.
-  	 *
-  	 * @param {object} config The config that is to be used for the request
-  	 * @returns {Promise} The Promise to be fulfilled
-  	 */
-  	module.exports = function dispatchRequest(config) {
-  	  throwIfCancellationRequested(config);
-  	
-  	  // Ensure headers exist
-  	  config.headers = config.headers || {};
-  	
-  	  // Transform request data
-  	  config.data = transformData(
-  	    config.data,
-  	    config.headers,
-  	    config.transformRequest
-  	  );
-  	
-  	  // Flatten headers
-  	  config.headers = utils.merge(
-  	    config.headers.common || {},
-  	    config.headers[config.method] || {},
-  	    config.headers
-  	  );
-  	
-  	  utils.forEach(
-  	    ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
-  	    function cleanHeaderConfig(method) {
-  	      delete config.headers[method];
-  	    }
-  	  );
-  	
-  	  var adapter = config.adapter || defaults.adapter;
-  	
-  	  return adapter(config).then(function onAdapterResolution(response) {
-  	    throwIfCancellationRequested(config);
-  	
-  	    // Transform response data
-  	    response.data = transformData(
-  	      response.data,
-  	      response.headers,
-  	      config.transformResponse
-  	    );
-  	
-  	    return response;
-  	  }, function onAdapterRejection(reason) {
-  	    if (!isCancel(reason)) {
-  	      throwIfCancellationRequested(config);
-  	
-  	      // Transform response data
-  	      if (reason && reason.response) {
-  	        reason.response.data = transformData(
-  	          reason.response.data,
-  	          reason.response.headers,
-  	          config.transformResponse
-  	        );
-  	      }
-  	    }
-  	
-  	    return Promise.reject(reason);
-  	  });
-  	};
-
-
-  /***/ }),
-  /* 8 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var utils = __webpack_require__(2);
-  	
-  	/**
-  	 * Transform the data for a request or a response
-  	 *
-  	 * @param {Object|String} data The data to be transformed
-  	 * @param {Array} headers The headers for the request or response
-  	 * @param {Array|Function} fns A single function or Array of functions
-  	 * @returns {*} The resulting transformed data
-  	 */
-  	module.exports = function transformData(data, headers, fns) {
-  	  /*eslint no-param-reassign:0*/
-  	  utils.forEach(fns, function transform(fn) {
-  	    data = fn(data, headers);
-  	  });
-  	
-  	  return data;
-  	};
-
-
-  /***/ }),
-  /* 9 */
-  /***/ (function(module, exports) {
-  	
-  	module.exports = function isCancel(value) {
-  	  return !!(value && value.__CANCEL__);
-  	};
-
-
-  /***/ }),
-  /* 10 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var utils = __webpack_require__(2);
-  	var normalizeHeaderName = __webpack_require__(11);
-  	
-  	var DEFAULT_CONTENT_TYPE = {
-  	  'Content-Type': 'application/x-www-form-urlencoded'
-  	};
-  	
-  	function setContentTypeIfUnset(headers, value) {
-  	  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
-  	    headers['Content-Type'] = value;
-  	  }
-  	}
-  	
-  	function getDefaultAdapter() {
-  	  var adapter;
-  	  if (typeof XMLHttpRequest !== 'undefined') {
-  	    // For browsers use XHR adapter
-  	    adapter = __webpack_require__(12);
-  	  } else if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
-  	    // For node use HTTP adapter
-  	    adapter = __webpack_require__(12);
-  	  }
-  	  return adapter;
-  	}
-  	
-  	var defaults = {
-  	  adapter: getDefaultAdapter(),
-  	
-  	  transformRequest: [function transformRequest(data, headers) {
-  	    normalizeHeaderName(headers, 'Accept');
-  	    normalizeHeaderName(headers, 'Content-Type');
-  	    if (utils.isFormData(data) ||
-  	      utils.isArrayBuffer(data) ||
-  	      utils.isBuffer(data) ||
-  	      utils.isStream(data) ||
-  	      utils.isFile(data) ||
-  	      utils.isBlob(data)
-  	    ) {
-  	      return data;
-  	    }
-  	    if (utils.isArrayBufferView(data)) {
-  	      return data.buffer;
-  	    }
-  	    if (utils.isURLSearchParams(data)) {
-  	      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
-  	      return data.toString();
-  	    }
-  	    if (utils.isObject(data)) {
-  	      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
-  	      return JSON.stringify(data);
-  	    }
-  	    return data;
-  	  }],
-  	
-  	  transformResponse: [function transformResponse(data) {
-  	    /*eslint no-param-reassign:0*/
-  	    if (typeof data === 'string') {
-  	      try {
-  	        data = JSON.parse(data);
-  	      } catch (e) { /* Ignore */ }
-  	    }
-  	    return data;
-  	  }],
-  	
-  	  /**
-  	   * A timeout in milliseconds to abort a request. If set to 0 (default) a
-  	   * timeout is not created.
-  	   */
-  	  timeout: 0,
-  	
-  	  xsrfCookieName: 'XSRF-TOKEN',
-  	  xsrfHeaderName: 'X-XSRF-TOKEN',
-  	
-  	  maxContentLength: -1,
-  	
-  	  validateStatus: function validateStatus(status) {
-  	    return status >= 200 && status < 300;
-  	  }
-  	};
-  	
-  	defaults.headers = {
-  	  common: {
-  	    'Accept': 'application/json, text/plain, */*'
-  	  }
-  	};
-  	
-  	utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
-  	  defaults.headers[method] = {};
-  	});
-  	
-  	utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  	  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
-  	});
-  	
-  	module.exports = defaults;
-
-
-  /***/ }),
-  /* 11 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var utils = __webpack_require__(2);
-  	
-  	module.exports = function normalizeHeaderName(headers, normalizedName) {
-  	  utils.forEach(headers, function processHeader(value, name) {
-  	    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
-  	      headers[normalizedName] = value;
-  	      delete headers[name];
-  	    }
-  	  });
-  	};
-
-
-  /***/ }),
-  /* 12 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var utils = __webpack_require__(2);
-  	var settle = __webpack_require__(13);
-  	var buildURL = __webpack_require__(5);
-  	var buildFullPath = __webpack_require__(16);
-  	var parseHeaders = __webpack_require__(19);
-  	var isURLSameOrigin = __webpack_require__(20);
-  	var createError = __webpack_require__(14);
-  	
-  	module.exports = function xhrAdapter(config) {
-  	  return new Promise(function dispatchXhrRequest(resolve, reject) {
-  	    var requestData = config.data;
-  	    var requestHeaders = config.headers;
-  	
-  	    if (utils.isFormData(requestData)) {
-  	      delete requestHeaders['Content-Type']; // Let the browser set it
-  	    }
-  	
-  	    var request = new XMLHttpRequest();
-  	
-  	    // HTTP basic authentication
-  	    if (config.auth) {
-  	      var username = config.auth.username || '';
-  	      var password = config.auth.password || '';
-  	      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
-  	    }
-  	
-  	    var fullPath = buildFullPath(config.baseURL, config.url);
-  	    request.open(config.method.toUpperCase(), buildURL(fullPath, config.params, config.paramsSerializer), true);
-  	
-  	    // Set the request timeout in MS
-  	    request.timeout = config.timeout;
-  	
-  	    // Listen for ready state
-  	    request.onreadystatechange = function handleLoad() {
-  	      if (!request || request.readyState !== 4) {
-  	        return;
-  	      }
-  	
-  	      // The request errored out and we didn't get a response, this will be
-  	      // handled by onerror instead
-  	      // With one exception: request that using file: protocol, most browsers
-  	      // will return status as 0 even though it's a successful request
-  	      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
-  	        return;
-  	      }
-  	
-  	      // Prepare the response
-  	      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
-  	      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
-  	      var response = {
-  	        data: responseData,
-  	        status: request.status,
-  	        statusText: request.statusText,
-  	        headers: responseHeaders,
-  	        config: config,
-  	        request: request
-  	      };
-  	
-  	      settle(resolve, reject, response);
-  	
-  	      // Clean up request
-  	      request = null;
-  	    };
-  	
-  	    // Handle browser request cancellation (as opposed to a manual cancellation)
-  	    request.onabort = function handleAbort() {
-  	      if (!request) {
-  	        return;
-  	      }
-  	
-  	      reject(createError('Request aborted', config, 'ECONNABORTED', request));
-  	
-  	      // Clean up request
-  	      request = null;
-  	    };
-  	
-  	    // Handle low level network errors
-  	    request.onerror = function handleError() {
-  	      // Real errors are hidden from us by the browser
-  	      // onerror should only fire if it's a network error
-  	      reject(createError('Network Error', config, null, request));
-  	
-  	      // Clean up request
-  	      request = null;
-  	    };
-  	
-  	    // Handle timeout
-  	    request.ontimeout = function handleTimeout() {
-  	      var timeoutErrorMessage = 'timeout of ' + config.timeout + 'ms exceeded';
-  	      if (config.timeoutErrorMessage) {
-  	        timeoutErrorMessage = config.timeoutErrorMessage;
-  	      }
-  	      reject(createError(timeoutErrorMessage, config, 'ECONNABORTED',
-  	        request));
-  	
-  	      // Clean up request
-  	      request = null;
-  	    };
-  	
-  	    // Add xsrf header
-  	    // This is only done if running in a standard browser environment.
-  	    // Specifically not if we're in a web worker, or react-native.
-  	    if (utils.isStandardBrowserEnv()) {
-  	      var cookies = __webpack_require__(21);
-  	
-  	      // Add xsrf header
-  	      var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?
-  	        cookies.read(config.xsrfCookieName) :
-  	        undefined;
-  	
-  	      if (xsrfValue) {
-  	        requestHeaders[config.xsrfHeaderName] = xsrfValue;
-  	      }
-  	    }
-  	
-  	    // Add headers to the request
-  	    if ('setRequestHeader' in request) {
-  	      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
-  	        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
-  	          // Remove Content-Type if data is undefined
-  	          delete requestHeaders[key];
-  	        } else {
-  	          // Otherwise add header to the request
-  	          request.setRequestHeader(key, val);
-  	        }
-  	      });
-  	    }
-  	
-  	    // Add withCredentials to request if needed
-  	    if (!utils.isUndefined(config.withCredentials)) {
-  	      request.withCredentials = !!config.withCredentials;
-  	    }
-  	
-  	    // Add responseType to request if needed
-  	    if (config.responseType) {
-  	      try {
-  	        request.responseType = config.responseType;
-  	      } catch (e) {
-  	        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
-  	        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
-  	        if (config.responseType !== 'json') {
-  	          throw e;
-  	        }
-  	      }
-  	    }
-  	
-  	    // Handle progress if needed
-  	    if (typeof config.onDownloadProgress === 'function') {
-  	      request.addEventListener('progress', config.onDownloadProgress);
-  	    }
-  	
-  	    // Not all browsers support upload events
-  	    if (typeof config.onUploadProgress === 'function' && request.upload) {
-  	      request.upload.addEventListener('progress', config.onUploadProgress);
-  	    }
-  	
-  	    if (config.cancelToken) {
-  	      // Handle cancellation
-  	      config.cancelToken.promise.then(function onCanceled(cancel) {
-  	        if (!request) {
-  	          return;
-  	        }
-  	
-  	        request.abort();
-  	        reject(cancel);
-  	        // Clean up request
-  	        request = null;
-  	      });
-  	    }
-  	
-  	    if (requestData === undefined) {
-  	      requestData = null;
-  	    }
-  	
-  	    // Send the request
-  	    request.send(requestData);
-  	  });
-  	};
-
-
-  /***/ }),
-  /* 13 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var createError = __webpack_require__(14);
-  	
-  	/**
-  	 * Resolve or reject a Promise based on response status.
-  	 *
-  	 * @param {Function} resolve A function that resolves the promise.
-  	 * @param {Function} reject A function that rejects the promise.
-  	 * @param {object} response The response.
-  	 */
-  	module.exports = function settle(resolve, reject, response) {
-  	  var validateStatus = response.config.validateStatus;
-  	  if (!validateStatus || validateStatus(response.status)) {
-  	    resolve(response);
-  	  } else {
-  	    reject(createError(
-  	      'Request failed with status code ' + response.status,
-  	      response.config,
-  	      null,
-  	      response.request,
-  	      response
-  	    ));
-  	  }
-  	};
-
-
-  /***/ }),
-  /* 14 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var enhanceError = __webpack_require__(15);
-  	
-  	/**
-  	 * Create an Error with the specified message, config, error code, request and response.
-  	 *
-  	 * @param {string} message The error message.
-  	 * @param {Object} config The config.
-  	 * @param {string} [code] The error code (for example, 'ECONNABORTED').
-  	 * @param {Object} [request] The request.
-  	 * @param {Object} [response] The response.
-  	 * @returns {Error} The created error.
-  	 */
-  	module.exports = function createError(message, config, code, request, response) {
-  	  var error = new Error(message);
-  	  return enhanceError(error, config, code, request, response);
-  	};
-
-
-  /***/ }),
-  /* 15 */
-  /***/ (function(module, exports) {
-  	
-  	/**
-  	 * Update an Error with the specified config, error code, and response.
-  	 *
-  	 * @param {Error} error The error to update.
-  	 * @param {Object} config The config.
-  	 * @param {string} [code] The error code (for example, 'ECONNABORTED').
-  	 * @param {Object} [request] The request.
-  	 * @param {Object} [response] The response.
-  	 * @returns {Error} The error.
-  	 */
-  	module.exports = function enhanceError(error, config, code, request, response) {
-  	  error.config = config;
-  	  if (code) {
-  	    error.code = code;
-  	  }
-  	
-  	  error.request = request;
-  	  error.response = response;
-  	  error.isAxiosError = true;
-  	
-  	  error.toJSON = function() {
-  	    return {
-  	      // Standard
-  	      message: this.message,
-  	      name: this.name,
-  	      // Microsoft
-  	      description: this.description,
-  	      number: this.number,
-  	      // Mozilla
-  	      fileName: this.fileName,
-  	      lineNumber: this.lineNumber,
-  	      columnNumber: this.columnNumber,
-  	      stack: this.stack,
-  	      // Axios
-  	      config: this.config,
-  	      code: this.code
-  	    };
-  	  };
-  	  return error;
-  	};
-
-
-  /***/ }),
-  /* 16 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var isAbsoluteURL = __webpack_require__(17);
-  	var combineURLs = __webpack_require__(18);
-  	
-  	/**
-  	 * Creates a new URL by combining the baseURL with the requestedURL,
-  	 * only when the requestedURL is not already an absolute URL.
-  	 * If the requestURL is absolute, this function returns the requestedURL untouched.
-  	 *
-  	 * @param {string} baseURL The base URL
-  	 * @param {string} requestedURL Absolute or relative URL to combine
-  	 * @returns {string} The combined full path
-  	 */
-  	module.exports = function buildFullPath(baseURL, requestedURL) {
-  	  if (baseURL && !isAbsoluteURL(requestedURL)) {
-  	    return combineURLs(baseURL, requestedURL);
-  	  }
-  	  return requestedURL;
-  	};
-
-
-  /***/ }),
-  /* 17 */
-  /***/ (function(module, exports) {
-  	
-  	/**
-  	 * Determines whether the specified URL is absolute
-  	 *
-  	 * @param {string} url The URL to test
-  	 * @returns {boolean} True if the specified URL is absolute, otherwise false
-  	 */
-  	module.exports = function isAbsoluteURL(url) {
-  	  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
-  	  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
-  	  // by any combination of letters, digits, plus, period, or hyphen.
-  	  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
-  	};
-
-
-  /***/ }),
-  /* 18 */
-  /***/ (function(module, exports) {
-  	
-  	/**
-  	 * Creates a new URL by combining the specified URLs
-  	 *
-  	 * @param {string} baseURL The base URL
-  	 * @param {string} relativeURL The relative URL
-  	 * @returns {string} The combined URL
-  	 */
-  	module.exports = function combineURLs(baseURL, relativeURL) {
-  	  return relativeURL
-  	    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
-  	    : baseURL;
-  	};
-
-
-  /***/ }),
-  /* 19 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var utils = __webpack_require__(2);
-  	
-  	// Headers whose duplicates are ignored by node
-  	// c.f. https://nodejs.org/api/http.html#http_message_headers
-  	var ignoreDuplicateOf = [
-  	  'age', 'authorization', 'content-length', 'content-type', 'etag',
-  	  'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
-  	  'last-modified', 'location', 'max-forwards', 'proxy-authorization',
-  	  'referer', 'retry-after', 'user-agent'
-  	];
-  	
-  	/**
-  	 * Parse headers into an object
-  	 *
-  	 * ```
-  	 * Date: Wed, 27 Aug 2014 08:58:49 GMT
-  	 * Content-Type: application/json
-  	 * Connection: keep-alive
-  	 * Transfer-Encoding: chunked
-  	 * ```
-  	 *
-  	 * @param {String} headers Headers needing to be parsed
-  	 * @returns {Object} Headers parsed into an object
-  	 */
-  	module.exports = function parseHeaders(headers) {
-  	  var parsed = {};
-  	  var key;
-  	  var val;
-  	  var i;
-  	
-  	  if (!headers) { return parsed; }
-  	
-  	  utils.forEach(headers.split('\n'), function parser(line) {
-  	    i = line.indexOf(':');
-  	    key = utils.trim(line.substr(0, i)).toLowerCase();
-  	    val = utils.trim(line.substr(i + 1));
-  	
-  	    if (key) {
-  	      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
-  	        return;
-  	      }
-  	      if (key === 'set-cookie') {
-  	        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
-  	      } else {
-  	        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
-  	      }
-  	    }
-  	  });
-  	
-  	  return parsed;
-  	};
-
-
-  /***/ }),
-  /* 20 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var utils = __webpack_require__(2);
-  	
-  	module.exports = (
-  	  utils.isStandardBrowserEnv() ?
-  	
-  	  // Standard browser envs have full support of the APIs needed to test
-  	  // whether the request URL is of the same origin as current location.
-  	    (function standardBrowserEnv() {
-  	      var msie = /(msie|trident)/i.test(navigator.userAgent);
-  	      var urlParsingNode = document.createElement('a');
-  	      var originURL;
-  	
-  	      /**
-  	    * Parse a URL to discover it's components
-  	    *
-  	    * @param {String} url The URL to be parsed
-  	    * @returns {Object}
-  	    */
-  	      function resolveURL(url) {
-  	        var href = url;
-  	
-  	        if (msie) {
-  	        // IE needs attribute set twice to normalize properties
-  	          urlParsingNode.setAttribute('href', href);
-  	          href = urlParsingNode.href;
-  	        }
-  	
-  	        urlParsingNode.setAttribute('href', href);
-  	
-  	        // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
-  	        return {
-  	          href: urlParsingNode.href,
-  	          protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
-  	          host: urlParsingNode.host,
-  	          search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
-  	          hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
-  	          hostname: urlParsingNode.hostname,
-  	          port: urlParsingNode.port,
-  	          pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
-  	            urlParsingNode.pathname :
-  	            '/' + urlParsingNode.pathname
-  	        };
-  	      }
-  	
-  	      originURL = resolveURL(window.location.href);
-  	
-  	      /**
-  	    * Determine if a URL shares the same origin as the current location
-  	    *
-  	    * @param {String} requestURL The URL to test
-  	    * @returns {boolean} True if URL shares the same origin, otherwise false
-  	    */
-  	      return function isURLSameOrigin(requestURL) {
-  	        var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
-  	        return (parsed.protocol === originURL.protocol &&
-  	            parsed.host === originURL.host);
-  	      };
-  	    })() :
-  	
-  	  // Non standard browser envs (web workers, react-native) lack needed support.
-  	    (function nonStandardBrowserEnv() {
-  	      return function isURLSameOrigin() {
-  	        return true;
-  	      };
-  	    })()
-  	);
-
-
-  /***/ }),
-  /* 21 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var utils = __webpack_require__(2);
-  	
-  	module.exports = (
-  	  utils.isStandardBrowserEnv() ?
-  	
-  	  // Standard browser envs support document.cookie
-  	    (function standardBrowserEnv() {
-  	      return {
-  	        write: function write(name, value, expires, path, domain, secure) {
-  	          var cookie = [];
-  	          cookie.push(name + '=' + encodeURIComponent(value));
-  	
-  	          if (utils.isNumber(expires)) {
-  	            cookie.push('expires=' + new Date(expires).toGMTString());
-  	          }
-  	
-  	          if (utils.isString(path)) {
-  	            cookie.push('path=' + path);
-  	          }
-  	
-  	          if (utils.isString(domain)) {
-  	            cookie.push('domain=' + domain);
-  	          }
-  	
-  	          if (secure === true) {
-  	            cookie.push('secure');
-  	          }
-  	
-  	          document.cookie = cookie.join('; ');
-  	        },
-  	
-  	        read: function read(name) {
-  	          var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
-  	          return (match ? decodeURIComponent(match[3]) : null);
-  	        },
-  	
-  	        remove: function remove(name) {
-  	          this.write(name, '', Date.now() - 86400000);
-  	        }
-  	      };
-  	    })() :
-  	
-  	  // Non standard browser env (web workers, react-native) lack needed support.
-  	    (function nonStandardBrowserEnv() {
-  	      return {
-  	        write: function write() {},
-  	        read: function read() { return null; },
-  	        remove: function remove() {}
-  	      };
-  	    })()
-  	);
-
-
-  /***/ }),
-  /* 22 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var utils = __webpack_require__(2);
-  	
-  	/**
-  	 * Config-specific merge-function which creates a new config-object
-  	 * by merging two configuration objects together.
-  	 *
-  	 * @param {Object} config1
-  	 * @param {Object} config2
-  	 * @returns {Object} New object resulting from merging config2 to config1
-  	 */
-  	module.exports = function mergeConfig(config1, config2) {
-  	  // eslint-disable-next-line no-param-reassign
-  	  config2 = config2 || {};
-  	  var config = {};
-  	
-  	  var valueFromConfig2Keys = ['url', 'method', 'params', 'data'];
-  	  var mergeDeepPropertiesKeys = ['headers', 'auth', 'proxy'];
-  	  var defaultToConfig2Keys = [
-  	    'baseURL', 'url', 'transformRequest', 'transformResponse', 'paramsSerializer',
-  	    'timeout', 'withCredentials', 'adapter', 'responseType', 'xsrfCookieName',
-  	    'xsrfHeaderName', 'onUploadProgress', 'onDownloadProgress',
-  	    'maxContentLength', 'validateStatus', 'maxRedirects', 'httpAgent',
-  	    'httpsAgent', 'cancelToken', 'socketPath'
-  	  ];
-  	
-  	  utils.forEach(valueFromConfig2Keys, function valueFromConfig2(prop) {
-  	    if (typeof config2[prop] !== 'undefined') {
-  	      config[prop] = config2[prop];
-  	    }
-  	  });
-  	
-  	  utils.forEach(mergeDeepPropertiesKeys, function mergeDeepProperties(prop) {
-  	    if (utils.isObject(config2[prop])) {
-  	      config[prop] = utils.deepMerge(config1[prop], config2[prop]);
-  	    } else if (typeof config2[prop] !== 'undefined') {
-  	      config[prop] = config2[prop];
-  	    } else if (utils.isObject(config1[prop])) {
-  	      config[prop] = utils.deepMerge(config1[prop]);
-  	    } else if (typeof config1[prop] !== 'undefined') {
-  	      config[prop] = config1[prop];
-  	    }
-  	  });
-  	
-  	  utils.forEach(defaultToConfig2Keys, function defaultToConfig2(prop) {
-  	    if (typeof config2[prop] !== 'undefined') {
-  	      config[prop] = config2[prop];
-  	    } else if (typeof config1[prop] !== 'undefined') {
-  	      config[prop] = config1[prop];
-  	    }
-  	  });
-  	
-  	  var axiosKeys = valueFromConfig2Keys
-  	    .concat(mergeDeepPropertiesKeys)
-  	    .concat(defaultToConfig2Keys);
-  	
-  	  var otherKeys = Object
-  	    .keys(config2)
-  	    .filter(function filterAxiosKeys(key) {
-  	      return axiosKeys.indexOf(key) === -1;
-  	    });
-  	
-  	  utils.forEach(otherKeys, function otherKeysDefaultToConfig2(prop) {
-  	    if (typeof config2[prop] !== 'undefined') {
-  	      config[prop] = config2[prop];
-  	    } else if (typeof config1[prop] !== 'undefined') {
-  	      config[prop] = config1[prop];
-  	    }
-  	  });
-  	
-  	  return config;
-  	};
-
-
-  /***/ }),
-  /* 23 */
-  /***/ (function(module, exports) {
-  	
-  	/**
-  	 * A `Cancel` is an object that is thrown when an operation is canceled.
-  	 *
-  	 * @class
-  	 * @param {string=} message The message.
-  	 */
-  	function Cancel(message) {
-  	  this.message = message;
-  	}
-  	
-  	Cancel.prototype.toString = function toString() {
-  	  return 'Cancel' + (this.message ? ': ' + this.message : '');
-  	};
-  	
-  	Cancel.prototype.__CANCEL__ = true;
-  	
-  	module.exports = Cancel;
-
-
-  /***/ }),
-  /* 24 */
-  /***/ (function(module, exports, __webpack_require__) {
-  	
-  	var Cancel = __webpack_require__(23);
-  	
-  	/**
-  	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
-  	 *
-  	 * @class
-  	 * @param {Function} executor The executor function.
-  	 */
-  	function CancelToken(executor) {
-  	  if (typeof executor !== 'function') {
-  	    throw new TypeError('executor must be a function.');
-  	  }
-  	
-  	  var resolvePromise;
-  	  this.promise = new Promise(function promiseExecutor(resolve) {
-  	    resolvePromise = resolve;
-  	  });
-  	
-  	  var token = this;
-  	  executor(function cancel(message) {
-  	    if (token.reason) {
-  	      // Cancellation has already been requested
-  	      return;
-  	    }
-  	
-  	    token.reason = new Cancel(message);
-  	    resolvePromise(token.reason);
-  	  });
-  	}
-  	
-  	/**
-  	 * Throws a `Cancel` if cancellation has been requested.
-  	 */
-  	CancelToken.prototype.throwIfRequested = function throwIfRequested() {
-  	  if (this.reason) {
-  	    throw this.reason;
-  	  }
-  	};
-  	
-  	/**
-  	 * Returns an object that contains a new `CancelToken` and a function that, when called,
-  	 * cancels the `CancelToken`.
-  	 */
-  	CancelToken.source = function source() {
-  	  var cancel;
-  	  var token = new CancelToken(function executor(c) {
-  	    cancel = c;
-  	  });
-  	  return {
-  	    token: token,
-  	    cancel: cancel
-  	  };
-  	};
-  	
-  	module.exports = CancelToken;
-
-
-  /***/ }),
-  /* 25 */
-  /***/ (function(module, exports) {
-  	
-  	/**
-  	 * Syntactic sugar for invoking a function and expanding an array for arguments.
-  	 *
-  	 * Common use case would be to use `Function.prototype.apply`.
-  	 *
-  	 *  ```js
-  	 *  function f(x, y, z) {}
-  	 *  var args = [1, 2, 3];
-  	 *  f.apply(null, args);
-  	 *  ```
-  	 *
-  	 * With `spread` this example can be re-written.
-  	 *
-  	 *  ```js
-  	 *  spread(function(x, y, z) {})([1, 2, 3]);
-  	 *  ```
-  	 *
-  	 * @param {Function} callback
-  	 * @returns {Function}
-  	 */
-  	module.exports = function spread(callback) {
-  	  return function wrap(arr) {
-  	    return callback.apply(null, arr);
-  	  };
-  	};
-
-
-  /***/ })
-  /******/ ])
-  });
-
-  });
-
-  !function (e, t) {
-    "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "object" == (typeof module === "undefined" ? "undefined" : _typeof(module)) ? module.exports = t() : "function" == typeof define && define.amd ? define([], t) : "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) ? exports.Twitch = t() : e.Twitch = t();
-  }(window, function () {
-    return function (e) {
-      var t = {};
-
-      function n(r) {
-        if (t[r]) return t[r].exports;
-        var o = t[r] = {
-          i: r,
-          l: !1,
-          exports: {}
-        };
-        return e[r].call(o.exports, o, o.exports, n), o.l = !0, o.exports;
-      }
-
-      return n.m = e, n.c = t, n.d = function (e, t, r) {
-        n.o(e, t) || Object.defineProperty(e, t, {
-          enumerable: !0,
-          get: r
-        });
-      }, n.r = function (e) {
-        "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
-          value: "Module"
-        }), Object.defineProperty(e, "__esModule", {
-          value: !0
-        });
-      }, n.t = function (e, t) {
-        if (1 & t && (e = n(e)), 8 & t) return e;
-        if (4 & t && "object" == _typeof(e) && e && e.__esModule) return e;
-        var r = Object.create(null);
-        if (n.r(r), Object.defineProperty(r, "default", {
-          enumerable: !0,
-          value: e
-        }), 2 & t && "string" != typeof e) for (var o in e) {
-          n.d(r, o, function (t) {
-            return e[t];
-          }.bind(null, o));
-        }
-        return r;
-      }, n.n = function (e) {
-        var t = e && e.__esModule ? function () {
-          return e["default"];
-        } : function () {
-          return e;
-        };
-        return n.d(t, "a", t), t;
-      }, n.o = function (e, t) {
-        return Object.prototype.hasOwnProperty.call(e, t);
-      }, n.p = "", n(n.s = 4);
-    }([function (e, t, n) {
-
-      var r = Object.prototype.hasOwnProperty,
-          o = "~";
-
-      function i() {}
-
-      function a(e, t, n) {
-        this.fn = e, this.context = t, this.once = n || !1;
-      }
-
-      function l(e, t, n, r, i) {
-        if ("function" != typeof n) throw new TypeError("The listener must be a function");
-        var l = new a(n, r || e, i),
-            s = o ? o + t : t;
-        return e._events[s] ? e._events[s].fn ? e._events[s] = [e._events[s], l] : e._events[s].push(l) : (e._events[s] = l, e._eventsCount++), e;
-      }
-
-      function s(e, t) {
-        0 == --e._eventsCount ? e._events = new i() : delete e._events[t];
-      }
-
-      function u() {
-        this._events = new i(), this._eventsCount = 0;
-      }
-
-      Object.create && (i.prototype = Object.create(null), new i().__proto__ || (o = !1)), u.prototype.eventNames = function () {
-        var e,
-            t,
-            n = [];
-        if (0 === this._eventsCount) return n;
-
-        for (t in e = this._events) {
-          r.call(e, t) && n.push(o ? t.slice(1) : t);
+    return _typeof$1(obj);
+  }
+
+  function isPlainObject(item) {
+    return item && _typeof$1(item) === 'object' && item.constructor === Object;
+  }
+  function deepmerge(target, source) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
+      clone: true
+    };
+    var output = options.clone ? _extends({}, target) : target;
+
+    if (isPlainObject(target) && isPlainObject(source)) {
+      Object.keys(source).forEach(function (key) {
+        // Avoid prototype pollution
+        if (key === '__proto__') {
+          return;
         }
 
-        return Object.getOwnPropertySymbols ? n.concat(Object.getOwnPropertySymbols(e)) : n;
-      }, u.prototype.listeners = function (e) {
-        var t = o ? o + e : e,
-            n = this._events[t];
-        if (!n) return [];
-        if (n.fn) return [n.fn];
-
-        for (var r = 0, i = n.length, a = new Array(i); r < i; r++) {
-          a[r] = n[r].fn;
-        }
-
-        return a;
-      }, u.prototype.listenerCount = function (e) {
-        var t = o ? o + e : e,
-            n = this._events[t];
-        return n ? n.fn ? 1 : n.length : 0;
-      }, u.prototype.emit = function (e, t, n, r, i, a) {
-        var l = o ? o + e : e;
-        if (!this._events[l]) return !1;
-        var s,
-            u,
-            c = this._events[l],
-            d = arguments.length;
-
-        if (c.fn) {
-          switch (c.once && this.removeListener(e, c.fn, void 0, !0), d) {
-            case 1:
-              return c.fn.call(c.context), !0;
-
-            case 2:
-              return c.fn.call(c.context, t), !0;
-
-            case 3:
-              return c.fn.call(c.context, t, n), !0;
-
-            case 4:
-              return c.fn.call(c.context, t, n, r), !0;
-
-            case 5:
-              return c.fn.call(c.context, t, n, r, i), !0;
-
-            case 6:
-              return c.fn.call(c.context, t, n, r, i, a), !0;
-          }
-
-          for (u = 1, s = new Array(d - 1); u < d; u++) {
-            s[u - 1] = arguments[u];
-          }
-
-          c.fn.apply(c.context, s);
+        if (isPlainObject(source[key]) && key in target) {
+          output[key] = deepmerge(target[key], source[key], options);
         } else {
-          var p,
-              f = c.length;
-
-          for (u = 0; u < f; u++) {
-            switch (c[u].once && this.removeListener(e, c[u].fn, void 0, !0), d) {
-              case 1:
-                c[u].fn.call(c[u].context);
-                break;
-
-              case 2:
-                c[u].fn.call(c[u].context, t);
-                break;
-
-              case 3:
-                c[u].fn.call(c[u].context, t, n);
-                break;
-
-              case 4:
-                c[u].fn.call(c[u].context, t, n, r);
-                break;
-
-              default:
-                if (!s) for (p = 1, s = new Array(d - 1); p < d; p++) {
-                  s[p - 1] = arguments[p];
-                }
-                c[u].fn.apply(c[u].context, s);
-            }
-          }
-        }
-
-        return !0;
-      }, u.prototype.on = function (e, t, n) {
-        return l(this, e, t, n, !1);
-      }, u.prototype.once = function (e, t, n) {
-        return l(this, e, t, n, !0);
-      }, u.prototype.removeListener = function (e, t, n, r) {
-        var i = o ? o + e : e;
-        if (!this._events[i]) return this;
-        if (!t) return s(this, i), this;
-        var a = this._events[i];
-        if (a.fn) a.fn !== t || r && !a.once || n && a.context !== n || s(this, i);else {
-          for (var l = 0, u = [], c = a.length; l < c; l++) {
-            (a[l].fn !== t || r && !a[l].once || n && a[l].context !== n) && u.push(a[l]);
-          }
-
-          u.length ? this._events[i] = 1 === u.length ? u[0] : u : s(this, i);
-        }
-        return this;
-      }, u.prototype.removeAllListeners = function (e) {
-        var t;
-        return e ? (t = o ? o + e : e, this._events[t] && s(this, t)) : (this._events = new i(), this._eventsCount = 0), this;
-      }, u.prototype.off = u.prototype.removeListener, u.prototype.addListener = u.prototype.on, u.prefixed = o, u.EventEmitter = u, e.exports = u;
-    }, function (e, t, n) {
-
-      var r = n(2),
-          o = n(3);
-
-      function i(e, t) {
-        return t.encode ? t.strict ? r(e) : encodeURIComponent(e) : e;
-      }
-
-      t.extract = function (e) {
-        return e.split("?")[1] || "";
-      }, t.parse = function (e, t) {
-        var n = function (e) {
-          var t;
-
-          switch (e.arrayFormat) {
-            case "index":
-              return function (e, n, r) {
-                t = /\[(\d*)\]$/.exec(e), e = e.replace(/\[\d*\]$/, ""), t ? (void 0 === r[e] && (r[e] = {}), r[e][t[1]] = n) : r[e] = n;
-              };
-
-            case "bracket":
-              return function (e, n, r) {
-                t = /(\[\])$/.exec(e), e = e.replace(/\[\]$/, ""), t ? void 0 !== r[e] ? r[e] = [].concat(r[e], n) : r[e] = [n] : r[e] = n;
-              };
-
-            default:
-              return function (e, t, n) {
-                void 0 !== n[e] ? n[e] = [].concat(n[e], t) : n[e] = t;
-              };
-          }
-        }(t = o({
-          arrayFormat: "none"
-        }, t)),
-            r = Object.create(null);
-
-        return "string" != typeof e ? r : (e = e.trim().replace(/^(\?|#|&)/, "")) ? (e.split("&").forEach(function (e) {
-          var t = e.replace(/\+/g, " ").split("="),
-              o = t.shift(),
-              i = t.length > 0 ? t.join("=") : void 0;
-          i = void 0 === i ? null : decodeURIComponent(i), n(decodeURIComponent(o), i, r);
-        }), Object.keys(r).sort().reduce(function (e, t) {
-          var n = r[t];
-          return Boolean(n) && "object" == _typeof(n) && !Array.isArray(n) ? e[t] = function e(t) {
-            return Array.isArray(t) ? t.sort() : "object" == _typeof(t) ? e(Object.keys(t)).sort(function (e, t) {
-              return Number(e) - Number(t);
-            }).map(function (e) {
-              return t[e];
-            }) : t;
-          }(n) : e[t] = n, e;
-        }, Object.create(null))) : r;
-      }, t.stringify = function (e, t) {
-        var n = function (e) {
-          switch (e.arrayFormat) {
-            case "index":
-              return function (t, n, r) {
-                return null === n ? [i(t, e), "[", r, "]"].join("") : [i(t, e), "[", i(r, e), "]=", i(n, e)].join("");
-              };
-
-            case "bracket":
-              return function (t, n) {
-                return null === n ? i(t, e) : [i(t, e), "[]=", i(n, e)].join("");
-              };
-
-            default:
-              return function (t, n) {
-                return null === n ? i(t, e) : [i(t, e), "=", i(n, e)].join("");
-              };
-          }
-        }(t = o({
-          encode: !0,
-          strict: !0,
-          arrayFormat: "none"
-        }, t));
-
-        return e ? Object.keys(e).sort().map(function (r) {
-          var o = e[r];
-          if (void 0 === o) return "";
-          if (null === o) return i(r, t);
-
-          if (Array.isArray(o)) {
-            var a = [];
-            return o.slice().forEach(function (e) {
-              void 0 !== e && a.push(n(r, e, a.length));
-            }), a.join("&");
-          }
-
-          return i(r, t) + "=" + i(o, t);
-        }).filter(function (e) {
-          return e.length > 0;
-        }).join("&") : "";
-      };
-    }, function (e, t, n) {
-
-      e.exports = function (e) {
-        return encodeURIComponent(e).replace(/[!'()*]/g, function (e) {
-          return "%" + e.charCodeAt(0).toString(16).toUpperCase();
-        });
-      };
-    }, function (e, t, n) {
-      /*
-      object-assign
-      (c) Sindre Sorhus
-      @license MIT
-      */
-
-      var r = Object.getOwnPropertySymbols,
-          o = Object.prototype.hasOwnProperty,
-          i = Object.prototype.propertyIsEnumerable;
-
-      function a(e) {
-        if (null == e) throw new TypeError("Object.assign cannot be called with null or undefined");
-        return Object(e);
-      }
-
-      e.exports = function () {
-        try {
-          if (!Object.assign) return !1;
-          var e = new String("abc");
-          if (e[5] = "de", "5" === Object.getOwnPropertyNames(e)[0]) return !1;
-
-          for (var t = {}, n = 0; n < 10; n++) {
-            t["_" + String.fromCharCode(n)] = n;
-          }
-
-          if ("0123456789" !== Object.getOwnPropertyNames(t).map(function (e) {
-            return t[e];
-          }).join("")) return !1;
-          var r = {};
-          return "abcdefghijklmnopqrst".split("").forEach(function (e) {
-            r[e] = e;
-          }), "abcdefghijklmnopqrst" === Object.keys(Object.assign({}, r)).join("");
-        } catch (e) {
-          return !1;
-        }
-      }() ? Object.assign : function (e, t) {
-        for (var n, l, s = a(e), u = 1; u < arguments.length; u++) {
-          for (var c in n = Object(arguments[u])) {
-            o.call(n, c) && (s[c] = n[c]);
-          }
-
-          if (r) {
-            l = r(n);
-
-            for (var d = 0; d < l.length; d++) {
-              i.call(n, l[d]) && (s[l[d]] = n[l[d]]);
-            }
-          }
-        }
-
-        return s;
-      };
-    }, function (e, t, n) {
-
-      n.r(t);
-      /*! *****************************************************************************
-      Copyright (c) Microsoft Corporation. All rights reserved.
-      Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-      this file except in compliance with the License. You may obtain a copy of the
-      License at http://www.apache.org/licenses/LICENSE-2.0
-      
-      THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-      KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-      WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-      MERCHANTABLITY OR NON-INFRINGEMENT.
-      
-      See the Apache Version 2.0 License for specific language governing permissions
-      and limitations under the License.
-      ***************************************************************************** */
-
-      var _r = function r(e, t) {
-        return (_r = Object.setPrototypeOf || {
-          __proto__: []
-        } instanceof Array && function (e, t) {
-          e.__proto__ = t;
-        } || function (e, t) {
-          for (var n in t) {
-            t.hasOwnProperty(n) && (e[n] = t[n]);
-          }
-        })(e, t);
-      };
-
-      function o(e, t) {
-        function n() {
-          this.constructor = e;
-        }
-
-        _r(e, t), e.prototype = null === t ? Object.create(t) : (n.prototype = t.prototype, new n());
-      }
-
-      var _i = function i() {
-        return (_i = Object.assign || function (e) {
-          for (var t, n = 1, r = arguments.length; n < r; n++) {
-            for (var o in t = arguments[n]) {
-              Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
-            }
-          }
-
-          return e;
-        }).apply(this, arguments);
-      };
-
-      var a,
-          l,
-          s,
-          u,
-          c = n(0),
-          d = "twitch-embed";
-      !function (e) {
-        e.UpdateState = "UPDATE_STATE";
-      }(a || (a = {})), function (e) {
-        e.VideoWithChat = "video-with-chat", e.Video = "video";
-      }(l || (l = {})), function (e) {
-        e.AUTHENTICATE = "authenticate", e.VIDEO_READY = "video.ready", e.VIDEO_PLAY = "video.play", e.VIDEO_PAUSE = "video.pause", e.CAPTIONS = "captions", e.ENDED = "ended", e.ERROR = "error", e.ONLINE = "online", e.OFFLINE = "offline", e.PAUSE = "pause", e.PLAY = "play", e.PLAYBACK_BLOCKED = "playbackBlocked", e.PLAYING = "playing", e.READY = "ready";
-      }(s || (s = {})), function (e) {
-        e[e.DisableCaptions = 0] = "DisableCaptions", e[e.EnableCaptions = 1] = "EnableCaptions", e[e.Pause = 2] = "Pause", e[e.Play = 3] = "Play", e[e.Seek = 4] = "Seek", e[e.SetChannel = 5] = "SetChannel", e[e.SetChannelID = 6] = "SetChannelID", e[e.SetCollection = 7] = "SetCollection", e[e.SetQuality = 8] = "SetQuality", e[e.SetVideo = 9] = "SetVideo", e[e.SetMuted = 10] = "SetMuted", e[e.SetVolume = 11] = "SetVolume";
-      }(u || (u = {}));
-
-      var p,
-          f,
-          y,
-          E,
-          _,
-          h,
-          m,
-          v,
-          A,
-          P,
-          g,
-          b = function b() {};
-
-      !function (e) {
-        e.UNKNOWN = "Unspecified", e.FILE = "File", e.PLAYLIST = "Playlist", e.SEGMENT = "Segment", e.SOURCE = "Source", e.DECODER = "Decode", e.RENDERER = "Render", e.MASTER_PLAYLIST = "MasterPlaylist", e.MEDIA_PLAYLIST = "MediaPlaylist";
-      }(p || (p = {})), function (e) {
-        e.GENERIC = "Error", e.NOT_SUPPORTED = "ErrorNotSupported", e.NO_SOURCE = "ErrorNoSource", e.INVALID_DATA = "ErrorInvalidData", e.INVALID_STATE = "ErrorInvalidState", e.INVALID_PARAMETER = "ErrorInvalidParameter", e.TIMEOUT = "ErrorTimeout", e.INVALID_OUTPUT = "ErrorInvalidOutput", e.INTERNAL = "ErrorInternal", e.NETWORK = "ErrorNetwork", e.NETWORK_IO = "ErrorNetworkIO", e.AUTHORIZATION = "ErrorAuthorization", e.NOT_AVAILABLE = "ErrorNotAvailable";
-      }(f || (f = {})), function (e) {
-        e[e.GEOBLOCKED = 1] = "GEOBLOCKED", e[e.UNSUPPORTED_DEVICE = 2] = "UNSUPPORTED_DEVICE", e[e.ANONYMIZER_BLOCKED = 3] = "ANONYMIZER_BLOCKED", e[e.CELLULAR_NETWORK_PROHIBITED = 4] = "CELLULAR_NETWORK_PROHIBITED", e[e.UNAUTHORIZATION_ENTITLEMENTS = 5] = "UNAUTHORIZATION_ENTITLEMENTS", e[e.VOD_RESTRICTED = 6] = "VOD_RESTRICTED";
-      }(y || (y = {})), function (e) {
-        e.ID3 = "MetaID3", e.CAPTION = "MetaCaption";
-      }(E || (E = {})), function (e) {
-        e.INITIALIZED = "PlayerInitialized", e.QUALITY_CHANGED = "PlayerQualityChanged", e.AUTO_SWITCH_QUALITY_CHANGED = "PlayerAutoSwitchQualityChanged", e.DURATION_CHANGED = "PlayerDurationChanged", e.VOLUME_CHANGED = "PlayerVolumeChanged", e.MUTED_CHANGED = "PlayerMutedChanged", e.PLAYBACK_RATE_CHANGED = "PlayerPlaybackRateChanged", e.REBUFFERING = "PlayerRebuffering", e.AUDIO_BLOCKED = "PlayerAudioBlocked", e.PLAYBACK_BLOCKED = "PlayerPlaybackBlocked", e.ERROR = "PlayerError", e.RECOVERABLE_ERROR = "PlayerRecoverableError", e.ANALYTICS_EVENT = "PlayerAnalyticsEvent", e.TIME_UPDATE = "PlayerTimeUpdate", e.BUFFER_UPDATE = "PlayerBufferUpdate", e.SEEK_COMPLETED = "PlayerSeekCompleted", e.PROFILE = "PlayerProfile", e.SESSION_DATA = "PlayerSessionData", e.WORKER_ERROR = "PlayerWorkerError", e.METADATA = "PlayerMetadata";
-      }(_ || (_ = {})), function (e) {
-        e.PLAYER_LOADED_IN_WORKER = "player_loaded_in_worker", e.HLS_MASTER_PLAYLIST_REQUEST = "master_manifest_request", e.HLS_MASTER_PLAYLIST_READY = "master_manifest_ready", e.HLS_MEDIA_PLAYLIST_REQUEST = "variant_request", e.HLS_MEDIA_PLAYLIST_READY = "variant_ready", e.MIN_BUFFER_READY = "min_buffer_ready", e.VIDEO_ELEMENT_PLAY = "video_element_play";
-      }(h || (h = {})), function (e) {
-        e.AVAILABLE = "RemotePlayerAvailable", e.UNAVAILABLE = "RemotePlayerUnavailable", e.SESSION_STARTED = "RemotePlayerSessionStarted", e.SESSION_ENDED = "RemotePlayerSessionEnded";
-      }(m || (m = {})), function (e) {
-        e.IDLE = "Idle", e.READY = "Ready", e.BUFFERING = "Buffering", e.PLAYING = "Playing", e.ENDED = "Ended";
-      }(v || (v = {})), function (e) {
-        e.DEBUG = "debug", e.INFO = "info", e.WARN = "warn", e.ERROR = "error";
-      }(A || (A = {})), function (e) {
-        e[e.GeoBlocked = 1] = "GeoBlocked", e[e.UnsupportedDevice = 2] = "UnsupportedDevice", e[e.AnonymizerBlocked = 3] = "AnonymizerBlocked", e[e.CellularNetworkProhibited = 4] = "CellularNetworkProhibited", e[e.UnauthorizationEntitlements = 5] = "UnauthorizationEntitlements", e[e.VodRestricted = 6] = "VodRestricted", e[e.LVSCCUCap = 509] = "LVSCCUCap", e[e.Aborted = 1e3] = "Aborted", e[e.Network = 2e3] = "Network", e[e.CCUCapReached = 2001] = "CCUCapReached", e[e.Decode = 3e3] = "Decode", e[e.FormatNotSupported = 4e3] = "FormatNotSupported", e[e.ContentNotAvailable = 5e3] = "ContentNotAvailable", e[e.RendererNotAvailable = 6e3] = "RendererNotAvailable", e[e.SafariUnsupportedDevice = 7004] = "SafariUnsupportedDevice", e[e.Fatal = 8001] = "Fatal", e[e.FatalAuth = 8003] = "FatalAuth", e[e.Offline = 8002] = "Offline", e[e.WarnAuth = 8004] = "WarnAuth";
-      }(P || (P = {})), function (e) {
-        e.PREMIUM_CONTENT_RESTRICTED = "PREMIUM_CONTENT", e.VOD_RESTRICTED = "vod_manifest_restricted";
-      }(g || (g = {}));
-
-      var O = function (e) {
-        function t(t) {
-          var n = this.constructor,
-              r = e.call(this, t) || this;
-          return Object.setPrototypeOf(r, n.prototype), r.name = "MissingParameterError", r;
-        }
-
-        return o(t, e), t;
-      }(Error),
-          C = function (e) {
-        function t(t) {
-          var n = this.constructor,
-              r = e.call(this, "Could not find the provided element: " + t) || this;
-          return Object.setPrototypeOf(r, n.prototype), r.name = "MissingElementError", r;
-        }
-
-        return o(t, e), t;
-      }(Error),
-          S = n(1);
-
-      function I(e, t) {
-        var n = "https://" + t + ".twitch.tv" + "?" + S.stringify(_i(_i({}, e), {
-          migration: !0,
-          parent: R(e.parent),
-          referrer: document.location.href
-        })),
-            r = document.createElement("iframe");
-        return r.setAttribute("src", n), r.setAttribute("allowfullscreen", ""), r.setAttribute("scrolling", "no"), r.setAttribute("frameborder", "0"), r.setAttribute("allow", "autoplay; fullscreen"), r.setAttribute("title", "Twitch"), e.width && r.setAttribute("width", String(e.width)), e.height && r.setAttribute("height", String(e.height)), r;
-      }
-
-      function R(e) {
-        var t = document.domain;
-        if (!e) return [t];
-        var n = Array.isArray(e) ? e : [e];
-        return -1 === n.indexOf(t) ? n.concat(t) : n;
-      }
-
-      var D = {
-        channelName: "",
-        channelID: "",
-        collectionID: "",
-        currentTime: 0,
-        duration: 0,
-        muted: !1,
-        playback: v.IDLE,
-        quality: "",
-        qualitiesAvailable: [],
-        stats: {
-          videoStats: {
-            backendVersion: "",
-            bufferSize: 0,
-            codecs: "",
-            displayResolution: "",
-            fps: 0,
-            hlsLatencyBroadcaster: 0,
-            latencyMode: "",
-            playbackRate: 0,
-            skippedFrames: 0,
-            videoResolution: ""
-          }
-        },
-        videoID: "",
-        volume: 0,
-        ended: !1
-      },
-          N = function (e) {
-        function t() {
-          var t = e.call(this) || this;
-          return t._embedWindow = null, t._playerState = D, window.addEventListener("message", t._handleResponses.bind(t)), t;
-        }
-
-        return o(t, e), t.prototype._setWindowRef = function (e) {
-          this._embedWindow = e;
-        }, t.prototype.disableCaptions = function () {
-          this._sendCommand(u.DisableCaptions, null);
-        }, t.prototype.enableCaptions = function () {
-          this._sendCommand(u.EnableCaptions, null);
-        }, t.prototype.pause = function () {
-          this._sendCommand(u.Pause, null);
-        }, t.prototype.play = function () {
-          this._sendCommand(u.Play, null);
-        }, t.prototype.seek = function (e) {
-          this._sendCommand(u.Seek, e);
-        }, t.prototype.setChannel = function (e) {
-          this._sendCommand(u.SetChannel, e);
-        }, t.prototype.setChannelId = function (e) {
-          this._sendCommand(u.SetChannelID, e);
-        }, t.prototype.setCollection = function (e, t) {
-          this._sendCommand(u.SetCollection, [e, t]);
-        }, t.prototype.setQuality = function (e) {
-          this._sendCommand(u.SetQuality, e);
-        }, t.prototype.setVideo = function (e) {
-          this._sendCommand(u.SetVideo, e);
-        }, t.prototype.setMuted = function (e) {
-          var t = "boolean" != typeof e || e;
-
-          this._sendCommand(u.SetMuted, t);
-        }, t.prototype.setVolume = function (e) {
-          this._sendCommand(u.SetVolume, e);
-        }, t.prototype.getMuted = function () {
-          return this._playerState.muted;
-        }, t.prototype.getVolume = function () {
-          return this._playerState.volume;
-        }, t.prototype.getChannel = function () {
-          return this._playerState.channelName;
-        }, t.prototype.getChannelId = function () {
-          return this._playerState.channelID;
-        }, t.prototype.getCollection = function () {
-          return this._playerState.collectionID;
-        }, t.prototype.getCurrentTime = function () {
-          return this._playerState.currentTime;
-        }, t.prototype.getDuration = function () {
-          return this._playerState.duration;
-        }, t.prototype.getEnded = function () {
-          return this._playerState.ended;
-        }, t.prototype.getPlaybackStats = function () {
-          return this._playerState.stats.videoStats;
-        }, t.prototype.getQualities = function () {
-          return this._playerState.qualitiesAvailable;
-        }, t.prototype.getQuality = function () {
-          return this._playerState.quality;
-        }, t.prototype.getVideo = function () {
-          return this._playerState.videoID;
-        }, t.prototype.isPaused = function () {
-          return this._playerState.playback === v.IDLE;
-        }, t.prototype.getPlayerState = function () {
-          return this._playerState;
-        }, t.prototype._sendCommand = function (e, t) {
-          if (this._embedWindow) {
-            var n = {
-              eventName: e,
-              params: t,
-              namespace: "twitch-embed-player-proxy"
-            };
-
-            this._embedWindow.postMessage(n, "*");
-          } else console.warn("Cannot send player commands before the video player is initialized.          Please wait for the VIDEO_READY event before using the player API.");
-        }, t.prototype._handleResponses = function (e) {
-          if (this._embedWindow) {
-            var t = e.data,
-                n = e.source === this._embedWindow,
-                r = "twitch-embed-player-proxy" === t.namespace,
-                o = t.eventName === a.UpdateState;
-            n && r && o && (this._playerState = Object.assign({}, this._playerState, t.params));
-          }
-        }, t;
-      }(b);
-
-      n.d(t, "Embed", function () {
-        return T;
-      }), n.d(t, "Player", function () {
-        return L;
-      });
-
-      var T = function (e) {
-        function t(t, n) {
-          var r = e.call(this) || this;
-          return r._options = {}, r._target = null, r._player = new N(), r._eventEmitter = null, r._iframe = null, r._forwardEmbedEvents = function (e) {
-            if (r._iframe) {
-              var t = e.data,
-                  n = e.source === r._iframe.contentWindow,
-                  o = t.namespace === d;
-              n && o && r._eventEmitter.emit(t.eventName, t.params);
-            }
-          }, r.disableCaptions = r.getPlayer().disableCaptions.bind(r.getPlayer()), r.enableCaptions = r.getPlayer().enableCaptions.bind(r.getPlayer()), r.pause = r.getPlayer().pause.bind(r.getPlayer()), r.play = r.getPlayer().play.bind(r.getPlayer()), r.seek = r.getPlayer().seek.bind(r.getPlayer()), r.setChannel = r.getPlayer().setChannel.bind(r.getPlayer()), r.setChannelId = r.getPlayer().setChannelId.bind(r.getPlayer()), r.setCollection = r.getPlayer().setCollection.bind(r.getPlayer()), r.setQuality = r.getPlayer().setQuality.bind(r.getPlayer()), r.setVideo = r.getPlayer().setVideo.bind(r.getPlayer()), r.setMuted = r.getPlayer().setMuted.bind(r.getPlayer()), r.setVolume = r.getPlayer().setVolume.bind(r.getPlayer()), r.getMuted = r.getPlayer().getMuted.bind(r.getPlayer()), r.getVolume = r.getPlayer().getVolume.bind(r.getPlayer()), r.getChannel = r.getPlayer().getChannel.bind(r.getPlayer()), r.getChannelId = r.getPlayer().getChannelId.bind(r.getPlayer()), r.getCollection = r.getPlayer().getCollection.bind(r.getPlayer()), r.getCurrentTime = r.getPlayer().getCurrentTime.bind(r.getPlayer()), r.getDuration = r.getPlayer().getDuration.bind(r.getPlayer()), r.getEnded = r.getPlayer().getEnded.bind(r.getPlayer()), r.getPlaybackStats = r.getPlayer().getPlaybackStats.bind(r.getPlayer()), r.getPlayerState = r.getPlayer().getPlayerState.bind(r.getPlayer()), r.getQualities = r.getPlayer().getQualities.bind(r.getPlayer()), r.getQuality = r.getPlayer().getQuality.bind(r.getPlayer()), r.getVideo = r.getPlayer().getVideo.bind(r.getPlayer()), r.isPaused = r.getPlayer().isPaused.bind(r.getPlayer()), function (e) {
-            var t = (null == e ? void 0 : e.channelId) && (null == e ? void 0 : e.stream);
-            if (!e || !e.channel && !e.video && !e.collection && !t) throw new O("A channel, video, or collection id must be provided in options");
-          }(n), r._options = n, r._target = function (e) {
-            if (!e) throw new O("An element of type String or Element is required");
-            var t = "string" == typeof e ? document.getElementById(e) : e;
-            if (!t) throw new C(e);
-            if (1 !== t.nodeType) throw new O("An element of type String or Element is required");
-            return t;
-          }(t), r._eventEmitter = new c(), r.render(), r;
-        }
-
-        return o(t, e), t.prototype.addEventListener = function (e, t) {
-          this._eventEmitter && this._eventEmitter.on(e, t);
-        }, t.prototype.removeEventListener = function (e, t) {
-          this._eventEmitter && this._eventEmitter.removeListener(e, t);
-        }, t.prototype.getPlayer = function () {
-          return this._player;
-        }, t.prototype.destroy = function () {
-          var e, t;
-          this._eventEmitter && this._eventEmitter.removeAllListeners(), window.removeEventListener("message", this._forwardEmbedEvents), null === (t = null === (e = this._iframe) || void 0 === e ? void 0 : e.parentNode) || void 0 === t || t.removeChild(this._iframe), this._eventEmitter = null, this._player._setWindowRef(null), this._target = null, this._iframe = null;
-        }, t.prototype.buildIframe = function () {
-          return I(this._options, "embed");
-        }, t.prototype.render = function () {
-          if (this._target) {
-            var e = this.buildIframe();
-            this._target.appendChild(e), this._iframe = e, window.addEventListener("message", this._forwardEmbedEvents), this._player._setWindowRef(this._iframe.contentWindow);
-          }
-        }, t.AUTHENTICATE = s.AUTHENTICATE, t.CAPTIONS = s.CAPTIONS, t.ENDED = s.ENDED, t.ERROR = s.ERROR, t.OFFLINE = s.OFFLINE, t.ONLINE = s.ONLINE, t.PAUSE = s.PAUSE, t.PLAY = s.PLAY, t.PLAYBACK_BLOCKED = s.PLAYBACK_BLOCKED, t.PLAYING = s.PLAYING, t.VIDEO_PAUSE = s.VIDEO_PAUSE, t.VIDEO_PLAY = s.VIDEO_PLAY, t.VIDEO_READY = s.VIDEO_READY, t.READY = s.READY, t.Errors = _i({
-          ABORTED: P.Aborted,
-          NETWORK: P.Network,
-          DECODE: P.Decode,
-          FORMAT_NOT_SUPPORTED: P.FormatNotSupported,
-          CONTENT_NOT_AVAILABLE: P.ContentNotAvailable,
-          RENDERER_NOT_AVAILABLE: P.RendererNotAvailable
-        }, P), t;
-      }(b);
-
-      var L = function (e) {
-        function t(t, n) {
-          return e.call(this, t, n) || this;
-        }
-
-        return o(t, e), t.prototype.buildIframe = function () {
-          return I(this._options, "player");
-        }, t;
-      }(T);
-
-      t["default"] = {
-        Embed: T,
-        Player: L
-      };
-    }])["default"];
-  });
-
-  var stream = /*#__PURE__*/function (_React$Component) {
-    _inherits(stream, _React$Component);
-
-    var _super = _createSuper(stream);
-
-    function stream() {
-      _classCallCheck(this, stream);
-
-      return _super.apply(this, arguments);
-    }
-
-    _createClass(stream, [{
-      key: "componentDidMount",
-      value: function componentDidMount() {
-        new Twitch.Embed("twitch-embed", {
-          width: 1280,
-          height: 720,
-          channel: "greengogg"
-        });
-      }
-    }, {
-      key: "render",
-      value: function render() {
-        return /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("div", {
-          id: "twitch-embed"
-        }));
-      }
-    }]);
-
-    return stream;
-  }(react.Component);
-
-  var devlog = /*#__PURE__*/function (_React$Component) {
-    _inherits(devlog, _React$Component);
-
-    var _super = _createSuper(devlog);
-
-    function devlog(params) {
-      var _this;
-
-      _classCallCheck(this, devlog);
-
-      _this = _super.call(this, params);
-      _this.state = {
-        logs: []
-      };
-      return _this;
-    }
-
-    _createClass(devlog, [{
-      key: "componentDidMount",
-      value: function componentDidMount() {
-        var _this2 = this;
-
-        axios.get('/devlog/1').then(function (res) {
-          _this2.setState({
-            logs: res.data
-          });
-        });
-      }
-    }, {
-      key: "render",
-      value: function render() {
-        return this.state.logs.map(function (log) {
-          return /*#__PURE__*/react.createElement("div", {
-            className: "center"
-          }, log.info);
-        });
-      }
-    }]);
-
-    return devlog;
-  }(react.Component);
-
-  function _classCallCheck$1(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
-
-  function _defineProperties$1(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  function _createClass$1(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties$1(Constructor, staticProps);
-    return Constructor;
-  }
-
-  function _defineProperty$1(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  }
-
-  function _objectSpread(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i] != null ? arguments[i] : {};
-      var ownKeys = Object.keys(source);
-
-      if (typeof Object.getOwnPropertySymbols === 'function') {
-        ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-        }));
-      }
-
-      ownKeys.forEach(function (key) {
-        _defineProperty$1(target, key, source[key]);
-      });
-    }
-
-    return target;
-  }
-
-  function _slicedToArray$1(arr, i) {
-    return _arrayWithHoles$1(arr) || _iterableToArrayLimit$1(arr, i) || _nonIterableRest$1();
-  }
-
-  function _arrayWithHoles$1(arr) {
-    if (Array.isArray(arr)) return arr;
-  }
-
-  function _iterableToArrayLimit$1(arr, i) {
-    var _arr = [];
-    var _n = true;
-    var _d = false;
-    var _e = undefined;
-
-    try {
-      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-        _arr.push(_s.value);
-
-        if (i && _arr.length === i) break;
-      }
-    } catch (err) {
-      _d = true;
-      _e = err;
-    } finally {
-      try {
-        if (!_n && _i["return"] != null) _i["return"]();
-      } finally {
-        if (_d) throw _e;
-      }
-    }
-
-    return _arr;
-  }
-
-  function _nonIterableRest$1() {
-    throw new TypeError("Invalid attempt to destructure non-iterable instance");
-  }
-
-  var noop = function noop() {};
-
-  var _WINDOW = {};
-  var _DOCUMENT = {};
-  var _MUTATION_OBSERVER = null;
-  var _PERFORMANCE = {
-    mark: noop,
-    measure: noop
-  };
-
-  try {
-    if (typeof window !== 'undefined') _WINDOW = window;
-    if (typeof document !== 'undefined') _DOCUMENT = document;
-    if (typeof MutationObserver !== 'undefined') _MUTATION_OBSERVER = MutationObserver;
-    if (typeof performance !== 'undefined') _PERFORMANCE = performance;
-  } catch (e) {}
-
-  var _ref = _WINDOW.navigator || {},
-      _ref$userAgent = _ref.userAgent,
-      userAgent = _ref$userAgent === void 0 ? '' : _ref$userAgent;
-
-  var WINDOW = _WINDOW;
-  var DOCUMENT = _DOCUMENT;
-  var PERFORMANCE = _PERFORMANCE;
-  var IS_BROWSER = !!WINDOW.document;
-  var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
-  var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
-
-  var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
-  var DEFAULT_FAMILY_PREFIX = 'fa';
-  var DEFAULT_REPLACEMENT_CLASS = 'svg-inline--fa';
-  var DATA_FA_I2SVG = 'data-fa-i2svg';
-  var PRODUCTION = function () {
-    try {
-      return "development" === 'production';
-    } catch (e) {
-      return false;
-    }
-  }();
-  var DUOTONE_CLASSES = {
-    GROUP: 'group',
-    SWAP_OPACITY: 'swap-opacity',
-    PRIMARY: 'primary',
-    SECONDARY: 'secondary'
-  };
-
-  var initial = WINDOW.FontAwesomeConfig || {};
-
-  function getAttrConfig(attr) {
-    var element = DOCUMENT.querySelector('script[' + attr + ']');
-
-    if (element) {
-      return element.getAttribute(attr);
-    }
-  }
-
-  function coerce(val) {
-    // Getting an empty string will occur if the attribute is set on the HTML tag but without a value
-    // We'll assume that this is an indication that it should be toggled to true
-    // For example <script data-search-pseudo-elements src="..."></script>
-    if (val === '') return true;
-    if (val === 'false') return false;
-    if (val === 'true') return true;
-    return val;
-  }
-
-  if (DOCUMENT && typeof DOCUMENT.querySelector === 'function') {
-    var attrs = [['data-family-prefix', 'familyPrefix'], ['data-replacement-class', 'replacementClass'], ['data-auto-replace-svg', 'autoReplaceSvg'], ['data-auto-add-css', 'autoAddCss'], ['data-auto-a11y', 'autoA11y'], ['data-search-pseudo-elements', 'searchPseudoElements'], ['data-observe-mutations', 'observeMutations'], ['data-mutate-approach', 'mutateApproach'], ['data-keep-original-source', 'keepOriginalSource'], ['data-measure-performance', 'measurePerformance'], ['data-show-missing-icons', 'showMissingIcons']];
-    attrs.forEach(function (_ref) {
-      var _ref2 = _slicedToArray$1(_ref, 2),
-          attr = _ref2[0],
-          key = _ref2[1];
-
-      var val = coerce(getAttrConfig(attr));
-
-      if (val !== undefined && val !== null) {
-        initial[key] = val;
-      }
-    });
-  }
-
-  var _default = {
-    familyPrefix: DEFAULT_FAMILY_PREFIX,
-    replacementClass: DEFAULT_REPLACEMENT_CLASS,
-    autoReplaceSvg: true,
-    autoAddCss: true,
-    autoA11y: true,
-    searchPseudoElements: false,
-    observeMutations: true,
-    mutateApproach: 'async',
-    keepOriginalSource: true,
-    measurePerformance: false,
-    showMissingIcons: true
-  };
-
-  var _config = _objectSpread({}, _default, initial);
-
-  if (!_config.autoReplaceSvg) _config.observeMutations = false;
-
-  var config = _objectSpread({}, _config);
-
-  WINDOW.FontAwesomeConfig = config;
-
-  var w = WINDOW || {};
-  if (!w[NAMESPACE_IDENTIFIER]) w[NAMESPACE_IDENTIFIER] = {};
-  if (!w[NAMESPACE_IDENTIFIER].styles) w[NAMESPACE_IDENTIFIER].styles = {};
-  if (!w[NAMESPACE_IDENTIFIER].hooks) w[NAMESPACE_IDENTIFIER].hooks = {};
-  if (!w[NAMESPACE_IDENTIFIER].shims) w[NAMESPACE_IDENTIFIER].shims = [];
-  var namespace = w[NAMESPACE_IDENTIFIER];
-
-  var functions = [];
-
-  var listener = function listener() {
-    DOCUMENT.removeEventListener('DOMContentLoaded', listener);
-    loaded = 1;
-    functions.map(function (fn) {
-      return fn();
-    });
-  };
-
-  var loaded = false;
-
-  if (IS_DOM) {
-    loaded = (DOCUMENT.documentElement.doScroll ? /^loaded|^c/ : /^loaded|^i|^c/).test(DOCUMENT.readyState);
-    if (!loaded) DOCUMENT.addEventListener('DOMContentLoaded', listener);
-  }
-
-  var isNode = typeof global !== 'undefined' && typeof global.process !== 'undefined' && typeof global.process.emit === 'function';
-  var asyncSetTimer = typeof setImmediate === 'undefined' ? setTimeout : setImmediate;
-  var meaninglessTransform = {
-    size: 16,
-    x: 0,
-    y: 0,
-    rotate: 0,
-    flipX: false,
-    flipY: false
-  };
-  function insertCss(css) {
-    if (!css || !IS_DOM) {
-      return;
-    }
-
-    var style = DOCUMENT.createElement('style');
-    style.setAttribute('type', 'text/css');
-    style.innerHTML = css;
-    var headChildren = DOCUMENT.head.childNodes;
-    var beforeChild = null;
-
-    for (var i = headChildren.length - 1; i > -1; i--) {
-      var child = headChildren[i];
-      var tagName = (child.tagName || '').toUpperCase();
-
-      if (['STYLE', 'LINK'].indexOf(tagName) > -1) {
-        beforeChild = child;
-      }
-    }
-
-    DOCUMENT.head.insertBefore(style, beforeChild);
-    return css;
-  }
-  var idPool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  function nextUniqueId() {
-    var size = 12;
-    var id = '';
-
-    while (size-- > 0) {
-      id += idPool[Math.random() * 62 | 0];
-    }
-
-    return id;
-  }
-  function htmlEscape(str) {
-    return "".concat(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  }
-  function joinAttributes(attributes) {
-    return Object.keys(attributes || {}).reduce(function (acc, attributeName) {
-      return acc + "".concat(attributeName, "=\"").concat(htmlEscape(attributes[attributeName]), "\" ");
-    }, '').trim();
-  }
-  function joinStyles(styles) {
-    return Object.keys(styles || {}).reduce(function (acc, styleName) {
-      return acc + "".concat(styleName, ": ").concat(styles[styleName], ";");
-    }, '');
-  }
-  function transformIsMeaningful(transform) {
-    return transform.size !== meaninglessTransform.size || transform.x !== meaninglessTransform.x || transform.y !== meaninglessTransform.y || transform.rotate !== meaninglessTransform.rotate || transform.flipX || transform.flipY;
-  }
-  function transformForSvg(_ref) {
-    var transform = _ref.transform,
-        containerWidth = _ref.containerWidth,
-        iconWidth = _ref.iconWidth;
-    var outer = {
-      transform: "translate(".concat(containerWidth / 2, " 256)")
-    };
-    var innerTranslate = "translate(".concat(transform.x * 32, ", ").concat(transform.y * 32, ") ");
-    var innerScale = "scale(".concat(transform.size / 16 * (transform.flipX ? -1 : 1), ", ").concat(transform.size / 16 * (transform.flipY ? -1 : 1), ") ");
-    var innerRotate = "rotate(".concat(transform.rotate, " 0 0)");
-    var inner = {
-      transform: "".concat(innerTranslate, " ").concat(innerScale, " ").concat(innerRotate)
-    };
-    var path = {
-      transform: "translate(".concat(iconWidth / 2 * -1, " -256)")
-    };
-    return {
-      outer: outer,
-      inner: inner,
-      path: path
-    };
-  }
-
-  var ALL_SPACE = {
-    x: 0,
-    y: 0,
-    width: '100%',
-    height: '100%'
-  };
-
-  function fillBlack(abstract) {
-    var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-
-    if (abstract.attributes && (abstract.attributes.fill || force)) {
-      abstract.attributes.fill = 'black';
-    }
-
-    return abstract;
-  }
-
-  function deGroup(abstract) {
-    if (abstract.tag === 'g') {
-      return abstract.children;
-    } else {
-      return [abstract];
-    }
-  }
-
-  function makeIconMasking (_ref) {
-    var children = _ref.children,
-        attributes = _ref.attributes,
-        main = _ref.main,
-        mask = _ref.mask,
-        explicitMaskId = _ref.maskId,
-        transform = _ref.transform;
-    var mainWidth = main.width,
-        mainPath = main.icon;
-    var maskWidth = mask.width,
-        maskPath = mask.icon;
-    var trans = transformForSvg({
-      transform: transform,
-      containerWidth: maskWidth,
-      iconWidth: mainWidth
-    });
-    var maskRect = {
-      tag: 'rect',
-      attributes: _objectSpread({}, ALL_SPACE, {
-        fill: 'white'
-      })
-    };
-    var maskInnerGroupChildrenMixin = mainPath.children ? {
-      children: mainPath.children.map(fillBlack)
-    } : {};
-    var maskInnerGroup = {
-      tag: 'g',
-      attributes: _objectSpread({}, trans.inner),
-      children: [fillBlack(_objectSpread({
-        tag: mainPath.tag,
-        attributes: _objectSpread({}, mainPath.attributes, trans.path)
-      }, maskInnerGroupChildrenMixin))]
-    };
-    var maskOuterGroup = {
-      tag: 'g',
-      attributes: _objectSpread({}, trans.outer),
-      children: [maskInnerGroup]
-    };
-    var maskId = "mask-".concat(explicitMaskId || nextUniqueId());
-    var clipId = "clip-".concat(explicitMaskId || nextUniqueId());
-    var maskTag = {
-      tag: 'mask',
-      attributes: _objectSpread({}, ALL_SPACE, {
-        id: maskId,
-        maskUnits: 'userSpaceOnUse',
-        maskContentUnits: 'userSpaceOnUse'
-      }),
-      children: [maskRect, maskOuterGroup]
-    };
-    var defs = {
-      tag: 'defs',
-      children: [{
-        tag: 'clipPath',
-        attributes: {
-          id: clipId
-        },
-        children: deGroup(maskPath)
-      }, maskTag]
-    };
-    children.push(defs, {
-      tag: 'rect',
-      attributes: _objectSpread({
-        fill: 'currentColor',
-        'clip-path': "url(#".concat(clipId, ")"),
-        mask: "url(#".concat(maskId, ")")
-      }, ALL_SPACE)
-    });
-    return {
-      children: children,
-      attributes: attributes
-    };
-  }
-
-  function makeIconStandard (_ref) {
-    var children = _ref.children,
-        attributes = _ref.attributes,
-        main = _ref.main,
-        transform = _ref.transform,
-        styles = _ref.styles;
-    var styleString = joinStyles(styles);
-
-    if (styleString.length > 0) {
-      attributes['style'] = styleString;
-    }
-
-    if (transformIsMeaningful(transform)) {
-      var trans = transformForSvg({
-        transform: transform,
-        containerWidth: main.width,
-        iconWidth: main.width
-      });
-      children.push({
-        tag: 'g',
-        attributes: _objectSpread({}, trans.outer),
-        children: [{
-          tag: 'g',
-          attributes: _objectSpread({}, trans.inner),
-          children: [{
-            tag: main.icon.tag,
-            children: main.icon.children,
-            attributes: _objectSpread({}, main.icon.attributes, trans.path)
-          }]
-        }]
-      });
-    } else {
-      children.push(main.icon);
-    }
-
-    return {
-      children: children,
-      attributes: attributes
-    };
-  }
-
-  function asIcon (_ref) {
-    var children = _ref.children,
-        main = _ref.main,
-        mask = _ref.mask,
-        attributes = _ref.attributes,
-        styles = _ref.styles,
-        transform = _ref.transform;
-
-    if (transformIsMeaningful(transform) && main.found && !mask.found) {
-      var width = main.width,
-          height = main.height;
-      var offset = {
-        x: width / height / 2,
-        y: 0.5
-      };
-      attributes['style'] = joinStyles(_objectSpread({}, styles, {
-        'transform-origin': "".concat(offset.x + transform.x / 16, "em ").concat(offset.y + transform.y / 16, "em")
-      }));
-    }
-
-    return [{
-      tag: 'svg',
-      attributes: attributes,
-      children: children
-    }];
-  }
-
-  function asSymbol (_ref) {
-    var prefix = _ref.prefix,
-        iconName = _ref.iconName,
-        children = _ref.children,
-        attributes = _ref.attributes,
-        symbol = _ref.symbol;
-    var id = symbol === true ? "".concat(prefix, "-").concat(config.familyPrefix, "-").concat(iconName) : symbol;
-    return [{
-      tag: 'svg',
-      attributes: {
-        style: 'display: none;'
-      },
-      children: [{
-        tag: 'symbol',
-        attributes: _objectSpread({}, attributes, {
-          id: id
-        }),
-        children: children
-      }]
-    }];
-  }
-
-  function makeInlineSvgAbstract(params) {
-    var _params$icons = params.icons,
-        main = _params$icons.main,
-        mask = _params$icons.mask,
-        prefix = params.prefix,
-        iconName = params.iconName,
-        transform = params.transform,
-        symbol = params.symbol,
-        title = params.title,
-        maskId = params.maskId,
-        titleId = params.titleId,
-        extra = params.extra,
-        _params$watchable = params.watchable,
-        watchable = _params$watchable === void 0 ? false : _params$watchable;
-
-    var _ref = mask.found ? mask : main,
-        width = _ref.width,
-        height = _ref.height;
-
-    var widthClass = "fa-w-".concat(Math.ceil(width / height * 16));
-    var attrClass = [config.replacementClass, iconName ? "".concat(config.familyPrefix, "-").concat(iconName) : '', widthClass].filter(function (c) {
-      return extra.classes.indexOf(c) === -1;
-    }).concat(extra.classes).join(' ');
-    var content = {
-      children: [],
-      attributes: _objectSpread({}, extra.attributes, {
-        'data-prefix': prefix,
-        'data-icon': iconName,
-        'class': attrClass,
-        'role': extra.attributes.role || 'img',
-        'xmlns': 'http://www.w3.org/2000/svg',
-        'viewBox': "0 0 ".concat(width, " ").concat(height)
-      })
-    };
-
-    if (watchable) {
-      content.attributes[DATA_FA_I2SVG] = '';
-    }
-
-    if (title) content.children.push({
-      tag: 'title',
-      attributes: {
-        id: content.attributes['aria-labelledby'] || "title-".concat(titleId || nextUniqueId())
-      },
-      children: [title]
-    });
-
-    var args = _objectSpread({}, content, {
-      prefix: prefix,
-      iconName: iconName,
-      main: main,
-      mask: mask,
-      maskId: maskId,
-      transform: transform,
-      symbol: symbol,
-      styles: extra.styles
-    });
-
-    var _ref2 = mask.found && main.found ? makeIconMasking(args) : makeIconStandard(args),
-        children = _ref2.children,
-        attributes = _ref2.attributes;
-
-    args.children = children;
-    args.attributes = attributes;
-
-    if (symbol) {
-      return asSymbol(args);
-    } else {
-      return asIcon(args);
-    }
-  }
-
-  var noop$1 = function noop() {};
-
-  var p = config.measurePerformance && PERFORMANCE && PERFORMANCE.mark && PERFORMANCE.measure ? PERFORMANCE : {
-    mark: noop$1,
-    measure: noop$1
-  };
-
-  /**
-   * Internal helper to bind a function known to have 4 arguments
-   * to a given context.
-   */
-
-  var bindInternal4 = function bindInternal4(func, thisContext) {
-    return function (a, b, c, d) {
-      return func.call(thisContext, a, b, c, d);
-    };
-  };
-
-  /**
-   * # Reduce
-   *
-   * A fast object `.reduce()` implementation.
-   *
-   * @param  {Object}   subject      The object to reduce over.
-   * @param  {Function} fn           The reducer function.
-   * @param  {mixed}    initialValue The initial value for the reducer, defaults to subject[0].
-   * @param  {Object}   thisContext  The context for the reducer.
-   * @return {mixed}                 The final result.
-   */
-
-
-  var reduce = function fastReduceObject(subject, fn, initialValue, thisContext) {
-    var keys = Object.keys(subject),
-        length = keys.length,
-        iterator = thisContext !== undefined ? bindInternal4(fn, thisContext) : fn,
-        i,
-        key,
-        result;
-
-    if (initialValue === undefined) {
-      i = 1;
-      result = subject[keys[0]];
-    } else {
-      i = 0;
-      result = initialValue;
-    }
-
-    for (; i < length; i++) {
-      key = keys[i];
-      result = iterator(result, subject[key], key, subject);
-    }
-
-    return result;
-  };
-
-  function defineIcons(prefix, icons) {
-    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-    var _params$skipHooks = params.skipHooks,
-        skipHooks = _params$skipHooks === void 0 ? false : _params$skipHooks;
-    var normalized = Object.keys(icons).reduce(function (acc, iconName) {
-      var icon = icons[iconName];
-      var expanded = !!icon.icon;
-
-      if (expanded) {
-        acc[icon.iconName] = icon.icon;
-      } else {
-        acc[iconName] = icon;
-      }
-
-      return acc;
-    }, {});
-
-    if (typeof namespace.hooks.addPack === 'function' && !skipHooks) {
-      namespace.hooks.addPack(prefix, normalized);
-    } else {
-      namespace.styles[prefix] = _objectSpread({}, namespace.styles[prefix] || {}, normalized);
-    }
-    /**
-     * Font Awesome 4 used the prefix of `fa` for all icons. With the introduction
-     * of new styles we needed to differentiate between them. Prefix `fa` is now an alias
-     * for `fas` so we'll easy the upgrade process for our users by automatically defining
-     * this as well.
-     */
-
-
-    if (prefix === 'fas') {
-      defineIcons('fa', icons);
-    }
-  }
-
-  var styles = namespace.styles,
-      shims = namespace.shims;
-  var _byUnicode = {};
-  var _byLigature = {};
-  var _byOldName = {};
-  var build = function build() {
-    var lookup = function lookup(reducer) {
-      return reduce(styles, function (o, style, prefix) {
-        o[prefix] = reduce(style, reducer, {});
-        return o;
-      }, {});
-    };
-
-    _byUnicode = lookup(function (acc, icon, iconName) {
-      if (icon[3]) {
-        acc[icon[3]] = iconName;
-      }
-
-      return acc;
-    });
-    _byLigature = lookup(function (acc, icon, iconName) {
-      var ligatures = icon[2];
-      acc[iconName] = iconName;
-      ligatures.forEach(function (ligature) {
-        acc[ligature] = iconName;
-      });
-      return acc;
-    });
-    var hasRegular = 'far' in styles;
-    _byOldName = reduce(shims, function (acc, shim) {
-      var oldName = shim[0];
-      var prefix = shim[1];
-      var iconName = shim[2];
-
-      if (prefix === 'far' && !hasRegular) {
-        prefix = 'fas';
-      }
-
-      acc[oldName] = {
-        prefix: prefix,
-        iconName: iconName
-      };
-      return acc;
-    }, {});
-  };
-  build();
-
-  var styles$1 = namespace.styles;
-  function iconFromMapping(mapping, prefix, iconName) {
-    if (mapping && mapping[prefix] && mapping[prefix][iconName]) {
-      return {
-        prefix: prefix,
-        iconName: iconName,
-        icon: mapping[prefix][iconName]
-      };
-    }
-  }
-
-  function toHtml(abstractNodes) {
-    var tag = abstractNodes.tag,
-        _abstractNodes$attrib = abstractNodes.attributes,
-        attributes = _abstractNodes$attrib === void 0 ? {} : _abstractNodes$attrib,
-        _abstractNodes$childr = abstractNodes.children,
-        children = _abstractNodes$childr === void 0 ? [] : _abstractNodes$childr;
-
-    if (typeof abstractNodes === 'string') {
-      return htmlEscape(abstractNodes);
-    } else {
-      return "<".concat(tag, " ").concat(joinAttributes(attributes), ">").concat(children.map(toHtml).join(''), "</").concat(tag, ">");
-    }
-  }
-
-  var parseTransformString = function parseTransformString(transformString) {
-    var transform = {
-      size: 16,
-      x: 0,
-      y: 0,
-      flipX: false,
-      flipY: false,
-      rotate: 0
-    };
-
-    if (!transformString) {
-      return transform;
-    } else {
-      return transformString.toLowerCase().split(' ').reduce(function (acc, n) {
-        var parts = n.toLowerCase().split('-');
-        var first = parts[0];
-        var rest = parts.slice(1).join('-');
-
-        if (first && rest === 'h') {
-          acc.flipX = true;
-          return acc;
-        }
-
-        if (first && rest === 'v') {
-          acc.flipY = true;
-          return acc;
-        }
-
-        rest = parseFloat(rest);
-
-        if (isNaN(rest)) {
-          return acc;
-        }
-
-        switch (first) {
-          case 'grow':
-            acc.size = acc.size + rest;
-            break;
-
-          case 'shrink':
-            acc.size = acc.size - rest;
-            break;
-
-          case 'left':
-            acc.x = acc.x - rest;
-            break;
-
-          case 'right':
-            acc.x = acc.x + rest;
-            break;
-
-          case 'up':
-            acc.y = acc.y - rest;
-            break;
-
-          case 'down':
-            acc.y = acc.y + rest;
-            break;
-
-          case 'rotate':
-            acc.rotate = acc.rotate + rest;
-            break;
-        }
-
-        return acc;
-      }, transform);
-    }
-  };
-
-  function MissingIcon(error) {
-    this.name = 'MissingIcon';
-    this.message = error || 'Icon unavailable';
-    this.stack = new Error().stack;
-  }
-  MissingIcon.prototype = Object.create(Error.prototype);
-  MissingIcon.prototype.constructor = MissingIcon;
-
-  var FILL = {
-    fill: 'currentColor'
-  };
-  var ANIMATION_BASE = {
-    attributeType: 'XML',
-    repeatCount: 'indefinite',
-    dur: '2s'
-  };
-  var RING = {
-    tag: 'path',
-    attributes: _objectSpread({}, FILL, {
-      d: 'M156.5,447.7l-12.6,29.5c-18.7-9.5-35.9-21.2-51.5-34.9l22.7-22.7C127.6,430.5,141.5,440,156.5,447.7z M40.6,272H8.5 c1.4,21.2,5.4,41.7,11.7,61.1L50,321.2C45.1,305.5,41.8,289,40.6,272z M40.6,240c1.4-18.8,5.2-37,11.1-54.1l-29.5-12.6 C14.7,194.3,10,216.7,8.5,240H40.6z M64.3,156.5c7.8-14.9,17.2-28.8,28.1-41.5L69.7,92.3c-13.7,15.6-25.5,32.8-34.9,51.5 L64.3,156.5z M397,419.6c-13.9,12-29.4,22.3-46.1,30.4l11.9,29.8c20.7-9.9,39.8-22.6,56.9-37.6L397,419.6z M115,92.4 c13.9-12,29.4-22.3,46.1-30.4l-11.9-29.8c-20.7,9.9-39.8,22.6-56.8,37.6L115,92.4z M447.7,355.5c-7.8,14.9-17.2,28.8-28.1,41.5 l22.7,22.7c13.7-15.6,25.5-32.9,34.9-51.5L447.7,355.5z M471.4,272c-1.4,18.8-5.2,37-11.1,54.1l29.5,12.6 c7.5-21.1,12.2-43.5,13.6-66.8H471.4z M321.2,462c-15.7,5-32.2,8.2-49.2,9.4v32.1c21.2-1.4,41.7-5.4,61.1-11.7L321.2,462z M240,471.4c-18.8-1.4-37-5.2-54.1-11.1l-12.6,29.5c21.1,7.5,43.5,12.2,66.8,13.6V471.4z M462,190.8c5,15.7,8.2,32.2,9.4,49.2h32.1 c-1.4-21.2-5.4-41.7-11.7-61.1L462,190.8z M92.4,397c-12-13.9-22.3-29.4-30.4-46.1l-29.8,11.9c9.9,20.7,22.6,39.8,37.6,56.9 L92.4,397z M272,40.6c18.8,1.4,36.9,5.2,54.1,11.1l12.6-29.5C317.7,14.7,295.3,10,272,8.5V40.6z M190.8,50 c15.7-5,32.2-8.2,49.2-9.4V8.5c-21.2,1.4-41.7,5.4-61.1,11.7L190.8,50z M442.3,92.3L419.6,115c12,13.9,22.3,29.4,30.5,46.1 l29.8-11.9C470,128.5,457.3,109.4,442.3,92.3z M397,92.4l22.7-22.7c-15.6-13.7-32.8-25.5-51.5-34.9l-12.6,29.5 C370.4,72.1,384.4,81.5,397,92.4z'
-    })
-  };
-
-  var OPACITY_ANIMATE = _objectSpread({}, ANIMATION_BASE, {
-    attributeName: 'opacity'
-  });
-
-  var DOT = {
-    tag: 'circle',
-    attributes: _objectSpread({}, FILL, {
-      cx: '256',
-      cy: '364',
-      r: '28'
-    }),
-    children: [{
-      tag: 'animate',
-      attributes: _objectSpread({}, ANIMATION_BASE, {
-        attributeName: 'r',
-        values: '28;14;28;28;14;28;'
-      })
-    }, {
-      tag: 'animate',
-      attributes: _objectSpread({}, OPACITY_ANIMATE, {
-        values: '1;0;1;1;0;1;'
-      })
-    }]
-  };
-  var QUESTION = {
-    tag: 'path',
-    attributes: _objectSpread({}, FILL, {
-      opacity: '1',
-      d: 'M263.7,312h-16c-6.6,0-12-5.4-12-12c0-71,77.4-63.9,77.4-107.8c0-20-17.8-40.2-57.4-40.2c-29.1,0-44.3,9.6-59.2,28.7 c-3.9,5-11.1,6-16.2,2.4l-13.1-9.2c-5.6-3.9-6.9-11.8-2.6-17.2c21.2-27.2,46.4-44.7,91.2-44.7c52.3,0,97.4,29.8,97.4,80.2 c0,67.6-77.4,63.5-77.4,107.8C275.7,306.6,270.3,312,263.7,312z'
-    }),
-    children: [{
-      tag: 'animate',
-      attributes: _objectSpread({}, OPACITY_ANIMATE, {
-        values: '1;0;0;0;0;1;'
-      })
-    }]
-  };
-  var EXCLAMATION = {
-    tag: 'path',
-    attributes: _objectSpread({}, FILL, {
-      opacity: '0',
-      d: 'M232.5,134.5l7,168c0.3,6.4,5.6,11.5,12,11.5h9c6.4,0,11.7-5.1,12-11.5l7-168c0.3-6.8-5.2-12.5-12-12.5h-23 C237.7,122,232.2,127.7,232.5,134.5z'
-    }),
-    children: [{
-      tag: 'animate',
-      attributes: _objectSpread({}, OPACITY_ANIMATE, {
-        values: '0;0;1;1;0;0;'
-      })
-    }]
-  };
-
-  var styles$2 = namespace.styles;
-  function asFoundIcon(icon) {
-    var width = icon[0];
-    var height = icon[1];
-
-    var _icon$slice = icon.slice(4),
-        _icon$slice2 = _slicedToArray$1(_icon$slice, 1),
-        vectorData = _icon$slice2[0];
-
-    var element = null;
-
-    if (Array.isArray(vectorData)) {
-      element = {
-        tag: 'g',
-        attributes: {
-          class: "".concat(config.familyPrefix, "-").concat(DUOTONE_CLASSES.GROUP)
-        },
-        children: [{
-          tag: 'path',
-          attributes: {
-            class: "".concat(config.familyPrefix, "-").concat(DUOTONE_CLASSES.SECONDARY),
-            fill: 'currentColor',
-            d: vectorData[0]
-          }
-        }, {
-          tag: 'path',
-          attributes: {
-            class: "".concat(config.familyPrefix, "-").concat(DUOTONE_CLASSES.PRIMARY),
-            fill: 'currentColor',
-            d: vectorData[1]
-          }
-        }]
-      };
-    } else {
-      element = {
-        tag: 'path',
-        attributes: {
-          fill: 'currentColor',
-          d: vectorData
-        }
-      };
-    }
-
-    return {
-      found: true,
-      width: width,
-      height: height,
-      icon: element
-    };
-  }
-
-  var styles$3 = namespace.styles;
-
-  var baseStyles = "svg:not(:root).svg-inline--fa {\n  overflow: visible;\n}\n\n.svg-inline--fa {\n  display: inline-block;\n  font-size: inherit;\n  height: 1em;\n  overflow: visible;\n  vertical-align: -0.125em;\n}\n.svg-inline--fa.fa-lg {\n  vertical-align: -0.225em;\n}\n.svg-inline--fa.fa-w-1 {\n  width: 0.0625em;\n}\n.svg-inline--fa.fa-w-2 {\n  width: 0.125em;\n}\n.svg-inline--fa.fa-w-3 {\n  width: 0.1875em;\n}\n.svg-inline--fa.fa-w-4 {\n  width: 0.25em;\n}\n.svg-inline--fa.fa-w-5 {\n  width: 0.3125em;\n}\n.svg-inline--fa.fa-w-6 {\n  width: 0.375em;\n}\n.svg-inline--fa.fa-w-7 {\n  width: 0.4375em;\n}\n.svg-inline--fa.fa-w-8 {\n  width: 0.5em;\n}\n.svg-inline--fa.fa-w-9 {\n  width: 0.5625em;\n}\n.svg-inline--fa.fa-w-10 {\n  width: 0.625em;\n}\n.svg-inline--fa.fa-w-11 {\n  width: 0.6875em;\n}\n.svg-inline--fa.fa-w-12 {\n  width: 0.75em;\n}\n.svg-inline--fa.fa-w-13 {\n  width: 0.8125em;\n}\n.svg-inline--fa.fa-w-14 {\n  width: 0.875em;\n}\n.svg-inline--fa.fa-w-15 {\n  width: 0.9375em;\n}\n.svg-inline--fa.fa-w-16 {\n  width: 1em;\n}\n.svg-inline--fa.fa-w-17 {\n  width: 1.0625em;\n}\n.svg-inline--fa.fa-w-18 {\n  width: 1.125em;\n}\n.svg-inline--fa.fa-w-19 {\n  width: 1.1875em;\n}\n.svg-inline--fa.fa-w-20 {\n  width: 1.25em;\n}\n.svg-inline--fa.fa-pull-left {\n  margin-right: 0.3em;\n  width: auto;\n}\n.svg-inline--fa.fa-pull-right {\n  margin-left: 0.3em;\n  width: auto;\n}\n.svg-inline--fa.fa-border {\n  height: 1.5em;\n}\n.svg-inline--fa.fa-li {\n  width: 2em;\n}\n.svg-inline--fa.fa-fw {\n  width: 1.25em;\n}\n\n.fa-layers svg.svg-inline--fa {\n  bottom: 0;\n  left: 0;\n  margin: auto;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.fa-layers {\n  display: inline-block;\n  height: 1em;\n  position: relative;\n  text-align: center;\n  vertical-align: -0.125em;\n  width: 1em;\n}\n.fa-layers svg.svg-inline--fa {\n  -webkit-transform-origin: center center;\n          transform-origin: center center;\n}\n\n.fa-layers-counter, .fa-layers-text {\n  display: inline-block;\n  position: absolute;\n  text-align: center;\n}\n\n.fa-layers-text {\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  -webkit-transform-origin: center center;\n          transform-origin: center center;\n}\n\n.fa-layers-counter {\n  background-color: #ff253a;\n  border-radius: 1em;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  color: #fff;\n  height: 1.5em;\n  line-height: 1;\n  max-width: 5em;\n  min-width: 1.5em;\n  overflow: hidden;\n  padding: 0.25em;\n  right: 0;\n  text-overflow: ellipsis;\n  top: 0;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: top right;\n          transform-origin: top right;\n}\n\n.fa-layers-bottom-right {\n  bottom: 0;\n  right: 0;\n  top: auto;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: bottom right;\n          transform-origin: bottom right;\n}\n\n.fa-layers-bottom-left {\n  bottom: 0;\n  left: 0;\n  right: auto;\n  top: auto;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: bottom left;\n          transform-origin: bottom left;\n}\n\n.fa-layers-top-right {\n  right: 0;\n  top: 0;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: top right;\n          transform-origin: top right;\n}\n\n.fa-layers-top-left {\n  left: 0;\n  right: auto;\n  top: 0;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: top left;\n          transform-origin: top left;\n}\n\n.fa-lg {\n  font-size: 1.3333333333em;\n  line-height: 0.75em;\n  vertical-align: -0.0667em;\n}\n\n.fa-xs {\n  font-size: 0.75em;\n}\n\n.fa-sm {\n  font-size: 0.875em;\n}\n\n.fa-1x {\n  font-size: 1em;\n}\n\n.fa-2x {\n  font-size: 2em;\n}\n\n.fa-3x {\n  font-size: 3em;\n}\n\n.fa-4x {\n  font-size: 4em;\n}\n\n.fa-5x {\n  font-size: 5em;\n}\n\n.fa-6x {\n  font-size: 6em;\n}\n\n.fa-7x {\n  font-size: 7em;\n}\n\n.fa-8x {\n  font-size: 8em;\n}\n\n.fa-9x {\n  font-size: 9em;\n}\n\n.fa-10x {\n  font-size: 10em;\n}\n\n.fa-fw {\n  text-align: center;\n  width: 1.25em;\n}\n\n.fa-ul {\n  list-style-type: none;\n  margin-left: 2.5em;\n  padding-left: 0;\n}\n.fa-ul > li {\n  position: relative;\n}\n\n.fa-li {\n  left: -2em;\n  position: absolute;\n  text-align: center;\n  width: 2em;\n  line-height: inherit;\n}\n\n.fa-border {\n  border: solid 0.08em #eee;\n  border-radius: 0.1em;\n  padding: 0.2em 0.25em 0.15em;\n}\n\n.fa-pull-left {\n  float: left;\n}\n\n.fa-pull-right {\n  float: right;\n}\n\n.fa.fa-pull-left,\n.fas.fa-pull-left,\n.far.fa-pull-left,\n.fal.fa-pull-left,\n.fab.fa-pull-left {\n  margin-right: 0.3em;\n}\n.fa.fa-pull-right,\n.fas.fa-pull-right,\n.far.fa-pull-right,\n.fal.fa-pull-right,\n.fab.fa-pull-right {\n  margin-left: 0.3em;\n}\n\n.fa-spin {\n  -webkit-animation: fa-spin 2s infinite linear;\n          animation: fa-spin 2s infinite linear;\n}\n\n.fa-pulse {\n  -webkit-animation: fa-spin 1s infinite steps(8);\n          animation: fa-spin 1s infinite steps(8);\n}\n\n@-webkit-keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n  }\n}\n\n@keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n  }\n}\n.fa-rotate-90 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)\";\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n}\n\n.fa-rotate-180 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2)\";\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n\n.fa-rotate-270 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=3)\";\n  -webkit-transform: rotate(270deg);\n          transform: rotate(270deg);\n}\n\n.fa-flip-horizontal {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)\";\n  -webkit-transform: scale(-1, 1);\n          transform: scale(-1, 1);\n}\n\n.fa-flip-vertical {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)\";\n  -webkit-transform: scale(1, -1);\n          transform: scale(1, -1);\n}\n\n.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)\";\n  -webkit-transform: scale(-1, -1);\n          transform: scale(-1, -1);\n}\n\n:root .fa-rotate-90,\n:root .fa-rotate-180,\n:root .fa-rotate-270,\n:root .fa-flip-horizontal,\n:root .fa-flip-vertical,\n:root .fa-flip-both {\n  -webkit-filter: none;\n          filter: none;\n}\n\n.fa-stack {\n  display: inline-block;\n  height: 2em;\n  position: relative;\n  width: 2.5em;\n}\n\n.fa-stack-1x,\n.fa-stack-2x {\n  bottom: 0;\n  left: 0;\n  margin: auto;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.svg-inline--fa.fa-stack-1x {\n  height: 1em;\n  width: 1.25em;\n}\n.svg-inline--fa.fa-stack-2x {\n  height: 2em;\n  width: 2.5em;\n}\n\n.fa-inverse {\n  color: #fff;\n}\n\n.sr-only {\n  border: 0;\n  clip: rect(0, 0, 0, 0);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n}\n\n.sr-only-focusable:active, .sr-only-focusable:focus {\n  clip: auto;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  position: static;\n  width: auto;\n}\n\n.svg-inline--fa .fa-primary {\n  fill: var(--fa-primary-color, currentColor);\n  opacity: 1;\n  opacity: var(--fa-primary-opacity, 1);\n}\n\n.svg-inline--fa .fa-secondary {\n  fill: var(--fa-secondary-color, currentColor);\n  opacity: 0.4;\n  opacity: var(--fa-secondary-opacity, 0.4);\n}\n\n.svg-inline--fa.fa-swap-opacity .fa-primary {\n  opacity: 0.4;\n  opacity: var(--fa-secondary-opacity, 0.4);\n}\n\n.svg-inline--fa.fa-swap-opacity .fa-secondary {\n  opacity: 1;\n  opacity: var(--fa-primary-opacity, 1);\n}\n\n.svg-inline--fa mask .fa-primary,\n.svg-inline--fa mask .fa-secondary {\n  fill: black;\n}\n\n.fad.fa-inverse {\n  color: #fff;\n}";
-
-  function css$1 () {
-    var dfp = DEFAULT_FAMILY_PREFIX;
-    var drc = DEFAULT_REPLACEMENT_CLASS;
-    var fp = config.familyPrefix;
-    var rc = config.replacementClass;
-    var s = baseStyles;
-
-    if (fp !== dfp || rc !== drc) {
-      var dPatt = new RegExp("\\.".concat(dfp, "\\-"), 'g');
-      var customPropPatt = new RegExp("\\--".concat(dfp, "\\-"), 'g');
-      var rPatt = new RegExp("\\.".concat(drc), 'g');
-      s = s.replace(dPatt, ".".concat(fp, "-")).replace(customPropPatt, "--".concat(fp, "-")).replace(rPatt, ".".concat(rc));
-    }
-
-    return s;
-  }
-
-  var Library =
-  /*#__PURE__*/
-  function () {
-    function Library() {
-      _classCallCheck$1(this, Library);
-
-      this.definitions = {};
-    }
-
-    _createClass$1(Library, [{
-      key: "add",
-      value: function add() {
-        var _this = this;
-
-        for (var _len = arguments.length, definitions = new Array(_len), _key = 0; _key < _len; _key++) {
-          definitions[_key] = arguments[_key];
-        }
-
-        var additions = definitions.reduce(this._pullDefinitions, {});
-        Object.keys(additions).forEach(function (key) {
-          _this.definitions[key] = _objectSpread({}, _this.definitions[key] || {}, additions[key]);
-          defineIcons(key, additions[key]);
-          build();
-        });
-      }
-    }, {
-      key: "reset",
-      value: function reset() {
-        this.definitions = {};
-      }
-    }, {
-      key: "_pullDefinitions",
-      value: function _pullDefinitions(additions, definition) {
-        var normalized = definition.prefix && definition.iconName && definition.icon ? {
-          0: definition
-        } : definition;
-        Object.keys(normalized).map(function (key) {
-          var _normalized$key = normalized[key],
-              prefix = _normalized$key.prefix,
-              iconName = _normalized$key.iconName,
-              icon = _normalized$key.icon;
-          if (!additions[prefix]) additions[prefix] = {};
-          additions[prefix][iconName] = icon;
-        });
-        return additions;
-      }
-    }]);
-
-    return Library;
-  }();
-
-  function ensureCss() {
-    if (config.autoAddCss && !_cssInserted) {
-      insertCss(css$1());
-
-      _cssInserted = true;
-    }
-  }
-
-  function apiObject(val, abstractCreator) {
-    Object.defineProperty(val, 'abstract', {
-      get: abstractCreator
-    });
-    Object.defineProperty(val, 'html', {
-      get: function get() {
-        return val.abstract.map(function (a) {
-          return toHtml(a);
-        });
-      }
-    });
-    Object.defineProperty(val, 'node', {
-      get: function get() {
-        if (!IS_DOM) return;
-        var container = DOCUMENT.createElement('div');
-        container.innerHTML = val.html;
-        return container.children;
-      }
-    });
-    return val;
-  }
-
-  function findIconDefinition(iconLookup) {
-    var _iconLookup$prefix = iconLookup.prefix,
-        prefix = _iconLookup$prefix === void 0 ? 'fa' : _iconLookup$prefix,
-        iconName = iconLookup.iconName;
-    if (!iconName) return;
-    return iconFromMapping(library.definitions, prefix, iconName) || iconFromMapping(namespace.styles, prefix, iconName);
-  }
-
-  function resolveIcons(next) {
-    return function (maybeIconDefinition) {
-      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var iconDefinition = (maybeIconDefinition || {}).icon ? maybeIconDefinition : findIconDefinition(maybeIconDefinition || {});
-      var mask = params.mask;
-
-      if (mask) {
-        mask = (mask || {}).icon ? mask : findIconDefinition(mask || {});
-      }
-
-      return next(iconDefinition, _objectSpread({}, params, {
-        mask: mask
-      }));
-    };
-  }
-
-  var library = new Library();
-  var _cssInserted = false;
-  var parse = {
-    transform: function transform(transformString) {
-      return parseTransformString(transformString);
-    }
-  };
-  var icon = resolveIcons(function (iconDefinition) {
-    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var _params$transform = params.transform,
-        transform = _params$transform === void 0 ? meaninglessTransform : _params$transform,
-        _params$symbol = params.symbol,
-        symbol = _params$symbol === void 0 ? false : _params$symbol,
-        _params$mask = params.mask,
-        mask = _params$mask === void 0 ? null : _params$mask,
-        _params$maskId = params.maskId,
-        maskId = _params$maskId === void 0 ? null : _params$maskId,
-        _params$title = params.title,
-        title = _params$title === void 0 ? null : _params$title,
-        _params$titleId = params.titleId,
-        titleId = _params$titleId === void 0 ? null : _params$titleId,
-        _params$classes = params.classes,
-        classes = _params$classes === void 0 ? [] : _params$classes,
-        _params$attributes = params.attributes,
-        attributes = _params$attributes === void 0 ? {} : _params$attributes,
-        _params$styles = params.styles,
-        styles = _params$styles === void 0 ? {} : _params$styles;
-    if (!iconDefinition) return;
-    var prefix = iconDefinition.prefix,
-        iconName = iconDefinition.iconName,
-        icon = iconDefinition.icon;
-    return apiObject(_objectSpread({
-      type: 'icon'
-    }, iconDefinition), function () {
-      ensureCss();
-
-      if (config.autoA11y) {
-        if (title) {
-          attributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(titleId || nextUniqueId());
-        } else {
-          attributes['aria-hidden'] = 'true';
-          attributes['focusable'] = 'false';
-        }
-      }
-
-      return makeInlineSvgAbstract({
-        icons: {
-          main: asFoundIcon(icon),
-          mask: mask ? asFoundIcon(mask.icon) : {
-            found: false,
-            width: null,
-            height: null,
-            icon: {}
-          }
-        },
-        prefix: prefix,
-        iconName: iconName,
-        transform: _objectSpread({}, meaninglessTransform, transform),
-        symbol: symbol,
-        title: title,
-        maskId: maskId,
-        titleId: titleId,
-        extra: {
-          attributes: attributes,
-          styles: styles,
-          classes: classes
+          output[key] = source[key];
         }
       });
-    });
-  });
+    }
+
+    return output;
+  }
 
   var reactIs_production_min = createCommonjsModule(function (module, exports) {
   Object.defineProperty(exports,"__esModule",{value:!0});
@@ -7019,583 +3612,6 @@
   });
   var propTypes_1 = propTypes.elementType;
 
-  function _typeof$1(obj) {
-    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-      _typeof$1 = function (obj) {
-        return typeof obj;
-      };
-    } else {
-      _typeof$1 = function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-      };
-    }
-
-    return _typeof$1(obj);
-  }
-
-  function _defineProperty$2(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  }
-
-  function ownKeys$1(object, enumerableOnly) {
-    var keys = Object.keys(object);
-
-    if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
-      if (enumerableOnly) symbols = symbols.filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
-      keys.push.apply(keys, symbols);
-    }
-
-    return keys;
-  }
-
-  function _objectSpread2$1(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i] != null ? arguments[i] : {};
-
-      if (i % 2) {
-        ownKeys$1(Object(source), true).forEach(function (key) {
-          _defineProperty$2(target, key, source[key]);
-        });
-      } else if (Object.getOwnPropertyDescriptors) {
-        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-      } else {
-        ownKeys$1(Object(source)).forEach(function (key) {
-          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-        });
-      }
-    }
-
-    return target;
-  }
-
-  function _objectWithoutPropertiesLoose(source, excluded) {
-    if (source == null) return {};
-    var target = {};
-    var sourceKeys = Object.keys(source);
-    var key, i;
-
-    for (i = 0; i < sourceKeys.length; i++) {
-      key = sourceKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      target[key] = source[key];
-    }
-
-    return target;
-  }
-
-  function _objectWithoutProperties(source, excluded) {
-    if (source == null) return {};
-
-    var target = _objectWithoutPropertiesLoose(source, excluded);
-
-    var key, i;
-
-    if (Object.getOwnPropertySymbols) {
-      var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-
-      for (i = 0; i < sourceSymbolKeys.length; i++) {
-        key = sourceSymbolKeys[i];
-        if (excluded.indexOf(key) >= 0) continue;
-        if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-        target[key] = source[key];
-      }
-    }
-
-    return target;
-  }
-
-  function _toConsumableArray(arr) {
-    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
-  }
-
-  function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) {
-      for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
-
-      return arr2;
-    }
-  }
-
-  function _iterableToArray(iter) {
-    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
-  }
-
-  function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance");
-  }
-
-  // Get CSS class list from a props object
-  function classList(props) {
-    var _classes;
-
-    var spin = props.spin,
-        pulse = props.pulse,
-        fixedWidth = props.fixedWidth,
-        inverse = props.inverse,
-        border = props.border,
-        listItem = props.listItem,
-        flip = props.flip,
-        size = props.size,
-        rotation = props.rotation,
-        pull = props.pull; // map of CSS class names to properties
-
-    var classes = (_classes = {
-      'fa-spin': spin,
-      'fa-pulse': pulse,
-      'fa-fw': fixedWidth,
-      'fa-inverse': inverse,
-      'fa-border': border,
-      'fa-li': listItem,
-      'fa-flip-horizontal': flip === 'horizontal' || flip === 'both',
-      'fa-flip-vertical': flip === 'vertical' || flip === 'both'
-    }, _defineProperty$2(_classes, "fa-".concat(size), typeof size !== 'undefined' && size !== null), _defineProperty$2(_classes, "fa-rotate-".concat(rotation), typeof rotation !== 'undefined' && rotation !== null && rotation !== 0), _defineProperty$2(_classes, "fa-pull-".concat(pull), typeof pull !== 'undefined' && pull !== null), _defineProperty$2(_classes, 'fa-swap-opacity', props.swapOpacity), _classes); // map over all the keys in the classes object
-    // return an array of the keys where the value for the key is not null
-
-    return Object.keys(classes).map(function (key) {
-      return classes[key] ? key : null;
-    }).filter(function (key) {
-      return key;
-    });
-  }
-
-  // Camelize taken from humps
-  // humps is copyright © 2012+ Dom Christie
-  // Released under the MIT license.
-  // Performant way to determine if object coerces to a number
-  function _isNumerical(obj) {
-    obj = obj - 0; // eslint-disable-next-line no-self-compare
-
-    return obj === obj;
-  }
-
-  function camelize(string) {
-    if (_isNumerical(string)) {
-      return string;
-    } // eslint-disable-next-line no-useless-escape
-
-
-    string = string.replace(/[\-_\s]+(.)?/g, function (match, chr) {
-      return chr ? chr.toUpperCase() : '';
-    }); // Ensure 1st char is always lowercase
-
-    return string.substr(0, 1).toLowerCase() + string.substr(1);
-  }
-
-  function capitalize(val) {
-    return val.charAt(0).toUpperCase() + val.slice(1);
-  }
-
-  function styleToObject(style) {
-    return style.split(';').map(function (s) {
-      return s.trim();
-    }).filter(function (s) {
-      return s;
-    }).reduce(function (acc, pair) {
-      var i = pair.indexOf(':');
-      var prop = camelize(pair.slice(0, i));
-      var value = pair.slice(i + 1).trim();
-      prop.startsWith('webkit') ? acc[capitalize(prop)] = value : acc[prop] = value;
-      return acc;
-    }, {});
-  }
-
-  function convert(createElement, element) {
-    var extraProps = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
-    if (typeof element === 'string') {
-      return element;
-    }
-
-    var children = (element.children || []).map(function (child) {
-      return convert(createElement, child);
-    });
-    /* eslint-disable dot-notation */
-
-    var mixins = Object.keys(element.attributes || {}).reduce(function (acc, key) {
-      var val = element.attributes[key];
-
-      switch (key) {
-        case 'class':
-          acc.attrs['className'] = val;
-          delete element.attributes['class'];
-          break;
-
-        case 'style':
-          acc.attrs['style'] = styleToObject(val);
-          break;
-
-        default:
-          if (key.indexOf('aria-') === 0 || key.indexOf('data-') === 0) {
-            acc.attrs[key.toLowerCase()] = val;
-          } else {
-            acc.attrs[camelize(key)] = val;
-          }
-
-      }
-
-      return acc;
-    }, {
-      attrs: {}
-    });
-
-    var _extraProps$style = extraProps.style,
-        existingStyle = _extraProps$style === void 0 ? {} : _extraProps$style,
-        remaining = _objectWithoutProperties(extraProps, ["style"]);
-
-    mixins.attrs['style'] = _objectSpread2$1({}, mixins.attrs['style'], {}, existingStyle);
-    /* eslint-enable */
-
-    return createElement.apply(void 0, [element.tag, _objectSpread2$1({}, mixins.attrs, {}, remaining)].concat(_toConsumableArray(children)));
-  }
-
-  var PRODUCTION$1 = false;
-
-  try {
-    PRODUCTION$1 = "development" === 'production';
-  } catch (e) {}
-
-  function log () {
-    if (!PRODUCTION$1 && console && typeof console.error === 'function') {
-      var _console;
-
-      (_console = console).error.apply(_console, arguments);
-    }
-  }
-
-  // Normalize icon arguments
-  function normalizeIconArgs(icon) {
-    // if the icon is null, there's nothing to do
-    if (icon === null) {
-      return null;
-    } // if the icon is an object and has a prefix and an icon name, return it
-
-
-    if (_typeof$1(icon) === 'object' && icon.prefix && icon.iconName) {
-      return icon;
-    } // if it's an array with length of two
-
-
-    if (Array.isArray(icon) && icon.length === 2) {
-      // use the first item as prefix, second as icon name
-      return {
-        prefix: icon[0],
-        iconName: icon[1]
-      };
-    } // if it's a string, use it as the icon name
-
-
-    if (typeof icon === 'string') {
-      return {
-        prefix: 'fas',
-        iconName: icon
-      };
-    }
-  }
-
-  // creates an object with a key of key
-  // and a value of value
-  // if certain conditions are met
-  function objectWithKey(key, value) {
-    // if the value is a non-empty array
-    // or it's not an array but it is truthy
-    // then create the object with the key and the value
-    // if not, return an empty array
-    return Array.isArray(value) && value.length > 0 || !Array.isArray(value) && value ? _defineProperty$2({}, key, value) : {};
-  }
-
-  function FontAwesomeIcon(_ref) {
-    var forwardedRef = _ref.forwardedRef,
-        props = _objectWithoutProperties(_ref, ["forwardedRef"]);
-
-    var iconArgs = props.icon,
-        maskArgs = props.mask,
-        symbol = props.symbol,
-        className = props.className,
-        title = props.title;
-    var iconLookup = normalizeIconArgs(iconArgs);
-    var classes = objectWithKey('classes', [].concat(_toConsumableArray(classList(props)), _toConsumableArray(className.split(' '))));
-    var transform = objectWithKey('transform', typeof props.transform === 'string' ? parse.transform(props.transform) : props.transform);
-    var mask = objectWithKey('mask', normalizeIconArgs(maskArgs));
-    var renderedIcon = icon(iconLookup, _objectSpread2$1({}, classes, {}, transform, {}, mask, {
-      symbol: symbol,
-      title: title
-    }));
-
-    if (!renderedIcon) {
-      log('Could not find icon', iconLookup);
-      return null;
-    }
-
-    var abstract = renderedIcon.abstract;
-    var extraProps = {
-      ref: forwardedRef
-    };
-    Object.keys(props).forEach(function (key) {
-      // eslint-disable-next-line no-prototype-builtins
-      if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
-        extraProps[key] = props[key];
-      }
-    });
-    return convertCurry(abstract[0], extraProps);
-  }
-  FontAwesomeIcon.displayName = 'FontAwesomeIcon';
-  FontAwesomeIcon.propTypes = {
-    border: propTypes.bool,
-    className: propTypes.string,
-    mask: propTypes.oneOfType([propTypes.object, propTypes.array, propTypes.string]),
-    fixedWidth: propTypes.bool,
-    inverse: propTypes.bool,
-    flip: propTypes.oneOf(['horizontal', 'vertical', 'both']),
-    icon: propTypes.oneOfType([propTypes.object, propTypes.array, propTypes.string]),
-    listItem: propTypes.bool,
-    pull: propTypes.oneOf(['right', 'left']),
-    pulse: propTypes.bool,
-    rotation: propTypes.oneOf([0, 90, 180, 270]),
-    size: propTypes.oneOf(['lg', 'xs', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x']),
-    spin: propTypes.bool,
-    symbol: propTypes.oneOfType([propTypes.bool, propTypes.string]),
-    title: propTypes.string,
-    transform: propTypes.oneOfType([propTypes.string, propTypes.object]),
-    swapOpacity: propTypes.bool
-  };
-  FontAwesomeIcon.defaultProps = {
-    border: false,
-    className: '',
-    mask: null,
-    fixedWidth: false,
-    inverse: false,
-    flip: null,
-    icon: null,
-    listItem: false,
-    pull: null,
-    pulse: false,
-    rotation: null,
-    size: null,
-    spin: false,
-    symbol: false,
-    title: '',
-    transform: null,
-    swapOpacity: false
-  };
-  var convertCurry = convert.bind(null, react.createElement);
-
-  var faBars = {
-    prefix: 'fas',
-    iconName: 'bars',
-    icon: [448, 512, [], "f0c9", "M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"]
-  };
-  var faTimes = {
-    prefix: 'fas',
-    iconName: 'times',
-    icon: [352, 512, [], "f00d", "M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"]
-  };
-
-  var common = {
-    black: '#000',
-    white: '#fff'
-  };
-
-  var red = {
-    50: '#ffebee',
-    100: '#ffcdd2',
-    200: '#ef9a9a',
-    300: '#e57373',
-    400: '#ef5350',
-    500: '#f44336',
-    600: '#e53935',
-    700: '#d32f2f',
-    800: '#c62828',
-    900: '#b71c1c',
-    A100: '#ff8a80',
-    A200: '#ff5252',
-    A400: '#ff1744',
-    A700: '#d50000'
-  };
-
-  var pink = {
-    50: '#fce4ec',
-    100: '#f8bbd0',
-    200: '#f48fb1',
-    300: '#f06292',
-    400: '#ec407a',
-    500: '#e91e63',
-    600: '#d81b60',
-    700: '#c2185b',
-    800: '#ad1457',
-    900: '#880e4f',
-    A100: '#ff80ab',
-    A200: '#ff4081',
-    A400: '#f50057',
-    A700: '#c51162'
-  };
-
-  var indigo = {
-    50: '#e8eaf6',
-    100: '#c5cae9',
-    200: '#9fa8da',
-    300: '#7986cb',
-    400: '#5c6bc0',
-    500: '#3f51b5',
-    600: '#3949ab',
-    700: '#303f9f',
-    800: '#283593',
-    900: '#1a237e',
-    A100: '#8c9eff',
-    A200: '#536dfe',
-    A400: '#3d5afe',
-    A700: '#304ffe'
-  };
-
-  var blue = {
-    50: '#e3f2fd',
-    100: '#bbdefb',
-    200: '#90caf9',
-    300: '#64b5f6',
-    400: '#42a5f5',
-    500: '#2196f3',
-    600: '#1e88e5',
-    700: '#1976d2',
-    800: '#1565c0',
-    900: '#0d47a1',
-    A100: '#82b1ff',
-    A200: '#448aff',
-    A400: '#2979ff',
-    A700: '#2962ff'
-  };
-
-  var green = {
-    50: '#e8f5e9',
-    100: '#c8e6c9',
-    200: '#a5d6a7',
-    300: '#81c784',
-    400: '#66bb6a',
-    500: '#4caf50',
-    600: '#43a047',
-    700: '#388e3c',
-    800: '#2e7d32',
-    900: '#1b5e20',
-    A100: '#b9f6ca',
-    A200: '#69f0ae',
-    A400: '#00e676',
-    A700: '#00c853'
-  };
-
-  var orange = {
-    50: '#fff3e0',
-    100: '#ffe0b2',
-    200: '#ffcc80',
-    300: '#ffb74d',
-    400: '#ffa726',
-    500: '#ff9800',
-    600: '#fb8c00',
-    700: '#f57c00',
-    800: '#ef6c00',
-    900: '#e65100',
-    A100: '#ffd180',
-    A200: '#ffab40',
-    A400: '#ff9100',
-    A700: '#ff6d00'
-  };
-
-  var grey = {
-    50: '#fafafa',
-    100: '#f5f5f5',
-    200: '#eeeeee',
-    300: '#e0e0e0',
-    400: '#bdbdbd',
-    500: '#9e9e9e',
-    600: '#757575',
-    700: '#616161',
-    800: '#424242',
-    900: '#212121',
-    A100: '#d5d5d5',
-    A200: '#aaaaaa',
-    A400: '#303030',
-    A700: '#616161'
-  };
-
-  function chainPropTypes(propType1, propType2) {
-
-    return function validate() {
-      return propType1.apply(void 0, arguments) || propType2.apply(void 0, arguments);
-    };
-  }
-
-  function _extends() {
-    _extends = Object.assign || function (target) {
-      for (var i = 1; i < arguments.length; i++) {
-        var source = arguments[i];
-
-        for (var key in source) {
-          if (Object.prototype.hasOwnProperty.call(source, key)) {
-            target[key] = source[key];
-          }
-        }
-      }
-
-      return target;
-    };
-
-    return _extends.apply(this, arguments);
-  }
-
-  function _typeof$2(obj) {
-    "@babel/helpers - typeof";
-
-    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-      _typeof$2 = function _typeof(obj) {
-        return typeof obj;
-      };
-    } else {
-      _typeof$2 = function _typeof(obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-      };
-    }
-
-    return _typeof$2(obj);
-  }
-
-  function isPlainObject(item) {
-    return item && _typeof$2(item) === 'object' && item.constructor === Object;
-  }
-  function deepmerge(target, source) {
-    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
-      clone: true
-    };
-    var output = options.clone ? _extends({}, target) : target;
-
-    if (isPlainObject(target) && isPlainObject(source)) {
-      Object.keys(source).forEach(function (key) {
-        // Avoid prototype pollution
-        if (key === '__proto__') {
-          return;
-        }
-
-        if (isPlainObject(source[key]) && key in target) {
-          output[key] = deepmerge(target[key], source[key], options);
-        } else {
-          output[key] = source[key];
-        }
-      });
-    }
-
-    return output;
-  }
-
   function isClassComponent(elementType) {
     // elementType.prototype?.isReactComponent
     var _elementType$prototyp = elementType.prototype,
@@ -7676,7 +3692,7 @@
 
   var elementTypeAcceptingRef$1 = chainPropTypes(propTypes_1, elementTypeAcceptingRef);
 
-  function _defineProperty$3(obj, key, value) {
+  function _defineProperty$1(obj, key, value) {
     if (key in obj) {
       Object.defineProperty(obj, key, {
         value: value,
@@ -7698,7 +3714,7 @@
   var specialProperty = "exact-prop: \u200B";
   function exactProp(propTypes) {
 
-    return _extends({}, propTypes, _defineProperty$3({}, specialProperty, function (props) {
+    return _extends({}, propTypes, _defineProperty$1({}, specialProperty, function (props) {
       var unsupportedProps = Object.keys(props).filter(function (prop) {
         return !propTypes.hasOwnProperty(prop);
       });
@@ -7759,7 +3775,7 @@
       return getFunctionComponentName(Component, 'Component');
     }
 
-    if (_typeof$2(Component) === 'object') {
+    if (_typeof$1(Component) === 'object') {
       switch (Component.$$typeof) {
         case reactIs_1:
           return getWrappedName(Component, Component.render, 'ForwardRef');
@@ -8013,7 +4029,7 @@
     return recomposeColor(color);
   }
 
-  function _objectWithoutPropertiesLoose$1(source, excluded) {
+  function _objectWithoutPropertiesLoose(source, excluded) {
     if (source == null) return {};
     var target = {};
     var sourceKeys = Object.keys(source);
@@ -8028,9 +4044,9 @@
     return target;
   }
 
-  function _objectWithoutProperties$1(source, excluded) {
+  function _objectWithoutProperties(source, excluded) {
     if (source == null) return {};
-    var target = _objectWithoutPropertiesLoose$1(source, excluded);
+    var target = _objectWithoutPropertiesLoose(source, excluded);
     var key, i;
 
     if (Object.getOwnPropertySymbols) {
@@ -8064,7 +4080,7 @@
         unit = _breakpoints$unit === void 0 ? 'px' : _breakpoints$unit,
         _breakpoints$step = breakpoints.step,
         step = _breakpoints$step === void 0 ? 5 : _breakpoints$step,
-        other = _objectWithoutProperties$1(breakpoints, ["values", "unit", "step"]);
+        other = _objectWithoutProperties(breakpoints, ["values", "unit", "step"]);
 
     function up(key) {
       var value = typeof values[key] === 'number' ? values[key] : key;
@@ -8138,16 +4154,16 @@
         return _extends({
           paddingLeft: spacing(2),
           paddingRight: spacing(2)
-        }, styles, _defineProperty$3({}, breakpoints.up('sm'), _extends({
+        }, styles, _defineProperty$1({}, breakpoints.up('sm'), _extends({
           paddingLeft: spacing(3),
           paddingRight: spacing(3)
         }, styles[breakpoints.up('sm')])));
       },
       toolbar: (_toolbar = {
         minHeight: 56
-      }, _defineProperty$3(_toolbar, "".concat(breakpoints.up('xs'), " and (orientation: landscape)"), {
+      }, _defineProperty$1(_toolbar, "".concat(breakpoints.up('xs'), " and (orientation: landscape)"), {
         minHeight: 48
-      }), _defineProperty$3(_toolbar, breakpoints.up('sm'), {
+      }), _defineProperty$1(_toolbar, breakpoints.up('sm'), {
         minHeight: 64
       }), _toolbar)
     }, mixins);
@@ -8279,7 +4295,7 @@
         contrastThreshold = _palette$contrastThre === void 0 ? 3 : _palette$contrastThre,
         _palette$tonalOffset = palette.tonalOffset,
         tonalOffset = _palette$tonalOffset === void 0 ? 0.2 : _palette$tonalOffset,
-        other = _objectWithoutProperties$1(palette, ["primary", "secondary", "error", "warning", "info", "success", "type", "contrastThreshold", "tonalOffset"]); // Use the same logic as
+        other = _objectWithoutProperties(palette, ["primary", "secondary", "error", "warning", "info", "success", "type", "contrastThreshold", "tonalOffset"]); // Use the same logic as
     // Bootstrap: https://github.com/twbs/bootstrap/blob/1d6e3710dd447de1a200f29e8fa521f8a0908f70/scss/_functions.scss#L59
     // and material-components-web https://github.com/material-components/material-components-web/blob/ac46b8863c4dab9fc22c4c662dc6bd1b65dd652f/packages/mdc-theme/_functions.scss#L54
 
@@ -8402,7 +4418,7 @@
         htmlFontSize = _ref$htmlFontSize === void 0 ? 16 : _ref$htmlFontSize,
         allVariants = _ref.allVariants,
         pxToRem2 = _ref.pxToRem,
-        other = _objectWithoutProperties$1(_ref, ["fontFamily", "fontSize", "fontWeightLight", "fontWeightRegular", "fontWeightMedium", "fontWeightBold", "htmlFontSize", "allVariants", "pxToRem"]);
+        other = _objectWithoutProperties(_ref, ["fontFamily", "fontSize", "fontWeightLight", "fontWeightRegular", "fontWeightMedium", "fontWeightBold", "htmlFontSize", "allVariants", "pxToRem"]);
 
     {
       if (typeof fontSize !== 'number') {
@@ -8491,11 +4507,11 @@
     return arr2;
   }
 
-  function _arrayWithoutHoles$1(arr) {
+  function _arrayWithoutHoles(arr) {
     if (Array.isArray(arr)) return _arrayLikeToArray$1(arr);
   }
 
-  function _iterableToArray$1(iter) {
+  function _iterableToArray(iter) {
     if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
   }
 
@@ -8508,12 +4524,12 @@
     if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$1(o, minLen);
   }
 
-  function _nonIterableSpread$1() {
+  function _nonIterableSpread() {
     throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
 
-  function _toConsumableArray$1(arr) {
-    return _arrayWithoutHoles$1(arr) || _iterableToArray$1(arr) || _unsupportedIterableToArray$1(arr) || _nonIterableSpread$1();
+  function _toConsumableArray(arr) {
+    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray$1(arr) || _nonIterableSpread();
   }
 
   function merge(acc, item) {
@@ -8559,7 +4575,7 @@
       }, {});
     }
 
-    if (_typeof$2(propValue) === 'object') {
+    if (_typeof$1(propValue) === 'object') {
       var _themeBreakpoints = props.theme.breakpoints || defaultBreakpoints;
 
       return Object.keys(propValue).reduce(function (acc, breakpoint) {
@@ -8572,11 +4588,11 @@
     return output;
   }
 
-  function _arrayWithHoles$2(arr) {
+  function _arrayWithHoles$1(arr) {
     if (Array.isArray(arr)) return arr;
   }
 
-  function _iterableToArrayLimit$2(arr, i) {
+  function _iterableToArrayLimit$1(arr, i) {
     if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
     var _arr = [];
     var _n = true;
@@ -8603,12 +4619,12 @@
     return _arr;
   }
 
-  function _nonIterableRest$2() {
+  function _nonIterableRest$1() {
     throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
 
-  function _slicedToArray$2(arr, i) {
-    return _arrayWithHoles$2(arr) || _iterableToArrayLimit$2(arr, i) || _unsupportedIterableToArray$1(arr, i) || _nonIterableRest$2();
+  function _slicedToArray$1(arr, i) {
+    return _arrayWithHoles$1(arr) || _iterableToArrayLimit$1(arr, i) || _unsupportedIterableToArray$1(arr, i) || _nonIterableRest$1();
   }
 
   function memoize(fn) {
@@ -8654,7 +4670,7 @@
     }
 
     var _prop$split = prop.split(''),
-        _prop$split2 = _slicedToArray$2(_prop$split, 2),
+        _prop$split2 = _slicedToArray$1(_prop$split, 2),
         a = _prop$split2[0],
         b = _prop$split2[1];
 
@@ -8874,7 +4890,7 @@
           easingOption = _options$easing === void 0 ? easing.easeInOut : _options$easing,
           _options$delay = options.delay,
           delay = _options$delay === void 0 ? 0 : _options$delay,
-          other = _objectWithoutProperties$1(options, ["duration", "easing", "delay"]);
+          other = _objectWithoutProperties(options, ["duration", "easing", "delay"]);
 
       {
         var isString = function isString(value) {
@@ -8945,7 +4961,7 @@
         spacingInput = options.spacing,
         _options$typography = options.typography,
         typographyInput = _options$typography === void 0 ? {} : _options$typography,
-        other = _objectWithoutProperties$1(options, ["breakpoints", "mixins", "palette", "spacing", "typography"]);
+        other = _objectWithoutProperties(options, ["breakpoints", "mixins", "palette", "spacing", "typography"]);
 
     var palette = createPalette(paletteInput);
     var breakpoints = createBreakpoints(breakpointsInput);
@@ -8992,7 +5008,7 @@
           } else if (pseudoClasses.indexOf(key) !== -1 && Object.keys(child).length > 0) {
             {
               console.error(["Material-UI: The `".concat(parentKey, "` component increases ") + "the CSS specificity of the `".concat(key, "` internal state."), 'You can not override it like this: ', JSON.stringify(node, null, 2), '', 'Instead, you need to use the $ruleName syntax:', JSON.stringify({
-                root: _defineProperty$3({}, "&$".concat(key), child)
+                root: _defineProperty$1({}, "&$".concat(key), child)
               }, null, 2), '', 'https://material-ui.com/r/pseudo-classes-guide'].join('\n'));
             } // Remove the style to prevent global conflicts.
 
@@ -9120,11 +5136,11 @@
     }
   }
 
-  var _typeof$3 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+  var _typeof$2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-  var isBrowser = (typeof window === "undefined" ? "undefined" : _typeof$3(window)) === "object" && (typeof document === "undefined" ? "undefined" : _typeof$3(document)) === 'object' && document.nodeType === 9;
+  var isBrowser = (typeof window === "undefined" ? "undefined" : _typeof$2(window)) === "object" && (typeof document === "undefined" ? "undefined" : _typeof$2(document)) === 'object' && document.nodeType === 9;
 
-  function _defineProperties$2(target, props) {
+  function _defineProperties$1(target, props) {
     for (var i = 0; i < props.length; i++) {
       var descriptor = props[i];
       descriptor.enumerable = descriptor.enumerable || false;
@@ -9134,9 +5150,9 @@
     }
   }
 
-  function _createClass$2(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties$2(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties$2(Constructor, staticProps);
+  function _createClass$1(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties$1(Constructor, staticProps);
     return Constructor;
   }
 
@@ -9461,7 +5477,7 @@
       return toCss(this.selectorText, this.style, opts);
     };
 
-    _createClass$2(StyleRule, [{
+    _createClass$1(StyleRule, [{
       key: "selector",
       set: function set(selector) {
         if (selector === this.selectorText) return;
@@ -10548,7 +6564,7 @@
     _proto.toString = function toString(_temp) {
       var _ref = _temp === void 0 ? {} : _temp,
           attached = _ref.attached,
-          options = _objectWithoutPropertiesLoose$1(_ref, ["attached"]);
+          options = _objectWithoutPropertiesLoose(_ref, ["attached"]);
 
       var css = '';
 
@@ -10566,7 +6582,7 @@
       return css;
     };
 
-    _createClass$2(SheetsRegistry, [{
+    _createClass$1(SheetsRegistry, [{
       key: "index",
 
       /**
@@ -11942,7 +7958,7 @@
 
   // Export javascript style and css style vendor prefixes.
   var js = '';
-  var css$2 = '';
+  var css$1 = '';
   var vendor = '';
   var browser = '';
   var isTouch = isBrowser && 'ontouchstart' in document.documentElement; // We should not do anything if required serverside.
@@ -11965,7 +7981,7 @@
     for (var key in jsCssMap) {
       if (key + testProp in style) {
         js = key;
-        css$2 = jsCssMap[key];
+        css$1 = jsCssMap[key];
         break;
       }
     } // Correctly detect the Edge browser.
@@ -11973,7 +7989,7 @@
 
     if (js === 'Webkit' && 'msHyphens' in style) {
       js = 'ms';
-      css$2 = jsCssMap.ms;
+      css$1 = jsCssMap.ms;
       browser = 'edge';
     } // Correctly detect the Safari browser.
 
@@ -11992,7 +8008,7 @@
 
   var prefix = {
     js: js,
-    css: css$2,
+    css: css$1,
     vendor: vendor,
     browser: browser,
     isTouch: isTouch
@@ -12059,7 +8075,7 @@
    */
 
 
-  function camelize$1(str) {
+  function camelize(str) {
     return str.replace(regExp, toUpper);
   }
 
@@ -12072,7 +8088,7 @@
    */
 
   function pascalize(str) {
-    return camelize$1("-" + str);
+    return camelize("-" + str);
   }
 
   // but we can use a longhand property instead.
@@ -12086,7 +8102,7 @@
       if (prefix.js === 'Webkit') {
         var longhand = 'mask-image';
 
-        if (camelize$1(longhand) in style) {
+        if (camelize(longhand) in style) {
           return prop;
         }
 
@@ -12213,7 +8229,7 @@
 
   var unprefixed = {
     supportedProperty: function supportedProperty(prop, style) {
-      return camelize$1(prop) in style ? prop : false;
+      return camelize(prop) in style ? prop : false;
     }
   };
 
@@ -12344,7 +8360,7 @@
   var noPrefill = plugins$1.filter(function (p) {
     return p.noPrefill;
   }).reduce(function (a, p) {
-    a.push.apply(a, _toConsumableArray$1(p.noPrefill));
+    a.push.apply(a, _toConsumableArray(p.noPrefill));
     return a;
   }, []);
 
@@ -12705,7 +8721,7 @@
         injectFirst = _props$injectFirst === void 0 ? false : _props$injectFirst,
         _props$disableGenerat = props.disableGeneration,
         disableGeneration = _props$disableGenerat === void 0 ? false : _props$disableGenerat,
-        localOptions = _objectWithoutProperties$1(props, ["children", "injectFirst", "disableGeneration"]);
+        localOptions = _objectWithoutProperties(props, ["children", "injectFirst", "disableGeneration"]);
 
     var outerOptions = react.useContext(StylesContext);
 
@@ -12844,7 +8860,7 @@
     var themingEnabled = typeof stylesOrCreator === 'function';
 
     {
-      if (_typeof$2(stylesOrCreator) !== 'object' && !themingEnabled) {
+      if (_typeof$1(stylesOrCreator) !== 'object' && !themingEnabled) {
         console.error(['Material-UI: The `styles` argument provided is invalid.', 'You need to provide a function generating the styles or a styles object.'].join('\n'));
       }
     }
@@ -13085,7 +9101,7 @@
         Component = options.Component,
         _options$defaultTheme = options.defaultTheme,
         defaultTheme = _options$defaultTheme === void 0 ? noopTheme : _options$defaultTheme,
-        stylesOptions2 = _objectWithoutProperties$1(options, ["name", "classNamePrefix", "Component", "defaultTheme"]);
+        stylesOptions2 = _objectWithoutProperties(options, ["name", "classNamePrefix", "Component", "defaultTheme"]);
 
     var stylesCreator = getStylesCreator(stylesOrCreator);
     var classNamePrefix = name || classNamePrefixOption || 'makeStyles';
@@ -13139,7 +9155,7 @@
     return useStyles;
   }
 
-  function _classCallCheck$2(instance, Constructor) {
+  function _classCallCheck$1(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
     }
@@ -13296,7 +9312,7 @@
           _options$withTheme = options.withTheme,
           withTheme = _options$withTheme === void 0 ? false : _options$withTheme,
           name = options.name,
-          stylesOptions = _objectWithoutProperties$1(options, ["defaultTheme", "withTheme", "name"]);
+          stylesOptions = _objectWithoutProperties(options, ["defaultTheme", "withTheme", "name"]);
 
       {
         if (Component === undefined) {
@@ -13326,7 +9342,7 @@
       var WithStyles = react.forwardRef(function WithStyles(props, ref) {
         var classesProp = props.classes,
             innerRef = props.innerRef,
-            other = _objectWithoutProperties$1(props, ["classes", "innerRef"]); // The wrapper receives only user supplied props, which could be a subset of
+            other = _objectWithoutProperties(props, ["classes", "innerRef"]); // The wrapper receives only user supplied props, which could be a subset of
         // the actual props Component might receive due to merging with defaultProps.
         // So copying it here would give us the same result in the wrapper as well.
 
@@ -13429,7 +9445,7 @@
   //
   // A strict capitalization should uppercase the first letter of each word a the sentence.
   // We only handle the first word.
-  function capitalize$1(string) {
+  function capitalize(string) {
     if (typeof string !== 'string') {
       throw new Error( "Material-UI: capitalize(string) expects a string argument." );
     }
@@ -40076,7 +36092,7 @@
     };
   }
 
-  var config$1 = {
+  var config = {
     disabled: false
   };
 
@@ -40344,7 +36360,7 @@
       var enterTimeout = appearing ? timeouts.appear : timeouts.enter; // no enter animation skip right to ENTERED
       // if we are mounting and running this it means appear _must_ be set
 
-      if (!mounting && !enter || config$1.disabled) {
+      if (!mounting && !enter || config.disabled) {
         this.safeSetState({
           status: ENTERED
         }, function () {
@@ -40376,7 +36392,7 @@
       var timeouts = this.getTimeouts();
       var maybeNode = this.props.nodeRef ? undefined : reactDom.findDOMNode(this); // no exit animation skip right to EXITED
 
-      if (!exit || config$1.disabled) {
+      if (!exit || config.disabled) {
         this.safeSetState({
           status: EXITED
         }, function () {
@@ -40483,7 +36499,7 @@
           _onExiting = _this$props.onExiting,
           _onExited = _this$props.onExited,
           _nodeRef = _this$props.nodeRef,
-          childProps = _objectWithoutPropertiesLoose$1(_this$props, ["children", "in", "mountOnEnter", "unmountOnExit", "appear", "enter", "exit", "timeout", "addEndListener", "onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited", "nodeRef"]);
+          childProps = _objectWithoutPropertiesLoose(_this$props, ["children", "in", "mountOnEnter", "unmountOnExit", "appear", "enter", "exit", "timeout", "addEndListener", "onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited", "nodeRef"]);
 
       return (
         /*#__PURE__*/
@@ -40683,7 +36699,7 @@
     onExited: propTypes.func
   } ; // Name the function so it is clearer in the documentation
 
-  function noop$2() {}
+  function noop() {}
 
   Transition.defaultProps = {
     in: false,
@@ -40692,12 +36708,12 @@
     appear: false,
     enter: true,
     exit: true,
-    onEnter: noop$2,
-    onEntering: noop$2,
-    onEntered: noop$2,
-    onExit: noop$2,
-    onExiting: noop$2,
-    onExited: noop$2
+    onEnter: noop,
+    onEntering: noop,
+    onEntered: noop,
+    onExit: noop,
+    onExiting: noop,
+    onExited: noop
   };
   Transition.UNMOUNTED = UNMOUNTED;
   Transition.EXITED = EXITED;
@@ -40943,7 +36959,7 @@
       var _this$props = this.props,
           Component = _this$props.component,
           childFactory = _this$props.childFactory,
-          props = _objectWithoutPropertiesLoose$1(_this$props, ["component", "childFactory"]);
+          props = _objectWithoutPropertiesLoose(_this$props, ["component", "childFactory"]);
 
       var contextValue = this.state.contextValue;
       var children = values$1(this.state.children).map(childFactory);
@@ -41038,7 +37054,7 @@
     };
   }
 
-  var styles$4 = function styles(theme) {
+  var styles = function styles(theme) {
     var elevations = {};
     theme.shadows.forEach(function (shadow, index) {
       elevations["elevation".concat(index)] = {
@@ -41075,7 +37091,7 @@
         elevation = _props$elevation === void 0 ? 1 : _props$elevation,
         _props$variant = props.variant,
         variant = _props$variant === void 0 ? 'elevation' : _props$variant,
-        other = _objectWithoutProperties$1(props, ["classes", "className", "component", "square", "elevation", "variant"]);
+        other = _objectWithoutProperties(props, ["classes", "className", "component", "square", "elevation", "variant"]);
 
     return /*#__PURE__*/react_9(Component, _extends({
       className: clsx(classes.root, className, variant === 'outlined' ? classes.outlined : classes["elevation".concat(elevation)], !square && classes.rounded),
@@ -41141,7 +37157,7 @@
      */
     variant: propTypes.oneOf(['elevation', 'outlined'])
   } ;
-  var Paper$1 = withStyles$1(styles$4, {
+  var Paper$1 = withStyles$1(styles, {
     name: 'MuiPaper'
   })(Paper);
 
@@ -41242,7 +37258,7 @@
 
   var DURATION = 550;
   var DELAY_RIPPLE = 80;
-  var styles$5 = function styles(theme) {
+  var styles$1 = function styles(theme) {
     return {
       /* Styles applied to the root element. */
       root: {
@@ -41340,7 +37356,7 @@
         centerProp = _props$center === void 0 ? false : _props$center,
         classes = props.classes,
         className = props.className,
-        other = _objectWithoutProperties$1(props, ["center", "classes", "className"]);
+        other = _objectWithoutProperties(props, ["center", "classes", "className"]);
 
     var _React$useState = react_6([]),
         ripples = _React$useState[0],
@@ -41374,7 +37390,7 @@
           rippleSize = params.rippleSize,
           cb = params.cb;
       setRipples(function (oldRipples) {
-        return [].concat(_toConsumableArray$1(oldRipples), [/*#__PURE__*/react_9(Ripple, {
+        return [].concat(_toConsumableArray(oldRipples), [/*#__PURE__*/react_9(Ripple, {
           key: nextKey.current,
           classes: classes,
           timeout: DURATION,
@@ -41540,12 +37556,12 @@
      */
     className: propTypes.string
   } ;
-  var TouchRipple$1 = withStyles$1(styles$5, {
+  var TouchRipple$1 = withStyles$1(styles$1, {
     flip: false,
     name: 'MuiTouchRipple'
   })( /*#__PURE__*/react_7(TouchRipple));
 
-  var styles$6 = {
+  var styles$2 = {
     /* Styles applied to the root element. */
     root: {
       display: 'inline-flex',
@@ -41636,7 +37652,7 @@
         TouchRippleProps = props.TouchRippleProps,
         _props$type = props.type,
         type = _props$type === void 0 ? 'button' : _props$type,
-        other = _objectWithoutProperties$1(props, ["action", "buttonRef", "centerRipple", "children", "classes", "className", "component", "disabled", "disableRipple", "disableTouchRipple", "focusRipple", "focusVisibleClassName", "onBlur", "onClick", "onFocus", "onFocusVisible", "onKeyDown", "onKeyUp", "onMouseDown", "onMouseLeave", "onMouseUp", "onTouchEnd", "onTouchMove", "onTouchStart", "onDragLeave", "tabIndex", "TouchRippleProps", "type"]);
+        other = _objectWithoutProperties(props, ["action", "buttonRef", "centerRipple", "children", "classes", "className", "component", "disabled", "disableRipple", "disableTouchRipple", "focusRipple", "focusVisibleClassName", "onBlur", "onClick", "onFocus", "onFocusVisible", "onKeyDown", "onKeyUp", "onMouseDown", "onMouseLeave", "onMouseUp", "onTouchEnd", "onTouchMove", "onTouchStart", "onDragLeave", "tabIndex", "TouchRippleProps", "type"]);
 
     var buttonRef = react_4(null);
 
@@ -42025,11 +38041,11 @@
      */
     type: propTypes.oneOfType([propTypes.oneOf(['button', 'reset', 'submit']), propTypes.string])
   } ;
-  var ButtonBase$1 = withStyles$1(styles$6, {
+  var ButtonBase$1 = withStyles$1(styles$2, {
     name: 'MuiButtonBase'
   })(ButtonBase);
 
-  var styles$7 = {
+  var styles$3 = {
     entering: {
       opacity: 1
     },
@@ -42062,7 +38078,7 @@
         TransitionComponent = _props$TransitionComp === void 0 ? Transition : _props$TransitionComp,
         _props$timeout = props.timeout,
         timeout = _props$timeout === void 0 ? defaultTimeout : _props$timeout,
-        other = _objectWithoutProperties$1(props, ["children", "disableStrictModeCompat", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "TransitionComponent", "timeout"]);
+        other = _objectWithoutProperties(props, ["children", "disableStrictModeCompat", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "TransitionComponent", "timeout"]);
 
     var theme = useTheme$1();
     var enableStrictModeCompat = theme.unstable_strictMode && !disableStrictModeCompat;
@@ -42074,7 +38090,7 @@
       return function (nodeOrAppearing, maybeAppearing) {
         if (callback) {
           var _ref = enableStrictModeCompat ? [nodeRef.current, nodeOrAppearing] : [nodeOrAppearing, maybeAppearing],
-              _ref2 = _slicedToArray$2(_ref, 2),
+              _ref2 = _slicedToArray$1(_ref, 2),
               node = _ref2[0],
               isAppearing = _ref2[1]; // onEnterXxx and onExitXxx callbacks have a different arguments.length value.
 
@@ -42138,7 +38154,7 @@
         style: _extends({
           opacity: 0,
           visibility: state === 'exited' && !inProp ? 'hidden' : undefined
-        }, styles$7[state], style, children.props.style),
+        }, styles$3[state], style, children.props.style),
         ref: handleRef
       }, childProps));
     });
@@ -42212,7 +38228,7 @@
     })])
   } ;
 
-  var styles$8 = {
+  var styles$4 = {
     /* Styles applied to the root element. */
     root: {
       // Improve scrollable dialog support.
@@ -42244,7 +38260,7 @@
         transitionDuration = props.transitionDuration,
         _props$TransitionComp = props.TransitionComponent,
         TransitionComponent = _props$TransitionComp === void 0 ? Fade : _props$TransitionComp,
-        other = _objectWithoutProperties$1(props, ["children", "classes", "className", "invisible", "open", "transitionDuration", "TransitionComponent"]);
+        other = _objectWithoutProperties(props, ["children", "classes", "className", "invisible", "open", "transitionDuration", "TransitionComponent"]);
 
     return /*#__PURE__*/react_9(TransitionComponent, _extends({
       in: open,
@@ -42298,7 +38314,7 @@
       exit: propTypes.number
     })])
   } ;
-  var Backdrop$1 = withStyles$1(styles$8, {
+  var Backdrop$1 = withStyles$1(styles$4, {
     name: 'MuiBackdrop'
   })(Backdrop);
 
@@ -42440,7 +38456,7 @@
   function ariaHiddenSiblings(container, mountNode, currentNode) {
     var nodesToExclude = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
     var show = arguments.length > 4 ? arguments[4] : undefined;
-    var blacklist = [mountNode, currentNode].concat(_toConsumableArray$1(nodesToExclude));
+    var blacklist = [mountNode, currentNode].concat(_toConsumableArray(nodesToExclude));
     var blacklistTagNames = ['TEMPLATE', 'SCRIPT', 'STYLE'];
     [].forEach.call(container.children, function (node) {
       if (node.nodeType === 1 && blacklist.indexOf(node) === -1 && blacklistTagNames.indexOf(node.tagName) === -1) {
@@ -42548,7 +38564,7 @@
 
   var ModalManager = /*#__PURE__*/function () {
     function ModalManager() {
-      _classCallCheck$2(this, ModalManager);
+      _classCallCheck$1(this, ModalManager);
 
       // this.modals[modalIndex] = modal
       this.modals = []; // this.containers[containerIndex] = {
@@ -42560,7 +38576,7 @@
       this.containers = [];
     }
 
-    _createClass$2(ModalManager, [{
+    _createClass$1(ModalManager, [{
       key: "add",
       value: function add(modal, container) {
         var modalIndex = this.modals.indexOf(modal);
@@ -42852,7 +38868,7 @@
     Unstable_TrapFocus['propTypes' + ''] = exactProp(Unstable_TrapFocus.propTypes);
   }
 
-  var styles$9 = {
+  var styles$5 = {
     /* Styles applied to the root element. */
     root: {
       zIndex: -1,
@@ -42878,13 +38894,13 @@
     var _props$invisible = props.invisible,
         invisible = _props$invisible === void 0 ? false : _props$invisible,
         open = props.open,
-        other = _objectWithoutProperties$1(props, ["invisible", "open"]);
+        other = _objectWithoutProperties(props, ["invisible", "open"]);
 
     return open ? /*#__PURE__*/react_9("div", _extends({
       "aria-hidden": true,
       ref: ref
     }, other, {
-      style: _extends({}, styles$9.root, invisible ? styles$9.invisible : {}, other.style)
+      style: _extends({}, styles$5.root, invisible ? styles$5.invisible : {}, other.style)
     })) : null;
   });
    SimpleBackdrop.propTypes = {
@@ -42912,7 +38928,7 @@
 
 
   var defaultManager = new ModalManager();
-  var styles$a = function styles(theme) {
+  var styles$6 = function styles(theme) {
     return {
       /* Styles applied to the root element. */
       root: {
@@ -42984,7 +39000,7 @@
         onEscapeKeyDown = props.onEscapeKeyDown,
         onRendered = props.onRendered,
         open = props.open,
-        other = _objectWithoutProperties$1(props, ["BackdropComponent", "BackdropProps", "children", "closeAfterTransition", "container", "disableAutoFocus", "disableBackdropClick", "disableEnforceFocus", "disableEscapeKeyDown", "disablePortal", "disableRestoreFocus", "disableScrollLock", "hideBackdrop", "keepMounted", "manager", "onBackdropClick", "onClose", "onEscapeKeyDown", "onRendered", "open"]);
+        other = _objectWithoutProperties(props, ["BackdropComponent", "BackdropProps", "children", "closeAfterTransition", "container", "disableAutoFocus", "disableBackdropClick", "disableEnforceFocus", "disableEscapeKeyDown", "disablePortal", "disableRestoreFocus", "disableScrollLock", "hideBackdrop", "keepMounted", "manager", "onBackdropClick", "onClose", "onEscapeKeyDown", "onRendered", "open"]);
 
     var _React$useState = react_6(true),
         exited = _React$useState[0],
@@ -43113,7 +39129,7 @@
       }
     };
 
-    var inlineStyle = styles$a(theme || {
+    var inlineStyle = styles$6(theme || {
       zIndex: zIndex
     });
     var childProps = {};
@@ -43350,7 +39366,7 @@
         timeout = _props$timeout === void 0 ? defaultTimeout$1 : _props$timeout,
         _props$TransitionComp = props.TransitionComponent,
         TransitionComponent = _props$TransitionComp === void 0 ? Transition : _props$TransitionComp,
-        other = _objectWithoutProperties$1(props, ["children", "direction", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "timeout", "TransitionComponent"]);
+        other = _objectWithoutProperties(props, ["children", "direction", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "timeout", "TransitionComponent"]);
 
     var theme = useTheme$1();
     var childrenRef = react_4(null);
@@ -43552,7 +39568,7 @@
     })])
   } ;
 
-  var styles$b = function styles(theme) {
+  var styles$7 = function styles(theme) {
     return {
       /* Styles applied to the root element. */
       root: {},
@@ -43671,7 +39687,7 @@
     _props$ModalProps = _props$ModalProps === void 0 ? {} : _props$ModalProps;
 
     var BackdropPropsProp = _props$ModalProps.BackdropProps,
-        ModalProps = _objectWithoutProperties$1(_props$ModalProps, ["BackdropProps"]),
+        ModalProps = _objectWithoutProperties(_props$ModalProps, ["BackdropProps"]),
         onClose = props.onClose,
         _props$open = props.open,
         open = _props$open === void 0 ? false : _props$open,
@@ -43684,7 +39700,7 @@
         transitionDuration = _props$transitionDura === void 0 ? defaultTransitionDuration : _props$transitionDura,
         _props$variant = props.variant,
         variant = _props$variant === void 0 ? 'temporary' : _props$variant,
-        other = _objectWithoutProperties$1(props, ["anchor", "BackdropProps", "children", "classes", "className", "elevation", "ModalProps", "onClose", "open", "PaperProps", "SlideProps", "TransitionComponent", "transitionDuration", "variant"]);
+        other = _objectWithoutProperties(props, ["anchor", "BackdropProps", "children", "classes", "className", "elevation", "ModalProps", "onClose", "open", "PaperProps", "SlideProps", "TransitionComponent", "transitionDuration", "variant"]);
 
     var theme = useTheme$1(); // Let's assume that the Drawer will always be rendered on user space.
     // We use this state is order to skip the appear transition during the
@@ -43699,7 +39715,7 @@
       elevation: variant === 'temporary' ? elevation : 0,
       square: true
     }, PaperProps, {
-      className: clsx(classes.paper, classes["paperAnchor".concat(capitalize$1(anchor))], PaperProps.className, variant !== 'temporary' && classes["paperAnchorDocked".concat(capitalize$1(anchor))])
+      className: clsx(classes.paper, classes["paperAnchor".concat(capitalize(anchor))], PaperProps.className, variant !== 'temporary' && classes["paperAnchorDocked".concat(capitalize(anchor))])
     }), children);
 
     if (variant === 'permanent') {
@@ -43814,10 +39830,267 @@
      */
     variant: propTypes.oneOf(['permanent', 'persistent', 'temporary'])
   } ;
-  var Drawer$1 = withStyles$1(styles$b, {
+  var Drawer$1 = withStyles$1(styles$7, {
     name: 'MuiDrawer',
     flip: false
   })(Drawer);
+
+  var styles$8 = {
+    /* Styles applied to the root element. */
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      overflowY: 'auto',
+      listStyle: 'none',
+      padding: 0,
+      WebkitOverflowScrolling: 'touch' // Add iOS momentum scrolling.
+
+    }
+  };
+  var GridList = /*#__PURE__*/react_10(function GridList(props, ref) {
+    var _props$cellHeight = props.cellHeight,
+        cellHeight = _props$cellHeight === void 0 ? 180 : _props$cellHeight,
+        children = props.children,
+        classes = props.classes,
+        className = props.className,
+        _props$cols = props.cols,
+        cols = _props$cols === void 0 ? 2 : _props$cols,
+        _props$component = props.component,
+        Component = _props$component === void 0 ? 'ul' : _props$component,
+        _props$spacing = props.spacing,
+        spacing = _props$spacing === void 0 ? 4 : _props$spacing,
+        style = props.style,
+        other = _objectWithoutProperties(props, ["cellHeight", "children", "classes", "className", "cols", "component", "spacing", "style"]);
+
+    return /*#__PURE__*/react_9(Component, _extends({
+      className: clsx(classes.root, className),
+      ref: ref,
+      style: _extends({
+        margin: -spacing / 2
+      }, style)
+    }, other), react_2.map(children, function (child) {
+      if (! /*#__PURE__*/react_1(child)) {
+        return null;
+      }
+
+      {
+        if (reactIs_3(child)) {
+          console.error(["Material-UI: The GridList component doesn't accept a Fragment as a child.", 'Consider providing an array instead.'].join('\n'));
+        }
+      }
+
+      var childCols = child.props.cols || 1;
+      var childRows = child.props.rows || 1;
+      return /*#__PURE__*/react_3(child, {
+        style: _extends({
+          width: "".concat(100 / cols * childCols, "%"),
+          height: cellHeight === 'auto' ? 'auto' : cellHeight * childRows + spacing,
+          padding: spacing / 2
+        }, child.props.style)
+      });
+    }));
+  });
+   GridList.propTypes = {
+    /**
+     * Number of px for one cell height.
+     * You can set `'auto'` if you want to let the children determine the height.
+     */
+    cellHeight: propTypes.oneOfType([propTypes.number, propTypes.oneOf(['auto'])]),
+
+    /**
+     * Grid Tiles that will be in Grid List.
+     */
+    children: propTypes.node.isRequired,
+
+    /**
+     * Override or extend the styles applied to the component.
+     * See [CSS API](#css) below for more details.
+     */
+    classes: propTypes.object.isRequired,
+
+    /**
+     * @ignore
+     */
+    className: propTypes.string,
+
+    /**
+     * Number of columns.
+     */
+    cols: propTypes.number,
+
+    /**
+     * The component used for the root node.
+     * Either a string to use a HTML element or a component.
+     */
+    component: propTypes
+    /* @typescript-to-proptypes-ignore */
+    .elementType,
+
+    /**
+     * Number of px for the spacing between tiles.
+     */
+    spacing: propTypes.number,
+
+    /**
+     * @ignore
+     */
+    style: propTypes.object
+  } ;
+  var GridList$1 = withStyles$1(styles$8, {
+    name: 'MuiGridList'
+  })(GridList);
+
+  var styles$9 = {
+    /* Styles applied to the root element. */
+    root: {
+      boxSizing: 'border-box',
+      flexShrink: 0
+    },
+
+    /* Styles applied to the `div` element that wraps the children. */
+    tile: {
+      position: 'relative',
+      display: 'block',
+      // In case it's not rendered with a div.
+      height: '100%',
+      overflow: 'hidden'
+    },
+
+    /* Styles applied to an `img` element child, if needed to ensure it covers the tile. */
+    imgFullHeight: {
+      height: '100%',
+      transform: 'translateX(-50%)',
+      position: 'relative',
+      left: '50%'
+    },
+
+    /* Styles applied to an `img` element child, if needed to ensure it covers the tile. */
+    imgFullWidth: {
+      width: '100%',
+      position: 'relative',
+      transform: 'translateY(-50%)',
+      top: '50%'
+    }
+  };
+
+  var fit = function fit(imgEl, classes) {
+    if (!imgEl || !imgEl.complete) {
+      return;
+    }
+
+    if (imgEl.width / imgEl.height > imgEl.parentElement.offsetWidth / imgEl.parentElement.offsetHeight) {
+      var _imgEl$classList, _imgEl$classList2;
+
+      (_imgEl$classList = imgEl.classList).remove.apply(_imgEl$classList, _toConsumableArray(classes.imgFullWidth.split(' ')));
+
+      (_imgEl$classList2 = imgEl.classList).add.apply(_imgEl$classList2, _toConsumableArray(classes.imgFullHeight.split(' ')));
+    } else {
+      var _imgEl$classList3, _imgEl$classList4;
+
+      (_imgEl$classList3 = imgEl.classList).remove.apply(_imgEl$classList3, _toConsumableArray(classes.imgFullHeight.split(' ')));
+
+      (_imgEl$classList4 = imgEl.classList).add.apply(_imgEl$classList4, _toConsumableArray(classes.imgFullWidth.split(' ')));
+    }
+  };
+
+  function ensureImageCover(imgEl, classes) {
+    if (!imgEl) {
+      return;
+    }
+
+    if (imgEl.complete) {
+      fit(imgEl, classes);
+    } else {
+      imgEl.addEventListener('load', function () {
+        fit(imgEl, classes);
+      });
+    }
+  }
+
+  var GridListTile = /*#__PURE__*/react_10(function GridListTile(props, ref) {
+    // cols rows default values are for docs only
+    var children = props.children,
+        classes = props.classes,
+        className = props.className,
+        _props$cols = props.cols,
+        _props$component = props.component,
+        Component = _props$component === void 0 ? 'li' : _props$component,
+        _props$rows = props.rows,
+        other = _objectWithoutProperties(props, ["children", "classes", "className", "cols", "component", "rows"]);
+
+    var imgRef = react_4(null);
+    react_5(function () {
+      ensureImageCover(imgRef.current, classes);
+    });
+    react_5(function () {
+      var handleResize = debounce(function () {
+        fit(imgRef.current, classes);
+      });
+      window.addEventListener('resize', handleResize);
+      return function () {
+        handleResize.clear();
+        window.removeEventListener('resize', handleResize);
+      };
+    }, [classes]);
+    return /*#__PURE__*/react_9(Component, _extends({
+      className: clsx(classes.root, className),
+      ref: ref
+    }, other), /*#__PURE__*/react_9("div", {
+      className: classes.tile
+    }, react_2.map(children, function (child) {
+      if (! /*#__PURE__*/react_1(child)) {
+        return null;
+      }
+
+      if (child.type === 'img' || isMuiElement(child, ['Image'])) {
+        return /*#__PURE__*/react_3(child, {
+          ref: imgRef
+        });
+      }
+
+      return child;
+    })));
+  });
+   GridListTile.propTypes = {
+    /**
+     * Theoretically you can pass any node as children, but the main use case is to pass an img,
+     * in which case GridListTile takes care of making the image "cover" available space
+     * (similar to `background-size: cover` or to `object-fit: cover`).
+     */
+    children: propTypes.node,
+
+    /**
+     * Override or extend the styles applied to the component.
+     * See [CSS API](#css) below for more details.
+     */
+    classes: propTypes.object.isRequired,
+
+    /**
+     * @ignore
+     */
+    className: propTypes.string,
+
+    /**
+     * Width of the tile in number of grid cells.
+     */
+    cols: propTypes.number,
+
+    /**
+     * The component used for the root node.
+     * Either a string to use a HTML element or a component.
+     */
+    component: propTypes
+    /* @typescript-to-proptypes-ignore */
+    .elementType,
+
+    /**
+     * Height of the tile in number of grid cells.
+     */
+    rows: propTypes.number
+  } ;
+  var GridListTile$1 = withStyles$1(styles$9, {
+    name: 'MuiGridListTile'
+  })(GridListTile);
 
   /**
    * @ignore - internal component.
@@ -43829,7 +40102,7 @@
     ListContext.displayName = 'ListContext';
   }
 
-  var styles$c = {
+  var styles$a = {
     /* Styles applied to the root element. */
     root: {
       listStyle: 'none',
@@ -43863,7 +40136,7 @@
         _props$disablePadding = props.disablePadding,
         disablePadding = _props$disablePadding === void 0 ? false : _props$disablePadding,
         subheader = props.subheader,
-        other = _objectWithoutProperties$1(props, ["children", "classes", "className", "component", "dense", "disablePadding", "subheader"]);
+        other = _objectWithoutProperties(props, ["children", "classes", "className", "component", "dense", "disablePadding", "subheader"]);
 
     var context = react_11(function () {
       return {
@@ -43919,11 +40192,11 @@
      */
     subheader: propTypes.node
   } ;
-  var List$1 = withStyles$1(styles$c, {
+  var List$1 = withStyles$1(styles$a, {
     name: 'MuiList'
   })(List);
 
-  var styles$d = function styles(theme) {
+  var styles$b = function styles(theme) {
     return {
       /* Styles applied to the (normally root) `component` element. May be wrapped by a `container`. */
       root: {
@@ -44030,7 +40303,7 @@
     _props$ContainerProps = _props$ContainerProps === void 0 ? {} : _props$ContainerProps;
 
     var ContainerClassName = _props$ContainerProps.className,
-        ContainerProps = _objectWithoutProperties$1(_props$ContainerProps, ["className"]),
+        ContainerProps = _objectWithoutProperties(_props$ContainerProps, ["className"]),
         _props$dense = props.dense,
         dense = _props$dense === void 0 ? false : _props$dense,
         _props$disabled = props.disabled,
@@ -44042,7 +40315,7 @@
         focusVisibleClassName = props.focusVisibleClassName,
         _props$selected = props.selected,
         selected = _props$selected === void 0 ? false : _props$selected,
-        other = _objectWithoutProperties$1(props, ["alignItems", "autoFocus", "button", "children", "classes", "className", "component", "ContainerComponent", "ContainerProps", "dense", "disabled", "disableGutters", "divider", "focusVisibleClassName", "selected"]);
+        other = _objectWithoutProperties(props, ["alignItems", "autoFocus", "button", "children", "classes", "className", "component", "ContainerComponent", "ContainerProps", "dense", "disabled", "disableGutters", "divider", "focusVisibleClassName", "selected"]);
 
     var context = react_16(ListContext);
     var childContext = {
@@ -44210,9 +40483,6629 @@
      */
     selected: propTypes.bool
   } ;
-  var ListItem$1 = withStyles$1(styles$d, {
+  var ListItem$1 = withStyles$1(styles$b, {
     name: 'MuiListItem'
   })(ListItem);
+
+  function isAbsolute(pathname) {
+    return pathname.charAt(0) === '/';
+  }
+
+  // About 1.5x faster than the two-arg version of Array#splice()
+  function spliceOne(list, index) {
+    for (var i = index, k = i + 1, n = list.length; k < n; i += 1, k += 1) {
+      list[i] = list[k];
+    }
+
+    list.pop();
+  }
+
+  // This implementation is based heavily on node's url.parse
+  function resolvePathname(to, from) {
+    if (from === undefined) from = '';
+
+    var toParts = (to && to.split('/')) || [];
+    var fromParts = (from && from.split('/')) || [];
+
+    var isToAbs = to && isAbsolute(to);
+    var isFromAbs = from && isAbsolute(from);
+    var mustEndAbs = isToAbs || isFromAbs;
+
+    if (to && isAbsolute(to)) {
+      // to is absolute
+      fromParts = toParts;
+    } else if (toParts.length) {
+      // to is relative, drop the filename
+      fromParts.pop();
+      fromParts = fromParts.concat(toParts);
+    }
+
+    if (!fromParts.length) return '/';
+
+    var hasTrailingSlash;
+    if (fromParts.length) {
+      var last = fromParts[fromParts.length - 1];
+      hasTrailingSlash = last === '.' || last === '..' || last === '';
+    } else {
+      hasTrailingSlash = false;
+    }
+
+    var up = 0;
+    for (var i = fromParts.length; i >= 0; i--) {
+      var part = fromParts[i];
+
+      if (part === '.') {
+        spliceOne(fromParts, i);
+      } else if (part === '..') {
+        spliceOne(fromParts, i);
+        up++;
+      } else if (up) {
+        spliceOne(fromParts, i);
+        up--;
+      }
+    }
+
+    if (!mustEndAbs) for (; up--; up) fromParts.unshift('..');
+
+    if (
+      mustEndAbs &&
+      fromParts[0] !== '' &&
+      (!fromParts[0] || !isAbsolute(fromParts[0]))
+    )
+      fromParts.unshift('');
+
+    var result = fromParts.join('/');
+
+    if (hasTrailingSlash && result.substr(-1) !== '/') result += '/';
+
+    return result;
+  }
+
+  function valueOf(obj) {
+    return obj.valueOf ? obj.valueOf() : Object.prototype.valueOf.call(obj);
+  }
+
+  function valueEqual(a, b) {
+    // Test for strict equality first.
+    if (a === b) return true;
+
+    // Otherwise, if either of them == null they are not equal.
+    if (a == null || b == null) return false;
+
+    if (Array.isArray(a)) {
+      return (
+        Array.isArray(b) &&
+        a.length === b.length &&
+        a.every(function(item, index) {
+          return valueEqual(item, b[index]);
+        })
+      );
+    }
+
+    if (typeof a === 'object' || typeof b === 'object') {
+      var aValue = valueOf(a);
+      var bValue = valueOf(b);
+
+      if (aValue !== a || bValue !== b) return valueEqual(aValue, bValue);
+
+      return Object.keys(Object.assign({}, a, b)).every(function(key) {
+        return valueEqual(a[key], b[key]);
+      });
+    }
+
+    return false;
+  }
+
+  var prefix$1 = 'Invariant failed';
+  function invariant(condition, message) {
+      if (condition) {
+          return;
+      }
+      throw new Error(prefix$1 + ": " + (message || ''));
+  }
+
+  function addLeadingSlash(path) {
+    return path.charAt(0) === '/' ? path : '/' + path;
+  }
+  function stripLeadingSlash(path) {
+    return path.charAt(0) === '/' ? path.substr(1) : path;
+  }
+  function hasBasename(path, prefix) {
+    return path.toLowerCase().indexOf(prefix.toLowerCase()) === 0 && '/?#'.indexOf(path.charAt(prefix.length)) !== -1;
+  }
+  function stripBasename(path, prefix) {
+    return hasBasename(path, prefix) ? path.substr(prefix.length) : path;
+  }
+  function stripTrailingSlash(path) {
+    return path.charAt(path.length - 1) === '/' ? path.slice(0, -1) : path;
+  }
+  function parsePath(path) {
+    var pathname = path || '/';
+    var search = '';
+    var hash = '';
+    var hashIndex = pathname.indexOf('#');
+
+    if (hashIndex !== -1) {
+      hash = pathname.substr(hashIndex);
+      pathname = pathname.substr(0, hashIndex);
+    }
+
+    var searchIndex = pathname.indexOf('?');
+
+    if (searchIndex !== -1) {
+      search = pathname.substr(searchIndex);
+      pathname = pathname.substr(0, searchIndex);
+    }
+
+    return {
+      pathname: pathname,
+      search: search === '?' ? '' : search,
+      hash: hash === '#' ? '' : hash
+    };
+  }
+  function createPath(location) {
+    var pathname = location.pathname,
+        search = location.search,
+        hash = location.hash;
+    var path = pathname || '/';
+    if (search && search !== '?') path += search.charAt(0) === '?' ? search : "?" + search;
+    if (hash && hash !== '#') path += hash.charAt(0) === '#' ? hash : "#" + hash;
+    return path;
+  }
+
+  function createLocation(path, state, key, currentLocation) {
+    var location;
+
+    if (typeof path === 'string') {
+      // Two-arg form: push(path, state)
+      location = parsePath(path);
+      location.state = state;
+    } else {
+      // One-arg form: push(location)
+      location = _extends({}, path);
+      if (location.pathname === undefined) location.pathname = '';
+
+      if (location.search) {
+        if (location.search.charAt(0) !== '?') location.search = '?' + location.search;
+      } else {
+        location.search = '';
+      }
+
+      if (location.hash) {
+        if (location.hash.charAt(0) !== '#') location.hash = '#' + location.hash;
+      } else {
+        location.hash = '';
+      }
+
+      if (state !== undefined && location.state === undefined) location.state = state;
+    }
+
+    try {
+      location.pathname = decodeURI(location.pathname);
+    } catch (e) {
+      if (e instanceof URIError) {
+        throw new URIError('Pathname "' + location.pathname + '" could not be decoded. ' + 'This is likely caused by an invalid percent-encoding.');
+      } else {
+        throw e;
+      }
+    }
+
+    if (key) location.key = key;
+
+    if (currentLocation) {
+      // Resolve incomplete/relative pathname relative to current location.
+      if (!location.pathname) {
+        location.pathname = currentLocation.pathname;
+      } else if (location.pathname.charAt(0) !== '/') {
+        location.pathname = resolvePathname(location.pathname, currentLocation.pathname);
+      }
+    } else {
+      // When there is no prior location and pathname is empty, set it to /
+      if (!location.pathname) {
+        location.pathname = '/';
+      }
+    }
+
+    return location;
+  }
+  function locationsAreEqual(a, b) {
+    return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && a.key === b.key && valueEqual(a.state, b.state);
+  }
+
+  function createTransitionManager() {
+    var prompt = null;
+
+    function setPrompt(nextPrompt) {
+       warning(prompt == null, 'A history supports only one prompt at a time') ;
+      prompt = nextPrompt;
+      return function () {
+        if (prompt === nextPrompt) prompt = null;
+      };
+    }
+
+    function confirmTransitionTo(location, action, getUserConfirmation, callback) {
+      // TODO: If another transition starts while we're still confirming
+      // the previous one, we may end up in a weird state. Figure out the
+      // best way to handle this.
+      if (prompt != null) {
+        var result = typeof prompt === 'function' ? prompt(location, action) : prompt;
+
+        if (typeof result === 'string') {
+          if (typeof getUserConfirmation === 'function') {
+            getUserConfirmation(result, callback);
+          } else {
+             warning(false, 'A history needs a getUserConfirmation function in order to use a prompt message') ;
+            callback(true);
+          }
+        } else {
+          // Return false from a transition hook to cancel the transition.
+          callback(result !== false);
+        }
+      } else {
+        callback(true);
+      }
+    }
+
+    var listeners = [];
+
+    function appendListener(fn) {
+      var isActive = true;
+
+      function listener() {
+        if (isActive) fn.apply(void 0, arguments);
+      }
+
+      listeners.push(listener);
+      return function () {
+        isActive = false;
+        listeners = listeners.filter(function (item) {
+          return item !== listener;
+        });
+      };
+    }
+
+    function notifyListeners() {
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      listeners.forEach(function (listener) {
+        return listener.apply(void 0, args);
+      });
+    }
+
+    return {
+      setPrompt: setPrompt,
+      confirmTransitionTo: confirmTransitionTo,
+      appendListener: appendListener,
+      notifyListeners: notifyListeners
+    };
+  }
+
+  var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+  function getConfirmation(message, callback) {
+    callback(window.confirm(message)); // eslint-disable-line no-alert
+  }
+  /**
+   * Returns true if the HTML5 history API is supported. Taken from Modernizr.
+   *
+   * https://github.com/Modernizr/Modernizr/blob/master/LICENSE
+   * https://github.com/Modernizr/Modernizr/blob/master/feature-detects/history.js
+   * changed to avoid false negatives for Windows Phones: https://github.com/reactjs/react-router/issues/586
+   */
+
+  function supportsHistory() {
+    var ua = window.navigator.userAgent;
+    if ((ua.indexOf('Android 2.') !== -1 || ua.indexOf('Android 4.0') !== -1) && ua.indexOf('Mobile Safari') !== -1 && ua.indexOf('Chrome') === -1 && ua.indexOf('Windows Phone') === -1) return false;
+    return window.history && 'pushState' in window.history;
+  }
+  /**
+   * Returns true if browser fires popstate on hash change.
+   * IE10 and IE11 do not.
+   */
+
+  function supportsPopStateOnHashChange() {
+    return window.navigator.userAgent.indexOf('Trident') === -1;
+  }
+  /**
+   * Returns false if using go(n) with hash history causes a full page reload.
+   */
+
+  function supportsGoWithoutReloadUsingHash() {
+    return window.navigator.userAgent.indexOf('Firefox') === -1;
+  }
+  /**
+   * Returns true if a given popstate event is an extraneous WebKit event.
+   * Accounts for the fact that Chrome on iOS fires real popstate events
+   * containing undefined state when pressing the back button.
+   */
+
+  function isExtraneousPopstateEvent(event) {
+    return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;
+  }
+
+  var PopStateEvent = 'popstate';
+  var HashChangeEvent = 'hashchange';
+
+  function getHistoryState() {
+    try {
+      return window.history.state || {};
+    } catch (e) {
+      // IE 11 sometimes throws when accessing window.history.state
+      // See https://github.com/ReactTraining/history/pull/289
+      return {};
+    }
+  }
+  /**
+   * Creates a history object that uses the HTML5 history API including
+   * pushState, replaceState, and the popstate event.
+   */
+
+
+  function createBrowserHistory(props) {
+    if (props === void 0) {
+      props = {};
+    }
+
+    !canUseDOM ?  invariant(false, 'Browser history needs a DOM')  : void 0;
+    var globalHistory = window.history;
+    var canUseHistory = supportsHistory();
+    var needsHashChangeListener = !supportsPopStateOnHashChange();
+    var _props = props,
+        _props$forceRefresh = _props.forceRefresh,
+        forceRefresh = _props$forceRefresh === void 0 ? false : _props$forceRefresh,
+        _props$getUserConfirm = _props.getUserConfirmation,
+        getUserConfirmation = _props$getUserConfirm === void 0 ? getConfirmation : _props$getUserConfirm,
+        _props$keyLength = _props.keyLength,
+        keyLength = _props$keyLength === void 0 ? 6 : _props$keyLength;
+    var basename = props.basename ? stripTrailingSlash(addLeadingSlash(props.basename)) : '';
+
+    function getDOMLocation(historyState) {
+      var _ref = historyState || {},
+          key = _ref.key,
+          state = _ref.state;
+
+      var _window$location = window.location,
+          pathname = _window$location.pathname,
+          search = _window$location.search,
+          hash = _window$location.hash;
+      var path = pathname + search + hash;
+       warning(!basename || hasBasename(path, basename), 'You are attempting to use a basename on a page whose URL path does not begin ' + 'with the basename. Expected path "' + path + '" to begin with "' + basename + '".') ;
+      if (basename) path = stripBasename(path, basename);
+      return createLocation(path, state, key);
+    }
+
+    function createKey() {
+      return Math.random().toString(36).substr(2, keyLength);
+    }
+
+    var transitionManager = createTransitionManager();
+
+    function setState(nextState) {
+      _extends(history, nextState);
+
+      history.length = globalHistory.length;
+      transitionManager.notifyListeners(history.location, history.action);
+    }
+
+    function handlePopState(event) {
+      // Ignore extraneous popstate events in WebKit.
+      if (isExtraneousPopstateEvent(event)) return;
+      handlePop(getDOMLocation(event.state));
+    }
+
+    function handleHashChange() {
+      handlePop(getDOMLocation(getHistoryState()));
+    }
+
+    var forceNextPop = false;
+
+    function handlePop(location) {
+      if (forceNextPop) {
+        forceNextPop = false;
+        setState();
+      } else {
+        var action = 'POP';
+        transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+          if (ok) {
+            setState({
+              action: action,
+              location: location
+            });
+          } else {
+            revertPop(location);
+          }
+        });
+      }
+    }
+
+    function revertPop(fromLocation) {
+      var toLocation = history.location; // TODO: We could probably make this more reliable by
+      // keeping a list of keys we've seen in sessionStorage.
+      // Instead, we just default to 0 for keys we don't know.
+
+      var toIndex = allKeys.indexOf(toLocation.key);
+      if (toIndex === -1) toIndex = 0;
+      var fromIndex = allKeys.indexOf(fromLocation.key);
+      if (fromIndex === -1) fromIndex = 0;
+      var delta = toIndex - fromIndex;
+
+      if (delta) {
+        forceNextPop = true;
+        go(delta);
+      }
+    }
+
+    var initialLocation = getDOMLocation(getHistoryState());
+    var allKeys = [initialLocation.key]; // Public interface
+
+    function createHref(location) {
+      return basename + createPath(location);
+    }
+
+    function push(path, state) {
+       warning(!(typeof path === 'object' && path.state !== undefined && state !== undefined), 'You should avoid providing a 2nd state argument to push when the 1st ' + 'argument is a location-like object that already has state; it is ignored') ;
+      var action = 'PUSH';
+      var location = createLocation(path, state, createKey(), history.location);
+      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+        if (!ok) return;
+        var href = createHref(location);
+        var key = location.key,
+            state = location.state;
+
+        if (canUseHistory) {
+          globalHistory.pushState({
+            key: key,
+            state: state
+          }, null, href);
+
+          if (forceRefresh) {
+            window.location.href = href;
+          } else {
+            var prevIndex = allKeys.indexOf(history.location.key);
+            var nextKeys = allKeys.slice(0, prevIndex + 1);
+            nextKeys.push(location.key);
+            allKeys = nextKeys;
+            setState({
+              action: action,
+              location: location
+            });
+          }
+        } else {
+           warning(state === undefined, 'Browser history cannot push state in browsers that do not support HTML5 history') ;
+          window.location.href = href;
+        }
+      });
+    }
+
+    function replace(path, state) {
+       warning(!(typeof path === 'object' && path.state !== undefined && state !== undefined), 'You should avoid providing a 2nd state argument to replace when the 1st ' + 'argument is a location-like object that already has state; it is ignored') ;
+      var action = 'REPLACE';
+      var location = createLocation(path, state, createKey(), history.location);
+      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+        if (!ok) return;
+        var href = createHref(location);
+        var key = location.key,
+            state = location.state;
+
+        if (canUseHistory) {
+          globalHistory.replaceState({
+            key: key,
+            state: state
+          }, null, href);
+
+          if (forceRefresh) {
+            window.location.replace(href);
+          } else {
+            var prevIndex = allKeys.indexOf(history.location.key);
+            if (prevIndex !== -1) allKeys[prevIndex] = location.key;
+            setState({
+              action: action,
+              location: location
+            });
+          }
+        } else {
+           warning(state === undefined, 'Browser history cannot replace state in browsers that do not support HTML5 history') ;
+          window.location.replace(href);
+        }
+      });
+    }
+
+    function go(n) {
+      globalHistory.go(n);
+    }
+
+    function goBack() {
+      go(-1);
+    }
+
+    function goForward() {
+      go(1);
+    }
+
+    var listenerCount = 0;
+
+    function checkDOMListeners(delta) {
+      listenerCount += delta;
+
+      if (listenerCount === 1 && delta === 1) {
+        window.addEventListener(PopStateEvent, handlePopState);
+        if (needsHashChangeListener) window.addEventListener(HashChangeEvent, handleHashChange);
+      } else if (listenerCount === 0) {
+        window.removeEventListener(PopStateEvent, handlePopState);
+        if (needsHashChangeListener) window.removeEventListener(HashChangeEvent, handleHashChange);
+      }
+    }
+
+    var isBlocked = false;
+
+    function block(prompt) {
+      if (prompt === void 0) {
+        prompt = false;
+      }
+
+      var unblock = transitionManager.setPrompt(prompt);
+
+      if (!isBlocked) {
+        checkDOMListeners(1);
+        isBlocked = true;
+      }
+
+      return function () {
+        if (isBlocked) {
+          isBlocked = false;
+          checkDOMListeners(-1);
+        }
+
+        return unblock();
+      };
+    }
+
+    function listen(listener) {
+      var unlisten = transitionManager.appendListener(listener);
+      checkDOMListeners(1);
+      return function () {
+        checkDOMListeners(-1);
+        unlisten();
+      };
+    }
+
+    var history = {
+      length: globalHistory.length,
+      action: 'POP',
+      location: initialLocation,
+      createHref: createHref,
+      push: push,
+      replace: replace,
+      go: go,
+      goBack: goBack,
+      goForward: goForward,
+      block: block,
+      listen: listen
+    };
+    return history;
+  }
+
+  var HashChangeEvent$1 = 'hashchange';
+  var HashPathCoders = {
+    hashbang: {
+      encodePath: function encodePath(path) {
+        return path.charAt(0) === '!' ? path : '!/' + stripLeadingSlash(path);
+      },
+      decodePath: function decodePath(path) {
+        return path.charAt(0) === '!' ? path.substr(1) : path;
+      }
+    },
+    noslash: {
+      encodePath: stripLeadingSlash,
+      decodePath: addLeadingSlash
+    },
+    slash: {
+      encodePath: addLeadingSlash,
+      decodePath: addLeadingSlash
+    }
+  };
+
+  function stripHash(url) {
+    var hashIndex = url.indexOf('#');
+    return hashIndex === -1 ? url : url.slice(0, hashIndex);
+  }
+
+  function getHashPath() {
+    // We can't use window.location.hash here because it's not
+    // consistent across browsers - Firefox will pre-decode it!
+    var href = window.location.href;
+    var hashIndex = href.indexOf('#');
+    return hashIndex === -1 ? '' : href.substring(hashIndex + 1);
+  }
+
+  function pushHashPath(path) {
+    window.location.hash = path;
+  }
+
+  function replaceHashPath(path) {
+    window.location.replace(stripHash(window.location.href) + '#' + path);
+  }
+
+  function createHashHistory(props) {
+    if (props === void 0) {
+      props = {};
+    }
+
+    !canUseDOM ?  invariant(false, 'Hash history needs a DOM')  : void 0;
+    var globalHistory = window.history;
+    var canGoWithoutReload = supportsGoWithoutReloadUsingHash();
+    var _props = props,
+        _props$getUserConfirm = _props.getUserConfirmation,
+        getUserConfirmation = _props$getUserConfirm === void 0 ? getConfirmation : _props$getUserConfirm,
+        _props$hashType = _props.hashType,
+        hashType = _props$hashType === void 0 ? 'slash' : _props$hashType;
+    var basename = props.basename ? stripTrailingSlash(addLeadingSlash(props.basename)) : '';
+    var _HashPathCoders$hashT = HashPathCoders[hashType],
+        encodePath = _HashPathCoders$hashT.encodePath,
+        decodePath = _HashPathCoders$hashT.decodePath;
+
+    function getDOMLocation() {
+      var path = decodePath(getHashPath());
+       warning(!basename || hasBasename(path, basename), 'You are attempting to use a basename on a page whose URL path does not begin ' + 'with the basename. Expected path "' + path + '" to begin with "' + basename + '".') ;
+      if (basename) path = stripBasename(path, basename);
+      return createLocation(path);
+    }
+
+    var transitionManager = createTransitionManager();
+
+    function setState(nextState) {
+      _extends(history, nextState);
+
+      history.length = globalHistory.length;
+      transitionManager.notifyListeners(history.location, history.action);
+    }
+
+    var forceNextPop = false;
+    var ignorePath = null;
+
+    function locationsAreEqual$$1(a, b) {
+      return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash;
+    }
+
+    function handleHashChange() {
+      var path = getHashPath();
+      var encodedPath = encodePath(path);
+
+      if (path !== encodedPath) {
+        // Ensure we always have a properly-encoded hash.
+        replaceHashPath(encodedPath);
+      } else {
+        var location = getDOMLocation();
+        var prevLocation = history.location;
+        if (!forceNextPop && locationsAreEqual$$1(prevLocation, location)) return; // A hashchange doesn't always == location change.
+
+        if (ignorePath === createPath(location)) return; // Ignore this change; we already setState in push/replace.
+
+        ignorePath = null;
+        handlePop(location);
+      }
+    }
+
+    function handlePop(location) {
+      if (forceNextPop) {
+        forceNextPop = false;
+        setState();
+      } else {
+        var action = 'POP';
+        transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+          if (ok) {
+            setState({
+              action: action,
+              location: location
+            });
+          } else {
+            revertPop(location);
+          }
+        });
+      }
+    }
+
+    function revertPop(fromLocation) {
+      var toLocation = history.location; // TODO: We could probably make this more reliable by
+      // keeping a list of paths we've seen in sessionStorage.
+      // Instead, we just default to 0 for paths we don't know.
+
+      var toIndex = allPaths.lastIndexOf(createPath(toLocation));
+      if (toIndex === -1) toIndex = 0;
+      var fromIndex = allPaths.lastIndexOf(createPath(fromLocation));
+      if (fromIndex === -1) fromIndex = 0;
+      var delta = toIndex - fromIndex;
+
+      if (delta) {
+        forceNextPop = true;
+        go(delta);
+      }
+    } // Ensure the hash is encoded properly before doing anything else.
+
+
+    var path = getHashPath();
+    var encodedPath = encodePath(path);
+    if (path !== encodedPath) replaceHashPath(encodedPath);
+    var initialLocation = getDOMLocation();
+    var allPaths = [createPath(initialLocation)]; // Public interface
+
+    function createHref(location) {
+      var baseTag = document.querySelector('base');
+      var href = '';
+
+      if (baseTag && baseTag.getAttribute('href')) {
+        href = stripHash(window.location.href);
+      }
+
+      return href + '#' + encodePath(basename + createPath(location));
+    }
+
+    function push(path, state) {
+       warning(state === undefined, 'Hash history cannot push state; it is ignored') ;
+      var action = 'PUSH';
+      var location = createLocation(path, undefined, undefined, history.location);
+      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+        if (!ok) return;
+        var path = createPath(location);
+        var encodedPath = encodePath(basename + path);
+        var hashChanged = getHashPath() !== encodedPath;
+
+        if (hashChanged) {
+          // We cannot tell if a hashchange was caused by a PUSH, so we'd
+          // rather setState here and ignore the hashchange. The caveat here
+          // is that other hash histories in the page will consider it a POP.
+          ignorePath = path;
+          pushHashPath(encodedPath);
+          var prevIndex = allPaths.lastIndexOf(createPath(history.location));
+          var nextPaths = allPaths.slice(0, prevIndex + 1);
+          nextPaths.push(path);
+          allPaths = nextPaths;
+          setState({
+            action: action,
+            location: location
+          });
+        } else {
+           warning(false, 'Hash history cannot PUSH the same path; a new entry will not be added to the history stack') ;
+          setState();
+        }
+      });
+    }
+
+    function replace(path, state) {
+       warning(state === undefined, 'Hash history cannot replace state; it is ignored') ;
+      var action = 'REPLACE';
+      var location = createLocation(path, undefined, undefined, history.location);
+      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+        if (!ok) return;
+        var path = createPath(location);
+        var encodedPath = encodePath(basename + path);
+        var hashChanged = getHashPath() !== encodedPath;
+
+        if (hashChanged) {
+          // We cannot tell if a hashchange was caused by a REPLACE, so we'd
+          // rather setState here and ignore the hashchange. The caveat here
+          // is that other hash histories in the page will consider it a POP.
+          ignorePath = path;
+          replaceHashPath(encodedPath);
+        }
+
+        var prevIndex = allPaths.indexOf(createPath(history.location));
+        if (prevIndex !== -1) allPaths[prevIndex] = path;
+        setState({
+          action: action,
+          location: location
+        });
+      });
+    }
+
+    function go(n) {
+       warning(canGoWithoutReload, 'Hash history go(n) causes a full page reload in this browser') ;
+      globalHistory.go(n);
+    }
+
+    function goBack() {
+      go(-1);
+    }
+
+    function goForward() {
+      go(1);
+    }
+
+    var listenerCount = 0;
+
+    function checkDOMListeners(delta) {
+      listenerCount += delta;
+
+      if (listenerCount === 1 && delta === 1) {
+        window.addEventListener(HashChangeEvent$1, handleHashChange);
+      } else if (listenerCount === 0) {
+        window.removeEventListener(HashChangeEvent$1, handleHashChange);
+      }
+    }
+
+    var isBlocked = false;
+
+    function block(prompt) {
+      if (prompt === void 0) {
+        prompt = false;
+      }
+
+      var unblock = transitionManager.setPrompt(prompt);
+
+      if (!isBlocked) {
+        checkDOMListeners(1);
+        isBlocked = true;
+      }
+
+      return function () {
+        if (isBlocked) {
+          isBlocked = false;
+          checkDOMListeners(-1);
+        }
+
+        return unblock();
+      };
+    }
+
+    function listen(listener) {
+      var unlisten = transitionManager.appendListener(listener);
+      checkDOMListeners(1);
+      return function () {
+        checkDOMListeners(-1);
+        unlisten();
+      };
+    }
+
+    var history = {
+      length: globalHistory.length,
+      action: 'POP',
+      location: initialLocation,
+      createHref: createHref,
+      push: push,
+      replace: replace,
+      go: go,
+      goBack: goBack,
+      goForward: goForward,
+      block: block,
+      listen: listen
+    };
+    return history;
+  }
+
+  function clamp$1(n, lowerBound, upperBound) {
+    return Math.min(Math.max(n, lowerBound), upperBound);
+  }
+  /**
+   * Creates a history object that stores locations in memory.
+   */
+
+
+  function createMemoryHistory(props) {
+    if (props === void 0) {
+      props = {};
+    }
+
+    var _props = props,
+        getUserConfirmation = _props.getUserConfirmation,
+        _props$initialEntries = _props.initialEntries,
+        initialEntries = _props$initialEntries === void 0 ? ['/'] : _props$initialEntries,
+        _props$initialIndex = _props.initialIndex,
+        initialIndex = _props$initialIndex === void 0 ? 0 : _props$initialIndex,
+        _props$keyLength = _props.keyLength,
+        keyLength = _props$keyLength === void 0 ? 6 : _props$keyLength;
+    var transitionManager = createTransitionManager();
+
+    function setState(nextState) {
+      _extends(history, nextState);
+
+      history.length = history.entries.length;
+      transitionManager.notifyListeners(history.location, history.action);
+    }
+
+    function createKey() {
+      return Math.random().toString(36).substr(2, keyLength);
+    }
+
+    var index = clamp$1(initialIndex, 0, initialEntries.length - 1);
+    var entries = initialEntries.map(function (entry) {
+      return typeof entry === 'string' ? createLocation(entry, undefined, createKey()) : createLocation(entry, undefined, entry.key || createKey());
+    }); // Public interface
+
+    var createHref = createPath;
+
+    function push(path, state) {
+       warning(!(typeof path === 'object' && path.state !== undefined && state !== undefined), 'You should avoid providing a 2nd state argument to push when the 1st ' + 'argument is a location-like object that already has state; it is ignored') ;
+      var action = 'PUSH';
+      var location = createLocation(path, state, createKey(), history.location);
+      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+        if (!ok) return;
+        var prevIndex = history.index;
+        var nextIndex = prevIndex + 1;
+        var nextEntries = history.entries.slice(0);
+
+        if (nextEntries.length > nextIndex) {
+          nextEntries.splice(nextIndex, nextEntries.length - nextIndex, location);
+        } else {
+          nextEntries.push(location);
+        }
+
+        setState({
+          action: action,
+          location: location,
+          index: nextIndex,
+          entries: nextEntries
+        });
+      });
+    }
+
+    function replace(path, state) {
+       warning(!(typeof path === 'object' && path.state !== undefined && state !== undefined), 'You should avoid providing a 2nd state argument to replace when the 1st ' + 'argument is a location-like object that already has state; it is ignored') ;
+      var action = 'REPLACE';
+      var location = createLocation(path, state, createKey(), history.location);
+      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+        if (!ok) return;
+        history.entries[history.index] = location;
+        setState({
+          action: action,
+          location: location
+        });
+      });
+    }
+
+    function go(n) {
+      var nextIndex = clamp$1(history.index + n, 0, history.entries.length - 1);
+      var action = 'POP';
+      var location = history.entries[nextIndex];
+      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
+        if (ok) {
+          setState({
+            action: action,
+            location: location,
+            index: nextIndex
+          });
+        } else {
+          // Mimic the behavior of DOM histories by
+          // causing a render after a cancelled POP.
+          setState();
+        }
+      });
+    }
+
+    function goBack() {
+      go(-1);
+    }
+
+    function goForward() {
+      go(1);
+    }
+
+    function canGo(n) {
+      var nextIndex = history.index + n;
+      return nextIndex >= 0 && nextIndex < history.entries.length;
+    }
+
+    function block(prompt) {
+      if (prompt === void 0) {
+        prompt = false;
+      }
+
+      return transitionManager.setPrompt(prompt);
+    }
+
+    function listen(listener) {
+      return transitionManager.appendListener(listener);
+    }
+
+    var history = {
+      length: entries.length,
+      action: 'POP',
+      location: entries[index],
+      index: index,
+      entries: entries,
+      createHref: createHref,
+      push: push,
+      replace: replace,
+      go: go,
+      goBack: goBack,
+      goForward: goForward,
+      canGo: canGo,
+      block: block,
+      listen: listen
+    };
+    return history;
+  }
+
+  var MAX_SIGNED_31_BIT_INT = 1073741823;
+  var commonjsGlobal$1 = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : {};
+
+  function getUniqueId() {
+    var key = '__global_unique_id__';
+    return commonjsGlobal$1[key] = (commonjsGlobal$1[key] || 0) + 1;
+  }
+
+  function objectIs(x, y) {
+    if (x === y) {
+      return x !== 0 || 1 / x === 1 / y;
+    } else {
+      return x !== x && y !== y;
+    }
+  }
+
+  function createEventEmitter(value) {
+    var handlers = [];
+    return {
+      on: function on(handler) {
+        handlers.push(handler);
+      },
+      off: function off(handler) {
+        handlers = handlers.filter(function (h) {
+          return h !== handler;
+        });
+      },
+      get: function get() {
+        return value;
+      },
+      set: function set(newValue, changedBits) {
+        value = newValue;
+        handlers.forEach(function (handler) {
+          return handler(value, changedBits);
+        });
+      }
+    };
+  }
+
+  function onlyChild(children) {
+    return Array.isArray(children) ? children[0] : children;
+  }
+
+  function createReactContext(defaultValue, calculateChangedBits) {
+    var _Provider$childContex, _Consumer$contextType;
+
+    var contextProp = '__create-react-context-' + getUniqueId() + '__';
+
+    var Provider = /*#__PURE__*/function (_Component) {
+      _inheritsLoose(Provider, _Component);
+
+      function Provider() {
+        var _this;
+
+        _this = _Component.apply(this, arguments) || this;
+        _this.emitter = createEventEmitter(_this.props.value);
+        return _this;
+      }
+
+      var _proto = Provider.prototype;
+
+      _proto.getChildContext = function getChildContext() {
+        var _ref;
+
+        return _ref = {}, _ref[contextProp] = this.emitter, _ref;
+      };
+
+      _proto.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+        if (this.props.value !== nextProps.value) {
+          var oldValue = this.props.value;
+          var newValue = nextProps.value;
+          var changedBits;
+
+          if (objectIs(oldValue, newValue)) {
+            changedBits = 0;
+          } else {
+            changedBits = typeof calculateChangedBits === 'function' ? calculateChangedBits(oldValue, newValue) : MAX_SIGNED_31_BIT_INT;
+
+            {
+              warning((changedBits & MAX_SIGNED_31_BIT_INT) === changedBits, 'calculateChangedBits: Expected the return value to be a ' + '31-bit integer. Instead received: ' + changedBits);
+            }
+
+            changedBits |= 0;
+
+            if (changedBits !== 0) {
+              this.emitter.set(nextProps.value, changedBits);
+            }
+          }
+        }
+      };
+
+      _proto.render = function render() {
+        return this.props.children;
+      };
+
+      return Provider;
+    }(react_18);
+
+    Provider.childContextTypes = (_Provider$childContex = {}, _Provider$childContex[contextProp] = propTypes.object.isRequired, _Provider$childContex);
+
+    var Consumer = /*#__PURE__*/function (_Component2) {
+      _inheritsLoose(Consumer, _Component2);
+
+      function Consumer() {
+        var _this2;
+
+        _this2 = _Component2.apply(this, arguments) || this;
+        _this2.state = {
+          value: _this2.getValue()
+        };
+
+        _this2.onUpdate = function (newValue, changedBits) {
+          var observedBits = _this2.observedBits | 0;
+
+          if ((observedBits & changedBits) !== 0) {
+            _this2.setState({
+              value: _this2.getValue()
+            });
+          }
+        };
+
+        return _this2;
+      }
+
+      var _proto2 = Consumer.prototype;
+
+      _proto2.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+        var observedBits = nextProps.observedBits;
+        this.observedBits = observedBits === undefined || observedBits === null ? MAX_SIGNED_31_BIT_INT : observedBits;
+      };
+
+      _proto2.componentDidMount = function componentDidMount() {
+        if (this.context[contextProp]) {
+          this.context[contextProp].on(this.onUpdate);
+        }
+
+        var observedBits = this.props.observedBits;
+        this.observedBits = observedBits === undefined || observedBits === null ? MAX_SIGNED_31_BIT_INT : observedBits;
+      };
+
+      _proto2.componentWillUnmount = function componentWillUnmount() {
+        if (this.context[contextProp]) {
+          this.context[contextProp].off(this.onUpdate);
+        }
+      };
+
+      _proto2.getValue = function getValue() {
+        if (this.context[contextProp]) {
+          return this.context[contextProp].get();
+        } else {
+          return defaultValue;
+        }
+      };
+
+      _proto2.render = function render() {
+        return onlyChild(this.props.children)(this.state.value);
+      };
+
+      return Consumer;
+    }(react_18);
+
+    Consumer.contextTypes = (_Consumer$contextType = {}, _Consumer$contextType[contextProp] = propTypes.object, _Consumer$contextType);
+    return {
+      Provider: Provider,
+      Consumer: Consumer
+    };
+  }
+
+  var index$1 = react.createContext || createReactContext;
+
+  var isarray = Array.isArray || function (arr) {
+    return Object.prototype.toString.call(arr) == '[object Array]';
+  };
+
+  /**
+   * Expose `pathToRegexp`.
+   */
+  var pathToRegexp_1 = pathToRegexp;
+  var parse_1 = parse;
+  var compile_1 = compile;
+  var tokensToFunction_1 = tokensToFunction;
+  var tokensToRegExp_1 = tokensToRegExp;
+
+  /**
+   * The main path matching regexp utility.
+   *
+   * @type {RegExp}
+   */
+  var PATH_REGEXP = new RegExp([
+    // Match escaped characters that would otherwise appear in future matches.
+    // This allows the user to escape special characters that won't transform.
+    '(\\\\.)',
+    // Match Express-style parameters and un-named parameters with a prefix
+    // and optional suffixes. Matches appear as:
+    //
+    // "/:test(\\d+)?" => ["/", "test", "\d+", undefined, "?", undefined]
+    // "/route(\\d+)"  => [undefined, undefined, undefined, "\d+", undefined, undefined]
+    // "/*"            => ["/", undefined, undefined, undefined, undefined, "*"]
+    '([\\/.])?(?:(?:\\:(\\w+)(?:\\(((?:\\\\.|[^\\\\()])+)\\))?|\\(((?:\\\\.|[^\\\\()])+)\\))([+*?])?|(\\*))'
+  ].join('|'), 'g');
+
+  /**
+   * Parse a string for the raw tokens.
+   *
+   * @param  {string}  str
+   * @param  {Object=} options
+   * @return {!Array}
+   */
+  function parse (str, options) {
+    var tokens = [];
+    var key = 0;
+    var index = 0;
+    var path = '';
+    var defaultDelimiter = options && options.delimiter || '/';
+    var res;
+
+    while ((res = PATH_REGEXP.exec(str)) != null) {
+      var m = res[0];
+      var escaped = res[1];
+      var offset = res.index;
+      path += str.slice(index, offset);
+      index = offset + m.length;
+
+      // Ignore already escaped sequences.
+      if (escaped) {
+        path += escaped[1];
+        continue
+      }
+
+      var next = str[index];
+      var prefix = res[2];
+      var name = res[3];
+      var capture = res[4];
+      var group = res[5];
+      var modifier = res[6];
+      var asterisk = res[7];
+
+      // Push the current path onto the tokens.
+      if (path) {
+        tokens.push(path);
+        path = '';
+      }
+
+      var partial = prefix != null && next != null && next !== prefix;
+      var repeat = modifier === '+' || modifier === '*';
+      var optional = modifier === '?' || modifier === '*';
+      var delimiter = res[2] || defaultDelimiter;
+      var pattern = capture || group;
+
+      tokens.push({
+        name: name || key++,
+        prefix: prefix || '',
+        delimiter: delimiter,
+        optional: optional,
+        repeat: repeat,
+        partial: partial,
+        asterisk: !!asterisk,
+        pattern: pattern ? escapeGroup(pattern) : (asterisk ? '.*' : '[^' + escapeString(delimiter) + ']+?')
+      });
+    }
+
+    // Match any characters still remaining.
+    if (index < str.length) {
+      path += str.substr(index);
+    }
+
+    // If the path exists, push it onto the end.
+    if (path) {
+      tokens.push(path);
+    }
+
+    return tokens
+  }
+
+  /**
+   * Compile a string to a template function for the path.
+   *
+   * @param  {string}             str
+   * @param  {Object=}            options
+   * @return {!function(Object=, Object=)}
+   */
+  function compile (str, options) {
+    return tokensToFunction(parse(str, options), options)
+  }
+
+  /**
+   * Prettier encoding of URI path segments.
+   *
+   * @param  {string}
+   * @return {string}
+   */
+  function encodeURIComponentPretty (str) {
+    return encodeURI(str).replace(/[\/?#]/g, function (c) {
+      return '%' + c.charCodeAt(0).toString(16).toUpperCase()
+    })
+  }
+
+  /**
+   * Encode the asterisk parameter. Similar to `pretty`, but allows slashes.
+   *
+   * @param  {string}
+   * @return {string}
+   */
+  function encodeAsterisk (str) {
+    return encodeURI(str).replace(/[?#]/g, function (c) {
+      return '%' + c.charCodeAt(0).toString(16).toUpperCase()
+    })
+  }
+
+  /**
+   * Expose a method for transforming tokens into the path function.
+   */
+  function tokensToFunction (tokens, options) {
+    // Compile all the tokens into regexps.
+    var matches = new Array(tokens.length);
+
+    // Compile all the patterns before compilation.
+    for (var i = 0; i < tokens.length; i++) {
+      if (typeof tokens[i] === 'object') {
+        matches[i] = new RegExp('^(?:' + tokens[i].pattern + ')$', flags(options));
+      }
+    }
+
+    return function (obj, opts) {
+      var path = '';
+      var data = obj || {};
+      var options = opts || {};
+      var encode = options.pretty ? encodeURIComponentPretty : encodeURIComponent;
+
+      for (var i = 0; i < tokens.length; i++) {
+        var token = tokens[i];
+
+        if (typeof token === 'string') {
+          path += token;
+
+          continue
+        }
+
+        var value = data[token.name];
+        var segment;
+
+        if (value == null) {
+          if (token.optional) {
+            // Prepend partial segment prefixes.
+            if (token.partial) {
+              path += token.prefix;
+            }
+
+            continue
+          } else {
+            throw new TypeError('Expected "' + token.name + '" to be defined')
+          }
+        }
+
+        if (isarray(value)) {
+          if (!token.repeat) {
+            throw new TypeError('Expected "' + token.name + '" to not repeat, but received `' + JSON.stringify(value) + '`')
+          }
+
+          if (value.length === 0) {
+            if (token.optional) {
+              continue
+            } else {
+              throw new TypeError('Expected "' + token.name + '" to not be empty')
+            }
+          }
+
+          for (var j = 0; j < value.length; j++) {
+            segment = encode(value[j]);
+
+            if (!matches[i].test(segment)) {
+              throw new TypeError('Expected all "' + token.name + '" to match "' + token.pattern + '", but received `' + JSON.stringify(segment) + '`')
+            }
+
+            path += (j === 0 ? token.prefix : token.delimiter) + segment;
+          }
+
+          continue
+        }
+
+        segment = token.asterisk ? encodeAsterisk(value) : encode(value);
+
+        if (!matches[i].test(segment)) {
+          throw new TypeError('Expected "' + token.name + '" to match "' + token.pattern + '", but received "' + segment + '"')
+        }
+
+        path += token.prefix + segment;
+      }
+
+      return path
+    }
+  }
+
+  /**
+   * Escape a regular expression string.
+   *
+   * @param  {string} str
+   * @return {string}
+   */
+  function escapeString (str) {
+    return str.replace(/([.+*?=^!:${}()[\]|\/\\])/g, '\\$1')
+  }
+
+  /**
+   * Escape the capturing group by escaping special characters and meaning.
+   *
+   * @param  {string} group
+   * @return {string}
+   */
+  function escapeGroup (group) {
+    return group.replace(/([=!:$\/()])/g, '\\$1')
+  }
+
+  /**
+   * Attach the keys as a property of the regexp.
+   *
+   * @param  {!RegExp} re
+   * @param  {Array}   keys
+   * @return {!RegExp}
+   */
+  function attachKeys (re, keys) {
+    re.keys = keys;
+    return re
+  }
+
+  /**
+   * Get the flags for a regexp from the options.
+   *
+   * @param  {Object} options
+   * @return {string}
+   */
+  function flags (options) {
+    return options && options.sensitive ? '' : 'i'
+  }
+
+  /**
+   * Pull out keys from a regexp.
+   *
+   * @param  {!RegExp} path
+   * @param  {!Array}  keys
+   * @return {!RegExp}
+   */
+  function regexpToRegexp (path, keys) {
+    // Use a negative lookahead to match only capturing groups.
+    var groups = path.source.match(/\((?!\?)/g);
+
+    if (groups) {
+      for (var i = 0; i < groups.length; i++) {
+        keys.push({
+          name: i,
+          prefix: null,
+          delimiter: null,
+          optional: false,
+          repeat: false,
+          partial: false,
+          asterisk: false,
+          pattern: null
+        });
+      }
+    }
+
+    return attachKeys(path, keys)
+  }
+
+  /**
+   * Transform an array into a regexp.
+   *
+   * @param  {!Array}  path
+   * @param  {Array}   keys
+   * @param  {!Object} options
+   * @return {!RegExp}
+   */
+  function arrayToRegexp (path, keys, options) {
+    var parts = [];
+
+    for (var i = 0; i < path.length; i++) {
+      parts.push(pathToRegexp(path[i], keys, options).source);
+    }
+
+    var regexp = new RegExp('(?:' + parts.join('|') + ')', flags(options));
+
+    return attachKeys(regexp, keys)
+  }
+
+  /**
+   * Create a path regexp from string input.
+   *
+   * @param  {string}  path
+   * @param  {!Array}  keys
+   * @param  {!Object} options
+   * @return {!RegExp}
+   */
+  function stringToRegexp (path, keys, options) {
+    return tokensToRegExp(parse(path, options), keys, options)
+  }
+
+  /**
+   * Expose a function for taking tokens and returning a RegExp.
+   *
+   * @param  {!Array}          tokens
+   * @param  {(Array|Object)=} keys
+   * @param  {Object=}         options
+   * @return {!RegExp}
+   */
+  function tokensToRegExp (tokens, keys, options) {
+    if (!isarray(keys)) {
+      options = /** @type {!Object} */ (keys || options);
+      keys = [];
+    }
+
+    options = options || {};
+
+    var strict = options.strict;
+    var end = options.end !== false;
+    var route = '';
+
+    // Iterate over the tokens and create our regexp string.
+    for (var i = 0; i < tokens.length; i++) {
+      var token = tokens[i];
+
+      if (typeof token === 'string') {
+        route += escapeString(token);
+      } else {
+        var prefix = escapeString(token.prefix);
+        var capture = '(?:' + token.pattern + ')';
+
+        keys.push(token);
+
+        if (token.repeat) {
+          capture += '(?:' + prefix + capture + ')*';
+        }
+
+        if (token.optional) {
+          if (!token.partial) {
+            capture = '(?:' + prefix + '(' + capture + '))?';
+          } else {
+            capture = prefix + '(' + capture + ')?';
+          }
+        } else {
+          capture = prefix + '(' + capture + ')';
+        }
+
+        route += capture;
+      }
+    }
+
+    var delimiter = escapeString(options.delimiter || '/');
+    var endsWithDelimiter = route.slice(-delimiter.length) === delimiter;
+
+    // In non-strict mode we allow a slash at the end of match. If the path to
+    // match already ends with a slash, we remove it for consistency. The slash
+    // is valid at the end of a path match, not in the middle. This is important
+    // in non-ending mode, where "/test/" shouldn't match "/test//route".
+    if (!strict) {
+      route = (endsWithDelimiter ? route.slice(0, -delimiter.length) : route) + '(?:' + delimiter + '(?=$))?';
+    }
+
+    if (end) {
+      route += '$';
+    } else {
+      // In non-ending mode, we need the capturing groups to match as much as
+      // possible by using a positive lookahead to the end or next path segment.
+      route += strict && endsWithDelimiter ? '' : '(?=' + delimiter + '|$)';
+    }
+
+    return attachKeys(new RegExp('^' + route, flags(options)), keys)
+  }
+
+  /**
+   * Normalize the given path string, returning a regular expression.
+   *
+   * An empty array can be passed in for the keys, which will hold the
+   * placeholder key descriptions. For example, using `/user/:id`, `keys` will
+   * contain `[{ name: 'id', delimiter: '/', optional: false, repeat: false }]`.
+   *
+   * @param  {(string|RegExp|Array)} path
+   * @param  {(Array|Object)=}       keys
+   * @param  {Object=}               options
+   * @return {!RegExp}
+   */
+  function pathToRegexp (path, keys, options) {
+    if (!isarray(keys)) {
+      options = /** @type {!Object} */ (keys || options);
+      keys = [];
+    }
+
+    options = options || {};
+
+    if (path instanceof RegExp) {
+      return regexpToRegexp(path, /** @type {!Array} */ (keys))
+    }
+
+    if (isarray(path)) {
+      return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)
+    }
+
+    return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)
+  }
+  pathToRegexp_1.parse = parse_1;
+  pathToRegexp_1.compile = compile_1;
+  pathToRegexp_1.tokensToFunction = tokensToFunction_1;
+  pathToRegexp_1.tokensToRegExp = tokensToRegExp_1;
+
+  // TODO: Replace with React.createContext once we can assume React 16+
+
+  var createNamedContext = function createNamedContext(name) {
+    var context = index$1();
+    context.displayName = name;
+    return context;
+  };
+
+  var historyContext =
+  /*#__PURE__*/
+  createNamedContext("Router-History");
+
+  // TODO: Replace with React.createContext once we can assume React 16+
+
+  var createNamedContext$1 = function createNamedContext(name) {
+    var context = index$1();
+    context.displayName = name;
+    return context;
+  };
+
+  var context =
+  /*#__PURE__*/
+  createNamedContext$1("Router");
+
+  /**
+   * The public API for putting history on context.
+   */
+
+  var Router =
+  /*#__PURE__*/
+  function (_React$Component) {
+    _inheritsLoose(Router, _React$Component);
+
+    Router.computeRootMatch = function computeRootMatch(pathname) {
+      return {
+        path: "/",
+        url: "/",
+        params: {},
+        isExact: pathname === "/"
+      };
+    };
+
+    function Router(props) {
+      var _this;
+
+      _this = _React$Component.call(this, props) || this;
+      _this.state = {
+        location: props.history.location
+      }; // This is a bit of a hack. We have to start listening for location
+      // changes here in the constructor in case there are any <Redirect>s
+      // on the initial render. If there are, they will replace/push when
+      // they mount and since cDM fires in children before parents, we may
+      // get a new location before the <Router> is mounted.
+
+      _this._isMounted = false;
+      _this._pendingLocation = null;
+
+      if (!props.staticContext) {
+        _this.unlisten = props.history.listen(function (location) {
+          if (_this._isMounted) {
+            _this.setState({
+              location: location
+            });
+          } else {
+            _this._pendingLocation = location;
+          }
+        });
+      }
+
+      return _this;
+    }
+
+    var _proto = Router.prototype;
+
+    _proto.componentDidMount = function componentDidMount() {
+      this._isMounted = true;
+
+      if (this._pendingLocation) {
+        this.setState({
+          location: this._pendingLocation
+        });
+      }
+    };
+
+    _proto.componentWillUnmount = function componentWillUnmount() {
+      if (this.unlisten) this.unlisten();
+    };
+
+    _proto.render = function render() {
+      return react.createElement(context.Provider, {
+        value: {
+          history: this.props.history,
+          location: this.state.location,
+          match: Router.computeRootMatch(this.state.location.pathname),
+          staticContext: this.props.staticContext
+        }
+      }, react.createElement(historyContext.Provider, {
+        children: this.props.children || null,
+        value: this.props.history
+      }));
+    };
+
+    return Router;
+  }(react.Component);
+
+  {
+    Router.propTypes = {
+      children: propTypes.node,
+      history: propTypes.object.isRequired,
+      staticContext: propTypes.object
+    };
+
+    Router.prototype.componentDidUpdate = function (prevProps) {
+       warning(prevProps.history === this.props.history, "You cannot change <Router history>") ;
+    };
+  }
+
+  /**
+   * The public API for a <Router> that stores location in memory.
+   */
+
+  var MemoryRouter =
+  /*#__PURE__*/
+  function (_React$Component) {
+    _inheritsLoose(MemoryRouter, _React$Component);
+
+    function MemoryRouter() {
+      var _this;
+
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+      _this.history = createMemoryHistory(_this.props);
+      return _this;
+    }
+
+    var _proto = MemoryRouter.prototype;
+
+    _proto.render = function render() {
+      return react.createElement(Router, {
+        history: this.history,
+        children: this.props.children
+      });
+    };
+
+    return MemoryRouter;
+  }(react.Component);
+
+  {
+    MemoryRouter.propTypes = {
+      initialEntries: propTypes.array,
+      initialIndex: propTypes.number,
+      getUserConfirmation: propTypes.func,
+      keyLength: propTypes.number,
+      children: propTypes.node
+    };
+
+    MemoryRouter.prototype.componentDidMount = function () {
+       warning(!this.props.history, "<MemoryRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { MemoryRouter as Router }`.") ;
+    };
+  }
+
+  var Lifecycle =
+  /*#__PURE__*/
+  function (_React$Component) {
+    _inheritsLoose(Lifecycle, _React$Component);
+
+    function Lifecycle() {
+      return _React$Component.apply(this, arguments) || this;
+    }
+
+    var _proto = Lifecycle.prototype;
+
+    _proto.componentDidMount = function componentDidMount() {
+      if (this.props.onMount) this.props.onMount.call(this, this);
+    };
+
+    _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+      if (this.props.onUpdate) this.props.onUpdate.call(this, this, prevProps);
+    };
+
+    _proto.componentWillUnmount = function componentWillUnmount() {
+      if (this.props.onUnmount) this.props.onUnmount.call(this, this);
+    };
+
+    _proto.render = function render() {
+      return null;
+    };
+
+    return Lifecycle;
+  }(react.Component);
+
+  /**
+   * The public API for prompting the user before navigating away from a screen.
+   */
+
+  function Prompt(_ref) {
+    var message = _ref.message,
+        _ref$when = _ref.when,
+        when = _ref$when === void 0 ? true : _ref$when;
+    return react.createElement(context.Consumer, null, function (context) {
+      !context ?  invariant(false, "You should not use <Prompt> outside a <Router>")  : void 0;
+      if (!when || context.staticContext) return null;
+      var method = context.history.block;
+      return react.createElement(Lifecycle, {
+        onMount: function onMount(self) {
+          self.release = method(message);
+        },
+        onUpdate: function onUpdate(self, prevProps) {
+          if (prevProps.message !== message) {
+            self.release();
+            self.release = method(message);
+          }
+        },
+        onUnmount: function onUnmount(self) {
+          self.release();
+        },
+        message: message
+      });
+    });
+  }
+
+  {
+    var messageType = propTypes.oneOfType([propTypes.func, propTypes.string]);
+    Prompt.propTypes = {
+      when: propTypes.bool,
+      message: messageType.isRequired
+    };
+  }
+
+  var cache$2 = {};
+  var cacheLimit = 10000;
+  var cacheCount = 0;
+
+  function compilePath(path) {
+    if (cache$2[path]) return cache$2[path];
+    var generator = pathToRegexp_1.compile(path);
+
+    if (cacheCount < cacheLimit) {
+      cache$2[path] = generator;
+      cacheCount++;
+    }
+
+    return generator;
+  }
+  /**
+   * Public API for generating a URL pathname from a path and parameters.
+   */
+
+
+  function generatePath(path, params) {
+    if (path === void 0) {
+      path = "/";
+    }
+
+    if (params === void 0) {
+      params = {};
+    }
+
+    return path === "/" ? path : compilePath(path)(params, {
+      pretty: true
+    });
+  }
+
+  /**
+   * The public API for navigating programmatically with a component.
+   */
+
+  function Redirect(_ref) {
+    var computedMatch = _ref.computedMatch,
+        to = _ref.to,
+        _ref$push = _ref.push,
+        push = _ref$push === void 0 ? false : _ref$push;
+    return react.createElement(context.Consumer, null, function (context) {
+      !context ?  invariant(false, "You should not use <Redirect> outside a <Router>")  : void 0;
+      var history = context.history,
+          staticContext = context.staticContext;
+      var method = push ? history.push : history.replace;
+      var location = createLocation(computedMatch ? typeof to === "string" ? generatePath(to, computedMatch.params) : _extends({}, to, {
+        pathname: generatePath(to.pathname, computedMatch.params)
+      }) : to); // When rendering in a static context,
+      // set the new location immediately.
+
+      if (staticContext) {
+        method(location);
+        return null;
+      }
+
+      return react.createElement(Lifecycle, {
+        onMount: function onMount() {
+          method(location);
+        },
+        onUpdate: function onUpdate(self, prevProps) {
+          var prevLocation = createLocation(prevProps.to);
+
+          if (!locationsAreEqual(prevLocation, _extends({}, location, {
+            key: prevLocation.key
+          }))) {
+            method(location);
+          }
+        },
+        to: to
+      });
+    });
+  }
+
+  {
+    Redirect.propTypes = {
+      push: propTypes.bool,
+      from: propTypes.string,
+      to: propTypes.oneOfType([propTypes.string, propTypes.object]).isRequired
+    };
+  }
+
+  var cache$1$2 = {};
+  var cacheLimit$1 = 10000;
+  var cacheCount$1 = 0;
+
+  function compilePath$1(path, options) {
+    var cacheKey = "" + options.end + options.strict + options.sensitive;
+    var pathCache = cache$1$2[cacheKey] || (cache$1$2[cacheKey] = {});
+    if (pathCache[path]) return pathCache[path];
+    var keys = [];
+    var regexp = pathToRegexp_1(path, keys, options);
+    var result = {
+      regexp: regexp,
+      keys: keys
+    };
+
+    if (cacheCount$1 < cacheLimit$1) {
+      pathCache[path] = result;
+      cacheCount$1++;
+    }
+
+    return result;
+  }
+  /**
+   * Public API for matching a URL pathname to a path.
+   */
+
+
+  function matchPath(pathname, options) {
+    if (options === void 0) {
+      options = {};
+    }
+
+    if (typeof options === "string" || Array.isArray(options)) {
+      options = {
+        path: options
+      };
+    }
+
+    var _options = options,
+        path = _options.path,
+        _options$exact = _options.exact,
+        exact = _options$exact === void 0 ? false : _options$exact,
+        _options$strict = _options.strict,
+        strict = _options$strict === void 0 ? false : _options$strict,
+        _options$sensitive = _options.sensitive,
+        sensitive = _options$sensitive === void 0 ? false : _options$sensitive;
+    var paths = [].concat(path);
+    return paths.reduce(function (matched, path) {
+      if (!path && path !== "") return null;
+      if (matched) return matched;
+
+      var _compilePath = compilePath$1(path, {
+        end: exact,
+        strict: strict,
+        sensitive: sensitive
+      }),
+          regexp = _compilePath.regexp,
+          keys = _compilePath.keys;
+
+      var match = regexp.exec(pathname);
+      if (!match) return null;
+      var url = match[0],
+          values = match.slice(1);
+      var isExact = pathname === url;
+      if (exact && !isExact) return null;
+      return {
+        path: path,
+        // the path used to match
+        url: path === "/" && url === "" ? "/" : url,
+        // the matched portion of the URL
+        isExact: isExact,
+        // whether or not we matched exactly
+        params: keys.reduce(function (memo, key, index) {
+          memo[key.name] = values[index];
+          return memo;
+        }, {})
+      };
+    }, null);
+  }
+
+  function isEmptyChildren(children) {
+    return react.Children.count(children) === 0;
+  }
+
+  function evalChildrenDev(children, props, path) {
+    var value = children(props);
+     warning(value !== undefined, "You returned `undefined` from the `children` function of " + ("<Route" + (path ? " path=\"" + path + "\"" : "") + ">, but you ") + "should have returned a React element or `null`") ;
+    return value || null;
+  }
+  /**
+   * The public API for matching a single path and rendering.
+   */
+
+
+  var Route =
+  /*#__PURE__*/
+  function (_React$Component) {
+    _inheritsLoose(Route, _React$Component);
+
+    function Route() {
+      return _React$Component.apply(this, arguments) || this;
+    }
+
+    var _proto = Route.prototype;
+
+    _proto.render = function render() {
+      var _this = this;
+
+      return react.createElement(context.Consumer, null, function (context$1) {
+        !context$1 ?  invariant(false, "You should not use <Route> outside a <Router>")  : void 0;
+        var location = _this.props.location || context$1.location;
+        var match = _this.props.computedMatch ? _this.props.computedMatch // <Switch> already computed the match for us
+        : _this.props.path ? matchPath(location.pathname, _this.props) : context$1.match;
+
+        var props = _extends({}, context$1, {
+          location: location,
+          match: match
+        });
+
+        var _this$props = _this.props,
+            children = _this$props.children,
+            component = _this$props.component,
+            render = _this$props.render; // Preact uses an empty array as children by
+        // default, so use null if that's the case.
+
+        if (Array.isArray(children) && children.length === 0) {
+          children = null;
+        }
+
+        return react.createElement(context.Provider, {
+          value: props
+        }, props.match ? children ? typeof children === "function" ?  evalChildrenDev(children, props, _this.props.path)  : children : component ? react.createElement(component, props) : render ? render(props) : null : typeof children === "function" ?  evalChildrenDev(children, props, _this.props.path)  : null);
+      });
+    };
+
+    return Route;
+  }(react.Component);
+
+  {
+    Route.propTypes = {
+      children: propTypes.oneOfType([propTypes.func, propTypes.node]),
+      component: function component(props, propName) {
+        if (props[propName] && !reactIs_4(props[propName])) {
+          return new Error("Invalid prop 'component' supplied to 'Route': the prop is not a valid React component");
+        }
+      },
+      exact: propTypes.bool,
+      location: propTypes.object,
+      path: propTypes.oneOfType([propTypes.string, propTypes.arrayOf(propTypes.string)]),
+      render: propTypes.func,
+      sensitive: propTypes.bool,
+      strict: propTypes.bool
+    };
+
+    Route.prototype.componentDidMount = function () {
+       warning(!(this.props.children && !isEmptyChildren(this.props.children) && this.props.component), "You should not use <Route component> and <Route children> in the same route; <Route component> will be ignored") ;
+       warning(!(this.props.children && !isEmptyChildren(this.props.children) && this.props.render), "You should not use <Route render> and <Route children> in the same route; <Route render> will be ignored") ;
+       warning(!(this.props.component && this.props.render), "You should not use <Route component> and <Route render> in the same route; <Route render> will be ignored") ;
+    };
+
+    Route.prototype.componentDidUpdate = function (prevProps) {
+       warning(!(this.props.location && !prevProps.location), '<Route> elements should not change from uncontrolled to controlled (or vice versa). You initially used no "location" prop and then provided one on a subsequent render.') ;
+       warning(!(!this.props.location && prevProps.location), '<Route> elements should not change from controlled to uncontrolled (or vice versa). You provided a "location" prop initially but omitted it on a subsequent render.') ;
+    };
+  }
+
+  function addLeadingSlash$1(path) {
+    return path.charAt(0) === "/" ? path : "/" + path;
+  }
+
+  function addBasename(basename, location) {
+    if (!basename) return location;
+    return _extends({}, location, {
+      pathname: addLeadingSlash$1(basename) + location.pathname
+    });
+  }
+
+  function stripBasename$1(basename, location) {
+    if (!basename) return location;
+    var base = addLeadingSlash$1(basename);
+    if (location.pathname.indexOf(base) !== 0) return location;
+    return _extends({}, location, {
+      pathname: location.pathname.substr(base.length)
+    });
+  }
+
+  function createURL(location) {
+    return typeof location === "string" ? location : createPath(location);
+  }
+
+  function staticHandler(methodName) {
+    return function () {
+        invariant(false, "You cannot %s with <StaticRouter>")  ;
+    };
+  }
+
+  function noop$1() {}
+  /**
+   * The public top-level API for a "static" <Router>, so-called because it
+   * can't actually change the current location. Instead, it just records
+   * location changes in a context object. Useful mainly in testing and
+   * server-rendering scenarios.
+   */
+
+
+  var StaticRouter =
+  /*#__PURE__*/
+  function (_React$Component) {
+    _inheritsLoose(StaticRouter, _React$Component);
+
+    function StaticRouter() {
+      var _this;
+
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+
+      _this.handlePush = function (location) {
+        return _this.navigateTo(location, "PUSH");
+      };
+
+      _this.handleReplace = function (location) {
+        return _this.navigateTo(location, "REPLACE");
+      };
+
+      _this.handleListen = function () {
+        return noop$1;
+      };
+
+      _this.handleBlock = function () {
+        return noop$1;
+      };
+
+      return _this;
+    }
+
+    var _proto = StaticRouter.prototype;
+
+    _proto.navigateTo = function navigateTo(location, action) {
+      var _this$props = this.props,
+          _this$props$basename = _this$props.basename,
+          basename = _this$props$basename === void 0 ? "" : _this$props$basename,
+          _this$props$context = _this$props.context,
+          context = _this$props$context === void 0 ? {} : _this$props$context;
+      context.action = action;
+      context.location = addBasename(basename, createLocation(location));
+      context.url = createURL(context.location);
+    };
+
+    _proto.render = function render() {
+      var _this$props2 = this.props,
+          _this$props2$basename = _this$props2.basename,
+          basename = _this$props2$basename === void 0 ? "" : _this$props2$basename,
+          _this$props2$context = _this$props2.context,
+          context = _this$props2$context === void 0 ? {} : _this$props2$context,
+          _this$props2$location = _this$props2.location,
+          location = _this$props2$location === void 0 ? "/" : _this$props2$location,
+          rest = _objectWithoutPropertiesLoose(_this$props2, ["basename", "context", "location"]);
+
+      var history = {
+        createHref: function createHref(path) {
+          return addLeadingSlash$1(basename + createURL(path));
+        },
+        action: "POP",
+        location: stripBasename$1(basename, createLocation(location)),
+        push: this.handlePush,
+        replace: this.handleReplace,
+        go: staticHandler(),
+        goBack: staticHandler(),
+        goForward: staticHandler(),
+        listen: this.handleListen,
+        block: this.handleBlock
+      };
+      return react.createElement(Router, _extends({}, rest, {
+        history: history,
+        staticContext: context
+      }));
+    };
+
+    return StaticRouter;
+  }(react.Component);
+
+  {
+    StaticRouter.propTypes = {
+      basename: propTypes.string,
+      context: propTypes.object,
+      location: propTypes.oneOfType([propTypes.string, propTypes.object])
+    };
+
+    StaticRouter.prototype.componentDidMount = function () {
+       warning(!this.props.history, "<StaticRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { StaticRouter as Router }`.") ;
+    };
+  }
+
+  /**
+   * The public API for rendering the first <Route> that matches.
+   */
+
+  var Switch =
+  /*#__PURE__*/
+  function (_React$Component) {
+    _inheritsLoose(Switch, _React$Component);
+
+    function Switch() {
+      return _React$Component.apply(this, arguments) || this;
+    }
+
+    var _proto = Switch.prototype;
+
+    _proto.render = function render() {
+      var _this = this;
+
+      return react.createElement(context.Consumer, null, function (context) {
+        !context ?  invariant(false, "You should not use <Switch> outside a <Router>")  : void 0;
+        var location = _this.props.location || context.location;
+        var element, match; // We use React.Children.forEach instead of React.Children.toArray().find()
+        // here because toArray adds keys to all child elements and we do not want
+        // to trigger an unmount/remount for two <Route>s that render the same
+        // component at different URLs.
+
+        react.Children.forEach(_this.props.children, function (child) {
+          if (match == null && react.isValidElement(child)) {
+            element = child;
+            var path = child.props.path || child.props.from;
+            match = path ? matchPath(location.pathname, _extends({}, child.props, {
+              path: path
+            })) : context.match;
+          }
+        });
+        return match ? react.cloneElement(element, {
+          location: location,
+          computedMatch: match
+        }) : null;
+      });
+    };
+
+    return Switch;
+  }(react.Component);
+
+  {
+    Switch.propTypes = {
+      children: propTypes.node,
+      location: propTypes.object
+    };
+
+    Switch.prototype.componentDidUpdate = function (prevProps) {
+       warning(!(this.props.location && !prevProps.location), '<Switch> elements should not change from uncontrolled to controlled (or vice versa). You initially used no "location" prop and then provided one on a subsequent render.') ;
+       warning(!(!this.props.location && prevProps.location), '<Switch> elements should not change from controlled to uncontrolled (or vice versa). You provided a "location" prop initially but omitted it on a subsequent render.') ;
+    };
+  }
+
+  var useContext = react.useContext;
+
+  {
+    if (typeof window !== "undefined") {
+      var global$1 = window;
+      var key$2 = "__react_router_build__";
+      var buildNames = {
+        cjs: "CommonJS",
+        esm: "ES modules",
+        umd: "UMD"
+      };
+
+      if (global$1[key$2] && global$1[key$2] !== "esm") {
+        var initialBuildName = buildNames[global$1[key$2]];
+        var secondaryBuildName = buildNames["esm"]; // TODO: Add link to article that explains in detail how to avoid
+        // loading 2 different builds.
+
+        throw new Error("You are loading the " + secondaryBuildName + " build of React Router " + ("on a page that is already running the " + initialBuildName + " ") + "build, so things won't work right.");
+      }
+
+      global$1[key$2] = "esm";
+    }
+  }
+
+  /**
+   * The public API for a <Router> that uses HTML5 history.
+   */
+
+  var BrowserRouter =
+  /*#__PURE__*/
+  function (_React$Component) {
+    _inheritsLoose(BrowserRouter, _React$Component);
+
+    function BrowserRouter() {
+      var _this;
+
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+      _this.history = createBrowserHistory(_this.props);
+      return _this;
+    }
+
+    var _proto = BrowserRouter.prototype;
+
+    _proto.render = function render() {
+      return react.createElement(Router, {
+        history: this.history,
+        children: this.props.children
+      });
+    };
+
+    return BrowserRouter;
+  }(react.Component);
+
+  {
+    BrowserRouter.propTypes = {
+      basename: propTypes.string,
+      children: propTypes.node,
+      forceRefresh: propTypes.bool,
+      getUserConfirmation: propTypes.func,
+      keyLength: propTypes.number
+    };
+
+    BrowserRouter.prototype.componentDidMount = function () {
+       warning(!this.props.history, "<BrowserRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { BrowserRouter as Router }`.") ;
+    };
+  }
+
+  /**
+   * The public API for a <Router> that uses window.location.hash.
+   */
+
+  var HashRouter =
+  /*#__PURE__*/
+  function (_React$Component) {
+    _inheritsLoose(HashRouter, _React$Component);
+
+    function HashRouter() {
+      var _this;
+
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+      _this.history = createHashHistory(_this.props);
+      return _this;
+    }
+
+    var _proto = HashRouter.prototype;
+
+    _proto.render = function render() {
+      return react.createElement(Router, {
+        history: this.history,
+        children: this.props.children
+      });
+    };
+
+    return HashRouter;
+  }(react.Component);
+
+  {
+    HashRouter.propTypes = {
+      basename: propTypes.string,
+      children: propTypes.node,
+      getUserConfirmation: propTypes.func,
+      hashType: propTypes.oneOf(["hashbang", "noslash", "slash"])
+    };
+
+    HashRouter.prototype.componentDidMount = function () {
+       warning(!this.props.history, "<HashRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { HashRouter as Router }`.") ;
+    };
+  }
+
+  var resolveToLocation = function resolveToLocation(to, currentLocation) {
+    return typeof to === "function" ? to(currentLocation) : to;
+  };
+  var normalizeToLocation = function normalizeToLocation(to, currentLocation) {
+    return typeof to === "string" ? createLocation(to, null, null, currentLocation) : to;
+  };
+
+  var forwardRefShim = function forwardRefShim(C) {
+    return C;
+  };
+
+  var forwardRef = react.forwardRef;
+
+  if (typeof forwardRef === "undefined") {
+    forwardRef = forwardRefShim;
+  }
+
+  function isModifiedEvent(event) {
+    return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+  }
+
+  var LinkAnchor = forwardRef(function (_ref, forwardedRef) {
+    var innerRef = _ref.innerRef,
+        navigate = _ref.navigate,
+        _onClick = _ref.onClick,
+        rest = _objectWithoutPropertiesLoose(_ref, ["innerRef", "navigate", "onClick"]);
+
+    var target = rest.target;
+
+    var props = _extends({}, rest, {
+      onClick: function onClick(event) {
+        try {
+          if (_onClick) _onClick(event);
+        } catch (ex) {
+          event.preventDefault();
+          throw ex;
+        }
+
+        if (!event.defaultPrevented && // onClick prevented default
+        event.button === 0 && ( // ignore everything but left clicks
+        !target || target === "_self") && // let browser handle "target=_blank" etc.
+        !isModifiedEvent(event) // ignore clicks with modifier keys
+        ) {
+            event.preventDefault();
+            navigate();
+          }
+      }
+    }); // React 15 compat
+
+
+    if (forwardRefShim !== forwardRef) {
+      props.ref = forwardedRef || innerRef;
+    } else {
+      props.ref = innerRef;
+    }
+    /* eslint-disable-next-line jsx-a11y/anchor-has-content */
+
+
+    return react.createElement("a", props);
+  });
+
+  {
+    LinkAnchor.displayName = "LinkAnchor";
+  }
+  /**
+   * The public API for rendering a history-aware <a>.
+   */
+
+
+  var Link = forwardRef(function (_ref2, forwardedRef) {
+    var _ref2$component = _ref2.component,
+        component = _ref2$component === void 0 ? LinkAnchor : _ref2$component,
+        replace = _ref2.replace,
+        to = _ref2.to,
+        innerRef = _ref2.innerRef,
+        rest = _objectWithoutPropertiesLoose(_ref2, ["component", "replace", "to", "innerRef"]);
+
+    return react.createElement(context.Consumer, null, function (context) {
+      !context ?  invariant(false, "You should not use <Link> outside a <Router>")  : void 0;
+      var history = context.history;
+      var location = normalizeToLocation(resolveToLocation(to, context.location), context.location);
+      var href = location ? history.createHref(location) : "";
+
+      var props = _extends({}, rest, {
+        href: href,
+        navigate: function navigate() {
+          var location = resolveToLocation(to, context.location);
+          var method = replace ? history.replace : history.push;
+          method(location);
+        }
+      }); // React 15 compat
+
+
+      if (forwardRefShim !== forwardRef) {
+        props.ref = forwardedRef || innerRef;
+      } else {
+        props.innerRef = innerRef;
+      }
+
+      return react.createElement(component, props);
+    });
+  });
+
+  {
+    var toType = propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.func]);
+    var refType$1 = propTypes.oneOfType([propTypes.string, propTypes.func, propTypes.shape({
+      current: propTypes.any
+    })]);
+    Link.displayName = "Link";
+    Link.propTypes = {
+      innerRef: refType$1,
+      onClick: propTypes.func,
+      replace: propTypes.bool,
+      target: propTypes.string,
+      to: toType.isRequired
+    };
+  }
+
+  var forwardRefShim$1 = function forwardRefShim(C) {
+    return C;
+  };
+
+  var forwardRef$1 = react.forwardRef;
+
+  if (typeof forwardRef$1 === "undefined") {
+    forwardRef$1 = forwardRefShim$1;
+  }
+
+  function joinClassnames() {
+    for (var _len = arguments.length, classnames = new Array(_len), _key = 0; _key < _len; _key++) {
+      classnames[_key] = arguments[_key];
+    }
+
+    return classnames.filter(function (i) {
+      return i;
+    }).join(" ");
+  }
+  /**
+   * A <Link> wrapper that knows if it's "active" or not.
+   */
+
+
+  var NavLink = forwardRef$1(function (_ref, forwardedRef) {
+    var _ref$ariaCurrent = _ref["aria-current"],
+        ariaCurrent = _ref$ariaCurrent === void 0 ? "page" : _ref$ariaCurrent,
+        _ref$activeClassName = _ref.activeClassName,
+        activeClassName = _ref$activeClassName === void 0 ? "active" : _ref$activeClassName,
+        activeStyle = _ref.activeStyle,
+        classNameProp = _ref.className,
+        exact = _ref.exact,
+        isActiveProp = _ref.isActive,
+        locationProp = _ref.location,
+        sensitive = _ref.sensitive,
+        strict = _ref.strict,
+        styleProp = _ref.style,
+        to = _ref.to,
+        innerRef = _ref.innerRef,
+        rest = _objectWithoutPropertiesLoose(_ref, ["aria-current", "activeClassName", "activeStyle", "className", "exact", "isActive", "location", "sensitive", "strict", "style", "to", "innerRef"]);
+
+    return react.createElement(context.Consumer, null, function (context) {
+      !context ?  invariant(false, "You should not use <NavLink> outside a <Router>")  : void 0;
+      var currentLocation = locationProp || context.location;
+      var toLocation = normalizeToLocation(resolveToLocation(to, currentLocation), currentLocation);
+      var path = toLocation.pathname; // Regex taken from: https://github.com/pillarjs/path-to-regexp/blob/master/index.js#L202
+
+      var escapedPath = path && path.replace(/([.+*?=^!:${}()[\]|/\\])/g, "\\$1");
+      var match = escapedPath ? matchPath(currentLocation.pathname, {
+        path: escapedPath,
+        exact: exact,
+        sensitive: sensitive,
+        strict: strict
+      }) : null;
+      var isActive = !!(isActiveProp ? isActiveProp(match, currentLocation) : match);
+      var className = isActive ? joinClassnames(classNameProp, activeClassName) : classNameProp;
+      var style = isActive ? _extends({}, styleProp, {}, activeStyle) : styleProp;
+
+      var props = _extends({
+        "aria-current": isActive && ariaCurrent || null,
+        className: className,
+        style: style,
+        to: toLocation
+      }, rest); // React 15 compat
+
+
+      if (forwardRefShim$1 !== forwardRef$1) {
+        props.ref = forwardedRef || innerRef;
+      } else {
+        props.innerRef = innerRef;
+      }
+
+      return react.createElement(Link, props);
+    });
+  });
+
+  {
+    NavLink.displayName = "NavLink";
+    var ariaCurrentType = propTypes.oneOf(["page", "step", "location", "date", "time", "true"]);
+    NavLink.propTypes = _extends({}, Link.propTypes, {
+      "aria-current": ariaCurrentType,
+      activeClassName: propTypes.string,
+      activeStyle: propTypes.object,
+      className: propTypes.string,
+      exact: propTypes.bool,
+      isActive: propTypes.func,
+      location: propTypes.object,
+      sensitive: propTypes.bool,
+      strict: propTypes.bool,
+      style: propTypes.object
+    });
+  }
+
+  var useStyles = makeStyles$1(function (theme) {
+    return {
+      root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        overflow: 'hidden'
+      },
+      tile: {
+        width: 300,
+        height: 300
+      }
+    };
+  });
+  var gameComponents = [birds, potato];
+  var games = function games() {
+    var classes = useStyles();
+
+    var _React$useState = react.useState({
+      gamePlayer: null,
+      browserData: null
+    }),
+        _React$useState2 = _slicedToArray(_React$useState, 2),
+        state = _React$useState2[0],
+        setState = _React$useState2[1];
+
+    var loadPlayer = function loadPlayer(game) {
+      setState(_objectSpread2(_objectSpread2({}, state), {}, {
+        gamePlayer: /*#__PURE__*/react.createElement("iframe", {
+          frameBorder: "0",
+          src: "https://itch.io/embed-upload/".concat(game.itchId, "?color=333333"),
+          allowFullScreen: true,
+          width: "1000",
+          height: "660"
+        }, /*#__PURE__*/react.createElement("a", {
+          href: "https://hackjobgames.itch.io/".concat(game.name)
+        }, "Play Plant The Potato on itch.io"))
+      }));
+    };
+
+    return /*#__PURE__*/react.createElement("div", {
+      className: classes.root
+    }, /*#__PURE__*/react.createElement(Route, {
+      exact: true,
+      path: "/games"
+    }, /*#__PURE__*/react.createElement(GridList$1, {
+      spacing: 10,
+      className: classes.gridList + ' center',
+      cellHeight: "auto",
+      cols: 2
+    }, gameComponents.map(function (game) {
+      return /*#__PURE__*/react.createElement(GridListTile$1, {
+        className: classes.tile,
+        key: game.name,
+        cols: 1
+      }, /*#__PURE__*/react.createElement(Link, {
+        onClick: function onClick() {
+          return setState({
+            gamePlayer: null,
+            browserData: game.about
+          });
+        },
+        key: game.name,
+        to: "/games/".concat(game.name)
+      }, /*#__PURE__*/react.createElement("img", {
+        src: game.img
+      })));
+    }))), gameComponents.map(function (game) {
+      return /*#__PURE__*/react.createElement(Route, {
+        key: game.name,
+        exact: true,
+        path: "/games/".concat(game.name)
+      }, /*#__PURE__*/react.createElement("div", {
+        className: "center"
+      }, /*#__PURE__*/react.createElement("a", {
+        onClick: function onClick() {
+          return setState(_objectSpread2(_objectSpread2({}, state), {}, {
+            browserData: game.about
+          }));
+        },
+        className: "button"
+      }, "About The Game"), /*#__PURE__*/react.createElement("a", {
+        onClick: function onClick() {
+          return setState(_objectSpread2(_objectSpread2({}, state), {}, {
+            browserData: game.howTo
+          }));
+        },
+        className: "button"
+      }, "How To Play"), /*#__PURE__*/react.createElement("a", {
+        onClick: function onClick() {
+          return loadPlayer(game);
+        },
+        className: "button"
+      }, "Play"), /*#__PURE__*/react.createElement("div", null, state.gamePlayer), /*#__PURE__*/react.createElement("div", null, state.browserData)));
+    }));
+  };
+
+  var axios = createCommonjsModule(function (module, exports) {
+  /* axios v0.19.2 | (c) 2020 by Matt Zabriskie */
+  (function webpackUniversalModuleDefinition(root, factory) {
+  	module.exports = factory();
+  })(commonjsGlobal, function() {
+  return /******/ (function(modules) { // webpackBootstrap
+  /******/ 	// The module cache
+  /******/ 	var installedModules = {};
+  /******/
+  /******/ 	// The require function
+  /******/ 	function __webpack_require__(moduleId) {
+  /******/
+  /******/ 		// Check if module is in cache
+  /******/ 		if(installedModules[moduleId])
+  /******/ 			return installedModules[moduleId].exports;
+  /******/
+  /******/ 		// Create a new module (and put it into the cache)
+  /******/ 		var module = installedModules[moduleId] = {
+  /******/ 			exports: {},
+  /******/ 			id: moduleId,
+  /******/ 			loaded: false
+  /******/ 		};
+  /******/
+  /******/ 		// Execute the module function
+  /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+  /******/
+  /******/ 		// Flag the module as loaded
+  /******/ 		module.loaded = true;
+  /******/
+  /******/ 		// Return the exports of the module
+  /******/ 		return module.exports;
+  /******/ 	}
+  /******/
+  /******/
+  /******/ 	// expose the modules object (__webpack_modules__)
+  /******/ 	__webpack_require__.m = modules;
+  /******/
+  /******/ 	// expose the module cache
+  /******/ 	__webpack_require__.c = installedModules;
+  /******/
+  /******/ 	// __webpack_public_path__
+  /******/ 	__webpack_require__.p = "";
+  /******/
+  /******/ 	// Load entry module and return exports
+  /******/ 	return __webpack_require__(0);
+  /******/ })
+  /************************************************************************/
+  /******/ ([
+  /* 0 */
+  /***/ (function(module, exports, __webpack_require__) {
+
+  	module.exports = __webpack_require__(1);
+
+  /***/ }),
+  /* 1 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var utils = __webpack_require__(2);
+  	var bind = __webpack_require__(3);
+  	var Axios = __webpack_require__(4);
+  	var mergeConfig = __webpack_require__(22);
+  	var defaults = __webpack_require__(10);
+  	
+  	/**
+  	 * Create an instance of Axios
+  	 *
+  	 * @param {Object} defaultConfig The default config for the instance
+  	 * @return {Axios} A new instance of Axios
+  	 */
+  	function createInstance(defaultConfig) {
+  	  var context = new Axios(defaultConfig);
+  	  var instance = bind(Axios.prototype.request, context);
+  	
+  	  // Copy axios.prototype to instance
+  	  utils.extend(instance, Axios.prototype, context);
+  	
+  	  // Copy context to instance
+  	  utils.extend(instance, context);
+  	
+  	  return instance;
+  	}
+  	
+  	// Create the default instance to be exported
+  	var axios = createInstance(defaults);
+  	
+  	// Expose Axios class to allow class inheritance
+  	axios.Axios = Axios;
+  	
+  	// Factory for creating new instances
+  	axios.create = function create(instanceConfig) {
+  	  return createInstance(mergeConfig(axios.defaults, instanceConfig));
+  	};
+  	
+  	// Expose Cancel & CancelToken
+  	axios.Cancel = __webpack_require__(23);
+  	axios.CancelToken = __webpack_require__(24);
+  	axios.isCancel = __webpack_require__(9);
+  	
+  	// Expose all/spread
+  	axios.all = function all(promises) {
+  	  return Promise.all(promises);
+  	};
+  	axios.spread = __webpack_require__(25);
+  	
+  	module.exports = axios;
+  	
+  	// Allow use of default import syntax in TypeScript
+  	module.exports.default = axios;
+
+
+  /***/ }),
+  /* 2 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var bind = __webpack_require__(3);
+  	
+  	/*global toString:true*/
+  	
+  	// utils is a library of generic helper functions non-specific to axios
+  	
+  	var toString = Object.prototype.toString;
+  	
+  	/**
+  	 * Determine if a value is an Array
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if value is an Array, otherwise false
+  	 */
+  	function isArray(val) {
+  	  return toString.call(val) === '[object Array]';
+  	}
+  	
+  	/**
+  	 * Determine if a value is undefined
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if the value is undefined, otherwise false
+  	 */
+  	function isUndefined(val) {
+  	  return typeof val === 'undefined';
+  	}
+  	
+  	/**
+  	 * Determine if a value is a Buffer
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if value is a Buffer, otherwise false
+  	 */
+  	function isBuffer(val) {
+  	  return val !== null && !isUndefined(val) && val.constructor !== null && !isUndefined(val.constructor)
+  	    && typeof val.constructor.isBuffer === 'function' && val.constructor.isBuffer(val);
+  	}
+  	
+  	/**
+  	 * Determine if a value is an ArrayBuffer
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if value is an ArrayBuffer, otherwise false
+  	 */
+  	function isArrayBuffer(val) {
+  	  return toString.call(val) === '[object ArrayBuffer]';
+  	}
+  	
+  	/**
+  	 * Determine if a value is a FormData
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if value is an FormData, otherwise false
+  	 */
+  	function isFormData(val) {
+  	  return (typeof FormData !== 'undefined') && (val instanceof FormData);
+  	}
+  	
+  	/**
+  	 * Determine if a value is a view on an ArrayBuffer
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
+  	 */
+  	function isArrayBufferView(val) {
+  	  var result;
+  	  if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
+  	    result = ArrayBuffer.isView(val);
+  	  } else {
+  	    result = (val) && (val.buffer) && (val.buffer instanceof ArrayBuffer);
+  	  }
+  	  return result;
+  	}
+  	
+  	/**
+  	 * Determine if a value is a String
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if value is a String, otherwise false
+  	 */
+  	function isString(val) {
+  	  return typeof val === 'string';
+  	}
+  	
+  	/**
+  	 * Determine if a value is a Number
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if value is a Number, otherwise false
+  	 */
+  	function isNumber(val) {
+  	  return typeof val === 'number';
+  	}
+  	
+  	/**
+  	 * Determine if a value is an Object
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if value is an Object, otherwise false
+  	 */
+  	function isObject(val) {
+  	  return val !== null && typeof val === 'object';
+  	}
+  	
+  	/**
+  	 * Determine if a value is a Date
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if value is a Date, otherwise false
+  	 */
+  	function isDate(val) {
+  	  return toString.call(val) === '[object Date]';
+  	}
+  	
+  	/**
+  	 * Determine if a value is a File
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if value is a File, otherwise false
+  	 */
+  	function isFile(val) {
+  	  return toString.call(val) === '[object File]';
+  	}
+  	
+  	/**
+  	 * Determine if a value is a Blob
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if value is a Blob, otherwise false
+  	 */
+  	function isBlob(val) {
+  	  return toString.call(val) === '[object Blob]';
+  	}
+  	
+  	/**
+  	 * Determine if a value is a Function
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if value is a Function, otherwise false
+  	 */
+  	function isFunction(val) {
+  	  return toString.call(val) === '[object Function]';
+  	}
+  	
+  	/**
+  	 * Determine if a value is a Stream
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if value is a Stream, otherwise false
+  	 */
+  	function isStream(val) {
+  	  return isObject(val) && isFunction(val.pipe);
+  	}
+  	
+  	/**
+  	 * Determine if a value is a URLSearchParams object
+  	 *
+  	 * @param {Object} val The value to test
+  	 * @returns {boolean} True if value is a URLSearchParams object, otherwise false
+  	 */
+  	function isURLSearchParams(val) {
+  	  return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
+  	}
+  	
+  	/**
+  	 * Trim excess whitespace off the beginning and end of a string
+  	 *
+  	 * @param {String} str The String to trim
+  	 * @returns {String} The String freed of excess whitespace
+  	 */
+  	function trim(str) {
+  	  return str.replace(/^\s*/, '').replace(/\s*$/, '');
+  	}
+  	
+  	/**
+  	 * Determine if we're running in a standard browser environment
+  	 *
+  	 * This allows axios to run in a web worker, and react-native.
+  	 * Both environments support XMLHttpRequest, but not fully standard globals.
+  	 *
+  	 * web workers:
+  	 *  typeof window -> undefined
+  	 *  typeof document -> undefined
+  	 *
+  	 * react-native:
+  	 *  navigator.product -> 'ReactNative'
+  	 * nativescript
+  	 *  navigator.product -> 'NativeScript' or 'NS'
+  	 */
+  	function isStandardBrowserEnv() {
+  	  if (typeof navigator !== 'undefined' && (navigator.product === 'ReactNative' ||
+  	                                           navigator.product === 'NativeScript' ||
+  	                                           navigator.product === 'NS')) {
+  	    return false;
+  	  }
+  	  return (
+  	    typeof window !== 'undefined' &&
+  	    typeof document !== 'undefined'
+  	  );
+  	}
+  	
+  	/**
+  	 * Iterate over an Array or an Object invoking a function for each item.
+  	 *
+  	 * If `obj` is an Array callback will be called passing
+  	 * the value, index, and complete array for each item.
+  	 *
+  	 * If 'obj' is an Object callback will be called passing
+  	 * the value, key, and complete object for each property.
+  	 *
+  	 * @param {Object|Array} obj The object to iterate
+  	 * @param {Function} fn The callback to invoke for each item
+  	 */
+  	function forEach(obj, fn) {
+  	  // Don't bother if no value provided
+  	  if (obj === null || typeof obj === 'undefined') {
+  	    return;
+  	  }
+  	
+  	  // Force an array if not already something iterable
+  	  if (typeof obj !== 'object') {
+  	    /*eslint no-param-reassign:0*/
+  	    obj = [obj];
+  	  }
+  	
+  	  if (isArray(obj)) {
+  	    // Iterate over array values
+  	    for (var i = 0, l = obj.length; i < l; i++) {
+  	      fn.call(null, obj[i], i, obj);
+  	    }
+  	  } else {
+  	    // Iterate over object keys
+  	    for (var key in obj) {
+  	      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+  	        fn.call(null, obj[key], key, obj);
+  	      }
+  	    }
+  	  }
+  	}
+  	
+  	/**
+  	 * Accepts varargs expecting each argument to be an object, then
+  	 * immutably merges the properties of each object and returns result.
+  	 *
+  	 * When multiple objects contain the same key the later object in
+  	 * the arguments list will take precedence.
+  	 *
+  	 * Example:
+  	 *
+  	 * ```js
+  	 * var result = merge({foo: 123}, {foo: 456});
+  	 * console.log(result.foo); // outputs 456
+  	 * ```
+  	 *
+  	 * @param {Object} obj1 Object to merge
+  	 * @returns {Object} Result of all merge properties
+  	 */
+  	function merge(/* obj1, obj2, obj3, ... */) {
+  	  var result = {};
+  	  function assignValue(val, key) {
+  	    if (typeof result[key] === 'object' && typeof val === 'object') {
+  	      result[key] = merge(result[key], val);
+  	    } else {
+  	      result[key] = val;
+  	    }
+  	  }
+  	
+  	  for (var i = 0, l = arguments.length; i < l; i++) {
+  	    forEach(arguments[i], assignValue);
+  	  }
+  	  return result;
+  	}
+  	
+  	/**
+  	 * Function equal to merge with the difference being that no reference
+  	 * to original objects is kept.
+  	 *
+  	 * @see merge
+  	 * @param {Object} obj1 Object to merge
+  	 * @returns {Object} Result of all merge properties
+  	 */
+  	function deepMerge(/* obj1, obj2, obj3, ... */) {
+  	  var result = {};
+  	  function assignValue(val, key) {
+  	    if (typeof result[key] === 'object' && typeof val === 'object') {
+  	      result[key] = deepMerge(result[key], val);
+  	    } else if (typeof val === 'object') {
+  	      result[key] = deepMerge({}, val);
+  	    } else {
+  	      result[key] = val;
+  	    }
+  	  }
+  	
+  	  for (var i = 0, l = arguments.length; i < l; i++) {
+  	    forEach(arguments[i], assignValue);
+  	  }
+  	  return result;
+  	}
+  	
+  	/**
+  	 * Extends object a by mutably adding to it the properties of object b.
+  	 *
+  	 * @param {Object} a The object to be extended
+  	 * @param {Object} b The object to copy properties from
+  	 * @param {Object} thisArg The object to bind function to
+  	 * @return {Object} The resulting value of object a
+  	 */
+  	function extend(a, b, thisArg) {
+  	  forEach(b, function assignValue(val, key) {
+  	    if (thisArg && typeof val === 'function') {
+  	      a[key] = bind(val, thisArg);
+  	    } else {
+  	      a[key] = val;
+  	    }
+  	  });
+  	  return a;
+  	}
+  	
+  	module.exports = {
+  	  isArray: isArray,
+  	  isArrayBuffer: isArrayBuffer,
+  	  isBuffer: isBuffer,
+  	  isFormData: isFormData,
+  	  isArrayBufferView: isArrayBufferView,
+  	  isString: isString,
+  	  isNumber: isNumber,
+  	  isObject: isObject,
+  	  isUndefined: isUndefined,
+  	  isDate: isDate,
+  	  isFile: isFile,
+  	  isBlob: isBlob,
+  	  isFunction: isFunction,
+  	  isStream: isStream,
+  	  isURLSearchParams: isURLSearchParams,
+  	  isStandardBrowserEnv: isStandardBrowserEnv,
+  	  forEach: forEach,
+  	  merge: merge,
+  	  deepMerge: deepMerge,
+  	  extend: extend,
+  	  trim: trim
+  	};
+
+
+  /***/ }),
+  /* 3 */
+  /***/ (function(module, exports) {
+  	
+  	module.exports = function bind(fn, thisArg) {
+  	  return function wrap() {
+  	    var args = new Array(arguments.length);
+  	    for (var i = 0; i < args.length; i++) {
+  	      args[i] = arguments[i];
+  	    }
+  	    return fn.apply(thisArg, args);
+  	  };
+  	};
+
+
+  /***/ }),
+  /* 4 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var utils = __webpack_require__(2);
+  	var buildURL = __webpack_require__(5);
+  	var InterceptorManager = __webpack_require__(6);
+  	var dispatchRequest = __webpack_require__(7);
+  	var mergeConfig = __webpack_require__(22);
+  	
+  	/**
+  	 * Create a new instance of Axios
+  	 *
+  	 * @param {Object} instanceConfig The default config for the instance
+  	 */
+  	function Axios(instanceConfig) {
+  	  this.defaults = instanceConfig;
+  	  this.interceptors = {
+  	    request: new InterceptorManager(),
+  	    response: new InterceptorManager()
+  	  };
+  	}
+  	
+  	/**
+  	 * Dispatch a request
+  	 *
+  	 * @param {Object} config The config specific for this request (merged with this.defaults)
+  	 */
+  	Axios.prototype.request = function request(config) {
+  	  /*eslint no-param-reassign:0*/
+  	  // Allow for axios('example/url'[, config]) a la fetch API
+  	  if (typeof config === 'string') {
+  	    config = arguments[1] || {};
+  	    config.url = arguments[0];
+  	  } else {
+  	    config = config || {};
+  	  }
+  	
+  	  config = mergeConfig(this.defaults, config);
+  	
+  	  // Set config.method
+  	  if (config.method) {
+  	    config.method = config.method.toLowerCase();
+  	  } else if (this.defaults.method) {
+  	    config.method = this.defaults.method.toLowerCase();
+  	  } else {
+  	    config.method = 'get';
+  	  }
+  	
+  	  // Hook up interceptors middleware
+  	  var chain = [dispatchRequest, undefined];
+  	  var promise = Promise.resolve(config);
+  	
+  	  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+  	    chain.unshift(interceptor.fulfilled, interceptor.rejected);
+  	  });
+  	
+  	  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+  	    chain.push(interceptor.fulfilled, interceptor.rejected);
+  	  });
+  	
+  	  while (chain.length) {
+  	    promise = promise.then(chain.shift(), chain.shift());
+  	  }
+  	
+  	  return promise;
+  	};
+  	
+  	Axios.prototype.getUri = function getUri(config) {
+  	  config = mergeConfig(this.defaults, config);
+  	  return buildURL(config.url, config.params, config.paramsSerializer).replace(/^\?/, '');
+  	};
+  	
+  	// Provide aliases for supported request methods
+  	utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
+  	  /*eslint func-names:0*/
+  	  Axios.prototype[method] = function(url, config) {
+  	    return this.request(utils.merge(config || {}, {
+  	      method: method,
+  	      url: url
+  	    }));
+  	  };
+  	});
+  	
+  	utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  	  /*eslint func-names:0*/
+  	  Axios.prototype[method] = function(url, data, config) {
+  	    return this.request(utils.merge(config || {}, {
+  	      method: method,
+  	      url: url,
+  	      data: data
+  	    }));
+  	  };
+  	});
+  	
+  	module.exports = Axios;
+
+
+  /***/ }),
+  /* 5 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var utils = __webpack_require__(2);
+  	
+  	function encode(val) {
+  	  return encodeURIComponent(val).
+  	    replace(/%40/gi, '@').
+  	    replace(/%3A/gi, ':').
+  	    replace(/%24/g, '$').
+  	    replace(/%2C/gi, ',').
+  	    replace(/%20/g, '+').
+  	    replace(/%5B/gi, '[').
+  	    replace(/%5D/gi, ']');
+  	}
+  	
+  	/**
+  	 * Build a URL by appending params to the end
+  	 *
+  	 * @param {string} url The base of the url (e.g., http://www.google.com)
+  	 * @param {object} [params] The params to be appended
+  	 * @returns {string} The formatted url
+  	 */
+  	module.exports = function buildURL(url, params, paramsSerializer) {
+  	  /*eslint no-param-reassign:0*/
+  	  if (!params) {
+  	    return url;
+  	  }
+  	
+  	  var serializedParams;
+  	  if (paramsSerializer) {
+  	    serializedParams = paramsSerializer(params);
+  	  } else if (utils.isURLSearchParams(params)) {
+  	    serializedParams = params.toString();
+  	  } else {
+  	    var parts = [];
+  	
+  	    utils.forEach(params, function serialize(val, key) {
+  	      if (val === null || typeof val === 'undefined') {
+  	        return;
+  	      }
+  	
+  	      if (utils.isArray(val)) {
+  	        key = key + '[]';
+  	      } else {
+  	        val = [val];
+  	      }
+  	
+  	      utils.forEach(val, function parseValue(v) {
+  	        if (utils.isDate(v)) {
+  	          v = v.toISOString();
+  	        } else if (utils.isObject(v)) {
+  	          v = JSON.stringify(v);
+  	        }
+  	        parts.push(encode(key) + '=' + encode(v));
+  	      });
+  	    });
+  	
+  	    serializedParams = parts.join('&');
+  	  }
+  	
+  	  if (serializedParams) {
+  	    var hashmarkIndex = url.indexOf('#');
+  	    if (hashmarkIndex !== -1) {
+  	      url = url.slice(0, hashmarkIndex);
+  	    }
+  	
+  	    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+  	  }
+  	
+  	  return url;
+  	};
+
+
+  /***/ }),
+  /* 6 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var utils = __webpack_require__(2);
+  	
+  	function InterceptorManager() {
+  	  this.handlers = [];
+  	}
+  	
+  	/**
+  	 * Add a new interceptor to the stack
+  	 *
+  	 * @param {Function} fulfilled The function to handle `then` for a `Promise`
+  	 * @param {Function} rejected The function to handle `reject` for a `Promise`
+  	 *
+  	 * @return {Number} An ID used to remove interceptor later
+  	 */
+  	InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+  	  this.handlers.push({
+  	    fulfilled: fulfilled,
+  	    rejected: rejected
+  	  });
+  	  return this.handlers.length - 1;
+  	};
+  	
+  	/**
+  	 * Remove an interceptor from the stack
+  	 *
+  	 * @param {Number} id The ID that was returned by `use`
+  	 */
+  	InterceptorManager.prototype.eject = function eject(id) {
+  	  if (this.handlers[id]) {
+  	    this.handlers[id] = null;
+  	  }
+  	};
+  	
+  	/**
+  	 * Iterate over all the registered interceptors
+  	 *
+  	 * This method is particularly useful for skipping over any
+  	 * interceptors that may have become `null` calling `eject`.
+  	 *
+  	 * @param {Function} fn The function to call for each interceptor
+  	 */
+  	InterceptorManager.prototype.forEach = function forEach(fn) {
+  	  utils.forEach(this.handlers, function forEachHandler(h) {
+  	    if (h !== null) {
+  	      fn(h);
+  	    }
+  	  });
+  	};
+  	
+  	module.exports = InterceptorManager;
+
+
+  /***/ }),
+  /* 7 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var utils = __webpack_require__(2);
+  	var transformData = __webpack_require__(8);
+  	var isCancel = __webpack_require__(9);
+  	var defaults = __webpack_require__(10);
+  	
+  	/**
+  	 * Throws a `Cancel` if cancellation has been requested.
+  	 */
+  	function throwIfCancellationRequested(config) {
+  	  if (config.cancelToken) {
+  	    config.cancelToken.throwIfRequested();
+  	  }
+  	}
+  	
+  	/**
+  	 * Dispatch a request to the server using the configured adapter.
+  	 *
+  	 * @param {object} config The config that is to be used for the request
+  	 * @returns {Promise} The Promise to be fulfilled
+  	 */
+  	module.exports = function dispatchRequest(config) {
+  	  throwIfCancellationRequested(config);
+  	
+  	  // Ensure headers exist
+  	  config.headers = config.headers || {};
+  	
+  	  // Transform request data
+  	  config.data = transformData(
+  	    config.data,
+  	    config.headers,
+  	    config.transformRequest
+  	  );
+  	
+  	  // Flatten headers
+  	  config.headers = utils.merge(
+  	    config.headers.common || {},
+  	    config.headers[config.method] || {},
+  	    config.headers
+  	  );
+  	
+  	  utils.forEach(
+  	    ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
+  	    function cleanHeaderConfig(method) {
+  	      delete config.headers[method];
+  	    }
+  	  );
+  	
+  	  var adapter = config.adapter || defaults.adapter;
+  	
+  	  return adapter(config).then(function onAdapterResolution(response) {
+  	    throwIfCancellationRequested(config);
+  	
+  	    // Transform response data
+  	    response.data = transformData(
+  	      response.data,
+  	      response.headers,
+  	      config.transformResponse
+  	    );
+  	
+  	    return response;
+  	  }, function onAdapterRejection(reason) {
+  	    if (!isCancel(reason)) {
+  	      throwIfCancellationRequested(config);
+  	
+  	      // Transform response data
+  	      if (reason && reason.response) {
+  	        reason.response.data = transformData(
+  	          reason.response.data,
+  	          reason.response.headers,
+  	          config.transformResponse
+  	        );
+  	      }
+  	    }
+  	
+  	    return Promise.reject(reason);
+  	  });
+  	};
+
+
+  /***/ }),
+  /* 8 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var utils = __webpack_require__(2);
+  	
+  	/**
+  	 * Transform the data for a request or a response
+  	 *
+  	 * @param {Object|String} data The data to be transformed
+  	 * @param {Array} headers The headers for the request or response
+  	 * @param {Array|Function} fns A single function or Array of functions
+  	 * @returns {*} The resulting transformed data
+  	 */
+  	module.exports = function transformData(data, headers, fns) {
+  	  /*eslint no-param-reassign:0*/
+  	  utils.forEach(fns, function transform(fn) {
+  	    data = fn(data, headers);
+  	  });
+  	
+  	  return data;
+  	};
+
+
+  /***/ }),
+  /* 9 */
+  /***/ (function(module, exports) {
+  	
+  	module.exports = function isCancel(value) {
+  	  return !!(value && value.__CANCEL__);
+  	};
+
+
+  /***/ }),
+  /* 10 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var utils = __webpack_require__(2);
+  	var normalizeHeaderName = __webpack_require__(11);
+  	
+  	var DEFAULT_CONTENT_TYPE = {
+  	  'Content-Type': 'application/x-www-form-urlencoded'
+  	};
+  	
+  	function setContentTypeIfUnset(headers, value) {
+  	  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+  	    headers['Content-Type'] = value;
+  	  }
+  	}
+  	
+  	function getDefaultAdapter() {
+  	  var adapter;
+  	  if (typeof XMLHttpRequest !== 'undefined') {
+  	    // For browsers use XHR adapter
+  	    adapter = __webpack_require__(12);
+  	  } else if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
+  	    // For node use HTTP adapter
+  	    adapter = __webpack_require__(12);
+  	  }
+  	  return adapter;
+  	}
+  	
+  	var defaults = {
+  	  adapter: getDefaultAdapter(),
+  	
+  	  transformRequest: [function transformRequest(data, headers) {
+  	    normalizeHeaderName(headers, 'Accept');
+  	    normalizeHeaderName(headers, 'Content-Type');
+  	    if (utils.isFormData(data) ||
+  	      utils.isArrayBuffer(data) ||
+  	      utils.isBuffer(data) ||
+  	      utils.isStream(data) ||
+  	      utils.isFile(data) ||
+  	      utils.isBlob(data)
+  	    ) {
+  	      return data;
+  	    }
+  	    if (utils.isArrayBufferView(data)) {
+  	      return data.buffer;
+  	    }
+  	    if (utils.isURLSearchParams(data)) {
+  	      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+  	      return data.toString();
+  	    }
+  	    if (utils.isObject(data)) {
+  	      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+  	      return JSON.stringify(data);
+  	    }
+  	    return data;
+  	  }],
+  	
+  	  transformResponse: [function transformResponse(data) {
+  	    /*eslint no-param-reassign:0*/
+  	    if (typeof data === 'string') {
+  	      try {
+  	        data = JSON.parse(data);
+  	      } catch (e) { /* Ignore */ }
+  	    }
+  	    return data;
+  	  }],
+  	
+  	  /**
+  	   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+  	   * timeout is not created.
+  	   */
+  	  timeout: 0,
+  	
+  	  xsrfCookieName: 'XSRF-TOKEN',
+  	  xsrfHeaderName: 'X-XSRF-TOKEN',
+  	
+  	  maxContentLength: -1,
+  	
+  	  validateStatus: function validateStatus(status) {
+  	    return status >= 200 && status < 300;
+  	  }
+  	};
+  	
+  	defaults.headers = {
+  	  common: {
+  	    'Accept': 'application/json, text/plain, */*'
+  	  }
+  	};
+  	
+  	utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+  	  defaults.headers[method] = {};
+  	});
+  	
+  	utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  	  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+  	});
+  	
+  	module.exports = defaults;
+
+
+  /***/ }),
+  /* 11 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var utils = __webpack_require__(2);
+  	
+  	module.exports = function normalizeHeaderName(headers, normalizedName) {
+  	  utils.forEach(headers, function processHeader(value, name) {
+  	    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+  	      headers[normalizedName] = value;
+  	      delete headers[name];
+  	    }
+  	  });
+  	};
+
+
+  /***/ }),
+  /* 12 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var utils = __webpack_require__(2);
+  	var settle = __webpack_require__(13);
+  	var buildURL = __webpack_require__(5);
+  	var buildFullPath = __webpack_require__(16);
+  	var parseHeaders = __webpack_require__(19);
+  	var isURLSameOrigin = __webpack_require__(20);
+  	var createError = __webpack_require__(14);
+  	
+  	module.exports = function xhrAdapter(config) {
+  	  return new Promise(function dispatchXhrRequest(resolve, reject) {
+  	    var requestData = config.data;
+  	    var requestHeaders = config.headers;
+  	
+  	    if (utils.isFormData(requestData)) {
+  	      delete requestHeaders['Content-Type']; // Let the browser set it
+  	    }
+  	
+  	    var request = new XMLHttpRequest();
+  	
+  	    // HTTP basic authentication
+  	    if (config.auth) {
+  	      var username = config.auth.username || '';
+  	      var password = config.auth.password || '';
+  	      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+  	    }
+  	
+  	    var fullPath = buildFullPath(config.baseURL, config.url);
+  	    request.open(config.method.toUpperCase(), buildURL(fullPath, config.params, config.paramsSerializer), true);
+  	
+  	    // Set the request timeout in MS
+  	    request.timeout = config.timeout;
+  	
+  	    // Listen for ready state
+  	    request.onreadystatechange = function handleLoad() {
+  	      if (!request || request.readyState !== 4) {
+  	        return;
+  	      }
+  	
+  	      // The request errored out and we didn't get a response, this will be
+  	      // handled by onerror instead
+  	      // With one exception: request that using file: protocol, most browsers
+  	      // will return status as 0 even though it's a successful request
+  	      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+  	        return;
+  	      }
+  	
+  	      // Prepare the response
+  	      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
+  	      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
+  	      var response = {
+  	        data: responseData,
+  	        status: request.status,
+  	        statusText: request.statusText,
+  	        headers: responseHeaders,
+  	        config: config,
+  	        request: request
+  	      };
+  	
+  	      settle(resolve, reject, response);
+  	
+  	      // Clean up request
+  	      request = null;
+  	    };
+  	
+  	    // Handle browser request cancellation (as opposed to a manual cancellation)
+  	    request.onabort = function handleAbort() {
+  	      if (!request) {
+  	        return;
+  	      }
+  	
+  	      reject(createError('Request aborted', config, 'ECONNABORTED', request));
+  	
+  	      // Clean up request
+  	      request = null;
+  	    };
+  	
+  	    // Handle low level network errors
+  	    request.onerror = function handleError() {
+  	      // Real errors are hidden from us by the browser
+  	      // onerror should only fire if it's a network error
+  	      reject(createError('Network Error', config, null, request));
+  	
+  	      // Clean up request
+  	      request = null;
+  	    };
+  	
+  	    // Handle timeout
+  	    request.ontimeout = function handleTimeout() {
+  	      var timeoutErrorMessage = 'timeout of ' + config.timeout + 'ms exceeded';
+  	      if (config.timeoutErrorMessage) {
+  	        timeoutErrorMessage = config.timeoutErrorMessage;
+  	      }
+  	      reject(createError(timeoutErrorMessage, config, 'ECONNABORTED',
+  	        request));
+  	
+  	      // Clean up request
+  	      request = null;
+  	    };
+  	
+  	    // Add xsrf header
+  	    // This is only done if running in a standard browser environment.
+  	    // Specifically not if we're in a web worker, or react-native.
+  	    if (utils.isStandardBrowserEnv()) {
+  	      var cookies = __webpack_require__(21);
+  	
+  	      // Add xsrf header
+  	      var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?
+  	        cookies.read(config.xsrfCookieName) :
+  	        undefined;
+  	
+  	      if (xsrfValue) {
+  	        requestHeaders[config.xsrfHeaderName] = xsrfValue;
+  	      }
+  	    }
+  	
+  	    // Add headers to the request
+  	    if ('setRequestHeader' in request) {
+  	      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
+  	        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
+  	          // Remove Content-Type if data is undefined
+  	          delete requestHeaders[key];
+  	        } else {
+  	          // Otherwise add header to the request
+  	          request.setRequestHeader(key, val);
+  	        }
+  	      });
+  	    }
+  	
+  	    // Add withCredentials to request if needed
+  	    if (!utils.isUndefined(config.withCredentials)) {
+  	      request.withCredentials = !!config.withCredentials;
+  	    }
+  	
+  	    // Add responseType to request if needed
+  	    if (config.responseType) {
+  	      try {
+  	        request.responseType = config.responseType;
+  	      } catch (e) {
+  	        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
+  	        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
+  	        if (config.responseType !== 'json') {
+  	          throw e;
+  	        }
+  	      }
+  	    }
+  	
+  	    // Handle progress if needed
+  	    if (typeof config.onDownloadProgress === 'function') {
+  	      request.addEventListener('progress', config.onDownloadProgress);
+  	    }
+  	
+  	    // Not all browsers support upload events
+  	    if (typeof config.onUploadProgress === 'function' && request.upload) {
+  	      request.upload.addEventListener('progress', config.onUploadProgress);
+  	    }
+  	
+  	    if (config.cancelToken) {
+  	      // Handle cancellation
+  	      config.cancelToken.promise.then(function onCanceled(cancel) {
+  	        if (!request) {
+  	          return;
+  	        }
+  	
+  	        request.abort();
+  	        reject(cancel);
+  	        // Clean up request
+  	        request = null;
+  	      });
+  	    }
+  	
+  	    if (requestData === undefined) {
+  	      requestData = null;
+  	    }
+  	
+  	    // Send the request
+  	    request.send(requestData);
+  	  });
+  	};
+
+
+  /***/ }),
+  /* 13 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var createError = __webpack_require__(14);
+  	
+  	/**
+  	 * Resolve or reject a Promise based on response status.
+  	 *
+  	 * @param {Function} resolve A function that resolves the promise.
+  	 * @param {Function} reject A function that rejects the promise.
+  	 * @param {object} response The response.
+  	 */
+  	module.exports = function settle(resolve, reject, response) {
+  	  var validateStatus = response.config.validateStatus;
+  	  if (!validateStatus || validateStatus(response.status)) {
+  	    resolve(response);
+  	  } else {
+  	    reject(createError(
+  	      'Request failed with status code ' + response.status,
+  	      response.config,
+  	      null,
+  	      response.request,
+  	      response
+  	    ));
+  	  }
+  	};
+
+
+  /***/ }),
+  /* 14 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var enhanceError = __webpack_require__(15);
+  	
+  	/**
+  	 * Create an Error with the specified message, config, error code, request and response.
+  	 *
+  	 * @param {string} message The error message.
+  	 * @param {Object} config The config.
+  	 * @param {string} [code] The error code (for example, 'ECONNABORTED').
+  	 * @param {Object} [request] The request.
+  	 * @param {Object} [response] The response.
+  	 * @returns {Error} The created error.
+  	 */
+  	module.exports = function createError(message, config, code, request, response) {
+  	  var error = new Error(message);
+  	  return enhanceError(error, config, code, request, response);
+  	};
+
+
+  /***/ }),
+  /* 15 */
+  /***/ (function(module, exports) {
+  	
+  	/**
+  	 * Update an Error with the specified config, error code, and response.
+  	 *
+  	 * @param {Error} error The error to update.
+  	 * @param {Object} config The config.
+  	 * @param {string} [code] The error code (for example, 'ECONNABORTED').
+  	 * @param {Object} [request] The request.
+  	 * @param {Object} [response] The response.
+  	 * @returns {Error} The error.
+  	 */
+  	module.exports = function enhanceError(error, config, code, request, response) {
+  	  error.config = config;
+  	  if (code) {
+  	    error.code = code;
+  	  }
+  	
+  	  error.request = request;
+  	  error.response = response;
+  	  error.isAxiosError = true;
+  	
+  	  error.toJSON = function() {
+  	    return {
+  	      // Standard
+  	      message: this.message,
+  	      name: this.name,
+  	      // Microsoft
+  	      description: this.description,
+  	      number: this.number,
+  	      // Mozilla
+  	      fileName: this.fileName,
+  	      lineNumber: this.lineNumber,
+  	      columnNumber: this.columnNumber,
+  	      stack: this.stack,
+  	      // Axios
+  	      config: this.config,
+  	      code: this.code
+  	    };
+  	  };
+  	  return error;
+  	};
+
+
+  /***/ }),
+  /* 16 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var isAbsoluteURL = __webpack_require__(17);
+  	var combineURLs = __webpack_require__(18);
+  	
+  	/**
+  	 * Creates a new URL by combining the baseURL with the requestedURL,
+  	 * only when the requestedURL is not already an absolute URL.
+  	 * If the requestURL is absolute, this function returns the requestedURL untouched.
+  	 *
+  	 * @param {string} baseURL The base URL
+  	 * @param {string} requestedURL Absolute or relative URL to combine
+  	 * @returns {string} The combined full path
+  	 */
+  	module.exports = function buildFullPath(baseURL, requestedURL) {
+  	  if (baseURL && !isAbsoluteURL(requestedURL)) {
+  	    return combineURLs(baseURL, requestedURL);
+  	  }
+  	  return requestedURL;
+  	};
+
+
+  /***/ }),
+  /* 17 */
+  /***/ (function(module, exports) {
+  	
+  	/**
+  	 * Determines whether the specified URL is absolute
+  	 *
+  	 * @param {string} url The URL to test
+  	 * @returns {boolean} True if the specified URL is absolute, otherwise false
+  	 */
+  	module.exports = function isAbsoluteURL(url) {
+  	  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+  	  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+  	  // by any combination of letters, digits, plus, period, or hyphen.
+  	  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+  	};
+
+
+  /***/ }),
+  /* 18 */
+  /***/ (function(module, exports) {
+  	
+  	/**
+  	 * Creates a new URL by combining the specified URLs
+  	 *
+  	 * @param {string} baseURL The base URL
+  	 * @param {string} relativeURL The relative URL
+  	 * @returns {string} The combined URL
+  	 */
+  	module.exports = function combineURLs(baseURL, relativeURL) {
+  	  return relativeURL
+  	    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+  	    : baseURL;
+  	};
+
+
+  /***/ }),
+  /* 19 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var utils = __webpack_require__(2);
+  	
+  	// Headers whose duplicates are ignored by node
+  	// c.f. https://nodejs.org/api/http.html#http_message_headers
+  	var ignoreDuplicateOf = [
+  	  'age', 'authorization', 'content-length', 'content-type', 'etag',
+  	  'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
+  	  'last-modified', 'location', 'max-forwards', 'proxy-authorization',
+  	  'referer', 'retry-after', 'user-agent'
+  	];
+  	
+  	/**
+  	 * Parse headers into an object
+  	 *
+  	 * ```
+  	 * Date: Wed, 27 Aug 2014 08:58:49 GMT
+  	 * Content-Type: application/json
+  	 * Connection: keep-alive
+  	 * Transfer-Encoding: chunked
+  	 * ```
+  	 *
+  	 * @param {String} headers Headers needing to be parsed
+  	 * @returns {Object} Headers parsed into an object
+  	 */
+  	module.exports = function parseHeaders(headers) {
+  	  var parsed = {};
+  	  var key;
+  	  var val;
+  	  var i;
+  	
+  	  if (!headers) { return parsed; }
+  	
+  	  utils.forEach(headers.split('\n'), function parser(line) {
+  	    i = line.indexOf(':');
+  	    key = utils.trim(line.substr(0, i)).toLowerCase();
+  	    val = utils.trim(line.substr(i + 1));
+  	
+  	    if (key) {
+  	      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
+  	        return;
+  	      }
+  	      if (key === 'set-cookie') {
+  	        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
+  	      } else {
+  	        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+  	      }
+  	    }
+  	  });
+  	
+  	  return parsed;
+  	};
+
+
+  /***/ }),
+  /* 20 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var utils = __webpack_require__(2);
+  	
+  	module.exports = (
+  	  utils.isStandardBrowserEnv() ?
+  	
+  	  // Standard browser envs have full support of the APIs needed to test
+  	  // whether the request URL is of the same origin as current location.
+  	    (function standardBrowserEnv() {
+  	      var msie = /(msie|trident)/i.test(navigator.userAgent);
+  	      var urlParsingNode = document.createElement('a');
+  	      var originURL;
+  	
+  	      /**
+  	    * Parse a URL to discover it's components
+  	    *
+  	    * @param {String} url The URL to be parsed
+  	    * @returns {Object}
+  	    */
+  	      function resolveURL(url) {
+  	        var href = url;
+  	
+  	        if (msie) {
+  	        // IE needs attribute set twice to normalize properties
+  	          urlParsingNode.setAttribute('href', href);
+  	          href = urlParsingNode.href;
+  	        }
+  	
+  	        urlParsingNode.setAttribute('href', href);
+  	
+  	        // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+  	        return {
+  	          href: urlParsingNode.href,
+  	          protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+  	          host: urlParsingNode.host,
+  	          search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+  	          hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+  	          hostname: urlParsingNode.hostname,
+  	          port: urlParsingNode.port,
+  	          pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+  	            urlParsingNode.pathname :
+  	            '/' + urlParsingNode.pathname
+  	        };
+  	      }
+  	
+  	      originURL = resolveURL(window.location.href);
+  	
+  	      /**
+  	    * Determine if a URL shares the same origin as the current location
+  	    *
+  	    * @param {String} requestURL The URL to test
+  	    * @returns {boolean} True if URL shares the same origin, otherwise false
+  	    */
+  	      return function isURLSameOrigin(requestURL) {
+  	        var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+  	        return (parsed.protocol === originURL.protocol &&
+  	            parsed.host === originURL.host);
+  	      };
+  	    })() :
+  	
+  	  // Non standard browser envs (web workers, react-native) lack needed support.
+  	    (function nonStandardBrowserEnv() {
+  	      return function isURLSameOrigin() {
+  	        return true;
+  	      };
+  	    })()
+  	);
+
+
+  /***/ }),
+  /* 21 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var utils = __webpack_require__(2);
+  	
+  	module.exports = (
+  	  utils.isStandardBrowserEnv() ?
+  	
+  	  // Standard browser envs support document.cookie
+  	    (function standardBrowserEnv() {
+  	      return {
+  	        write: function write(name, value, expires, path, domain, secure) {
+  	          var cookie = [];
+  	          cookie.push(name + '=' + encodeURIComponent(value));
+  	
+  	          if (utils.isNumber(expires)) {
+  	            cookie.push('expires=' + new Date(expires).toGMTString());
+  	          }
+  	
+  	          if (utils.isString(path)) {
+  	            cookie.push('path=' + path);
+  	          }
+  	
+  	          if (utils.isString(domain)) {
+  	            cookie.push('domain=' + domain);
+  	          }
+  	
+  	          if (secure === true) {
+  	            cookie.push('secure');
+  	          }
+  	
+  	          document.cookie = cookie.join('; ');
+  	        },
+  	
+  	        read: function read(name) {
+  	          var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+  	          return (match ? decodeURIComponent(match[3]) : null);
+  	        },
+  	
+  	        remove: function remove(name) {
+  	          this.write(name, '', Date.now() - 86400000);
+  	        }
+  	      };
+  	    })() :
+  	
+  	  // Non standard browser env (web workers, react-native) lack needed support.
+  	    (function nonStandardBrowserEnv() {
+  	      return {
+  	        write: function write() {},
+  	        read: function read() { return null; },
+  	        remove: function remove() {}
+  	      };
+  	    })()
+  	);
+
+
+  /***/ }),
+  /* 22 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var utils = __webpack_require__(2);
+  	
+  	/**
+  	 * Config-specific merge-function which creates a new config-object
+  	 * by merging two configuration objects together.
+  	 *
+  	 * @param {Object} config1
+  	 * @param {Object} config2
+  	 * @returns {Object} New object resulting from merging config2 to config1
+  	 */
+  	module.exports = function mergeConfig(config1, config2) {
+  	  // eslint-disable-next-line no-param-reassign
+  	  config2 = config2 || {};
+  	  var config = {};
+  	
+  	  var valueFromConfig2Keys = ['url', 'method', 'params', 'data'];
+  	  var mergeDeepPropertiesKeys = ['headers', 'auth', 'proxy'];
+  	  var defaultToConfig2Keys = [
+  	    'baseURL', 'url', 'transformRequest', 'transformResponse', 'paramsSerializer',
+  	    'timeout', 'withCredentials', 'adapter', 'responseType', 'xsrfCookieName',
+  	    'xsrfHeaderName', 'onUploadProgress', 'onDownloadProgress',
+  	    'maxContentLength', 'validateStatus', 'maxRedirects', 'httpAgent',
+  	    'httpsAgent', 'cancelToken', 'socketPath'
+  	  ];
+  	
+  	  utils.forEach(valueFromConfig2Keys, function valueFromConfig2(prop) {
+  	    if (typeof config2[prop] !== 'undefined') {
+  	      config[prop] = config2[prop];
+  	    }
+  	  });
+  	
+  	  utils.forEach(mergeDeepPropertiesKeys, function mergeDeepProperties(prop) {
+  	    if (utils.isObject(config2[prop])) {
+  	      config[prop] = utils.deepMerge(config1[prop], config2[prop]);
+  	    } else if (typeof config2[prop] !== 'undefined') {
+  	      config[prop] = config2[prop];
+  	    } else if (utils.isObject(config1[prop])) {
+  	      config[prop] = utils.deepMerge(config1[prop]);
+  	    } else if (typeof config1[prop] !== 'undefined') {
+  	      config[prop] = config1[prop];
+  	    }
+  	  });
+  	
+  	  utils.forEach(defaultToConfig2Keys, function defaultToConfig2(prop) {
+  	    if (typeof config2[prop] !== 'undefined') {
+  	      config[prop] = config2[prop];
+  	    } else if (typeof config1[prop] !== 'undefined') {
+  	      config[prop] = config1[prop];
+  	    }
+  	  });
+  	
+  	  var axiosKeys = valueFromConfig2Keys
+  	    .concat(mergeDeepPropertiesKeys)
+  	    .concat(defaultToConfig2Keys);
+  	
+  	  var otherKeys = Object
+  	    .keys(config2)
+  	    .filter(function filterAxiosKeys(key) {
+  	      return axiosKeys.indexOf(key) === -1;
+  	    });
+  	
+  	  utils.forEach(otherKeys, function otherKeysDefaultToConfig2(prop) {
+  	    if (typeof config2[prop] !== 'undefined') {
+  	      config[prop] = config2[prop];
+  	    } else if (typeof config1[prop] !== 'undefined') {
+  	      config[prop] = config1[prop];
+  	    }
+  	  });
+  	
+  	  return config;
+  	};
+
+
+  /***/ }),
+  /* 23 */
+  /***/ (function(module, exports) {
+  	
+  	/**
+  	 * A `Cancel` is an object that is thrown when an operation is canceled.
+  	 *
+  	 * @class
+  	 * @param {string=} message The message.
+  	 */
+  	function Cancel(message) {
+  	  this.message = message;
+  	}
+  	
+  	Cancel.prototype.toString = function toString() {
+  	  return 'Cancel' + (this.message ? ': ' + this.message : '');
+  	};
+  	
+  	Cancel.prototype.__CANCEL__ = true;
+  	
+  	module.exports = Cancel;
+
+
+  /***/ }),
+  /* 24 */
+  /***/ (function(module, exports, __webpack_require__) {
+  	
+  	var Cancel = __webpack_require__(23);
+  	
+  	/**
+  	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
+  	 *
+  	 * @class
+  	 * @param {Function} executor The executor function.
+  	 */
+  	function CancelToken(executor) {
+  	  if (typeof executor !== 'function') {
+  	    throw new TypeError('executor must be a function.');
+  	  }
+  	
+  	  var resolvePromise;
+  	  this.promise = new Promise(function promiseExecutor(resolve) {
+  	    resolvePromise = resolve;
+  	  });
+  	
+  	  var token = this;
+  	  executor(function cancel(message) {
+  	    if (token.reason) {
+  	      // Cancellation has already been requested
+  	      return;
+  	    }
+  	
+  	    token.reason = new Cancel(message);
+  	    resolvePromise(token.reason);
+  	  });
+  	}
+  	
+  	/**
+  	 * Throws a `Cancel` if cancellation has been requested.
+  	 */
+  	CancelToken.prototype.throwIfRequested = function throwIfRequested() {
+  	  if (this.reason) {
+  	    throw this.reason;
+  	  }
+  	};
+  	
+  	/**
+  	 * Returns an object that contains a new `CancelToken` and a function that, when called,
+  	 * cancels the `CancelToken`.
+  	 */
+  	CancelToken.source = function source() {
+  	  var cancel;
+  	  var token = new CancelToken(function executor(c) {
+  	    cancel = c;
+  	  });
+  	  return {
+  	    token: token,
+  	    cancel: cancel
+  	  };
+  	};
+  	
+  	module.exports = CancelToken;
+
+
+  /***/ }),
+  /* 25 */
+  /***/ (function(module, exports) {
+  	
+  	/**
+  	 * Syntactic sugar for invoking a function and expanding an array for arguments.
+  	 *
+  	 * Common use case would be to use `Function.prototype.apply`.
+  	 *
+  	 *  ```js
+  	 *  function f(x, y, z) {}
+  	 *  var args = [1, 2, 3];
+  	 *  f.apply(null, args);
+  	 *  ```
+  	 *
+  	 * With `spread` this example can be re-written.
+  	 *
+  	 *  ```js
+  	 *  spread(function(x, y, z) {})([1, 2, 3]);
+  	 *  ```
+  	 *
+  	 * @param {Function} callback
+  	 * @returns {Function}
+  	 */
+  	module.exports = function spread(callback) {
+  	  return function wrap(arr) {
+  	    return callback.apply(null, arr);
+  	  };
+  	};
+
+
+  /***/ })
+  /******/ ])
+  });
+
+  });
+
+  !function (e, t) {
+    "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "object" == (typeof module === "undefined" ? "undefined" : _typeof(module)) ? module.exports = t() : "function" == typeof define && define.amd ? define([], t) : "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) ? exports.Twitch = t() : e.Twitch = t();
+  }(window, function () {
+    return function (e) {
+      var t = {};
+
+      function n(r) {
+        if (t[r]) return t[r].exports;
+        var o = t[r] = {
+          i: r,
+          l: !1,
+          exports: {}
+        };
+        return e[r].call(o.exports, o, o.exports, n), o.l = !0, o.exports;
+      }
+
+      return n.m = e, n.c = t, n.d = function (e, t, r) {
+        n.o(e, t) || Object.defineProperty(e, t, {
+          enumerable: !0,
+          get: r
+        });
+      }, n.r = function (e) {
+        "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
+          value: "Module"
+        }), Object.defineProperty(e, "__esModule", {
+          value: !0
+        });
+      }, n.t = function (e, t) {
+        if (1 & t && (e = n(e)), 8 & t) return e;
+        if (4 & t && "object" == _typeof(e) && e && e.__esModule) return e;
+        var r = Object.create(null);
+        if (n.r(r), Object.defineProperty(r, "default", {
+          enumerable: !0,
+          value: e
+        }), 2 & t && "string" != typeof e) for (var o in e) {
+          n.d(r, o, function (t) {
+            return e[t];
+          }.bind(null, o));
+        }
+        return r;
+      }, n.n = function (e) {
+        var t = e && e.__esModule ? function () {
+          return e["default"];
+        } : function () {
+          return e;
+        };
+        return n.d(t, "a", t), t;
+      }, n.o = function (e, t) {
+        return Object.prototype.hasOwnProperty.call(e, t);
+      }, n.p = "", n(n.s = 4);
+    }([function (e, t, n) {
+
+      var r = Object.prototype.hasOwnProperty,
+          o = "~";
+
+      function i() {}
+
+      function a(e, t, n) {
+        this.fn = e, this.context = t, this.once = n || !1;
+      }
+
+      function l(e, t, n, r, i) {
+        if ("function" != typeof n) throw new TypeError("The listener must be a function");
+        var l = new a(n, r || e, i),
+            s = o ? o + t : t;
+        return e._events[s] ? e._events[s].fn ? e._events[s] = [e._events[s], l] : e._events[s].push(l) : (e._events[s] = l, e._eventsCount++), e;
+      }
+
+      function s(e, t) {
+        0 == --e._eventsCount ? e._events = new i() : delete e._events[t];
+      }
+
+      function u() {
+        this._events = new i(), this._eventsCount = 0;
+      }
+
+      Object.create && (i.prototype = Object.create(null), new i().__proto__ || (o = !1)), u.prototype.eventNames = function () {
+        var e,
+            t,
+            n = [];
+        if (0 === this._eventsCount) return n;
+
+        for (t in e = this._events) {
+          r.call(e, t) && n.push(o ? t.slice(1) : t);
+        }
+
+        return Object.getOwnPropertySymbols ? n.concat(Object.getOwnPropertySymbols(e)) : n;
+      }, u.prototype.listeners = function (e) {
+        var t = o ? o + e : e,
+            n = this._events[t];
+        if (!n) return [];
+        if (n.fn) return [n.fn];
+
+        for (var r = 0, i = n.length, a = new Array(i); r < i; r++) {
+          a[r] = n[r].fn;
+        }
+
+        return a;
+      }, u.prototype.listenerCount = function (e) {
+        var t = o ? o + e : e,
+            n = this._events[t];
+        return n ? n.fn ? 1 : n.length : 0;
+      }, u.prototype.emit = function (e, t, n, r, i, a) {
+        var l = o ? o + e : e;
+        if (!this._events[l]) return !1;
+        var s,
+            u,
+            c = this._events[l],
+            d = arguments.length;
+
+        if (c.fn) {
+          switch (c.once && this.removeListener(e, c.fn, void 0, !0), d) {
+            case 1:
+              return c.fn.call(c.context), !0;
+
+            case 2:
+              return c.fn.call(c.context, t), !0;
+
+            case 3:
+              return c.fn.call(c.context, t, n), !0;
+
+            case 4:
+              return c.fn.call(c.context, t, n, r), !0;
+
+            case 5:
+              return c.fn.call(c.context, t, n, r, i), !0;
+
+            case 6:
+              return c.fn.call(c.context, t, n, r, i, a), !0;
+          }
+
+          for (u = 1, s = new Array(d - 1); u < d; u++) {
+            s[u - 1] = arguments[u];
+          }
+
+          c.fn.apply(c.context, s);
+        } else {
+          var p,
+              f = c.length;
+
+          for (u = 0; u < f; u++) {
+            switch (c[u].once && this.removeListener(e, c[u].fn, void 0, !0), d) {
+              case 1:
+                c[u].fn.call(c[u].context);
+                break;
+
+              case 2:
+                c[u].fn.call(c[u].context, t);
+                break;
+
+              case 3:
+                c[u].fn.call(c[u].context, t, n);
+                break;
+
+              case 4:
+                c[u].fn.call(c[u].context, t, n, r);
+                break;
+
+              default:
+                if (!s) for (p = 1, s = new Array(d - 1); p < d; p++) {
+                  s[p - 1] = arguments[p];
+                }
+                c[u].fn.apply(c[u].context, s);
+            }
+          }
+        }
+
+        return !0;
+      }, u.prototype.on = function (e, t, n) {
+        return l(this, e, t, n, !1);
+      }, u.prototype.once = function (e, t, n) {
+        return l(this, e, t, n, !0);
+      }, u.prototype.removeListener = function (e, t, n, r) {
+        var i = o ? o + e : e;
+        if (!this._events[i]) return this;
+        if (!t) return s(this, i), this;
+        var a = this._events[i];
+        if (a.fn) a.fn !== t || r && !a.once || n && a.context !== n || s(this, i);else {
+          for (var l = 0, u = [], c = a.length; l < c; l++) {
+            (a[l].fn !== t || r && !a[l].once || n && a[l].context !== n) && u.push(a[l]);
+          }
+
+          u.length ? this._events[i] = 1 === u.length ? u[0] : u : s(this, i);
+        }
+        return this;
+      }, u.prototype.removeAllListeners = function (e) {
+        var t;
+        return e ? (t = o ? o + e : e, this._events[t] && s(this, t)) : (this._events = new i(), this._eventsCount = 0), this;
+      }, u.prototype.off = u.prototype.removeListener, u.prototype.addListener = u.prototype.on, u.prefixed = o, u.EventEmitter = u, e.exports = u;
+    }, function (e, t, n) {
+
+      var r = n(2),
+          o = n(3);
+
+      function i(e, t) {
+        return t.encode ? t.strict ? r(e) : encodeURIComponent(e) : e;
+      }
+
+      t.extract = function (e) {
+        return e.split("?")[1] || "";
+      }, t.parse = function (e, t) {
+        var n = function (e) {
+          var t;
+
+          switch (e.arrayFormat) {
+            case "index":
+              return function (e, n, r) {
+                t = /\[(\d*)\]$/.exec(e), e = e.replace(/\[\d*\]$/, ""), t ? (void 0 === r[e] && (r[e] = {}), r[e][t[1]] = n) : r[e] = n;
+              };
+
+            case "bracket":
+              return function (e, n, r) {
+                t = /(\[\])$/.exec(e), e = e.replace(/\[\]$/, ""), t ? void 0 !== r[e] ? r[e] = [].concat(r[e], n) : r[e] = [n] : r[e] = n;
+              };
+
+            default:
+              return function (e, t, n) {
+                void 0 !== n[e] ? n[e] = [].concat(n[e], t) : n[e] = t;
+              };
+          }
+        }(t = o({
+          arrayFormat: "none"
+        }, t)),
+            r = Object.create(null);
+
+        return "string" != typeof e ? r : (e = e.trim().replace(/^(\?|#|&)/, "")) ? (e.split("&").forEach(function (e) {
+          var t = e.replace(/\+/g, " ").split("="),
+              o = t.shift(),
+              i = t.length > 0 ? t.join("=") : void 0;
+          i = void 0 === i ? null : decodeURIComponent(i), n(decodeURIComponent(o), i, r);
+        }), Object.keys(r).sort().reduce(function (e, t) {
+          var n = r[t];
+          return Boolean(n) && "object" == _typeof(n) && !Array.isArray(n) ? e[t] = function e(t) {
+            return Array.isArray(t) ? t.sort() : "object" == _typeof(t) ? e(Object.keys(t)).sort(function (e, t) {
+              return Number(e) - Number(t);
+            }).map(function (e) {
+              return t[e];
+            }) : t;
+          }(n) : e[t] = n, e;
+        }, Object.create(null))) : r;
+      }, t.stringify = function (e, t) {
+        var n = function (e) {
+          switch (e.arrayFormat) {
+            case "index":
+              return function (t, n, r) {
+                return null === n ? [i(t, e), "[", r, "]"].join("") : [i(t, e), "[", i(r, e), "]=", i(n, e)].join("");
+              };
+
+            case "bracket":
+              return function (t, n) {
+                return null === n ? i(t, e) : [i(t, e), "[]=", i(n, e)].join("");
+              };
+
+            default:
+              return function (t, n) {
+                return null === n ? i(t, e) : [i(t, e), "=", i(n, e)].join("");
+              };
+          }
+        }(t = o({
+          encode: !0,
+          strict: !0,
+          arrayFormat: "none"
+        }, t));
+
+        return e ? Object.keys(e).sort().map(function (r) {
+          var o = e[r];
+          if (void 0 === o) return "";
+          if (null === o) return i(r, t);
+
+          if (Array.isArray(o)) {
+            var a = [];
+            return o.slice().forEach(function (e) {
+              void 0 !== e && a.push(n(r, e, a.length));
+            }), a.join("&");
+          }
+
+          return i(r, t) + "=" + i(o, t);
+        }).filter(function (e) {
+          return e.length > 0;
+        }).join("&") : "";
+      };
+    }, function (e, t, n) {
+
+      e.exports = function (e) {
+        return encodeURIComponent(e).replace(/[!'()*]/g, function (e) {
+          return "%" + e.charCodeAt(0).toString(16).toUpperCase();
+        });
+      };
+    }, function (e, t, n) {
+      /*
+      object-assign
+      (c) Sindre Sorhus
+      @license MIT
+      */
+
+      var r = Object.getOwnPropertySymbols,
+          o = Object.prototype.hasOwnProperty,
+          i = Object.prototype.propertyIsEnumerable;
+
+      function a(e) {
+        if (null == e) throw new TypeError("Object.assign cannot be called with null or undefined");
+        return Object(e);
+      }
+
+      e.exports = function () {
+        try {
+          if (!Object.assign) return !1;
+          var e = new String("abc");
+          if (e[5] = "de", "5" === Object.getOwnPropertyNames(e)[0]) return !1;
+
+          for (var t = {}, n = 0; n < 10; n++) {
+            t["_" + String.fromCharCode(n)] = n;
+          }
+
+          if ("0123456789" !== Object.getOwnPropertyNames(t).map(function (e) {
+            return t[e];
+          }).join("")) return !1;
+          var r = {};
+          return "abcdefghijklmnopqrst".split("").forEach(function (e) {
+            r[e] = e;
+          }), "abcdefghijklmnopqrst" === Object.keys(Object.assign({}, r)).join("");
+        } catch (e) {
+          return !1;
+        }
+      }() ? Object.assign : function (e, t) {
+        for (var n, l, s = a(e), u = 1; u < arguments.length; u++) {
+          for (var c in n = Object(arguments[u])) {
+            o.call(n, c) && (s[c] = n[c]);
+          }
+
+          if (r) {
+            l = r(n);
+
+            for (var d = 0; d < l.length; d++) {
+              i.call(n, l[d]) && (s[l[d]] = n[l[d]]);
+            }
+          }
+        }
+
+        return s;
+      };
+    }, function (e, t, n) {
+
+      n.r(t);
+      /*! *****************************************************************************
+      Copyright (c) Microsoft Corporation. All rights reserved.
+      Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+      this file except in compliance with the License. You may obtain a copy of the
+      License at http://www.apache.org/licenses/LICENSE-2.0
+      
+      THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+      KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+      WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+      MERCHANTABLITY OR NON-INFRINGEMENT.
+      
+      See the Apache Version 2.0 License for specific language governing permissions
+      and limitations under the License.
+      ***************************************************************************** */
+
+      var _r = function r(e, t) {
+        return (_r = Object.setPrototypeOf || {
+          __proto__: []
+        } instanceof Array && function (e, t) {
+          e.__proto__ = t;
+        } || function (e, t) {
+          for (var n in t) {
+            t.hasOwnProperty(n) && (e[n] = t[n]);
+          }
+        })(e, t);
+      };
+
+      function o(e, t) {
+        function n() {
+          this.constructor = e;
+        }
+
+        _r(e, t), e.prototype = null === t ? Object.create(t) : (n.prototype = t.prototype, new n());
+      }
+
+      var _i = function i() {
+        return (_i = Object.assign || function (e) {
+          for (var t, n = 1, r = arguments.length; n < r; n++) {
+            for (var o in t = arguments[n]) {
+              Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+            }
+          }
+
+          return e;
+        }).apply(this, arguments);
+      };
+
+      var a,
+          l,
+          s,
+          u,
+          c = n(0),
+          d = "twitch-embed";
+      !function (e) {
+        e.UpdateState = "UPDATE_STATE";
+      }(a || (a = {})), function (e) {
+        e.VideoWithChat = "video-with-chat", e.Video = "video";
+      }(l || (l = {})), function (e) {
+        e.AUTHENTICATE = "authenticate", e.VIDEO_READY = "video.ready", e.VIDEO_PLAY = "video.play", e.VIDEO_PAUSE = "video.pause", e.CAPTIONS = "captions", e.ENDED = "ended", e.ERROR = "error", e.ONLINE = "online", e.OFFLINE = "offline", e.PAUSE = "pause", e.PLAY = "play", e.PLAYBACK_BLOCKED = "playbackBlocked", e.PLAYING = "playing", e.READY = "ready";
+      }(s || (s = {})), function (e) {
+        e[e.DisableCaptions = 0] = "DisableCaptions", e[e.EnableCaptions = 1] = "EnableCaptions", e[e.Pause = 2] = "Pause", e[e.Play = 3] = "Play", e[e.Seek = 4] = "Seek", e[e.SetChannel = 5] = "SetChannel", e[e.SetChannelID = 6] = "SetChannelID", e[e.SetCollection = 7] = "SetCollection", e[e.SetQuality = 8] = "SetQuality", e[e.SetVideo = 9] = "SetVideo", e[e.SetMuted = 10] = "SetMuted", e[e.SetVolume = 11] = "SetVolume";
+      }(u || (u = {}));
+
+      var p,
+          f,
+          y,
+          E,
+          _,
+          h,
+          m,
+          v,
+          A,
+          P,
+          g,
+          b = function b() {};
+
+      !function (e) {
+        e.UNKNOWN = "Unspecified", e.FILE = "File", e.PLAYLIST = "Playlist", e.SEGMENT = "Segment", e.SOURCE = "Source", e.DECODER = "Decode", e.RENDERER = "Render", e.MASTER_PLAYLIST = "MasterPlaylist", e.MEDIA_PLAYLIST = "MediaPlaylist";
+      }(p || (p = {})), function (e) {
+        e.GENERIC = "Error", e.NOT_SUPPORTED = "ErrorNotSupported", e.NO_SOURCE = "ErrorNoSource", e.INVALID_DATA = "ErrorInvalidData", e.INVALID_STATE = "ErrorInvalidState", e.INVALID_PARAMETER = "ErrorInvalidParameter", e.TIMEOUT = "ErrorTimeout", e.INVALID_OUTPUT = "ErrorInvalidOutput", e.INTERNAL = "ErrorInternal", e.NETWORK = "ErrorNetwork", e.NETWORK_IO = "ErrorNetworkIO", e.AUTHORIZATION = "ErrorAuthorization", e.NOT_AVAILABLE = "ErrorNotAvailable";
+      }(f || (f = {})), function (e) {
+        e[e.GEOBLOCKED = 1] = "GEOBLOCKED", e[e.UNSUPPORTED_DEVICE = 2] = "UNSUPPORTED_DEVICE", e[e.ANONYMIZER_BLOCKED = 3] = "ANONYMIZER_BLOCKED", e[e.CELLULAR_NETWORK_PROHIBITED = 4] = "CELLULAR_NETWORK_PROHIBITED", e[e.UNAUTHORIZATION_ENTITLEMENTS = 5] = "UNAUTHORIZATION_ENTITLEMENTS", e[e.VOD_RESTRICTED = 6] = "VOD_RESTRICTED";
+      }(y || (y = {})), function (e) {
+        e.ID3 = "MetaID3", e.CAPTION = "MetaCaption";
+      }(E || (E = {})), function (e) {
+        e.INITIALIZED = "PlayerInitialized", e.QUALITY_CHANGED = "PlayerQualityChanged", e.AUTO_SWITCH_QUALITY_CHANGED = "PlayerAutoSwitchQualityChanged", e.DURATION_CHANGED = "PlayerDurationChanged", e.VOLUME_CHANGED = "PlayerVolumeChanged", e.MUTED_CHANGED = "PlayerMutedChanged", e.PLAYBACK_RATE_CHANGED = "PlayerPlaybackRateChanged", e.REBUFFERING = "PlayerRebuffering", e.AUDIO_BLOCKED = "PlayerAudioBlocked", e.PLAYBACK_BLOCKED = "PlayerPlaybackBlocked", e.ERROR = "PlayerError", e.RECOVERABLE_ERROR = "PlayerRecoverableError", e.ANALYTICS_EVENT = "PlayerAnalyticsEvent", e.TIME_UPDATE = "PlayerTimeUpdate", e.BUFFER_UPDATE = "PlayerBufferUpdate", e.SEEK_COMPLETED = "PlayerSeekCompleted", e.PROFILE = "PlayerProfile", e.SESSION_DATA = "PlayerSessionData", e.WORKER_ERROR = "PlayerWorkerError", e.METADATA = "PlayerMetadata";
+      }(_ || (_ = {})), function (e) {
+        e.PLAYER_LOADED_IN_WORKER = "player_loaded_in_worker", e.HLS_MASTER_PLAYLIST_REQUEST = "master_manifest_request", e.HLS_MASTER_PLAYLIST_READY = "master_manifest_ready", e.HLS_MEDIA_PLAYLIST_REQUEST = "variant_request", e.HLS_MEDIA_PLAYLIST_READY = "variant_ready", e.MIN_BUFFER_READY = "min_buffer_ready", e.VIDEO_ELEMENT_PLAY = "video_element_play";
+      }(h || (h = {})), function (e) {
+        e.AVAILABLE = "RemotePlayerAvailable", e.UNAVAILABLE = "RemotePlayerUnavailable", e.SESSION_STARTED = "RemotePlayerSessionStarted", e.SESSION_ENDED = "RemotePlayerSessionEnded";
+      }(m || (m = {})), function (e) {
+        e.IDLE = "Idle", e.READY = "Ready", e.BUFFERING = "Buffering", e.PLAYING = "Playing", e.ENDED = "Ended";
+      }(v || (v = {})), function (e) {
+        e.DEBUG = "debug", e.INFO = "info", e.WARN = "warn", e.ERROR = "error";
+      }(A || (A = {})), function (e) {
+        e[e.GeoBlocked = 1] = "GeoBlocked", e[e.UnsupportedDevice = 2] = "UnsupportedDevice", e[e.AnonymizerBlocked = 3] = "AnonymizerBlocked", e[e.CellularNetworkProhibited = 4] = "CellularNetworkProhibited", e[e.UnauthorizationEntitlements = 5] = "UnauthorizationEntitlements", e[e.VodRestricted = 6] = "VodRestricted", e[e.LVSCCUCap = 509] = "LVSCCUCap", e[e.Aborted = 1e3] = "Aborted", e[e.Network = 2e3] = "Network", e[e.CCUCapReached = 2001] = "CCUCapReached", e[e.Decode = 3e3] = "Decode", e[e.FormatNotSupported = 4e3] = "FormatNotSupported", e[e.ContentNotAvailable = 5e3] = "ContentNotAvailable", e[e.RendererNotAvailable = 6e3] = "RendererNotAvailable", e[e.SafariUnsupportedDevice = 7004] = "SafariUnsupportedDevice", e[e.Fatal = 8001] = "Fatal", e[e.FatalAuth = 8003] = "FatalAuth", e[e.Offline = 8002] = "Offline", e[e.WarnAuth = 8004] = "WarnAuth";
+      }(P || (P = {})), function (e) {
+        e.PREMIUM_CONTENT_RESTRICTED = "PREMIUM_CONTENT", e.VOD_RESTRICTED = "vod_manifest_restricted";
+      }(g || (g = {}));
+
+      var O = function (e) {
+        function t(t) {
+          var n = this.constructor,
+              r = e.call(this, t) || this;
+          return Object.setPrototypeOf(r, n.prototype), r.name = "MissingParameterError", r;
+        }
+
+        return o(t, e), t;
+      }(Error),
+          C = function (e) {
+        function t(t) {
+          var n = this.constructor,
+              r = e.call(this, "Could not find the provided element: " + t) || this;
+          return Object.setPrototypeOf(r, n.prototype), r.name = "MissingElementError", r;
+        }
+
+        return o(t, e), t;
+      }(Error),
+          S = n(1);
+
+      function I(e, t) {
+        var n = "https://" + t + ".twitch.tv" + "?" + S.stringify(_i(_i({}, e), {
+          migration: !0,
+          parent: R(e.parent),
+          referrer: document.location.href
+        })),
+            r = document.createElement("iframe");
+        return r.setAttribute("src", n), r.setAttribute("allowfullscreen", ""), r.setAttribute("scrolling", "no"), r.setAttribute("frameborder", "0"), r.setAttribute("allow", "autoplay; fullscreen"), r.setAttribute("title", "Twitch"), e.width && r.setAttribute("width", String(e.width)), e.height && r.setAttribute("height", String(e.height)), r;
+      }
+
+      function R(e) {
+        var t = document.domain;
+        if (!e) return [t];
+        var n = Array.isArray(e) ? e : [e];
+        return -1 === n.indexOf(t) ? n.concat(t) : n;
+      }
+
+      var D = {
+        channelName: "",
+        channelID: "",
+        collectionID: "",
+        currentTime: 0,
+        duration: 0,
+        muted: !1,
+        playback: v.IDLE,
+        quality: "",
+        qualitiesAvailable: [],
+        stats: {
+          videoStats: {
+            backendVersion: "",
+            bufferSize: 0,
+            codecs: "",
+            displayResolution: "",
+            fps: 0,
+            hlsLatencyBroadcaster: 0,
+            latencyMode: "",
+            playbackRate: 0,
+            skippedFrames: 0,
+            videoResolution: ""
+          }
+        },
+        videoID: "",
+        volume: 0,
+        ended: !1
+      },
+          N = function (e) {
+        function t() {
+          var t = e.call(this) || this;
+          return t._embedWindow = null, t._playerState = D, window.addEventListener("message", t._handleResponses.bind(t)), t;
+        }
+
+        return o(t, e), t.prototype._setWindowRef = function (e) {
+          this._embedWindow = e;
+        }, t.prototype.disableCaptions = function () {
+          this._sendCommand(u.DisableCaptions, null);
+        }, t.prototype.enableCaptions = function () {
+          this._sendCommand(u.EnableCaptions, null);
+        }, t.prototype.pause = function () {
+          this._sendCommand(u.Pause, null);
+        }, t.prototype.play = function () {
+          this._sendCommand(u.Play, null);
+        }, t.prototype.seek = function (e) {
+          this._sendCommand(u.Seek, e);
+        }, t.prototype.setChannel = function (e) {
+          this._sendCommand(u.SetChannel, e);
+        }, t.prototype.setChannelId = function (e) {
+          this._sendCommand(u.SetChannelID, e);
+        }, t.prototype.setCollection = function (e, t) {
+          this._sendCommand(u.SetCollection, [e, t]);
+        }, t.prototype.setQuality = function (e) {
+          this._sendCommand(u.SetQuality, e);
+        }, t.prototype.setVideo = function (e) {
+          this._sendCommand(u.SetVideo, e);
+        }, t.prototype.setMuted = function (e) {
+          var t = "boolean" != typeof e || e;
+
+          this._sendCommand(u.SetMuted, t);
+        }, t.prototype.setVolume = function (e) {
+          this._sendCommand(u.SetVolume, e);
+        }, t.prototype.getMuted = function () {
+          return this._playerState.muted;
+        }, t.prototype.getVolume = function () {
+          return this._playerState.volume;
+        }, t.prototype.getChannel = function () {
+          return this._playerState.channelName;
+        }, t.prototype.getChannelId = function () {
+          return this._playerState.channelID;
+        }, t.prototype.getCollection = function () {
+          return this._playerState.collectionID;
+        }, t.prototype.getCurrentTime = function () {
+          return this._playerState.currentTime;
+        }, t.prototype.getDuration = function () {
+          return this._playerState.duration;
+        }, t.prototype.getEnded = function () {
+          return this._playerState.ended;
+        }, t.prototype.getPlaybackStats = function () {
+          return this._playerState.stats.videoStats;
+        }, t.prototype.getQualities = function () {
+          return this._playerState.qualitiesAvailable;
+        }, t.prototype.getQuality = function () {
+          return this._playerState.quality;
+        }, t.prototype.getVideo = function () {
+          return this._playerState.videoID;
+        }, t.prototype.isPaused = function () {
+          return this._playerState.playback === v.IDLE;
+        }, t.prototype.getPlayerState = function () {
+          return this._playerState;
+        }, t.prototype._sendCommand = function (e, t) {
+          if (this._embedWindow) {
+            var n = {
+              eventName: e,
+              params: t,
+              namespace: "twitch-embed-player-proxy"
+            };
+
+            this._embedWindow.postMessage(n, "*");
+          } else console.warn("Cannot send player commands before the video player is initialized.          Please wait for the VIDEO_READY event before using the player API.");
+        }, t.prototype._handleResponses = function (e) {
+          if (this._embedWindow) {
+            var t = e.data,
+                n = e.source === this._embedWindow,
+                r = "twitch-embed-player-proxy" === t.namespace,
+                o = t.eventName === a.UpdateState;
+            n && r && o && (this._playerState = Object.assign({}, this._playerState, t.params));
+          }
+        }, t;
+      }(b);
+
+      n.d(t, "Embed", function () {
+        return T;
+      }), n.d(t, "Player", function () {
+        return L;
+      });
+
+      var T = function (e) {
+        function t(t, n) {
+          var r = e.call(this) || this;
+          return r._options = {}, r._target = null, r._player = new N(), r._eventEmitter = null, r._iframe = null, r._forwardEmbedEvents = function (e) {
+            if (r._iframe) {
+              var t = e.data,
+                  n = e.source === r._iframe.contentWindow,
+                  o = t.namespace === d;
+              n && o && r._eventEmitter.emit(t.eventName, t.params);
+            }
+          }, r.disableCaptions = r.getPlayer().disableCaptions.bind(r.getPlayer()), r.enableCaptions = r.getPlayer().enableCaptions.bind(r.getPlayer()), r.pause = r.getPlayer().pause.bind(r.getPlayer()), r.play = r.getPlayer().play.bind(r.getPlayer()), r.seek = r.getPlayer().seek.bind(r.getPlayer()), r.setChannel = r.getPlayer().setChannel.bind(r.getPlayer()), r.setChannelId = r.getPlayer().setChannelId.bind(r.getPlayer()), r.setCollection = r.getPlayer().setCollection.bind(r.getPlayer()), r.setQuality = r.getPlayer().setQuality.bind(r.getPlayer()), r.setVideo = r.getPlayer().setVideo.bind(r.getPlayer()), r.setMuted = r.getPlayer().setMuted.bind(r.getPlayer()), r.setVolume = r.getPlayer().setVolume.bind(r.getPlayer()), r.getMuted = r.getPlayer().getMuted.bind(r.getPlayer()), r.getVolume = r.getPlayer().getVolume.bind(r.getPlayer()), r.getChannel = r.getPlayer().getChannel.bind(r.getPlayer()), r.getChannelId = r.getPlayer().getChannelId.bind(r.getPlayer()), r.getCollection = r.getPlayer().getCollection.bind(r.getPlayer()), r.getCurrentTime = r.getPlayer().getCurrentTime.bind(r.getPlayer()), r.getDuration = r.getPlayer().getDuration.bind(r.getPlayer()), r.getEnded = r.getPlayer().getEnded.bind(r.getPlayer()), r.getPlaybackStats = r.getPlayer().getPlaybackStats.bind(r.getPlayer()), r.getPlayerState = r.getPlayer().getPlayerState.bind(r.getPlayer()), r.getQualities = r.getPlayer().getQualities.bind(r.getPlayer()), r.getQuality = r.getPlayer().getQuality.bind(r.getPlayer()), r.getVideo = r.getPlayer().getVideo.bind(r.getPlayer()), r.isPaused = r.getPlayer().isPaused.bind(r.getPlayer()), function (e) {
+            var t = (null == e ? void 0 : e.channelId) && (null == e ? void 0 : e.stream);
+            if (!e || !e.channel && !e.video && !e.collection && !t) throw new O("A channel, video, or collection id must be provided in options");
+          }(n), r._options = n, r._target = function (e) {
+            if (!e) throw new O("An element of type String or Element is required");
+            var t = "string" == typeof e ? document.getElementById(e) : e;
+            if (!t) throw new C(e);
+            if (1 !== t.nodeType) throw new O("An element of type String or Element is required");
+            return t;
+          }(t), r._eventEmitter = new c(), r.render(), r;
+        }
+
+        return o(t, e), t.prototype.addEventListener = function (e, t) {
+          this._eventEmitter && this._eventEmitter.on(e, t);
+        }, t.prototype.removeEventListener = function (e, t) {
+          this._eventEmitter && this._eventEmitter.removeListener(e, t);
+        }, t.prototype.getPlayer = function () {
+          return this._player;
+        }, t.prototype.destroy = function () {
+          var e, t;
+          this._eventEmitter && this._eventEmitter.removeAllListeners(), window.removeEventListener("message", this._forwardEmbedEvents), null === (t = null === (e = this._iframe) || void 0 === e ? void 0 : e.parentNode) || void 0 === t || t.removeChild(this._iframe), this._eventEmitter = null, this._player._setWindowRef(null), this._target = null, this._iframe = null;
+        }, t.prototype.buildIframe = function () {
+          return I(this._options, "embed");
+        }, t.prototype.render = function () {
+          if (this._target) {
+            var e = this.buildIframe();
+            this._target.appendChild(e), this._iframe = e, window.addEventListener("message", this._forwardEmbedEvents), this._player._setWindowRef(this._iframe.contentWindow);
+          }
+        }, t.AUTHENTICATE = s.AUTHENTICATE, t.CAPTIONS = s.CAPTIONS, t.ENDED = s.ENDED, t.ERROR = s.ERROR, t.OFFLINE = s.OFFLINE, t.ONLINE = s.ONLINE, t.PAUSE = s.PAUSE, t.PLAY = s.PLAY, t.PLAYBACK_BLOCKED = s.PLAYBACK_BLOCKED, t.PLAYING = s.PLAYING, t.VIDEO_PAUSE = s.VIDEO_PAUSE, t.VIDEO_PLAY = s.VIDEO_PLAY, t.VIDEO_READY = s.VIDEO_READY, t.READY = s.READY, t.Errors = _i({
+          ABORTED: P.Aborted,
+          NETWORK: P.Network,
+          DECODE: P.Decode,
+          FORMAT_NOT_SUPPORTED: P.FormatNotSupported,
+          CONTENT_NOT_AVAILABLE: P.ContentNotAvailable,
+          RENDERER_NOT_AVAILABLE: P.RendererNotAvailable
+        }, P), t;
+      }(b);
+
+      var L = function (e) {
+        function t(t, n) {
+          return e.call(this, t, n) || this;
+        }
+
+        return o(t, e), t.prototype.buildIframe = function () {
+          return I(this._options, "player");
+        }, t;
+      }(T);
+
+      t["default"] = {
+        Embed: T,
+        Player: L
+      };
+    }])["default"];
+  });
+
+  var stream = /*#__PURE__*/function (_React$Component) {
+    _inherits(stream, _React$Component);
+
+    var _super = _createSuper(stream);
+
+    function stream() {
+      _classCallCheck(this, stream);
+
+      return _super.apply(this, arguments);
+    }
+
+    _createClass(stream, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        new Twitch.Embed("twitch-embed", {
+          width: 1280,
+          height: 720,
+          channel: "greengogg"
+        });
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        return /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement("div", {
+          id: "twitch-embed"
+        }));
+      }
+    }]);
+
+    return stream;
+  }(react.Component);
+
+  var devlog = /*#__PURE__*/function (_React$Component) {
+    _inherits(devlog, _React$Component);
+
+    var _super = _createSuper(devlog);
+
+    function devlog(params) {
+      var _this;
+
+      _classCallCheck(this, devlog);
+
+      _this = _super.call(this, params);
+      _this.state = {
+        logs: []
+      };
+      return _this;
+    }
+
+    _createClass(devlog, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        var _this2 = this;
+
+        axios.get('/devlog/1').then(function (res) {
+          _this2.setState({
+            logs: res.data
+          });
+        });
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        return this.state.logs.map(function (log) {
+          return /*#__PURE__*/react.createElement("div", {
+            className: "center"
+          }, log.info);
+        });
+      }
+    }]);
+
+    return devlog;
+  }(react.Component);
+
+  function _classCallCheck$2(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+
+  function _defineProperties$2(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  function _createClass$2(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties$2(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties$2(Constructor, staticProps);
+    return Constructor;
+  }
+
+  function _defineProperty$2(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
+
+  function _objectSpread(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+      var ownKeys = Object.keys(source);
+
+      if (typeof Object.getOwnPropertySymbols === 'function') {
+        ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+        }));
+      }
+
+      ownKeys.forEach(function (key) {
+        _defineProperty$2(target, key, source[key]);
+      });
+    }
+
+    return target;
+  }
+
+  function _slicedToArray$2(arr, i) {
+    return _arrayWithHoles$2(arr) || _iterableToArrayLimit$2(arr, i) || _nonIterableRest$2();
+  }
+
+  function _arrayWithHoles$2(arr) {
+    if (Array.isArray(arr)) return arr;
+  }
+
+  function _iterableToArrayLimit$2(arr, i) {
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _e = undefined;
+
+    try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);
+
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"] != null) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+
+    return _arr;
+  }
+
+  function _nonIterableRest$2() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance");
+  }
+
+  var noop$2 = function noop() {};
+
+  var _WINDOW = {};
+  var _DOCUMENT = {};
+  var _MUTATION_OBSERVER = null;
+  var _PERFORMANCE = {
+    mark: noop$2,
+    measure: noop$2
+  };
+
+  try {
+    if (typeof window !== 'undefined') _WINDOW = window;
+    if (typeof document !== 'undefined') _DOCUMENT = document;
+    if (typeof MutationObserver !== 'undefined') _MUTATION_OBSERVER = MutationObserver;
+    if (typeof performance !== 'undefined') _PERFORMANCE = performance;
+  } catch (e) {}
+
+  var _ref = _WINDOW.navigator || {},
+      _ref$userAgent = _ref.userAgent,
+      userAgent = _ref$userAgent === void 0 ? '' : _ref$userAgent;
+
+  var WINDOW = _WINDOW;
+  var DOCUMENT = _DOCUMENT;
+  var PERFORMANCE = _PERFORMANCE;
+  var IS_BROWSER = !!WINDOW.document;
+  var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
+  var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
+
+  var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
+  var DEFAULT_FAMILY_PREFIX = 'fa';
+  var DEFAULT_REPLACEMENT_CLASS = 'svg-inline--fa';
+  var DATA_FA_I2SVG = 'data-fa-i2svg';
+  var PRODUCTION = function () {
+    try {
+      return "development" === 'production';
+    } catch (e) {
+      return false;
+    }
+  }();
+  var DUOTONE_CLASSES = {
+    GROUP: 'group',
+    SWAP_OPACITY: 'swap-opacity',
+    PRIMARY: 'primary',
+    SECONDARY: 'secondary'
+  };
+
+  var initial = WINDOW.FontAwesomeConfig || {};
+
+  function getAttrConfig(attr) {
+    var element = DOCUMENT.querySelector('script[' + attr + ']');
+
+    if (element) {
+      return element.getAttribute(attr);
+    }
+  }
+
+  function coerce(val) {
+    // Getting an empty string will occur if the attribute is set on the HTML tag but without a value
+    // We'll assume that this is an indication that it should be toggled to true
+    // For example <script data-search-pseudo-elements src="..."></script>
+    if (val === '') return true;
+    if (val === 'false') return false;
+    if (val === 'true') return true;
+    return val;
+  }
+
+  if (DOCUMENT && typeof DOCUMENT.querySelector === 'function') {
+    var attrs = [['data-family-prefix', 'familyPrefix'], ['data-replacement-class', 'replacementClass'], ['data-auto-replace-svg', 'autoReplaceSvg'], ['data-auto-add-css', 'autoAddCss'], ['data-auto-a11y', 'autoA11y'], ['data-search-pseudo-elements', 'searchPseudoElements'], ['data-observe-mutations', 'observeMutations'], ['data-mutate-approach', 'mutateApproach'], ['data-keep-original-source', 'keepOriginalSource'], ['data-measure-performance', 'measurePerformance'], ['data-show-missing-icons', 'showMissingIcons']];
+    attrs.forEach(function (_ref) {
+      var _ref2 = _slicedToArray$2(_ref, 2),
+          attr = _ref2[0],
+          key = _ref2[1];
+
+      var val = coerce(getAttrConfig(attr));
+
+      if (val !== undefined && val !== null) {
+        initial[key] = val;
+      }
+    });
+  }
+
+  var _default = {
+    familyPrefix: DEFAULT_FAMILY_PREFIX,
+    replacementClass: DEFAULT_REPLACEMENT_CLASS,
+    autoReplaceSvg: true,
+    autoAddCss: true,
+    autoA11y: true,
+    searchPseudoElements: false,
+    observeMutations: true,
+    mutateApproach: 'async',
+    keepOriginalSource: true,
+    measurePerformance: false,
+    showMissingIcons: true
+  };
+
+  var _config = _objectSpread({}, _default, initial);
+
+  if (!_config.autoReplaceSvg) _config.observeMutations = false;
+
+  var config$1 = _objectSpread({}, _config);
+
+  WINDOW.FontAwesomeConfig = config$1;
+
+  var w = WINDOW || {};
+  if (!w[NAMESPACE_IDENTIFIER]) w[NAMESPACE_IDENTIFIER] = {};
+  if (!w[NAMESPACE_IDENTIFIER].styles) w[NAMESPACE_IDENTIFIER].styles = {};
+  if (!w[NAMESPACE_IDENTIFIER].hooks) w[NAMESPACE_IDENTIFIER].hooks = {};
+  if (!w[NAMESPACE_IDENTIFIER].shims) w[NAMESPACE_IDENTIFIER].shims = [];
+  var namespace = w[NAMESPACE_IDENTIFIER];
+
+  var functions = [];
+
+  var listener = function listener() {
+    DOCUMENT.removeEventListener('DOMContentLoaded', listener);
+    loaded = 1;
+    functions.map(function (fn) {
+      return fn();
+    });
+  };
+
+  var loaded = false;
+
+  if (IS_DOM) {
+    loaded = (DOCUMENT.documentElement.doScroll ? /^loaded|^c/ : /^loaded|^i|^c/).test(DOCUMENT.readyState);
+    if (!loaded) DOCUMENT.addEventListener('DOMContentLoaded', listener);
+  }
+
+  var isNode = typeof global !== 'undefined' && typeof global.process !== 'undefined' && typeof global.process.emit === 'function';
+  var asyncSetTimer = typeof setImmediate === 'undefined' ? setTimeout : setImmediate;
+  var meaninglessTransform = {
+    size: 16,
+    x: 0,
+    y: 0,
+    rotate: 0,
+    flipX: false,
+    flipY: false
+  };
+  function insertCss(css) {
+    if (!css || !IS_DOM) {
+      return;
+    }
+
+    var style = DOCUMENT.createElement('style');
+    style.setAttribute('type', 'text/css');
+    style.innerHTML = css;
+    var headChildren = DOCUMENT.head.childNodes;
+    var beforeChild = null;
+
+    for (var i = headChildren.length - 1; i > -1; i--) {
+      var child = headChildren[i];
+      var tagName = (child.tagName || '').toUpperCase();
+
+      if (['STYLE', 'LINK'].indexOf(tagName) > -1) {
+        beforeChild = child;
+      }
+    }
+
+    DOCUMENT.head.insertBefore(style, beforeChild);
+    return css;
+  }
+  var idPool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  function nextUniqueId() {
+    var size = 12;
+    var id = '';
+
+    while (size-- > 0) {
+      id += idPool[Math.random() * 62 | 0];
+    }
+
+    return id;
+  }
+  function htmlEscape(str) {
+    return "".concat(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  function joinAttributes(attributes) {
+    return Object.keys(attributes || {}).reduce(function (acc, attributeName) {
+      return acc + "".concat(attributeName, "=\"").concat(htmlEscape(attributes[attributeName]), "\" ");
+    }, '').trim();
+  }
+  function joinStyles(styles) {
+    return Object.keys(styles || {}).reduce(function (acc, styleName) {
+      return acc + "".concat(styleName, ": ").concat(styles[styleName], ";");
+    }, '');
+  }
+  function transformIsMeaningful(transform) {
+    return transform.size !== meaninglessTransform.size || transform.x !== meaninglessTransform.x || transform.y !== meaninglessTransform.y || transform.rotate !== meaninglessTransform.rotate || transform.flipX || transform.flipY;
+  }
+  function transformForSvg(_ref) {
+    var transform = _ref.transform,
+        containerWidth = _ref.containerWidth,
+        iconWidth = _ref.iconWidth;
+    var outer = {
+      transform: "translate(".concat(containerWidth / 2, " 256)")
+    };
+    var innerTranslate = "translate(".concat(transform.x * 32, ", ").concat(transform.y * 32, ") ");
+    var innerScale = "scale(".concat(transform.size / 16 * (transform.flipX ? -1 : 1), ", ").concat(transform.size / 16 * (transform.flipY ? -1 : 1), ") ");
+    var innerRotate = "rotate(".concat(transform.rotate, " 0 0)");
+    var inner = {
+      transform: "".concat(innerTranslate, " ").concat(innerScale, " ").concat(innerRotate)
+    };
+    var path = {
+      transform: "translate(".concat(iconWidth / 2 * -1, " -256)")
+    };
+    return {
+      outer: outer,
+      inner: inner,
+      path: path
+    };
+  }
+
+  var ALL_SPACE = {
+    x: 0,
+    y: 0,
+    width: '100%',
+    height: '100%'
+  };
+
+  function fillBlack(abstract) {
+    var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
+    if (abstract.attributes && (abstract.attributes.fill || force)) {
+      abstract.attributes.fill = 'black';
+    }
+
+    return abstract;
+  }
+
+  function deGroup(abstract) {
+    if (abstract.tag === 'g') {
+      return abstract.children;
+    } else {
+      return [abstract];
+    }
+  }
+
+  function makeIconMasking (_ref) {
+    var children = _ref.children,
+        attributes = _ref.attributes,
+        main = _ref.main,
+        mask = _ref.mask,
+        explicitMaskId = _ref.maskId,
+        transform = _ref.transform;
+    var mainWidth = main.width,
+        mainPath = main.icon;
+    var maskWidth = mask.width,
+        maskPath = mask.icon;
+    var trans = transformForSvg({
+      transform: transform,
+      containerWidth: maskWidth,
+      iconWidth: mainWidth
+    });
+    var maskRect = {
+      tag: 'rect',
+      attributes: _objectSpread({}, ALL_SPACE, {
+        fill: 'white'
+      })
+    };
+    var maskInnerGroupChildrenMixin = mainPath.children ? {
+      children: mainPath.children.map(fillBlack)
+    } : {};
+    var maskInnerGroup = {
+      tag: 'g',
+      attributes: _objectSpread({}, trans.inner),
+      children: [fillBlack(_objectSpread({
+        tag: mainPath.tag,
+        attributes: _objectSpread({}, mainPath.attributes, trans.path)
+      }, maskInnerGroupChildrenMixin))]
+    };
+    var maskOuterGroup = {
+      tag: 'g',
+      attributes: _objectSpread({}, trans.outer),
+      children: [maskInnerGroup]
+    };
+    var maskId = "mask-".concat(explicitMaskId || nextUniqueId());
+    var clipId = "clip-".concat(explicitMaskId || nextUniqueId());
+    var maskTag = {
+      tag: 'mask',
+      attributes: _objectSpread({}, ALL_SPACE, {
+        id: maskId,
+        maskUnits: 'userSpaceOnUse',
+        maskContentUnits: 'userSpaceOnUse'
+      }),
+      children: [maskRect, maskOuterGroup]
+    };
+    var defs = {
+      tag: 'defs',
+      children: [{
+        tag: 'clipPath',
+        attributes: {
+          id: clipId
+        },
+        children: deGroup(maskPath)
+      }, maskTag]
+    };
+    children.push(defs, {
+      tag: 'rect',
+      attributes: _objectSpread({
+        fill: 'currentColor',
+        'clip-path': "url(#".concat(clipId, ")"),
+        mask: "url(#".concat(maskId, ")")
+      }, ALL_SPACE)
+    });
+    return {
+      children: children,
+      attributes: attributes
+    };
+  }
+
+  function makeIconStandard (_ref) {
+    var children = _ref.children,
+        attributes = _ref.attributes,
+        main = _ref.main,
+        transform = _ref.transform,
+        styles = _ref.styles;
+    var styleString = joinStyles(styles);
+
+    if (styleString.length > 0) {
+      attributes['style'] = styleString;
+    }
+
+    if (transformIsMeaningful(transform)) {
+      var trans = transformForSvg({
+        transform: transform,
+        containerWidth: main.width,
+        iconWidth: main.width
+      });
+      children.push({
+        tag: 'g',
+        attributes: _objectSpread({}, trans.outer),
+        children: [{
+          tag: 'g',
+          attributes: _objectSpread({}, trans.inner),
+          children: [{
+            tag: main.icon.tag,
+            children: main.icon.children,
+            attributes: _objectSpread({}, main.icon.attributes, trans.path)
+          }]
+        }]
+      });
+    } else {
+      children.push(main.icon);
+    }
+
+    return {
+      children: children,
+      attributes: attributes
+    };
+  }
+
+  function asIcon (_ref) {
+    var children = _ref.children,
+        main = _ref.main,
+        mask = _ref.mask,
+        attributes = _ref.attributes,
+        styles = _ref.styles,
+        transform = _ref.transform;
+
+    if (transformIsMeaningful(transform) && main.found && !mask.found) {
+      var width = main.width,
+          height = main.height;
+      var offset = {
+        x: width / height / 2,
+        y: 0.5
+      };
+      attributes['style'] = joinStyles(_objectSpread({}, styles, {
+        'transform-origin': "".concat(offset.x + transform.x / 16, "em ").concat(offset.y + transform.y / 16, "em")
+      }));
+    }
+
+    return [{
+      tag: 'svg',
+      attributes: attributes,
+      children: children
+    }];
+  }
+
+  function asSymbol (_ref) {
+    var prefix = _ref.prefix,
+        iconName = _ref.iconName,
+        children = _ref.children,
+        attributes = _ref.attributes,
+        symbol = _ref.symbol;
+    var id = symbol === true ? "".concat(prefix, "-").concat(config$1.familyPrefix, "-").concat(iconName) : symbol;
+    return [{
+      tag: 'svg',
+      attributes: {
+        style: 'display: none;'
+      },
+      children: [{
+        tag: 'symbol',
+        attributes: _objectSpread({}, attributes, {
+          id: id
+        }),
+        children: children
+      }]
+    }];
+  }
+
+  function makeInlineSvgAbstract(params) {
+    var _params$icons = params.icons,
+        main = _params$icons.main,
+        mask = _params$icons.mask,
+        prefix = params.prefix,
+        iconName = params.iconName,
+        transform = params.transform,
+        symbol = params.symbol,
+        title = params.title,
+        maskId = params.maskId,
+        titleId = params.titleId,
+        extra = params.extra,
+        _params$watchable = params.watchable,
+        watchable = _params$watchable === void 0 ? false : _params$watchable;
+
+    var _ref = mask.found ? mask : main,
+        width = _ref.width,
+        height = _ref.height;
+
+    var widthClass = "fa-w-".concat(Math.ceil(width / height * 16));
+    var attrClass = [config$1.replacementClass, iconName ? "".concat(config$1.familyPrefix, "-").concat(iconName) : '', widthClass].filter(function (c) {
+      return extra.classes.indexOf(c) === -1;
+    }).concat(extra.classes).join(' ');
+    var content = {
+      children: [],
+      attributes: _objectSpread({}, extra.attributes, {
+        'data-prefix': prefix,
+        'data-icon': iconName,
+        'class': attrClass,
+        'role': extra.attributes.role || 'img',
+        'xmlns': 'http://www.w3.org/2000/svg',
+        'viewBox': "0 0 ".concat(width, " ").concat(height)
+      })
+    };
+
+    if (watchable) {
+      content.attributes[DATA_FA_I2SVG] = '';
+    }
+
+    if (title) content.children.push({
+      tag: 'title',
+      attributes: {
+        id: content.attributes['aria-labelledby'] || "title-".concat(titleId || nextUniqueId())
+      },
+      children: [title]
+    });
+
+    var args = _objectSpread({}, content, {
+      prefix: prefix,
+      iconName: iconName,
+      main: main,
+      mask: mask,
+      maskId: maskId,
+      transform: transform,
+      symbol: symbol,
+      styles: extra.styles
+    });
+
+    var _ref2 = mask.found && main.found ? makeIconMasking(args) : makeIconStandard(args),
+        children = _ref2.children,
+        attributes = _ref2.attributes;
+
+    args.children = children;
+    args.attributes = attributes;
+
+    if (symbol) {
+      return asSymbol(args);
+    } else {
+      return asIcon(args);
+    }
+  }
+
+  var noop$1$1 = function noop() {};
+
+  var p = config$1.measurePerformance && PERFORMANCE && PERFORMANCE.mark && PERFORMANCE.measure ? PERFORMANCE : {
+    mark: noop$1$1,
+    measure: noop$1$1
+  };
+
+  /**
+   * Internal helper to bind a function known to have 4 arguments
+   * to a given context.
+   */
+
+  var bindInternal4 = function bindInternal4(func, thisContext) {
+    return function (a, b, c, d) {
+      return func.call(thisContext, a, b, c, d);
+    };
+  };
+
+  /**
+   * # Reduce
+   *
+   * A fast object `.reduce()` implementation.
+   *
+   * @param  {Object}   subject      The object to reduce over.
+   * @param  {Function} fn           The reducer function.
+   * @param  {mixed}    initialValue The initial value for the reducer, defaults to subject[0].
+   * @param  {Object}   thisContext  The context for the reducer.
+   * @return {mixed}                 The final result.
+   */
+
+
+  var reduce = function fastReduceObject(subject, fn, initialValue, thisContext) {
+    var keys = Object.keys(subject),
+        length = keys.length,
+        iterator = thisContext !== undefined ? bindInternal4(fn, thisContext) : fn,
+        i,
+        key,
+        result;
+
+    if (initialValue === undefined) {
+      i = 1;
+      result = subject[keys[0]];
+    } else {
+      i = 0;
+      result = initialValue;
+    }
+
+    for (; i < length; i++) {
+      key = keys[i];
+      result = iterator(result, subject[key], key, subject);
+    }
+
+    return result;
+  };
+
+  function defineIcons(prefix, icons) {
+    var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var _params$skipHooks = params.skipHooks,
+        skipHooks = _params$skipHooks === void 0 ? false : _params$skipHooks;
+    var normalized = Object.keys(icons).reduce(function (acc, iconName) {
+      var icon = icons[iconName];
+      var expanded = !!icon.icon;
+
+      if (expanded) {
+        acc[icon.iconName] = icon.icon;
+      } else {
+        acc[iconName] = icon;
+      }
+
+      return acc;
+    }, {});
+
+    if (typeof namespace.hooks.addPack === 'function' && !skipHooks) {
+      namespace.hooks.addPack(prefix, normalized);
+    } else {
+      namespace.styles[prefix] = _objectSpread({}, namespace.styles[prefix] || {}, normalized);
+    }
+    /**
+     * Font Awesome 4 used the prefix of `fa` for all icons. With the introduction
+     * of new styles we needed to differentiate between them. Prefix `fa` is now an alias
+     * for `fas` so we'll easy the upgrade process for our users by automatically defining
+     * this as well.
+     */
+
+
+    if (prefix === 'fas') {
+      defineIcons('fa', icons);
+    }
+  }
+
+  var styles$c = namespace.styles,
+      shims = namespace.shims;
+  var _byUnicode = {};
+  var _byLigature = {};
+  var _byOldName = {};
+  var build = function build() {
+    var lookup = function lookup(reducer) {
+      return reduce(styles$c, function (o, style, prefix) {
+        o[prefix] = reduce(style, reducer, {});
+        return o;
+      }, {});
+    };
+
+    _byUnicode = lookup(function (acc, icon, iconName) {
+      if (icon[3]) {
+        acc[icon[3]] = iconName;
+      }
+
+      return acc;
+    });
+    _byLigature = lookup(function (acc, icon, iconName) {
+      var ligatures = icon[2];
+      acc[iconName] = iconName;
+      ligatures.forEach(function (ligature) {
+        acc[ligature] = iconName;
+      });
+      return acc;
+    });
+    var hasRegular = 'far' in styles$c;
+    _byOldName = reduce(shims, function (acc, shim) {
+      var oldName = shim[0];
+      var prefix = shim[1];
+      var iconName = shim[2];
+
+      if (prefix === 'far' && !hasRegular) {
+        prefix = 'fas';
+      }
+
+      acc[oldName] = {
+        prefix: prefix,
+        iconName: iconName
+      };
+      return acc;
+    }, {});
+  };
+  build();
+
+  var styles$1$1 = namespace.styles;
+  function iconFromMapping(mapping, prefix, iconName) {
+    if (mapping && mapping[prefix] && mapping[prefix][iconName]) {
+      return {
+        prefix: prefix,
+        iconName: iconName,
+        icon: mapping[prefix][iconName]
+      };
+    }
+  }
+
+  function toHtml(abstractNodes) {
+    var tag = abstractNodes.tag,
+        _abstractNodes$attrib = abstractNodes.attributes,
+        attributes = _abstractNodes$attrib === void 0 ? {} : _abstractNodes$attrib,
+        _abstractNodes$childr = abstractNodes.children,
+        children = _abstractNodes$childr === void 0 ? [] : _abstractNodes$childr;
+
+    if (typeof abstractNodes === 'string') {
+      return htmlEscape(abstractNodes);
+    } else {
+      return "<".concat(tag, " ").concat(joinAttributes(attributes), ">").concat(children.map(toHtml).join(''), "</").concat(tag, ">");
+    }
+  }
+
+  var parseTransformString = function parseTransformString(transformString) {
+    var transform = {
+      size: 16,
+      x: 0,
+      y: 0,
+      flipX: false,
+      flipY: false,
+      rotate: 0
+    };
+
+    if (!transformString) {
+      return transform;
+    } else {
+      return transformString.toLowerCase().split(' ').reduce(function (acc, n) {
+        var parts = n.toLowerCase().split('-');
+        var first = parts[0];
+        var rest = parts.slice(1).join('-');
+
+        if (first && rest === 'h') {
+          acc.flipX = true;
+          return acc;
+        }
+
+        if (first && rest === 'v') {
+          acc.flipY = true;
+          return acc;
+        }
+
+        rest = parseFloat(rest);
+
+        if (isNaN(rest)) {
+          return acc;
+        }
+
+        switch (first) {
+          case 'grow':
+            acc.size = acc.size + rest;
+            break;
+
+          case 'shrink':
+            acc.size = acc.size - rest;
+            break;
+
+          case 'left':
+            acc.x = acc.x - rest;
+            break;
+
+          case 'right':
+            acc.x = acc.x + rest;
+            break;
+
+          case 'up':
+            acc.y = acc.y - rest;
+            break;
+
+          case 'down':
+            acc.y = acc.y + rest;
+            break;
+
+          case 'rotate':
+            acc.rotate = acc.rotate + rest;
+            break;
+        }
+
+        return acc;
+      }, transform);
+    }
+  };
+
+  function MissingIcon(error) {
+    this.name = 'MissingIcon';
+    this.message = error || 'Icon unavailable';
+    this.stack = new Error().stack;
+  }
+  MissingIcon.prototype = Object.create(Error.prototype);
+  MissingIcon.prototype.constructor = MissingIcon;
+
+  var FILL = {
+    fill: 'currentColor'
+  };
+  var ANIMATION_BASE = {
+    attributeType: 'XML',
+    repeatCount: 'indefinite',
+    dur: '2s'
+  };
+  var RING = {
+    tag: 'path',
+    attributes: _objectSpread({}, FILL, {
+      d: 'M156.5,447.7l-12.6,29.5c-18.7-9.5-35.9-21.2-51.5-34.9l22.7-22.7C127.6,430.5,141.5,440,156.5,447.7z M40.6,272H8.5 c1.4,21.2,5.4,41.7,11.7,61.1L50,321.2C45.1,305.5,41.8,289,40.6,272z M40.6,240c1.4-18.8,5.2-37,11.1-54.1l-29.5-12.6 C14.7,194.3,10,216.7,8.5,240H40.6z M64.3,156.5c7.8-14.9,17.2-28.8,28.1-41.5L69.7,92.3c-13.7,15.6-25.5,32.8-34.9,51.5 L64.3,156.5z M397,419.6c-13.9,12-29.4,22.3-46.1,30.4l11.9,29.8c20.7-9.9,39.8-22.6,56.9-37.6L397,419.6z M115,92.4 c13.9-12,29.4-22.3,46.1-30.4l-11.9-29.8c-20.7,9.9-39.8,22.6-56.8,37.6L115,92.4z M447.7,355.5c-7.8,14.9-17.2,28.8-28.1,41.5 l22.7,22.7c13.7-15.6,25.5-32.9,34.9-51.5L447.7,355.5z M471.4,272c-1.4,18.8-5.2,37-11.1,54.1l29.5,12.6 c7.5-21.1,12.2-43.5,13.6-66.8H471.4z M321.2,462c-15.7,5-32.2,8.2-49.2,9.4v32.1c21.2-1.4,41.7-5.4,61.1-11.7L321.2,462z M240,471.4c-18.8-1.4-37-5.2-54.1-11.1l-12.6,29.5c21.1,7.5,43.5,12.2,66.8,13.6V471.4z M462,190.8c5,15.7,8.2,32.2,9.4,49.2h32.1 c-1.4-21.2-5.4-41.7-11.7-61.1L462,190.8z M92.4,397c-12-13.9-22.3-29.4-30.4-46.1l-29.8,11.9c9.9,20.7,22.6,39.8,37.6,56.9 L92.4,397z M272,40.6c18.8,1.4,36.9,5.2,54.1,11.1l12.6-29.5C317.7,14.7,295.3,10,272,8.5V40.6z M190.8,50 c15.7-5,32.2-8.2,49.2-9.4V8.5c-21.2,1.4-41.7,5.4-61.1,11.7L190.8,50z M442.3,92.3L419.6,115c12,13.9,22.3,29.4,30.5,46.1 l29.8-11.9C470,128.5,457.3,109.4,442.3,92.3z M397,92.4l22.7-22.7c-15.6-13.7-32.8-25.5-51.5-34.9l-12.6,29.5 C370.4,72.1,384.4,81.5,397,92.4z'
+    })
+  };
+
+  var OPACITY_ANIMATE = _objectSpread({}, ANIMATION_BASE, {
+    attributeName: 'opacity'
+  });
+
+  var DOT = {
+    tag: 'circle',
+    attributes: _objectSpread({}, FILL, {
+      cx: '256',
+      cy: '364',
+      r: '28'
+    }),
+    children: [{
+      tag: 'animate',
+      attributes: _objectSpread({}, ANIMATION_BASE, {
+        attributeName: 'r',
+        values: '28;14;28;28;14;28;'
+      })
+    }, {
+      tag: 'animate',
+      attributes: _objectSpread({}, OPACITY_ANIMATE, {
+        values: '1;0;1;1;0;1;'
+      })
+    }]
+  };
+  var QUESTION = {
+    tag: 'path',
+    attributes: _objectSpread({}, FILL, {
+      opacity: '1',
+      d: 'M263.7,312h-16c-6.6,0-12-5.4-12-12c0-71,77.4-63.9,77.4-107.8c0-20-17.8-40.2-57.4-40.2c-29.1,0-44.3,9.6-59.2,28.7 c-3.9,5-11.1,6-16.2,2.4l-13.1-9.2c-5.6-3.9-6.9-11.8-2.6-17.2c21.2-27.2,46.4-44.7,91.2-44.7c52.3,0,97.4,29.8,97.4,80.2 c0,67.6-77.4,63.5-77.4,107.8C275.7,306.6,270.3,312,263.7,312z'
+    }),
+    children: [{
+      tag: 'animate',
+      attributes: _objectSpread({}, OPACITY_ANIMATE, {
+        values: '1;0;0;0;0;1;'
+      })
+    }]
+  };
+  var EXCLAMATION = {
+    tag: 'path',
+    attributes: _objectSpread({}, FILL, {
+      opacity: '0',
+      d: 'M232.5,134.5l7,168c0.3,6.4,5.6,11.5,12,11.5h9c6.4,0,11.7-5.1,12-11.5l7-168c0.3-6.8-5.2-12.5-12-12.5h-23 C237.7,122,232.2,127.7,232.5,134.5z'
+    }),
+    children: [{
+      tag: 'animate',
+      attributes: _objectSpread({}, OPACITY_ANIMATE, {
+        values: '0;0;1;1;0;0;'
+      })
+    }]
+  };
+
+  var styles$2$1 = namespace.styles;
+  function asFoundIcon(icon) {
+    var width = icon[0];
+    var height = icon[1];
+
+    var _icon$slice = icon.slice(4),
+        _icon$slice2 = _slicedToArray$2(_icon$slice, 1),
+        vectorData = _icon$slice2[0];
+
+    var element = null;
+
+    if (Array.isArray(vectorData)) {
+      element = {
+        tag: 'g',
+        attributes: {
+          class: "".concat(config$1.familyPrefix, "-").concat(DUOTONE_CLASSES.GROUP)
+        },
+        children: [{
+          tag: 'path',
+          attributes: {
+            class: "".concat(config$1.familyPrefix, "-").concat(DUOTONE_CLASSES.SECONDARY),
+            fill: 'currentColor',
+            d: vectorData[0]
+          }
+        }, {
+          tag: 'path',
+          attributes: {
+            class: "".concat(config$1.familyPrefix, "-").concat(DUOTONE_CLASSES.PRIMARY),
+            fill: 'currentColor',
+            d: vectorData[1]
+          }
+        }]
+      };
+    } else {
+      element = {
+        tag: 'path',
+        attributes: {
+          fill: 'currentColor',
+          d: vectorData
+        }
+      };
+    }
+
+    return {
+      found: true,
+      width: width,
+      height: height,
+      icon: element
+    };
+  }
+
+  var styles$3$1 = namespace.styles;
+
+  var baseStyles = "svg:not(:root).svg-inline--fa {\n  overflow: visible;\n}\n\n.svg-inline--fa {\n  display: inline-block;\n  font-size: inherit;\n  height: 1em;\n  overflow: visible;\n  vertical-align: -0.125em;\n}\n.svg-inline--fa.fa-lg {\n  vertical-align: -0.225em;\n}\n.svg-inline--fa.fa-w-1 {\n  width: 0.0625em;\n}\n.svg-inline--fa.fa-w-2 {\n  width: 0.125em;\n}\n.svg-inline--fa.fa-w-3 {\n  width: 0.1875em;\n}\n.svg-inline--fa.fa-w-4 {\n  width: 0.25em;\n}\n.svg-inline--fa.fa-w-5 {\n  width: 0.3125em;\n}\n.svg-inline--fa.fa-w-6 {\n  width: 0.375em;\n}\n.svg-inline--fa.fa-w-7 {\n  width: 0.4375em;\n}\n.svg-inline--fa.fa-w-8 {\n  width: 0.5em;\n}\n.svg-inline--fa.fa-w-9 {\n  width: 0.5625em;\n}\n.svg-inline--fa.fa-w-10 {\n  width: 0.625em;\n}\n.svg-inline--fa.fa-w-11 {\n  width: 0.6875em;\n}\n.svg-inline--fa.fa-w-12 {\n  width: 0.75em;\n}\n.svg-inline--fa.fa-w-13 {\n  width: 0.8125em;\n}\n.svg-inline--fa.fa-w-14 {\n  width: 0.875em;\n}\n.svg-inline--fa.fa-w-15 {\n  width: 0.9375em;\n}\n.svg-inline--fa.fa-w-16 {\n  width: 1em;\n}\n.svg-inline--fa.fa-w-17 {\n  width: 1.0625em;\n}\n.svg-inline--fa.fa-w-18 {\n  width: 1.125em;\n}\n.svg-inline--fa.fa-w-19 {\n  width: 1.1875em;\n}\n.svg-inline--fa.fa-w-20 {\n  width: 1.25em;\n}\n.svg-inline--fa.fa-pull-left {\n  margin-right: 0.3em;\n  width: auto;\n}\n.svg-inline--fa.fa-pull-right {\n  margin-left: 0.3em;\n  width: auto;\n}\n.svg-inline--fa.fa-border {\n  height: 1.5em;\n}\n.svg-inline--fa.fa-li {\n  width: 2em;\n}\n.svg-inline--fa.fa-fw {\n  width: 1.25em;\n}\n\n.fa-layers svg.svg-inline--fa {\n  bottom: 0;\n  left: 0;\n  margin: auto;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.fa-layers {\n  display: inline-block;\n  height: 1em;\n  position: relative;\n  text-align: center;\n  vertical-align: -0.125em;\n  width: 1em;\n}\n.fa-layers svg.svg-inline--fa {\n  -webkit-transform-origin: center center;\n          transform-origin: center center;\n}\n\n.fa-layers-counter, .fa-layers-text {\n  display: inline-block;\n  position: absolute;\n  text-align: center;\n}\n\n.fa-layers-text {\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  -webkit-transform-origin: center center;\n          transform-origin: center center;\n}\n\n.fa-layers-counter {\n  background-color: #ff253a;\n  border-radius: 1em;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  color: #fff;\n  height: 1.5em;\n  line-height: 1;\n  max-width: 5em;\n  min-width: 1.5em;\n  overflow: hidden;\n  padding: 0.25em;\n  right: 0;\n  text-overflow: ellipsis;\n  top: 0;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: top right;\n          transform-origin: top right;\n}\n\n.fa-layers-bottom-right {\n  bottom: 0;\n  right: 0;\n  top: auto;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: bottom right;\n          transform-origin: bottom right;\n}\n\n.fa-layers-bottom-left {\n  bottom: 0;\n  left: 0;\n  right: auto;\n  top: auto;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: bottom left;\n          transform-origin: bottom left;\n}\n\n.fa-layers-top-right {\n  right: 0;\n  top: 0;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: top right;\n          transform-origin: top right;\n}\n\n.fa-layers-top-left {\n  left: 0;\n  right: auto;\n  top: 0;\n  -webkit-transform: scale(0.25);\n          transform: scale(0.25);\n  -webkit-transform-origin: top left;\n          transform-origin: top left;\n}\n\n.fa-lg {\n  font-size: 1.3333333333em;\n  line-height: 0.75em;\n  vertical-align: -0.0667em;\n}\n\n.fa-xs {\n  font-size: 0.75em;\n}\n\n.fa-sm {\n  font-size: 0.875em;\n}\n\n.fa-1x {\n  font-size: 1em;\n}\n\n.fa-2x {\n  font-size: 2em;\n}\n\n.fa-3x {\n  font-size: 3em;\n}\n\n.fa-4x {\n  font-size: 4em;\n}\n\n.fa-5x {\n  font-size: 5em;\n}\n\n.fa-6x {\n  font-size: 6em;\n}\n\n.fa-7x {\n  font-size: 7em;\n}\n\n.fa-8x {\n  font-size: 8em;\n}\n\n.fa-9x {\n  font-size: 9em;\n}\n\n.fa-10x {\n  font-size: 10em;\n}\n\n.fa-fw {\n  text-align: center;\n  width: 1.25em;\n}\n\n.fa-ul {\n  list-style-type: none;\n  margin-left: 2.5em;\n  padding-left: 0;\n}\n.fa-ul > li {\n  position: relative;\n}\n\n.fa-li {\n  left: -2em;\n  position: absolute;\n  text-align: center;\n  width: 2em;\n  line-height: inherit;\n}\n\n.fa-border {\n  border: solid 0.08em #eee;\n  border-radius: 0.1em;\n  padding: 0.2em 0.25em 0.15em;\n}\n\n.fa-pull-left {\n  float: left;\n}\n\n.fa-pull-right {\n  float: right;\n}\n\n.fa.fa-pull-left,\n.fas.fa-pull-left,\n.far.fa-pull-left,\n.fal.fa-pull-left,\n.fab.fa-pull-left {\n  margin-right: 0.3em;\n}\n.fa.fa-pull-right,\n.fas.fa-pull-right,\n.far.fa-pull-right,\n.fal.fa-pull-right,\n.fab.fa-pull-right {\n  margin-left: 0.3em;\n}\n\n.fa-spin {\n  -webkit-animation: fa-spin 2s infinite linear;\n          animation: fa-spin 2s infinite linear;\n}\n\n.fa-pulse {\n  -webkit-animation: fa-spin 1s infinite steps(8);\n          animation: fa-spin 1s infinite steps(8);\n}\n\n@-webkit-keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n  }\n}\n\n@keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n  }\n}\n.fa-rotate-90 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)\";\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n}\n\n.fa-rotate-180 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2)\";\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n\n.fa-rotate-270 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=3)\";\n  -webkit-transform: rotate(270deg);\n          transform: rotate(270deg);\n}\n\n.fa-flip-horizontal {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)\";\n  -webkit-transform: scale(-1, 1);\n          transform: scale(-1, 1);\n}\n\n.fa-flip-vertical {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)\";\n  -webkit-transform: scale(1, -1);\n          transform: scale(1, -1);\n}\n\n.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)\";\n  -webkit-transform: scale(-1, -1);\n          transform: scale(-1, -1);\n}\n\n:root .fa-rotate-90,\n:root .fa-rotate-180,\n:root .fa-rotate-270,\n:root .fa-flip-horizontal,\n:root .fa-flip-vertical,\n:root .fa-flip-both {\n  -webkit-filter: none;\n          filter: none;\n}\n\n.fa-stack {\n  display: inline-block;\n  height: 2em;\n  position: relative;\n  width: 2.5em;\n}\n\n.fa-stack-1x,\n.fa-stack-2x {\n  bottom: 0;\n  left: 0;\n  margin: auto;\n  position: absolute;\n  right: 0;\n  top: 0;\n}\n\n.svg-inline--fa.fa-stack-1x {\n  height: 1em;\n  width: 1.25em;\n}\n.svg-inline--fa.fa-stack-2x {\n  height: 2em;\n  width: 2.5em;\n}\n\n.fa-inverse {\n  color: #fff;\n}\n\n.sr-only {\n  border: 0;\n  clip: rect(0, 0, 0, 0);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  width: 1px;\n}\n\n.sr-only-focusable:active, .sr-only-focusable:focus {\n  clip: auto;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  position: static;\n  width: auto;\n}\n\n.svg-inline--fa .fa-primary {\n  fill: var(--fa-primary-color, currentColor);\n  opacity: 1;\n  opacity: var(--fa-primary-opacity, 1);\n}\n\n.svg-inline--fa .fa-secondary {\n  fill: var(--fa-secondary-color, currentColor);\n  opacity: 0.4;\n  opacity: var(--fa-secondary-opacity, 0.4);\n}\n\n.svg-inline--fa.fa-swap-opacity .fa-primary {\n  opacity: 0.4;\n  opacity: var(--fa-secondary-opacity, 0.4);\n}\n\n.svg-inline--fa.fa-swap-opacity .fa-secondary {\n  opacity: 1;\n  opacity: var(--fa-primary-opacity, 1);\n}\n\n.svg-inline--fa mask .fa-primary,\n.svg-inline--fa mask .fa-secondary {\n  fill: black;\n}\n\n.fad.fa-inverse {\n  color: #fff;\n}";
+
+  function css$2 () {
+    var dfp = DEFAULT_FAMILY_PREFIX;
+    var drc = DEFAULT_REPLACEMENT_CLASS;
+    var fp = config$1.familyPrefix;
+    var rc = config$1.replacementClass;
+    var s = baseStyles;
+
+    if (fp !== dfp || rc !== drc) {
+      var dPatt = new RegExp("\\.".concat(dfp, "\\-"), 'g');
+      var customPropPatt = new RegExp("\\--".concat(dfp, "\\-"), 'g');
+      var rPatt = new RegExp("\\.".concat(drc), 'g');
+      s = s.replace(dPatt, ".".concat(fp, "-")).replace(customPropPatt, "--".concat(fp, "-")).replace(rPatt, ".".concat(rc));
+    }
+
+    return s;
+  }
+
+  var Library =
+  /*#__PURE__*/
+  function () {
+    function Library() {
+      _classCallCheck$2(this, Library);
+
+      this.definitions = {};
+    }
+
+    _createClass$2(Library, [{
+      key: "add",
+      value: function add() {
+        var _this = this;
+
+        for (var _len = arguments.length, definitions = new Array(_len), _key = 0; _key < _len; _key++) {
+          definitions[_key] = arguments[_key];
+        }
+
+        var additions = definitions.reduce(this._pullDefinitions, {});
+        Object.keys(additions).forEach(function (key) {
+          _this.definitions[key] = _objectSpread({}, _this.definitions[key] || {}, additions[key]);
+          defineIcons(key, additions[key]);
+          build();
+        });
+      }
+    }, {
+      key: "reset",
+      value: function reset() {
+        this.definitions = {};
+      }
+    }, {
+      key: "_pullDefinitions",
+      value: function _pullDefinitions(additions, definition) {
+        var normalized = definition.prefix && definition.iconName && definition.icon ? {
+          0: definition
+        } : definition;
+        Object.keys(normalized).map(function (key) {
+          var _normalized$key = normalized[key],
+              prefix = _normalized$key.prefix,
+              iconName = _normalized$key.iconName,
+              icon = _normalized$key.icon;
+          if (!additions[prefix]) additions[prefix] = {};
+          additions[prefix][iconName] = icon;
+        });
+        return additions;
+      }
+    }]);
+
+    return Library;
+  }();
+
+  function ensureCss() {
+    if (config$1.autoAddCss && !_cssInserted) {
+      insertCss(css$2());
+
+      _cssInserted = true;
+    }
+  }
+
+  function apiObject(val, abstractCreator) {
+    Object.defineProperty(val, 'abstract', {
+      get: abstractCreator
+    });
+    Object.defineProperty(val, 'html', {
+      get: function get() {
+        return val.abstract.map(function (a) {
+          return toHtml(a);
+        });
+      }
+    });
+    Object.defineProperty(val, 'node', {
+      get: function get() {
+        if (!IS_DOM) return;
+        var container = DOCUMENT.createElement('div');
+        container.innerHTML = val.html;
+        return container.children;
+      }
+    });
+    return val;
+  }
+
+  function findIconDefinition(iconLookup) {
+    var _iconLookup$prefix = iconLookup.prefix,
+        prefix = _iconLookup$prefix === void 0 ? 'fa' : _iconLookup$prefix,
+        iconName = iconLookup.iconName;
+    if (!iconName) return;
+    return iconFromMapping(library.definitions, prefix, iconName) || iconFromMapping(namespace.styles, prefix, iconName);
+  }
+
+  function resolveIcons(next) {
+    return function (maybeIconDefinition) {
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var iconDefinition = (maybeIconDefinition || {}).icon ? maybeIconDefinition : findIconDefinition(maybeIconDefinition || {});
+      var mask = params.mask;
+
+      if (mask) {
+        mask = (mask || {}).icon ? mask : findIconDefinition(mask || {});
+      }
+
+      return next(iconDefinition, _objectSpread({}, params, {
+        mask: mask
+      }));
+    };
+  }
+
+  var library = new Library();
+  var _cssInserted = false;
+  var parse$1 = {
+    transform: function transform(transformString) {
+      return parseTransformString(transformString);
+    }
+  };
+  var icon = resolveIcons(function (iconDefinition) {
+    var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var _params$transform = params.transform,
+        transform = _params$transform === void 0 ? meaninglessTransform : _params$transform,
+        _params$symbol = params.symbol,
+        symbol = _params$symbol === void 0 ? false : _params$symbol,
+        _params$mask = params.mask,
+        mask = _params$mask === void 0 ? null : _params$mask,
+        _params$maskId = params.maskId,
+        maskId = _params$maskId === void 0 ? null : _params$maskId,
+        _params$title = params.title,
+        title = _params$title === void 0 ? null : _params$title,
+        _params$titleId = params.titleId,
+        titleId = _params$titleId === void 0 ? null : _params$titleId,
+        _params$classes = params.classes,
+        classes = _params$classes === void 0 ? [] : _params$classes,
+        _params$attributes = params.attributes,
+        attributes = _params$attributes === void 0 ? {} : _params$attributes,
+        _params$styles = params.styles,
+        styles = _params$styles === void 0 ? {} : _params$styles;
+    if (!iconDefinition) return;
+    var prefix = iconDefinition.prefix,
+        iconName = iconDefinition.iconName,
+        icon = iconDefinition.icon;
+    return apiObject(_objectSpread({
+      type: 'icon'
+    }, iconDefinition), function () {
+      ensureCss();
+
+      if (config$1.autoA11y) {
+        if (title) {
+          attributes['aria-labelledby'] = "".concat(config$1.replacementClass, "-title-").concat(titleId || nextUniqueId());
+        } else {
+          attributes['aria-hidden'] = 'true';
+          attributes['focusable'] = 'false';
+        }
+      }
+
+      return makeInlineSvgAbstract({
+        icons: {
+          main: asFoundIcon(icon),
+          mask: mask ? asFoundIcon(mask.icon) : {
+            found: false,
+            width: null,
+            height: null,
+            icon: {}
+          }
+        },
+        prefix: prefix,
+        iconName: iconName,
+        transform: _objectSpread({}, meaninglessTransform, transform),
+        symbol: symbol,
+        title: title,
+        maskId: maskId,
+        titleId: titleId,
+        extra: {
+          attributes: attributes,
+          styles: styles,
+          classes: classes
+        }
+      });
+    });
+  });
+
+  function _typeof$3(obj) {
+    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+      _typeof$3 = function (obj) {
+        return typeof obj;
+      };
+    } else {
+      _typeof$3 = function (obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+      };
+    }
+
+    return _typeof$3(obj);
+  }
+
+  function _defineProperty$3(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
+
+  function ownKeys$1(object, enumerableOnly) {
+    var keys = Object.keys(object);
+
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly) symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+      keys.push.apply(keys, symbols);
+    }
+
+    return keys;
+  }
+
+  function _objectSpread2$1(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+
+      if (i % 2) {
+        ownKeys$1(Object(source), true).forEach(function (key) {
+          _defineProperty$3(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys$1(Object(source)).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+    }
+
+    return target;
+  }
+
+  function _objectWithoutPropertiesLoose$1(source, excluded) {
+    if (source == null) return {};
+    var target = {};
+    var sourceKeys = Object.keys(source);
+    var key, i;
+
+    for (i = 0; i < sourceKeys.length; i++) {
+      key = sourceKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      target[key] = source[key];
+    }
+
+    return target;
+  }
+
+  function _objectWithoutProperties$1(source, excluded) {
+    if (source == null) return {};
+
+    var target = _objectWithoutPropertiesLoose$1(source, excluded);
+
+    var key, i;
+
+    if (Object.getOwnPropertySymbols) {
+      var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+      for (i = 0; i < sourceSymbolKeys.length; i++) {
+        key = sourceSymbolKeys[i];
+        if (excluded.indexOf(key) >= 0) continue;
+        if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+        target[key] = source[key];
+      }
+    }
+
+    return target;
+  }
+
+  function _toConsumableArray$1(arr) {
+    return _arrayWithoutHoles$1(arr) || _iterableToArray$1(arr) || _nonIterableSpread$1();
+  }
+
+  function _arrayWithoutHoles$1(arr) {
+    if (Array.isArray(arr)) {
+      for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+      return arr2;
+    }
+  }
+
+  function _iterableToArray$1(iter) {
+    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+  }
+
+  function _nonIterableSpread$1() {
+    throw new TypeError("Invalid attempt to spread non-iterable instance");
+  }
+
+  // Get CSS class list from a props object
+  function classList(props) {
+    var _classes;
+
+    var spin = props.spin,
+        pulse = props.pulse,
+        fixedWidth = props.fixedWidth,
+        inverse = props.inverse,
+        border = props.border,
+        listItem = props.listItem,
+        flip = props.flip,
+        size = props.size,
+        rotation = props.rotation,
+        pull = props.pull; // map of CSS class names to properties
+
+    var classes = (_classes = {
+      'fa-spin': spin,
+      'fa-pulse': pulse,
+      'fa-fw': fixedWidth,
+      'fa-inverse': inverse,
+      'fa-border': border,
+      'fa-li': listItem,
+      'fa-flip-horizontal': flip === 'horizontal' || flip === 'both',
+      'fa-flip-vertical': flip === 'vertical' || flip === 'both'
+    }, _defineProperty$3(_classes, "fa-".concat(size), typeof size !== 'undefined' && size !== null), _defineProperty$3(_classes, "fa-rotate-".concat(rotation), typeof rotation !== 'undefined' && rotation !== null && rotation !== 0), _defineProperty$3(_classes, "fa-pull-".concat(pull), typeof pull !== 'undefined' && pull !== null), _defineProperty$3(_classes, 'fa-swap-opacity', props.swapOpacity), _classes); // map over all the keys in the classes object
+    // return an array of the keys where the value for the key is not null
+
+    return Object.keys(classes).map(function (key) {
+      return classes[key] ? key : null;
+    }).filter(function (key) {
+      return key;
+    });
+  }
+
+  // Camelize taken from humps
+  // humps is copyright © 2012+ Dom Christie
+  // Released under the MIT license.
+  // Performant way to determine if object coerces to a number
+  function _isNumerical(obj) {
+    obj = obj - 0; // eslint-disable-next-line no-self-compare
+
+    return obj === obj;
+  }
+
+  function camelize$1(string) {
+    if (_isNumerical(string)) {
+      return string;
+    } // eslint-disable-next-line no-useless-escape
+
+
+    string = string.replace(/[\-_\s]+(.)?/g, function (match, chr) {
+      return chr ? chr.toUpperCase() : '';
+    }); // Ensure 1st char is always lowercase
+
+    return string.substr(0, 1).toLowerCase() + string.substr(1);
+  }
+
+  function capitalize$1(val) {
+    return val.charAt(0).toUpperCase() + val.slice(1);
+  }
+
+  function styleToObject(style) {
+    return style.split(';').map(function (s) {
+      return s.trim();
+    }).filter(function (s) {
+      return s;
+    }).reduce(function (acc, pair) {
+      var i = pair.indexOf(':');
+      var prop = camelize$1(pair.slice(0, i));
+      var value = pair.slice(i + 1).trim();
+      prop.startsWith('webkit') ? acc[capitalize$1(prop)] = value : acc[prop] = value;
+      return acc;
+    }, {});
+  }
+
+  function convert(createElement, element) {
+    var extraProps = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+    if (typeof element === 'string') {
+      return element;
+    }
+
+    var children = (element.children || []).map(function (child) {
+      return convert(createElement, child);
+    });
+    /* eslint-disable dot-notation */
+
+    var mixins = Object.keys(element.attributes || {}).reduce(function (acc, key) {
+      var val = element.attributes[key];
+
+      switch (key) {
+        case 'class':
+          acc.attrs['className'] = val;
+          delete element.attributes['class'];
+          break;
+
+        case 'style':
+          acc.attrs['style'] = styleToObject(val);
+          break;
+
+        default:
+          if (key.indexOf('aria-') === 0 || key.indexOf('data-') === 0) {
+            acc.attrs[key.toLowerCase()] = val;
+          } else {
+            acc.attrs[camelize$1(key)] = val;
+          }
+
+      }
+
+      return acc;
+    }, {
+      attrs: {}
+    });
+
+    var _extraProps$style = extraProps.style,
+        existingStyle = _extraProps$style === void 0 ? {} : _extraProps$style,
+        remaining = _objectWithoutProperties$1(extraProps, ["style"]);
+
+    mixins.attrs['style'] = _objectSpread2$1({}, mixins.attrs['style'], {}, existingStyle);
+    /* eslint-enable */
+
+    return createElement.apply(void 0, [element.tag, _objectSpread2$1({}, mixins.attrs, {}, remaining)].concat(_toConsumableArray$1(children)));
+  }
+
+  var PRODUCTION$1 = false;
+
+  try {
+    PRODUCTION$1 = "development" === 'production';
+  } catch (e) {}
+
+  function log () {
+    if (!PRODUCTION$1 && console && typeof console.error === 'function') {
+      var _console;
+
+      (_console = console).error.apply(_console, arguments);
+    }
+  }
+
+  // Normalize icon arguments
+  function normalizeIconArgs(icon) {
+    // if the icon is null, there's nothing to do
+    if (icon === null) {
+      return null;
+    } // if the icon is an object and has a prefix and an icon name, return it
+
+
+    if (_typeof$3(icon) === 'object' && icon.prefix && icon.iconName) {
+      return icon;
+    } // if it's an array with length of two
+
+
+    if (Array.isArray(icon) && icon.length === 2) {
+      // use the first item as prefix, second as icon name
+      return {
+        prefix: icon[0],
+        iconName: icon[1]
+      };
+    } // if it's a string, use it as the icon name
+
+
+    if (typeof icon === 'string') {
+      return {
+        prefix: 'fas',
+        iconName: icon
+      };
+    }
+  }
+
+  // creates an object with a key of key
+  // and a value of value
+  // if certain conditions are met
+  function objectWithKey(key, value) {
+    // if the value is a non-empty array
+    // or it's not an array but it is truthy
+    // then create the object with the key and the value
+    // if not, return an empty array
+    return Array.isArray(value) && value.length > 0 || !Array.isArray(value) && value ? _defineProperty$3({}, key, value) : {};
+  }
+
+  function FontAwesomeIcon(_ref) {
+    var forwardedRef = _ref.forwardedRef,
+        props = _objectWithoutProperties$1(_ref, ["forwardedRef"]);
+
+    var iconArgs = props.icon,
+        maskArgs = props.mask,
+        symbol = props.symbol,
+        className = props.className,
+        title = props.title;
+    var iconLookup = normalizeIconArgs(iconArgs);
+    var classes = objectWithKey('classes', [].concat(_toConsumableArray$1(classList(props)), _toConsumableArray$1(className.split(' '))));
+    var transform = objectWithKey('transform', typeof props.transform === 'string' ? parse$1.transform(props.transform) : props.transform);
+    var mask = objectWithKey('mask', normalizeIconArgs(maskArgs));
+    var renderedIcon = icon(iconLookup, _objectSpread2$1({}, classes, {}, transform, {}, mask, {
+      symbol: symbol,
+      title: title
+    }));
+
+    if (!renderedIcon) {
+      log('Could not find icon', iconLookup);
+      return null;
+    }
+
+    var abstract = renderedIcon.abstract;
+    var extraProps = {
+      ref: forwardedRef
+    };
+    Object.keys(props).forEach(function (key) {
+      // eslint-disable-next-line no-prototype-builtins
+      if (!FontAwesomeIcon.defaultProps.hasOwnProperty(key)) {
+        extraProps[key] = props[key];
+      }
+    });
+    return convertCurry(abstract[0], extraProps);
+  }
+  FontAwesomeIcon.displayName = 'FontAwesomeIcon';
+  FontAwesomeIcon.propTypes = {
+    border: propTypes.bool,
+    className: propTypes.string,
+    mask: propTypes.oneOfType([propTypes.object, propTypes.array, propTypes.string]),
+    fixedWidth: propTypes.bool,
+    inverse: propTypes.bool,
+    flip: propTypes.oneOf(['horizontal', 'vertical', 'both']),
+    icon: propTypes.oneOfType([propTypes.object, propTypes.array, propTypes.string]),
+    listItem: propTypes.bool,
+    pull: propTypes.oneOf(['right', 'left']),
+    pulse: propTypes.bool,
+    rotation: propTypes.oneOf([0, 90, 180, 270]),
+    size: propTypes.oneOf(['lg', 'xs', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x']),
+    spin: propTypes.bool,
+    symbol: propTypes.oneOfType([propTypes.bool, propTypes.string]),
+    title: propTypes.string,
+    transform: propTypes.oneOfType([propTypes.string, propTypes.object]),
+    swapOpacity: propTypes.bool
+  };
+  FontAwesomeIcon.defaultProps = {
+    border: false,
+    className: '',
+    mask: null,
+    fixedWidth: false,
+    inverse: false,
+    flip: null,
+    icon: null,
+    listItem: false,
+    pull: null,
+    pulse: false,
+    rotation: null,
+    size: null,
+    spin: false,
+    symbol: false,
+    title: '',
+    transform: null,
+    swapOpacity: false
+  };
+  var convertCurry = convert.bind(null, react.createElement);
+
+  var faBars = {
+    prefix: 'fas',
+    iconName: 'bars',
+    icon: [448, 512, [], "f0c9", "M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"]
+  };
 
   var jquery = createCommonjsModule(function (module) {
   /*!
@@ -54782,2637 +57675,8 @@
   } );
   });
 
-  function isAbsolute(pathname) {
-    return pathname.charAt(0) === '/';
-  }
-
-  // About 1.5x faster than the two-arg version of Array#splice()
-  function spliceOne(list, index) {
-    for (var i = index, k = i + 1, n = list.length; k < n; i += 1, k += 1) {
-      list[i] = list[k];
-    }
-
-    list.pop();
-  }
-
-  // This implementation is based heavily on node's url.parse
-  function resolvePathname(to, from) {
-    if (from === undefined) from = '';
-
-    var toParts = (to && to.split('/')) || [];
-    var fromParts = (from && from.split('/')) || [];
-
-    var isToAbs = to && isAbsolute(to);
-    var isFromAbs = from && isAbsolute(from);
-    var mustEndAbs = isToAbs || isFromAbs;
-
-    if (to && isAbsolute(to)) {
-      // to is absolute
-      fromParts = toParts;
-    } else if (toParts.length) {
-      // to is relative, drop the filename
-      fromParts.pop();
-      fromParts = fromParts.concat(toParts);
-    }
-
-    if (!fromParts.length) return '/';
-
-    var hasTrailingSlash;
-    if (fromParts.length) {
-      var last = fromParts[fromParts.length - 1];
-      hasTrailingSlash = last === '.' || last === '..' || last === '';
-    } else {
-      hasTrailingSlash = false;
-    }
-
-    var up = 0;
-    for (var i = fromParts.length; i >= 0; i--) {
-      var part = fromParts[i];
-
-      if (part === '.') {
-        spliceOne(fromParts, i);
-      } else if (part === '..') {
-        spliceOne(fromParts, i);
-        up++;
-      } else if (up) {
-        spliceOne(fromParts, i);
-        up--;
-      }
-    }
-
-    if (!mustEndAbs) for (; up--; up) fromParts.unshift('..');
-
-    if (
-      mustEndAbs &&
-      fromParts[0] !== '' &&
-      (!fromParts[0] || !isAbsolute(fromParts[0]))
-    )
-      fromParts.unshift('');
-
-    var result = fromParts.join('/');
-
-    if (hasTrailingSlash && result.substr(-1) !== '/') result += '/';
-
-    return result;
-  }
-
-  function valueOf(obj) {
-    return obj.valueOf ? obj.valueOf() : Object.prototype.valueOf.call(obj);
-  }
-
-  function valueEqual(a, b) {
-    // Test for strict equality first.
-    if (a === b) return true;
-
-    // Otherwise, if either of them == null they are not equal.
-    if (a == null || b == null) return false;
-
-    if (Array.isArray(a)) {
-      return (
-        Array.isArray(b) &&
-        a.length === b.length &&
-        a.every(function(item, index) {
-          return valueEqual(item, b[index]);
-        })
-      );
-    }
-
-    if (typeof a === 'object' || typeof b === 'object') {
-      var aValue = valueOf(a);
-      var bValue = valueOf(b);
-
-      if (aValue !== a || bValue !== b) return valueEqual(aValue, bValue);
-
-      return Object.keys(Object.assign({}, a, b)).every(function(key) {
-        return valueEqual(a[key], b[key]);
-      });
-    }
-
-    return false;
-  }
-
-  var prefix$1 = 'Invariant failed';
-  function invariant(condition, message) {
-      if (condition) {
-          return;
-      }
-      throw new Error(prefix$1 + ": " + (message || ''));
-  }
-
-  function addLeadingSlash(path) {
-    return path.charAt(0) === '/' ? path : '/' + path;
-  }
-  function stripLeadingSlash(path) {
-    return path.charAt(0) === '/' ? path.substr(1) : path;
-  }
-  function hasBasename(path, prefix) {
-    return path.toLowerCase().indexOf(prefix.toLowerCase()) === 0 && '/?#'.indexOf(path.charAt(prefix.length)) !== -1;
-  }
-  function stripBasename(path, prefix) {
-    return hasBasename(path, prefix) ? path.substr(prefix.length) : path;
-  }
-  function stripTrailingSlash(path) {
-    return path.charAt(path.length - 1) === '/' ? path.slice(0, -1) : path;
-  }
-  function parsePath(path) {
-    var pathname = path || '/';
-    var search = '';
-    var hash = '';
-    var hashIndex = pathname.indexOf('#');
-
-    if (hashIndex !== -1) {
-      hash = pathname.substr(hashIndex);
-      pathname = pathname.substr(0, hashIndex);
-    }
-
-    var searchIndex = pathname.indexOf('?');
-
-    if (searchIndex !== -1) {
-      search = pathname.substr(searchIndex);
-      pathname = pathname.substr(0, searchIndex);
-    }
-
-    return {
-      pathname: pathname,
-      search: search === '?' ? '' : search,
-      hash: hash === '#' ? '' : hash
-    };
-  }
-  function createPath(location) {
-    var pathname = location.pathname,
-        search = location.search,
-        hash = location.hash;
-    var path = pathname || '/';
-    if (search && search !== '?') path += search.charAt(0) === '?' ? search : "?" + search;
-    if (hash && hash !== '#') path += hash.charAt(0) === '#' ? hash : "#" + hash;
-    return path;
-  }
-
-  function createLocation(path, state, key, currentLocation) {
-    var location;
-
-    if (typeof path === 'string') {
-      // Two-arg form: push(path, state)
-      location = parsePath(path);
-      location.state = state;
-    } else {
-      // One-arg form: push(location)
-      location = _extends({}, path);
-      if (location.pathname === undefined) location.pathname = '';
-
-      if (location.search) {
-        if (location.search.charAt(0) !== '?') location.search = '?' + location.search;
-      } else {
-        location.search = '';
-      }
-
-      if (location.hash) {
-        if (location.hash.charAt(0) !== '#') location.hash = '#' + location.hash;
-      } else {
-        location.hash = '';
-      }
-
-      if (state !== undefined && location.state === undefined) location.state = state;
-    }
-
-    try {
-      location.pathname = decodeURI(location.pathname);
-    } catch (e) {
-      if (e instanceof URIError) {
-        throw new URIError('Pathname "' + location.pathname + '" could not be decoded. ' + 'This is likely caused by an invalid percent-encoding.');
-      } else {
-        throw e;
-      }
-    }
-
-    if (key) location.key = key;
-
-    if (currentLocation) {
-      // Resolve incomplete/relative pathname relative to current location.
-      if (!location.pathname) {
-        location.pathname = currentLocation.pathname;
-      } else if (location.pathname.charAt(0) !== '/') {
-        location.pathname = resolvePathname(location.pathname, currentLocation.pathname);
-      }
-    } else {
-      // When there is no prior location and pathname is empty, set it to /
-      if (!location.pathname) {
-        location.pathname = '/';
-      }
-    }
-
-    return location;
-  }
-  function locationsAreEqual(a, b) {
-    return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && a.key === b.key && valueEqual(a.state, b.state);
-  }
-
-  function createTransitionManager() {
-    var prompt = null;
-
-    function setPrompt(nextPrompt) {
-       warning(prompt == null, 'A history supports only one prompt at a time') ;
-      prompt = nextPrompt;
-      return function () {
-        if (prompt === nextPrompt) prompt = null;
-      };
-    }
-
-    function confirmTransitionTo(location, action, getUserConfirmation, callback) {
-      // TODO: If another transition starts while we're still confirming
-      // the previous one, we may end up in a weird state. Figure out the
-      // best way to handle this.
-      if (prompt != null) {
-        var result = typeof prompt === 'function' ? prompt(location, action) : prompt;
-
-        if (typeof result === 'string') {
-          if (typeof getUserConfirmation === 'function') {
-            getUserConfirmation(result, callback);
-          } else {
-             warning(false, 'A history needs a getUserConfirmation function in order to use a prompt message') ;
-            callback(true);
-          }
-        } else {
-          // Return false from a transition hook to cancel the transition.
-          callback(result !== false);
-        }
-      } else {
-        callback(true);
-      }
-    }
-
-    var listeners = [];
-
-    function appendListener(fn) {
-      var isActive = true;
-
-      function listener() {
-        if (isActive) fn.apply(void 0, arguments);
-      }
-
-      listeners.push(listener);
-      return function () {
-        isActive = false;
-        listeners = listeners.filter(function (item) {
-          return item !== listener;
-        });
-      };
-    }
-
-    function notifyListeners() {
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      listeners.forEach(function (listener) {
-        return listener.apply(void 0, args);
-      });
-    }
-
-    return {
-      setPrompt: setPrompt,
-      confirmTransitionTo: confirmTransitionTo,
-      appendListener: appendListener,
-      notifyListeners: notifyListeners
-    };
-  }
-
-  var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
-  function getConfirmation(message, callback) {
-    callback(window.confirm(message)); // eslint-disable-line no-alert
-  }
-  /**
-   * Returns true if the HTML5 history API is supported. Taken from Modernizr.
-   *
-   * https://github.com/Modernizr/Modernizr/blob/master/LICENSE
-   * https://github.com/Modernizr/Modernizr/blob/master/feature-detects/history.js
-   * changed to avoid false negatives for Windows Phones: https://github.com/reactjs/react-router/issues/586
-   */
-
-  function supportsHistory() {
-    var ua = window.navigator.userAgent;
-    if ((ua.indexOf('Android 2.') !== -1 || ua.indexOf('Android 4.0') !== -1) && ua.indexOf('Mobile Safari') !== -1 && ua.indexOf('Chrome') === -1 && ua.indexOf('Windows Phone') === -1) return false;
-    return window.history && 'pushState' in window.history;
-  }
-  /**
-   * Returns true if browser fires popstate on hash change.
-   * IE10 and IE11 do not.
-   */
-
-  function supportsPopStateOnHashChange() {
-    return window.navigator.userAgent.indexOf('Trident') === -1;
-  }
-  /**
-   * Returns false if using go(n) with hash history causes a full page reload.
-   */
-
-  function supportsGoWithoutReloadUsingHash() {
-    return window.navigator.userAgent.indexOf('Firefox') === -1;
-  }
-  /**
-   * Returns true if a given popstate event is an extraneous WebKit event.
-   * Accounts for the fact that Chrome on iOS fires real popstate events
-   * containing undefined state when pressing the back button.
-   */
-
-  function isExtraneousPopstateEvent(event) {
-    return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;
-  }
-
-  var PopStateEvent = 'popstate';
-  var HashChangeEvent = 'hashchange';
-
-  function getHistoryState() {
-    try {
-      return window.history.state || {};
-    } catch (e) {
-      // IE 11 sometimes throws when accessing window.history.state
-      // See https://github.com/ReactTraining/history/pull/289
-      return {};
-    }
-  }
-  /**
-   * Creates a history object that uses the HTML5 history API including
-   * pushState, replaceState, and the popstate event.
-   */
-
-
-  function createBrowserHistory(props) {
-    if (props === void 0) {
-      props = {};
-    }
-
-    !canUseDOM ?  invariant(false, 'Browser history needs a DOM')  : void 0;
-    var globalHistory = window.history;
-    var canUseHistory = supportsHistory();
-    var needsHashChangeListener = !supportsPopStateOnHashChange();
-    var _props = props,
-        _props$forceRefresh = _props.forceRefresh,
-        forceRefresh = _props$forceRefresh === void 0 ? false : _props$forceRefresh,
-        _props$getUserConfirm = _props.getUserConfirmation,
-        getUserConfirmation = _props$getUserConfirm === void 0 ? getConfirmation : _props$getUserConfirm,
-        _props$keyLength = _props.keyLength,
-        keyLength = _props$keyLength === void 0 ? 6 : _props$keyLength;
-    var basename = props.basename ? stripTrailingSlash(addLeadingSlash(props.basename)) : '';
-
-    function getDOMLocation(historyState) {
-      var _ref = historyState || {},
-          key = _ref.key,
-          state = _ref.state;
-
-      var _window$location = window.location,
-          pathname = _window$location.pathname,
-          search = _window$location.search,
-          hash = _window$location.hash;
-      var path = pathname + search + hash;
-       warning(!basename || hasBasename(path, basename), 'You are attempting to use a basename on a page whose URL path does not begin ' + 'with the basename. Expected path "' + path + '" to begin with "' + basename + '".') ;
-      if (basename) path = stripBasename(path, basename);
-      return createLocation(path, state, key);
-    }
-
-    function createKey() {
-      return Math.random().toString(36).substr(2, keyLength);
-    }
-
-    var transitionManager = createTransitionManager();
-
-    function setState(nextState) {
-      _extends(history, nextState);
-
-      history.length = globalHistory.length;
-      transitionManager.notifyListeners(history.location, history.action);
-    }
-
-    function handlePopState(event) {
-      // Ignore extraneous popstate events in WebKit.
-      if (isExtraneousPopstateEvent(event)) return;
-      handlePop(getDOMLocation(event.state));
-    }
-
-    function handleHashChange() {
-      handlePop(getDOMLocation(getHistoryState()));
-    }
-
-    var forceNextPop = false;
-
-    function handlePop(location) {
-      if (forceNextPop) {
-        forceNextPop = false;
-        setState();
-      } else {
-        var action = 'POP';
-        transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
-          if (ok) {
-            setState({
-              action: action,
-              location: location
-            });
-          } else {
-            revertPop(location);
-          }
-        });
-      }
-    }
-
-    function revertPop(fromLocation) {
-      var toLocation = history.location; // TODO: We could probably make this more reliable by
-      // keeping a list of keys we've seen in sessionStorage.
-      // Instead, we just default to 0 for keys we don't know.
-
-      var toIndex = allKeys.indexOf(toLocation.key);
-      if (toIndex === -1) toIndex = 0;
-      var fromIndex = allKeys.indexOf(fromLocation.key);
-      if (fromIndex === -1) fromIndex = 0;
-      var delta = toIndex - fromIndex;
-
-      if (delta) {
-        forceNextPop = true;
-        go(delta);
-      }
-    }
-
-    var initialLocation = getDOMLocation(getHistoryState());
-    var allKeys = [initialLocation.key]; // Public interface
-
-    function createHref(location) {
-      return basename + createPath(location);
-    }
-
-    function push(path, state) {
-       warning(!(typeof path === 'object' && path.state !== undefined && state !== undefined), 'You should avoid providing a 2nd state argument to push when the 1st ' + 'argument is a location-like object that already has state; it is ignored') ;
-      var action = 'PUSH';
-      var location = createLocation(path, state, createKey(), history.location);
-      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
-        if (!ok) return;
-        var href = createHref(location);
-        var key = location.key,
-            state = location.state;
-
-        if (canUseHistory) {
-          globalHistory.pushState({
-            key: key,
-            state: state
-          }, null, href);
-
-          if (forceRefresh) {
-            window.location.href = href;
-          } else {
-            var prevIndex = allKeys.indexOf(history.location.key);
-            var nextKeys = allKeys.slice(0, prevIndex + 1);
-            nextKeys.push(location.key);
-            allKeys = nextKeys;
-            setState({
-              action: action,
-              location: location
-            });
-          }
-        } else {
-           warning(state === undefined, 'Browser history cannot push state in browsers that do not support HTML5 history') ;
-          window.location.href = href;
-        }
-      });
-    }
-
-    function replace(path, state) {
-       warning(!(typeof path === 'object' && path.state !== undefined && state !== undefined), 'You should avoid providing a 2nd state argument to replace when the 1st ' + 'argument is a location-like object that already has state; it is ignored') ;
-      var action = 'REPLACE';
-      var location = createLocation(path, state, createKey(), history.location);
-      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
-        if (!ok) return;
-        var href = createHref(location);
-        var key = location.key,
-            state = location.state;
-
-        if (canUseHistory) {
-          globalHistory.replaceState({
-            key: key,
-            state: state
-          }, null, href);
-
-          if (forceRefresh) {
-            window.location.replace(href);
-          } else {
-            var prevIndex = allKeys.indexOf(history.location.key);
-            if (prevIndex !== -1) allKeys[prevIndex] = location.key;
-            setState({
-              action: action,
-              location: location
-            });
-          }
-        } else {
-           warning(state === undefined, 'Browser history cannot replace state in browsers that do not support HTML5 history') ;
-          window.location.replace(href);
-        }
-      });
-    }
-
-    function go(n) {
-      globalHistory.go(n);
-    }
-
-    function goBack() {
-      go(-1);
-    }
-
-    function goForward() {
-      go(1);
-    }
-
-    var listenerCount = 0;
-
-    function checkDOMListeners(delta) {
-      listenerCount += delta;
-
-      if (listenerCount === 1 && delta === 1) {
-        window.addEventListener(PopStateEvent, handlePopState);
-        if (needsHashChangeListener) window.addEventListener(HashChangeEvent, handleHashChange);
-      } else if (listenerCount === 0) {
-        window.removeEventListener(PopStateEvent, handlePopState);
-        if (needsHashChangeListener) window.removeEventListener(HashChangeEvent, handleHashChange);
-      }
-    }
-
-    var isBlocked = false;
-
-    function block(prompt) {
-      if (prompt === void 0) {
-        prompt = false;
-      }
-
-      var unblock = transitionManager.setPrompt(prompt);
-
-      if (!isBlocked) {
-        checkDOMListeners(1);
-        isBlocked = true;
-      }
-
-      return function () {
-        if (isBlocked) {
-          isBlocked = false;
-          checkDOMListeners(-1);
-        }
-
-        return unblock();
-      };
-    }
-
-    function listen(listener) {
-      var unlisten = transitionManager.appendListener(listener);
-      checkDOMListeners(1);
-      return function () {
-        checkDOMListeners(-1);
-        unlisten();
-      };
-    }
-
-    var history = {
-      length: globalHistory.length,
-      action: 'POP',
-      location: initialLocation,
-      createHref: createHref,
-      push: push,
-      replace: replace,
-      go: go,
-      goBack: goBack,
-      goForward: goForward,
-      block: block,
-      listen: listen
-    };
-    return history;
-  }
-
-  var HashChangeEvent$1 = 'hashchange';
-  var HashPathCoders = {
-    hashbang: {
-      encodePath: function encodePath(path) {
-        return path.charAt(0) === '!' ? path : '!/' + stripLeadingSlash(path);
-      },
-      decodePath: function decodePath(path) {
-        return path.charAt(0) === '!' ? path.substr(1) : path;
-      }
-    },
-    noslash: {
-      encodePath: stripLeadingSlash,
-      decodePath: addLeadingSlash
-    },
-    slash: {
-      encodePath: addLeadingSlash,
-      decodePath: addLeadingSlash
-    }
-  };
-
-  function stripHash(url) {
-    var hashIndex = url.indexOf('#');
-    return hashIndex === -1 ? url : url.slice(0, hashIndex);
-  }
-
-  function getHashPath() {
-    // We can't use window.location.hash here because it's not
-    // consistent across browsers - Firefox will pre-decode it!
-    var href = window.location.href;
-    var hashIndex = href.indexOf('#');
-    return hashIndex === -1 ? '' : href.substring(hashIndex + 1);
-  }
-
-  function pushHashPath(path) {
-    window.location.hash = path;
-  }
-
-  function replaceHashPath(path) {
-    window.location.replace(stripHash(window.location.href) + '#' + path);
-  }
-
-  function createHashHistory(props) {
-    if (props === void 0) {
-      props = {};
-    }
-
-    !canUseDOM ?  invariant(false, 'Hash history needs a DOM')  : void 0;
-    var globalHistory = window.history;
-    var canGoWithoutReload = supportsGoWithoutReloadUsingHash();
-    var _props = props,
-        _props$getUserConfirm = _props.getUserConfirmation,
-        getUserConfirmation = _props$getUserConfirm === void 0 ? getConfirmation : _props$getUserConfirm,
-        _props$hashType = _props.hashType,
-        hashType = _props$hashType === void 0 ? 'slash' : _props$hashType;
-    var basename = props.basename ? stripTrailingSlash(addLeadingSlash(props.basename)) : '';
-    var _HashPathCoders$hashT = HashPathCoders[hashType],
-        encodePath = _HashPathCoders$hashT.encodePath,
-        decodePath = _HashPathCoders$hashT.decodePath;
-
-    function getDOMLocation() {
-      var path = decodePath(getHashPath());
-       warning(!basename || hasBasename(path, basename), 'You are attempting to use a basename on a page whose URL path does not begin ' + 'with the basename. Expected path "' + path + '" to begin with "' + basename + '".') ;
-      if (basename) path = stripBasename(path, basename);
-      return createLocation(path);
-    }
-
-    var transitionManager = createTransitionManager();
-
-    function setState(nextState) {
-      _extends(history, nextState);
-
-      history.length = globalHistory.length;
-      transitionManager.notifyListeners(history.location, history.action);
-    }
-
-    var forceNextPop = false;
-    var ignorePath = null;
-
-    function locationsAreEqual$$1(a, b) {
-      return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash;
-    }
-
-    function handleHashChange() {
-      var path = getHashPath();
-      var encodedPath = encodePath(path);
-
-      if (path !== encodedPath) {
-        // Ensure we always have a properly-encoded hash.
-        replaceHashPath(encodedPath);
-      } else {
-        var location = getDOMLocation();
-        var prevLocation = history.location;
-        if (!forceNextPop && locationsAreEqual$$1(prevLocation, location)) return; // A hashchange doesn't always == location change.
-
-        if (ignorePath === createPath(location)) return; // Ignore this change; we already setState in push/replace.
-
-        ignorePath = null;
-        handlePop(location);
-      }
-    }
-
-    function handlePop(location) {
-      if (forceNextPop) {
-        forceNextPop = false;
-        setState();
-      } else {
-        var action = 'POP';
-        transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
-          if (ok) {
-            setState({
-              action: action,
-              location: location
-            });
-          } else {
-            revertPop(location);
-          }
-        });
-      }
-    }
-
-    function revertPop(fromLocation) {
-      var toLocation = history.location; // TODO: We could probably make this more reliable by
-      // keeping a list of paths we've seen in sessionStorage.
-      // Instead, we just default to 0 for paths we don't know.
-
-      var toIndex = allPaths.lastIndexOf(createPath(toLocation));
-      if (toIndex === -1) toIndex = 0;
-      var fromIndex = allPaths.lastIndexOf(createPath(fromLocation));
-      if (fromIndex === -1) fromIndex = 0;
-      var delta = toIndex - fromIndex;
-
-      if (delta) {
-        forceNextPop = true;
-        go(delta);
-      }
-    } // Ensure the hash is encoded properly before doing anything else.
-
-
-    var path = getHashPath();
-    var encodedPath = encodePath(path);
-    if (path !== encodedPath) replaceHashPath(encodedPath);
-    var initialLocation = getDOMLocation();
-    var allPaths = [createPath(initialLocation)]; // Public interface
-
-    function createHref(location) {
-      var baseTag = document.querySelector('base');
-      var href = '';
-
-      if (baseTag && baseTag.getAttribute('href')) {
-        href = stripHash(window.location.href);
-      }
-
-      return href + '#' + encodePath(basename + createPath(location));
-    }
-
-    function push(path, state) {
-       warning(state === undefined, 'Hash history cannot push state; it is ignored') ;
-      var action = 'PUSH';
-      var location = createLocation(path, undefined, undefined, history.location);
-      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
-        if (!ok) return;
-        var path = createPath(location);
-        var encodedPath = encodePath(basename + path);
-        var hashChanged = getHashPath() !== encodedPath;
-
-        if (hashChanged) {
-          // We cannot tell if a hashchange was caused by a PUSH, so we'd
-          // rather setState here and ignore the hashchange. The caveat here
-          // is that other hash histories in the page will consider it a POP.
-          ignorePath = path;
-          pushHashPath(encodedPath);
-          var prevIndex = allPaths.lastIndexOf(createPath(history.location));
-          var nextPaths = allPaths.slice(0, prevIndex + 1);
-          nextPaths.push(path);
-          allPaths = nextPaths;
-          setState({
-            action: action,
-            location: location
-          });
-        } else {
-           warning(false, 'Hash history cannot PUSH the same path; a new entry will not be added to the history stack') ;
-          setState();
-        }
-      });
-    }
-
-    function replace(path, state) {
-       warning(state === undefined, 'Hash history cannot replace state; it is ignored') ;
-      var action = 'REPLACE';
-      var location = createLocation(path, undefined, undefined, history.location);
-      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
-        if (!ok) return;
-        var path = createPath(location);
-        var encodedPath = encodePath(basename + path);
-        var hashChanged = getHashPath() !== encodedPath;
-
-        if (hashChanged) {
-          // We cannot tell if a hashchange was caused by a REPLACE, so we'd
-          // rather setState here and ignore the hashchange. The caveat here
-          // is that other hash histories in the page will consider it a POP.
-          ignorePath = path;
-          replaceHashPath(encodedPath);
-        }
-
-        var prevIndex = allPaths.indexOf(createPath(history.location));
-        if (prevIndex !== -1) allPaths[prevIndex] = path;
-        setState({
-          action: action,
-          location: location
-        });
-      });
-    }
-
-    function go(n) {
-       warning(canGoWithoutReload, 'Hash history go(n) causes a full page reload in this browser') ;
-      globalHistory.go(n);
-    }
-
-    function goBack() {
-      go(-1);
-    }
-
-    function goForward() {
-      go(1);
-    }
-
-    var listenerCount = 0;
-
-    function checkDOMListeners(delta) {
-      listenerCount += delta;
-
-      if (listenerCount === 1 && delta === 1) {
-        window.addEventListener(HashChangeEvent$1, handleHashChange);
-      } else if (listenerCount === 0) {
-        window.removeEventListener(HashChangeEvent$1, handleHashChange);
-      }
-    }
-
-    var isBlocked = false;
-
-    function block(prompt) {
-      if (prompt === void 0) {
-        prompt = false;
-      }
-
-      var unblock = transitionManager.setPrompt(prompt);
-
-      if (!isBlocked) {
-        checkDOMListeners(1);
-        isBlocked = true;
-      }
-
-      return function () {
-        if (isBlocked) {
-          isBlocked = false;
-          checkDOMListeners(-1);
-        }
-
-        return unblock();
-      };
-    }
-
-    function listen(listener) {
-      var unlisten = transitionManager.appendListener(listener);
-      checkDOMListeners(1);
-      return function () {
-        checkDOMListeners(-1);
-        unlisten();
-      };
-    }
-
-    var history = {
-      length: globalHistory.length,
-      action: 'POP',
-      location: initialLocation,
-      createHref: createHref,
-      push: push,
-      replace: replace,
-      go: go,
-      goBack: goBack,
-      goForward: goForward,
-      block: block,
-      listen: listen
-    };
-    return history;
-  }
-
-  function clamp$1(n, lowerBound, upperBound) {
-    return Math.min(Math.max(n, lowerBound), upperBound);
-  }
-  /**
-   * Creates a history object that stores locations in memory.
-   */
-
-
-  function createMemoryHistory(props) {
-    if (props === void 0) {
-      props = {};
-    }
-
-    var _props = props,
-        getUserConfirmation = _props.getUserConfirmation,
-        _props$initialEntries = _props.initialEntries,
-        initialEntries = _props$initialEntries === void 0 ? ['/'] : _props$initialEntries,
-        _props$initialIndex = _props.initialIndex,
-        initialIndex = _props$initialIndex === void 0 ? 0 : _props$initialIndex,
-        _props$keyLength = _props.keyLength,
-        keyLength = _props$keyLength === void 0 ? 6 : _props$keyLength;
-    var transitionManager = createTransitionManager();
-
-    function setState(nextState) {
-      _extends(history, nextState);
-
-      history.length = history.entries.length;
-      transitionManager.notifyListeners(history.location, history.action);
-    }
-
-    function createKey() {
-      return Math.random().toString(36).substr(2, keyLength);
-    }
-
-    var index = clamp$1(initialIndex, 0, initialEntries.length - 1);
-    var entries = initialEntries.map(function (entry) {
-      return typeof entry === 'string' ? createLocation(entry, undefined, createKey()) : createLocation(entry, undefined, entry.key || createKey());
-    }); // Public interface
-
-    var createHref = createPath;
-
-    function push(path, state) {
-       warning(!(typeof path === 'object' && path.state !== undefined && state !== undefined), 'You should avoid providing a 2nd state argument to push when the 1st ' + 'argument is a location-like object that already has state; it is ignored') ;
-      var action = 'PUSH';
-      var location = createLocation(path, state, createKey(), history.location);
-      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
-        if (!ok) return;
-        var prevIndex = history.index;
-        var nextIndex = prevIndex + 1;
-        var nextEntries = history.entries.slice(0);
-
-        if (nextEntries.length > nextIndex) {
-          nextEntries.splice(nextIndex, nextEntries.length - nextIndex, location);
-        } else {
-          nextEntries.push(location);
-        }
-
-        setState({
-          action: action,
-          location: location,
-          index: nextIndex,
-          entries: nextEntries
-        });
-      });
-    }
-
-    function replace(path, state) {
-       warning(!(typeof path === 'object' && path.state !== undefined && state !== undefined), 'You should avoid providing a 2nd state argument to replace when the 1st ' + 'argument is a location-like object that already has state; it is ignored') ;
-      var action = 'REPLACE';
-      var location = createLocation(path, state, createKey(), history.location);
-      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
-        if (!ok) return;
-        history.entries[history.index] = location;
-        setState({
-          action: action,
-          location: location
-        });
-      });
-    }
-
-    function go(n) {
-      var nextIndex = clamp$1(history.index + n, 0, history.entries.length - 1);
-      var action = 'POP';
-      var location = history.entries[nextIndex];
-      transitionManager.confirmTransitionTo(location, action, getUserConfirmation, function (ok) {
-        if (ok) {
-          setState({
-            action: action,
-            location: location,
-            index: nextIndex
-          });
-        } else {
-          // Mimic the behavior of DOM histories by
-          // causing a render after a cancelled POP.
-          setState();
-        }
-      });
-    }
-
-    function goBack() {
-      go(-1);
-    }
-
-    function goForward() {
-      go(1);
-    }
-
-    function canGo(n) {
-      var nextIndex = history.index + n;
-      return nextIndex >= 0 && nextIndex < history.entries.length;
-    }
-
-    function block(prompt) {
-      if (prompt === void 0) {
-        prompt = false;
-      }
-
-      return transitionManager.setPrompt(prompt);
-    }
-
-    function listen(listener) {
-      return transitionManager.appendListener(listener);
-    }
-
-    var history = {
-      length: entries.length,
-      action: 'POP',
-      location: entries[index],
-      index: index,
-      entries: entries,
-      createHref: createHref,
-      push: push,
-      replace: replace,
-      go: go,
-      goBack: goBack,
-      goForward: goForward,
-      canGo: canGo,
-      block: block,
-      listen: listen
-    };
-    return history;
-  }
-
-  var MAX_SIGNED_31_BIT_INT = 1073741823;
-  var commonjsGlobal$1 = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : {};
-
-  function getUniqueId() {
-    var key = '__global_unique_id__';
-    return commonjsGlobal$1[key] = (commonjsGlobal$1[key] || 0) + 1;
-  }
-
-  function objectIs(x, y) {
-    if (x === y) {
-      return x !== 0 || 1 / x === 1 / y;
-    } else {
-      return x !== x && y !== y;
-    }
-  }
-
-  function createEventEmitter(value) {
-    var handlers = [];
-    return {
-      on: function on(handler) {
-        handlers.push(handler);
-      },
-      off: function off(handler) {
-        handlers = handlers.filter(function (h) {
-          return h !== handler;
-        });
-      },
-      get: function get() {
-        return value;
-      },
-      set: function set(newValue, changedBits) {
-        value = newValue;
-        handlers.forEach(function (handler) {
-          return handler(value, changedBits);
-        });
-      }
-    };
-  }
-
-  function onlyChild(children) {
-    return Array.isArray(children) ? children[0] : children;
-  }
-
-  function createReactContext(defaultValue, calculateChangedBits) {
-    var _Provider$childContex, _Consumer$contextType;
-
-    var contextProp = '__create-react-context-' + getUniqueId() + '__';
-
-    var Provider = /*#__PURE__*/function (_Component) {
-      _inheritsLoose(Provider, _Component);
-
-      function Provider() {
-        var _this;
-
-        _this = _Component.apply(this, arguments) || this;
-        _this.emitter = createEventEmitter(_this.props.value);
-        return _this;
-      }
-
-      var _proto = Provider.prototype;
-
-      _proto.getChildContext = function getChildContext() {
-        var _ref;
-
-        return _ref = {}, _ref[contextProp] = this.emitter, _ref;
-      };
-
-      _proto.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-        if (this.props.value !== nextProps.value) {
-          var oldValue = this.props.value;
-          var newValue = nextProps.value;
-          var changedBits;
-
-          if (objectIs(oldValue, newValue)) {
-            changedBits = 0;
-          } else {
-            changedBits = typeof calculateChangedBits === 'function' ? calculateChangedBits(oldValue, newValue) : MAX_SIGNED_31_BIT_INT;
-
-            {
-              warning((changedBits & MAX_SIGNED_31_BIT_INT) === changedBits, 'calculateChangedBits: Expected the return value to be a ' + '31-bit integer. Instead received: ' + changedBits);
-            }
-
-            changedBits |= 0;
-
-            if (changedBits !== 0) {
-              this.emitter.set(nextProps.value, changedBits);
-            }
-          }
-        }
-      };
-
-      _proto.render = function render() {
-        return this.props.children;
-      };
-
-      return Provider;
-    }(react_18);
-
-    Provider.childContextTypes = (_Provider$childContex = {}, _Provider$childContex[contextProp] = propTypes.object.isRequired, _Provider$childContex);
-
-    var Consumer = /*#__PURE__*/function (_Component2) {
-      _inheritsLoose(Consumer, _Component2);
-
-      function Consumer() {
-        var _this2;
-
-        _this2 = _Component2.apply(this, arguments) || this;
-        _this2.state = {
-          value: _this2.getValue()
-        };
-
-        _this2.onUpdate = function (newValue, changedBits) {
-          var observedBits = _this2.observedBits | 0;
-
-          if ((observedBits & changedBits) !== 0) {
-            _this2.setState({
-              value: _this2.getValue()
-            });
-          }
-        };
-
-        return _this2;
-      }
-
-      var _proto2 = Consumer.prototype;
-
-      _proto2.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-        var observedBits = nextProps.observedBits;
-        this.observedBits = observedBits === undefined || observedBits === null ? MAX_SIGNED_31_BIT_INT : observedBits;
-      };
-
-      _proto2.componentDidMount = function componentDidMount() {
-        if (this.context[contextProp]) {
-          this.context[contextProp].on(this.onUpdate);
-        }
-
-        var observedBits = this.props.observedBits;
-        this.observedBits = observedBits === undefined || observedBits === null ? MAX_SIGNED_31_BIT_INT : observedBits;
-      };
-
-      _proto2.componentWillUnmount = function componentWillUnmount() {
-        if (this.context[contextProp]) {
-          this.context[contextProp].off(this.onUpdate);
-        }
-      };
-
-      _proto2.getValue = function getValue() {
-        if (this.context[contextProp]) {
-          return this.context[contextProp].get();
-        } else {
-          return defaultValue;
-        }
-      };
-
-      _proto2.render = function render() {
-        return onlyChild(this.props.children)(this.state.value);
-      };
-
-      return Consumer;
-    }(react_18);
-
-    Consumer.contextTypes = (_Consumer$contextType = {}, _Consumer$contextType[contextProp] = propTypes.object, _Consumer$contextType);
-    return {
-      Provider: Provider,
-      Consumer: Consumer
-    };
-  }
-
-  var index$1 = react.createContext || createReactContext;
-
-  var isarray = Array.isArray || function (arr) {
-    return Object.prototype.toString.call(arr) == '[object Array]';
-  };
-
-  /**
-   * Expose `pathToRegexp`.
-   */
-  var pathToRegexp_1 = pathToRegexp;
-  var parse_1 = parse$1;
-  var compile_1 = compile;
-  var tokensToFunction_1 = tokensToFunction;
-  var tokensToRegExp_1 = tokensToRegExp;
-
-  /**
-   * The main path matching regexp utility.
-   *
-   * @type {RegExp}
-   */
-  var PATH_REGEXP = new RegExp([
-    // Match escaped characters that would otherwise appear in future matches.
-    // This allows the user to escape special characters that won't transform.
-    '(\\\\.)',
-    // Match Express-style parameters and un-named parameters with a prefix
-    // and optional suffixes. Matches appear as:
-    //
-    // "/:test(\\d+)?" => ["/", "test", "\d+", undefined, "?", undefined]
-    // "/route(\\d+)"  => [undefined, undefined, undefined, "\d+", undefined, undefined]
-    // "/*"            => ["/", undefined, undefined, undefined, undefined, "*"]
-    '([\\/.])?(?:(?:\\:(\\w+)(?:\\(((?:\\\\.|[^\\\\()])+)\\))?|\\(((?:\\\\.|[^\\\\()])+)\\))([+*?])?|(\\*))'
-  ].join('|'), 'g');
-
-  /**
-   * Parse a string for the raw tokens.
-   *
-   * @param  {string}  str
-   * @param  {Object=} options
-   * @return {!Array}
-   */
-  function parse$1 (str, options) {
-    var tokens = [];
-    var key = 0;
-    var index = 0;
-    var path = '';
-    var defaultDelimiter = options && options.delimiter || '/';
-    var res;
-
-    while ((res = PATH_REGEXP.exec(str)) != null) {
-      var m = res[0];
-      var escaped = res[1];
-      var offset = res.index;
-      path += str.slice(index, offset);
-      index = offset + m.length;
-
-      // Ignore already escaped sequences.
-      if (escaped) {
-        path += escaped[1];
-        continue
-      }
-
-      var next = str[index];
-      var prefix = res[2];
-      var name = res[3];
-      var capture = res[4];
-      var group = res[5];
-      var modifier = res[6];
-      var asterisk = res[7];
-
-      // Push the current path onto the tokens.
-      if (path) {
-        tokens.push(path);
-        path = '';
-      }
-
-      var partial = prefix != null && next != null && next !== prefix;
-      var repeat = modifier === '+' || modifier === '*';
-      var optional = modifier === '?' || modifier === '*';
-      var delimiter = res[2] || defaultDelimiter;
-      var pattern = capture || group;
-
-      tokens.push({
-        name: name || key++,
-        prefix: prefix || '',
-        delimiter: delimiter,
-        optional: optional,
-        repeat: repeat,
-        partial: partial,
-        asterisk: !!asterisk,
-        pattern: pattern ? escapeGroup(pattern) : (asterisk ? '.*' : '[^' + escapeString(delimiter) + ']+?')
-      });
-    }
-
-    // Match any characters still remaining.
-    if (index < str.length) {
-      path += str.substr(index);
-    }
-
-    // If the path exists, push it onto the end.
-    if (path) {
-      tokens.push(path);
-    }
-
-    return tokens
-  }
-
-  /**
-   * Compile a string to a template function for the path.
-   *
-   * @param  {string}             str
-   * @param  {Object=}            options
-   * @return {!function(Object=, Object=)}
-   */
-  function compile (str, options) {
-    return tokensToFunction(parse$1(str, options), options)
-  }
-
-  /**
-   * Prettier encoding of URI path segments.
-   *
-   * @param  {string}
-   * @return {string}
-   */
-  function encodeURIComponentPretty (str) {
-    return encodeURI(str).replace(/[\/?#]/g, function (c) {
-      return '%' + c.charCodeAt(0).toString(16).toUpperCase()
-    })
-  }
-
-  /**
-   * Encode the asterisk parameter. Similar to `pretty`, but allows slashes.
-   *
-   * @param  {string}
-   * @return {string}
-   */
-  function encodeAsterisk (str) {
-    return encodeURI(str).replace(/[?#]/g, function (c) {
-      return '%' + c.charCodeAt(0).toString(16).toUpperCase()
-    })
-  }
-
-  /**
-   * Expose a method for transforming tokens into the path function.
-   */
-  function tokensToFunction (tokens, options) {
-    // Compile all the tokens into regexps.
-    var matches = new Array(tokens.length);
-
-    // Compile all the patterns before compilation.
-    for (var i = 0; i < tokens.length; i++) {
-      if (typeof tokens[i] === 'object') {
-        matches[i] = new RegExp('^(?:' + tokens[i].pattern + ')$', flags(options));
-      }
-    }
-
-    return function (obj, opts) {
-      var path = '';
-      var data = obj || {};
-      var options = opts || {};
-      var encode = options.pretty ? encodeURIComponentPretty : encodeURIComponent;
-
-      for (var i = 0; i < tokens.length; i++) {
-        var token = tokens[i];
-
-        if (typeof token === 'string') {
-          path += token;
-
-          continue
-        }
-
-        var value = data[token.name];
-        var segment;
-
-        if (value == null) {
-          if (token.optional) {
-            // Prepend partial segment prefixes.
-            if (token.partial) {
-              path += token.prefix;
-            }
-
-            continue
-          } else {
-            throw new TypeError('Expected "' + token.name + '" to be defined')
-          }
-        }
-
-        if (isarray(value)) {
-          if (!token.repeat) {
-            throw new TypeError('Expected "' + token.name + '" to not repeat, but received `' + JSON.stringify(value) + '`')
-          }
-
-          if (value.length === 0) {
-            if (token.optional) {
-              continue
-            } else {
-              throw new TypeError('Expected "' + token.name + '" to not be empty')
-            }
-          }
-
-          for (var j = 0; j < value.length; j++) {
-            segment = encode(value[j]);
-
-            if (!matches[i].test(segment)) {
-              throw new TypeError('Expected all "' + token.name + '" to match "' + token.pattern + '", but received `' + JSON.stringify(segment) + '`')
-            }
-
-            path += (j === 0 ? token.prefix : token.delimiter) + segment;
-          }
-
-          continue
-        }
-
-        segment = token.asterisk ? encodeAsterisk(value) : encode(value);
-
-        if (!matches[i].test(segment)) {
-          throw new TypeError('Expected "' + token.name + '" to match "' + token.pattern + '", but received "' + segment + '"')
-        }
-
-        path += token.prefix + segment;
-      }
-
-      return path
-    }
-  }
-
-  /**
-   * Escape a regular expression string.
-   *
-   * @param  {string} str
-   * @return {string}
-   */
-  function escapeString (str) {
-    return str.replace(/([.+*?=^!:${}()[\]|\/\\])/g, '\\$1')
-  }
-
-  /**
-   * Escape the capturing group by escaping special characters and meaning.
-   *
-   * @param  {string} group
-   * @return {string}
-   */
-  function escapeGroup (group) {
-    return group.replace(/([=!:$\/()])/g, '\\$1')
-  }
-
-  /**
-   * Attach the keys as a property of the regexp.
-   *
-   * @param  {!RegExp} re
-   * @param  {Array}   keys
-   * @return {!RegExp}
-   */
-  function attachKeys (re, keys) {
-    re.keys = keys;
-    return re
-  }
-
-  /**
-   * Get the flags for a regexp from the options.
-   *
-   * @param  {Object} options
-   * @return {string}
-   */
-  function flags (options) {
-    return options && options.sensitive ? '' : 'i'
-  }
-
-  /**
-   * Pull out keys from a regexp.
-   *
-   * @param  {!RegExp} path
-   * @param  {!Array}  keys
-   * @return {!RegExp}
-   */
-  function regexpToRegexp (path, keys) {
-    // Use a negative lookahead to match only capturing groups.
-    var groups = path.source.match(/\((?!\?)/g);
-
-    if (groups) {
-      for (var i = 0; i < groups.length; i++) {
-        keys.push({
-          name: i,
-          prefix: null,
-          delimiter: null,
-          optional: false,
-          repeat: false,
-          partial: false,
-          asterisk: false,
-          pattern: null
-        });
-      }
-    }
-
-    return attachKeys(path, keys)
-  }
-
-  /**
-   * Transform an array into a regexp.
-   *
-   * @param  {!Array}  path
-   * @param  {Array}   keys
-   * @param  {!Object} options
-   * @return {!RegExp}
-   */
-  function arrayToRegexp (path, keys, options) {
-    var parts = [];
-
-    for (var i = 0; i < path.length; i++) {
-      parts.push(pathToRegexp(path[i], keys, options).source);
-    }
-
-    var regexp = new RegExp('(?:' + parts.join('|') + ')', flags(options));
-
-    return attachKeys(regexp, keys)
-  }
-
-  /**
-   * Create a path regexp from string input.
-   *
-   * @param  {string}  path
-   * @param  {!Array}  keys
-   * @param  {!Object} options
-   * @return {!RegExp}
-   */
-  function stringToRegexp (path, keys, options) {
-    return tokensToRegExp(parse$1(path, options), keys, options)
-  }
-
-  /**
-   * Expose a function for taking tokens and returning a RegExp.
-   *
-   * @param  {!Array}          tokens
-   * @param  {(Array|Object)=} keys
-   * @param  {Object=}         options
-   * @return {!RegExp}
-   */
-  function tokensToRegExp (tokens, keys, options) {
-    if (!isarray(keys)) {
-      options = /** @type {!Object} */ (keys || options);
-      keys = [];
-    }
-
-    options = options || {};
-
-    var strict = options.strict;
-    var end = options.end !== false;
-    var route = '';
-
-    // Iterate over the tokens and create our regexp string.
-    for (var i = 0; i < tokens.length; i++) {
-      var token = tokens[i];
-
-      if (typeof token === 'string') {
-        route += escapeString(token);
-      } else {
-        var prefix = escapeString(token.prefix);
-        var capture = '(?:' + token.pattern + ')';
-
-        keys.push(token);
-
-        if (token.repeat) {
-          capture += '(?:' + prefix + capture + ')*';
-        }
-
-        if (token.optional) {
-          if (!token.partial) {
-            capture = '(?:' + prefix + '(' + capture + '))?';
-          } else {
-            capture = prefix + '(' + capture + ')?';
-          }
-        } else {
-          capture = prefix + '(' + capture + ')';
-        }
-
-        route += capture;
-      }
-    }
-
-    var delimiter = escapeString(options.delimiter || '/');
-    var endsWithDelimiter = route.slice(-delimiter.length) === delimiter;
-
-    // In non-strict mode we allow a slash at the end of match. If the path to
-    // match already ends with a slash, we remove it for consistency. The slash
-    // is valid at the end of a path match, not in the middle. This is important
-    // in non-ending mode, where "/test/" shouldn't match "/test//route".
-    if (!strict) {
-      route = (endsWithDelimiter ? route.slice(0, -delimiter.length) : route) + '(?:' + delimiter + '(?=$))?';
-    }
-
-    if (end) {
-      route += '$';
-    } else {
-      // In non-ending mode, we need the capturing groups to match as much as
-      // possible by using a positive lookahead to the end or next path segment.
-      route += strict && endsWithDelimiter ? '' : '(?=' + delimiter + '|$)';
-    }
-
-    return attachKeys(new RegExp('^' + route, flags(options)), keys)
-  }
-
-  /**
-   * Normalize the given path string, returning a regular expression.
-   *
-   * An empty array can be passed in for the keys, which will hold the
-   * placeholder key descriptions. For example, using `/user/:id`, `keys` will
-   * contain `[{ name: 'id', delimiter: '/', optional: false, repeat: false }]`.
-   *
-   * @param  {(string|RegExp|Array)} path
-   * @param  {(Array|Object)=}       keys
-   * @param  {Object=}               options
-   * @return {!RegExp}
-   */
-  function pathToRegexp (path, keys, options) {
-    if (!isarray(keys)) {
-      options = /** @type {!Object} */ (keys || options);
-      keys = [];
-    }
-
-    options = options || {};
-
-    if (path instanceof RegExp) {
-      return regexpToRegexp(path, /** @type {!Array} */ (keys))
-    }
-
-    if (isarray(path)) {
-      return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)
-    }
-
-    return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)
-  }
-  pathToRegexp_1.parse = parse_1;
-  pathToRegexp_1.compile = compile_1;
-  pathToRegexp_1.tokensToFunction = tokensToFunction_1;
-  pathToRegexp_1.tokensToRegExp = tokensToRegExp_1;
-
-  // TODO: Replace with React.createContext once we can assume React 16+
-
-  var createNamedContext = function createNamedContext(name) {
-    var context = index$1();
-    context.displayName = name;
-    return context;
-  };
-
-  var historyContext =
-  /*#__PURE__*/
-  createNamedContext("Router-History");
-
-  // TODO: Replace with React.createContext once we can assume React 16+
-
-  var createNamedContext$1 = function createNamedContext(name) {
-    var context = index$1();
-    context.displayName = name;
-    return context;
-  };
-
-  var context =
-  /*#__PURE__*/
-  createNamedContext$1("Router");
-
-  /**
-   * The public API for putting history on context.
-   */
-
-  var Router =
-  /*#__PURE__*/
-  function (_React$Component) {
-    _inheritsLoose(Router, _React$Component);
-
-    Router.computeRootMatch = function computeRootMatch(pathname) {
-      return {
-        path: "/",
-        url: "/",
-        params: {},
-        isExact: pathname === "/"
-      };
-    };
-
-    function Router(props) {
-      var _this;
-
-      _this = _React$Component.call(this, props) || this;
-      _this.state = {
-        location: props.history.location
-      }; // This is a bit of a hack. We have to start listening for location
-      // changes here in the constructor in case there are any <Redirect>s
-      // on the initial render. If there are, they will replace/push when
-      // they mount and since cDM fires in children before parents, we may
-      // get a new location before the <Router> is mounted.
-
-      _this._isMounted = false;
-      _this._pendingLocation = null;
-
-      if (!props.staticContext) {
-        _this.unlisten = props.history.listen(function (location) {
-          if (_this._isMounted) {
-            _this.setState({
-              location: location
-            });
-          } else {
-            _this._pendingLocation = location;
-          }
-        });
-      }
-
-      return _this;
-    }
-
-    var _proto = Router.prototype;
-
-    _proto.componentDidMount = function componentDidMount() {
-      this._isMounted = true;
-
-      if (this._pendingLocation) {
-        this.setState({
-          location: this._pendingLocation
-        });
-      }
-    };
-
-    _proto.componentWillUnmount = function componentWillUnmount() {
-      if (this.unlisten) this.unlisten();
-    };
-
-    _proto.render = function render() {
-      return react.createElement(context.Provider, {
-        value: {
-          history: this.props.history,
-          location: this.state.location,
-          match: Router.computeRootMatch(this.state.location.pathname),
-          staticContext: this.props.staticContext
-        }
-      }, react.createElement(historyContext.Provider, {
-        children: this.props.children || null,
-        value: this.props.history
-      }));
-    };
-
-    return Router;
-  }(react.Component);
-
-  {
-    Router.propTypes = {
-      children: propTypes.node,
-      history: propTypes.object.isRequired,
-      staticContext: propTypes.object
-    };
-
-    Router.prototype.componentDidUpdate = function (prevProps) {
-       warning(prevProps.history === this.props.history, "You cannot change <Router history>") ;
-    };
-  }
-
-  /**
-   * The public API for a <Router> that stores location in memory.
-   */
-
-  var MemoryRouter =
-  /*#__PURE__*/
-  function (_React$Component) {
-    _inheritsLoose(MemoryRouter, _React$Component);
-
-    function MemoryRouter() {
-      var _this;
-
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
-      _this.history = createMemoryHistory(_this.props);
-      return _this;
-    }
-
-    var _proto = MemoryRouter.prototype;
-
-    _proto.render = function render() {
-      return react.createElement(Router, {
-        history: this.history,
-        children: this.props.children
-      });
-    };
-
-    return MemoryRouter;
-  }(react.Component);
-
-  {
-    MemoryRouter.propTypes = {
-      initialEntries: propTypes.array,
-      initialIndex: propTypes.number,
-      getUserConfirmation: propTypes.func,
-      keyLength: propTypes.number,
-      children: propTypes.node
-    };
-
-    MemoryRouter.prototype.componentDidMount = function () {
-       warning(!this.props.history, "<MemoryRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { MemoryRouter as Router }`.") ;
-    };
-  }
-
-  var Lifecycle =
-  /*#__PURE__*/
-  function (_React$Component) {
-    _inheritsLoose(Lifecycle, _React$Component);
-
-    function Lifecycle() {
-      return _React$Component.apply(this, arguments) || this;
-    }
-
-    var _proto = Lifecycle.prototype;
-
-    _proto.componentDidMount = function componentDidMount() {
-      if (this.props.onMount) this.props.onMount.call(this, this);
-    };
-
-    _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
-      if (this.props.onUpdate) this.props.onUpdate.call(this, this, prevProps);
-    };
-
-    _proto.componentWillUnmount = function componentWillUnmount() {
-      if (this.props.onUnmount) this.props.onUnmount.call(this, this);
-    };
-
-    _proto.render = function render() {
-      return null;
-    };
-
-    return Lifecycle;
-  }(react.Component);
-
-  /**
-   * The public API for prompting the user before navigating away from a screen.
-   */
-
-  function Prompt(_ref) {
-    var message = _ref.message,
-        _ref$when = _ref.when,
-        when = _ref$when === void 0 ? true : _ref$when;
-    return react.createElement(context.Consumer, null, function (context) {
-      !context ?  invariant(false, "You should not use <Prompt> outside a <Router>")  : void 0;
-      if (!when || context.staticContext) return null;
-      var method = context.history.block;
-      return react.createElement(Lifecycle, {
-        onMount: function onMount(self) {
-          self.release = method(message);
-        },
-        onUpdate: function onUpdate(self, prevProps) {
-          if (prevProps.message !== message) {
-            self.release();
-            self.release = method(message);
-          }
-        },
-        onUnmount: function onUnmount(self) {
-          self.release();
-        },
-        message: message
-      });
-    });
-  }
-
-  {
-    var messageType = propTypes.oneOfType([propTypes.func, propTypes.string]);
-    Prompt.propTypes = {
-      when: propTypes.bool,
-      message: messageType.isRequired
-    };
-  }
-
-  var cache$2 = {};
-  var cacheLimit = 10000;
-  var cacheCount = 0;
-
-  function compilePath(path) {
-    if (cache$2[path]) return cache$2[path];
-    var generator = pathToRegexp_1.compile(path);
-
-    if (cacheCount < cacheLimit) {
-      cache$2[path] = generator;
-      cacheCount++;
-    }
-
-    return generator;
-  }
-  /**
-   * Public API for generating a URL pathname from a path and parameters.
-   */
-
-
-  function generatePath(path, params) {
-    if (path === void 0) {
-      path = "/";
-    }
-
-    if (params === void 0) {
-      params = {};
-    }
-
-    return path === "/" ? path : compilePath(path)(params, {
-      pretty: true
-    });
-  }
-
-  /**
-   * The public API for navigating programmatically with a component.
-   */
-
-  function Redirect(_ref) {
-    var computedMatch = _ref.computedMatch,
-        to = _ref.to,
-        _ref$push = _ref.push,
-        push = _ref$push === void 0 ? false : _ref$push;
-    return react.createElement(context.Consumer, null, function (context) {
-      !context ?  invariant(false, "You should not use <Redirect> outside a <Router>")  : void 0;
-      var history = context.history,
-          staticContext = context.staticContext;
-      var method = push ? history.push : history.replace;
-      var location = createLocation(computedMatch ? typeof to === "string" ? generatePath(to, computedMatch.params) : _extends({}, to, {
-        pathname: generatePath(to.pathname, computedMatch.params)
-      }) : to); // When rendering in a static context,
-      // set the new location immediately.
-
-      if (staticContext) {
-        method(location);
-        return null;
-      }
-
-      return react.createElement(Lifecycle, {
-        onMount: function onMount() {
-          method(location);
-        },
-        onUpdate: function onUpdate(self, prevProps) {
-          var prevLocation = createLocation(prevProps.to);
-
-          if (!locationsAreEqual(prevLocation, _extends({}, location, {
-            key: prevLocation.key
-          }))) {
-            method(location);
-          }
-        },
-        to: to
-      });
-    });
-  }
-
-  {
-    Redirect.propTypes = {
-      push: propTypes.bool,
-      from: propTypes.string,
-      to: propTypes.oneOfType([propTypes.string, propTypes.object]).isRequired
-    };
-  }
-
-  var cache$1$2 = {};
-  var cacheLimit$1 = 10000;
-  var cacheCount$1 = 0;
-
-  function compilePath$1(path, options) {
-    var cacheKey = "" + options.end + options.strict + options.sensitive;
-    var pathCache = cache$1$2[cacheKey] || (cache$1$2[cacheKey] = {});
-    if (pathCache[path]) return pathCache[path];
-    var keys = [];
-    var regexp = pathToRegexp_1(path, keys, options);
-    var result = {
-      regexp: regexp,
-      keys: keys
-    };
-
-    if (cacheCount$1 < cacheLimit$1) {
-      pathCache[path] = result;
-      cacheCount$1++;
-    }
-
-    return result;
-  }
-  /**
-   * Public API for matching a URL pathname to a path.
-   */
-
-
-  function matchPath(pathname, options) {
-    if (options === void 0) {
-      options = {};
-    }
-
-    if (typeof options === "string" || Array.isArray(options)) {
-      options = {
-        path: options
-      };
-    }
-
-    var _options = options,
-        path = _options.path,
-        _options$exact = _options.exact,
-        exact = _options$exact === void 0 ? false : _options$exact,
-        _options$strict = _options.strict,
-        strict = _options$strict === void 0 ? false : _options$strict,
-        _options$sensitive = _options.sensitive,
-        sensitive = _options$sensitive === void 0 ? false : _options$sensitive;
-    var paths = [].concat(path);
-    return paths.reduce(function (matched, path) {
-      if (!path && path !== "") return null;
-      if (matched) return matched;
-
-      var _compilePath = compilePath$1(path, {
-        end: exact,
-        strict: strict,
-        sensitive: sensitive
-      }),
-          regexp = _compilePath.regexp,
-          keys = _compilePath.keys;
-
-      var match = regexp.exec(pathname);
-      if (!match) return null;
-      var url = match[0],
-          values = match.slice(1);
-      var isExact = pathname === url;
-      if (exact && !isExact) return null;
-      return {
-        path: path,
-        // the path used to match
-        url: path === "/" && url === "" ? "/" : url,
-        // the matched portion of the URL
-        isExact: isExact,
-        // whether or not we matched exactly
-        params: keys.reduce(function (memo, key, index) {
-          memo[key.name] = values[index];
-          return memo;
-        }, {})
-      };
-    }, null);
-  }
-
-  function isEmptyChildren(children) {
-    return react.Children.count(children) === 0;
-  }
-
-  function evalChildrenDev(children, props, path) {
-    var value = children(props);
-     warning(value !== undefined, "You returned `undefined` from the `children` function of " + ("<Route" + (path ? " path=\"" + path + "\"" : "") + ">, but you ") + "should have returned a React element or `null`") ;
-    return value || null;
-  }
-  /**
-   * The public API for matching a single path and rendering.
-   */
-
-
-  var Route =
-  /*#__PURE__*/
-  function (_React$Component) {
-    _inheritsLoose(Route, _React$Component);
-
-    function Route() {
-      return _React$Component.apply(this, arguments) || this;
-    }
-
-    var _proto = Route.prototype;
-
-    _proto.render = function render() {
-      var _this = this;
-
-      return react.createElement(context.Consumer, null, function (context$1) {
-        !context$1 ?  invariant(false, "You should not use <Route> outside a <Router>")  : void 0;
-        var location = _this.props.location || context$1.location;
-        var match = _this.props.computedMatch ? _this.props.computedMatch // <Switch> already computed the match for us
-        : _this.props.path ? matchPath(location.pathname, _this.props) : context$1.match;
-
-        var props = _extends({}, context$1, {
-          location: location,
-          match: match
-        });
-
-        var _this$props = _this.props,
-            children = _this$props.children,
-            component = _this$props.component,
-            render = _this$props.render; // Preact uses an empty array as children by
-        // default, so use null if that's the case.
-
-        if (Array.isArray(children) && children.length === 0) {
-          children = null;
-        }
-
-        return react.createElement(context.Provider, {
-          value: props
-        }, props.match ? children ? typeof children === "function" ?  evalChildrenDev(children, props, _this.props.path)  : children : component ? react.createElement(component, props) : render ? render(props) : null : typeof children === "function" ?  evalChildrenDev(children, props, _this.props.path)  : null);
-      });
-    };
-
-    return Route;
-  }(react.Component);
-
-  {
-    Route.propTypes = {
-      children: propTypes.oneOfType([propTypes.func, propTypes.node]),
-      component: function component(props, propName) {
-        if (props[propName] && !reactIs_4(props[propName])) {
-          return new Error("Invalid prop 'component' supplied to 'Route': the prop is not a valid React component");
-        }
-      },
-      exact: propTypes.bool,
-      location: propTypes.object,
-      path: propTypes.oneOfType([propTypes.string, propTypes.arrayOf(propTypes.string)]),
-      render: propTypes.func,
-      sensitive: propTypes.bool,
-      strict: propTypes.bool
-    };
-
-    Route.prototype.componentDidMount = function () {
-       warning(!(this.props.children && !isEmptyChildren(this.props.children) && this.props.component), "You should not use <Route component> and <Route children> in the same route; <Route component> will be ignored") ;
-       warning(!(this.props.children && !isEmptyChildren(this.props.children) && this.props.render), "You should not use <Route render> and <Route children> in the same route; <Route render> will be ignored") ;
-       warning(!(this.props.component && this.props.render), "You should not use <Route component> and <Route render> in the same route; <Route render> will be ignored") ;
-    };
-
-    Route.prototype.componentDidUpdate = function (prevProps) {
-       warning(!(this.props.location && !prevProps.location), '<Route> elements should not change from uncontrolled to controlled (or vice versa). You initially used no "location" prop and then provided one on a subsequent render.') ;
-       warning(!(!this.props.location && prevProps.location), '<Route> elements should not change from controlled to uncontrolled (or vice versa). You provided a "location" prop initially but omitted it on a subsequent render.') ;
-    };
-  }
-
-  function addLeadingSlash$1(path) {
-    return path.charAt(0) === "/" ? path : "/" + path;
-  }
-
-  function addBasename(basename, location) {
-    if (!basename) return location;
-    return _extends({}, location, {
-      pathname: addLeadingSlash$1(basename) + location.pathname
-    });
-  }
-
-  function stripBasename$1(basename, location) {
-    if (!basename) return location;
-    var base = addLeadingSlash$1(basename);
-    if (location.pathname.indexOf(base) !== 0) return location;
-    return _extends({}, location, {
-      pathname: location.pathname.substr(base.length)
-    });
-  }
-
-  function createURL(location) {
-    return typeof location === "string" ? location : createPath(location);
-  }
-
-  function staticHandler(methodName) {
-    return function () {
-        invariant(false, "You cannot %s with <StaticRouter>")  ;
-    };
-  }
-
-  function noop$3() {}
-  /**
-   * The public top-level API for a "static" <Router>, so-called because it
-   * can't actually change the current location. Instead, it just records
-   * location changes in a context object. Useful mainly in testing and
-   * server-rendering scenarios.
-   */
-
-
-  var StaticRouter =
-  /*#__PURE__*/
-  function (_React$Component) {
-    _inheritsLoose(StaticRouter, _React$Component);
-
-    function StaticRouter() {
-      var _this;
-
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
-
-      _this.handlePush = function (location) {
-        return _this.navigateTo(location, "PUSH");
-      };
-
-      _this.handleReplace = function (location) {
-        return _this.navigateTo(location, "REPLACE");
-      };
-
-      _this.handleListen = function () {
-        return noop$3;
-      };
-
-      _this.handleBlock = function () {
-        return noop$3;
-      };
-
-      return _this;
-    }
-
-    var _proto = StaticRouter.prototype;
-
-    _proto.navigateTo = function navigateTo(location, action) {
-      var _this$props = this.props,
-          _this$props$basename = _this$props.basename,
-          basename = _this$props$basename === void 0 ? "" : _this$props$basename,
-          _this$props$context = _this$props.context,
-          context = _this$props$context === void 0 ? {} : _this$props$context;
-      context.action = action;
-      context.location = addBasename(basename, createLocation(location));
-      context.url = createURL(context.location);
-    };
-
-    _proto.render = function render() {
-      var _this$props2 = this.props,
-          _this$props2$basename = _this$props2.basename,
-          basename = _this$props2$basename === void 0 ? "" : _this$props2$basename,
-          _this$props2$context = _this$props2.context,
-          context = _this$props2$context === void 0 ? {} : _this$props2$context,
-          _this$props2$location = _this$props2.location,
-          location = _this$props2$location === void 0 ? "/" : _this$props2$location,
-          rest = _objectWithoutPropertiesLoose$1(_this$props2, ["basename", "context", "location"]);
-
-      var history = {
-        createHref: function createHref(path) {
-          return addLeadingSlash$1(basename + createURL(path));
-        },
-        action: "POP",
-        location: stripBasename$1(basename, createLocation(location)),
-        push: this.handlePush,
-        replace: this.handleReplace,
-        go: staticHandler(),
-        goBack: staticHandler(),
-        goForward: staticHandler(),
-        listen: this.handleListen,
-        block: this.handleBlock
-      };
-      return react.createElement(Router, _extends({}, rest, {
-        history: history,
-        staticContext: context
-      }));
-    };
-
-    return StaticRouter;
-  }(react.Component);
-
-  {
-    StaticRouter.propTypes = {
-      basename: propTypes.string,
-      context: propTypes.object,
-      location: propTypes.oneOfType([propTypes.string, propTypes.object])
-    };
-
-    StaticRouter.prototype.componentDidMount = function () {
-       warning(!this.props.history, "<StaticRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { StaticRouter as Router }`.") ;
-    };
-  }
-
-  /**
-   * The public API for rendering the first <Route> that matches.
-   */
-
-  var Switch =
-  /*#__PURE__*/
-  function (_React$Component) {
-    _inheritsLoose(Switch, _React$Component);
-
-    function Switch() {
-      return _React$Component.apply(this, arguments) || this;
-    }
-
-    var _proto = Switch.prototype;
-
-    _proto.render = function render() {
-      var _this = this;
-
-      return react.createElement(context.Consumer, null, function (context) {
-        !context ?  invariant(false, "You should not use <Switch> outside a <Router>")  : void 0;
-        var location = _this.props.location || context.location;
-        var element, match; // We use React.Children.forEach instead of React.Children.toArray().find()
-        // here because toArray adds keys to all child elements and we do not want
-        // to trigger an unmount/remount for two <Route>s that render the same
-        // component at different URLs.
-
-        react.Children.forEach(_this.props.children, function (child) {
-          if (match == null && react.isValidElement(child)) {
-            element = child;
-            var path = child.props.path || child.props.from;
-            match = path ? matchPath(location.pathname, _extends({}, child.props, {
-              path: path
-            })) : context.match;
-          }
-        });
-        return match ? react.cloneElement(element, {
-          location: location,
-          computedMatch: match
-        }) : null;
-      });
-    };
-
-    return Switch;
-  }(react.Component);
-
-  {
-    Switch.propTypes = {
-      children: propTypes.node,
-      location: propTypes.object
-    };
-
-    Switch.prototype.componentDidUpdate = function (prevProps) {
-       warning(!(this.props.location && !prevProps.location), '<Switch> elements should not change from uncontrolled to controlled (or vice versa). You initially used no "location" prop and then provided one on a subsequent render.') ;
-       warning(!(!this.props.location && prevProps.location), '<Switch> elements should not change from controlled to uncontrolled (or vice versa). You provided a "location" prop initially but omitted it on a subsequent render.') ;
-    };
-  }
-
-  var useContext = react.useContext;
-
-  {
-    if (typeof window !== "undefined") {
-      var global$1 = window;
-      var key$2 = "__react_router_build__";
-      var buildNames = {
-        cjs: "CommonJS",
-        esm: "ES modules",
-        umd: "UMD"
-      };
-
-      if (global$1[key$2] && global$1[key$2] !== "esm") {
-        var initialBuildName = buildNames[global$1[key$2]];
-        var secondaryBuildName = buildNames["esm"]; // TODO: Add link to article that explains in detail how to avoid
-        // loading 2 different builds.
-
-        throw new Error("You are loading the " + secondaryBuildName + " build of React Router " + ("on a page that is already running the " + initialBuildName + " ") + "build, so things won't work right.");
-      }
-
-      global$1[key$2] = "esm";
-    }
-  }
-
-  /**
-   * The public API for a <Router> that uses HTML5 history.
-   */
-
-  var BrowserRouter =
-  /*#__PURE__*/
-  function (_React$Component) {
-    _inheritsLoose(BrowserRouter, _React$Component);
-
-    function BrowserRouter() {
-      var _this;
-
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
-      _this.history = createBrowserHistory(_this.props);
-      return _this;
-    }
-
-    var _proto = BrowserRouter.prototype;
-
-    _proto.render = function render() {
-      return react.createElement(Router, {
-        history: this.history,
-        children: this.props.children
-      });
-    };
-
-    return BrowserRouter;
-  }(react.Component);
-
-  {
-    BrowserRouter.propTypes = {
-      basename: propTypes.string,
-      children: propTypes.node,
-      forceRefresh: propTypes.bool,
-      getUserConfirmation: propTypes.func,
-      keyLength: propTypes.number
-    };
-
-    BrowserRouter.prototype.componentDidMount = function () {
-       warning(!this.props.history, "<BrowserRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { BrowserRouter as Router }`.") ;
-    };
-  }
-
-  /**
-   * The public API for a <Router> that uses window.location.hash.
-   */
-
-  var HashRouter =
-  /*#__PURE__*/
-  function (_React$Component) {
-    _inheritsLoose(HashRouter, _React$Component);
-
-    function HashRouter() {
-      var _this;
-
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
-      _this.history = createHashHistory(_this.props);
-      return _this;
-    }
-
-    var _proto = HashRouter.prototype;
-
-    _proto.render = function render() {
-      return react.createElement(Router, {
-        history: this.history,
-        children: this.props.children
-      });
-    };
-
-    return HashRouter;
-  }(react.Component);
-
-  {
-    HashRouter.propTypes = {
-      basename: propTypes.string,
-      children: propTypes.node,
-      getUserConfirmation: propTypes.func,
-      hashType: propTypes.oneOf(["hashbang", "noslash", "slash"])
-    };
-
-    HashRouter.prototype.componentDidMount = function () {
-       warning(!this.props.history, "<HashRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { HashRouter as Router }`.") ;
-    };
-  }
-
-  var resolveToLocation = function resolveToLocation(to, currentLocation) {
-    return typeof to === "function" ? to(currentLocation) : to;
-  };
-  var normalizeToLocation = function normalizeToLocation(to, currentLocation) {
-    return typeof to === "string" ? createLocation(to, null, null, currentLocation) : to;
-  };
-
-  var forwardRefShim = function forwardRefShim(C) {
-    return C;
-  };
-
-  var forwardRef = react.forwardRef;
-
-  if (typeof forwardRef === "undefined") {
-    forwardRef = forwardRefShim;
-  }
-
-  function isModifiedEvent(event) {
-    return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
-  }
-
-  var LinkAnchor = forwardRef(function (_ref, forwardedRef) {
-    var innerRef = _ref.innerRef,
-        navigate = _ref.navigate,
-        _onClick = _ref.onClick,
-        rest = _objectWithoutPropertiesLoose$1(_ref, ["innerRef", "navigate", "onClick"]);
-
-    var target = rest.target;
-
-    var props = _extends({}, rest, {
-      onClick: function onClick(event) {
-        try {
-          if (_onClick) _onClick(event);
-        } catch (ex) {
-          event.preventDefault();
-          throw ex;
-        }
-
-        if (!event.defaultPrevented && // onClick prevented default
-        event.button === 0 && ( // ignore everything but left clicks
-        !target || target === "_self") && // let browser handle "target=_blank" etc.
-        !isModifiedEvent(event) // ignore clicks with modifier keys
-        ) {
-            event.preventDefault();
-            navigate();
-          }
-      }
-    }); // React 15 compat
-
-
-    if (forwardRefShim !== forwardRef) {
-      props.ref = forwardedRef || innerRef;
-    } else {
-      props.ref = innerRef;
-    }
-    /* eslint-disable-next-line jsx-a11y/anchor-has-content */
-
-
-    return react.createElement("a", props);
-  });
-
-  {
-    LinkAnchor.displayName = "LinkAnchor";
-  }
-  /**
-   * The public API for rendering a history-aware <a>.
-   */
-
-
-  var Link = forwardRef(function (_ref2, forwardedRef) {
-    var _ref2$component = _ref2.component,
-        component = _ref2$component === void 0 ? LinkAnchor : _ref2$component,
-        replace = _ref2.replace,
-        to = _ref2.to,
-        innerRef = _ref2.innerRef,
-        rest = _objectWithoutPropertiesLoose$1(_ref2, ["component", "replace", "to", "innerRef"]);
-
-    return react.createElement(context.Consumer, null, function (context) {
-      !context ?  invariant(false, "You should not use <Link> outside a <Router>")  : void 0;
-      var history = context.history;
-      var location = normalizeToLocation(resolveToLocation(to, context.location), context.location);
-      var href = location ? history.createHref(location) : "";
-
-      var props = _extends({}, rest, {
-        href: href,
-        navigate: function navigate() {
-          var location = resolveToLocation(to, context.location);
-          var method = replace ? history.replace : history.push;
-          method(location);
-        }
-      }); // React 15 compat
-
-
-      if (forwardRefShim !== forwardRef) {
-        props.ref = forwardedRef || innerRef;
-      } else {
-        props.innerRef = innerRef;
-      }
-
-      return react.createElement(component, props);
-    });
-  });
-
-  {
-    var toType = propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.func]);
-    var refType$1 = propTypes.oneOfType([propTypes.string, propTypes.func, propTypes.shape({
-      current: propTypes.any
-    })]);
-    Link.displayName = "Link";
-    Link.propTypes = {
-      innerRef: refType$1,
-      onClick: propTypes.func,
-      replace: propTypes.bool,
-      target: propTypes.string,
-      to: toType.isRequired
-    };
-  }
-
-  var forwardRefShim$1 = function forwardRefShim(C) {
-    return C;
-  };
-
-  var forwardRef$1 = react.forwardRef;
-
-  if (typeof forwardRef$1 === "undefined") {
-    forwardRef$1 = forwardRefShim$1;
-  }
-
-  function joinClassnames() {
-    for (var _len = arguments.length, classnames = new Array(_len), _key = 0; _key < _len; _key++) {
-      classnames[_key] = arguments[_key];
-    }
-
-    return classnames.filter(function (i) {
-      return i;
-    }).join(" ");
-  }
-  /**
-   * A <Link> wrapper that knows if it's "active" or not.
-   */
-
-
-  var NavLink = forwardRef$1(function (_ref, forwardedRef) {
-    var _ref$ariaCurrent = _ref["aria-current"],
-        ariaCurrent = _ref$ariaCurrent === void 0 ? "page" : _ref$ariaCurrent,
-        _ref$activeClassName = _ref.activeClassName,
-        activeClassName = _ref$activeClassName === void 0 ? "active" : _ref$activeClassName,
-        activeStyle = _ref.activeStyle,
-        classNameProp = _ref.className,
-        exact = _ref.exact,
-        isActiveProp = _ref.isActive,
-        locationProp = _ref.location,
-        sensitive = _ref.sensitive,
-        strict = _ref.strict,
-        styleProp = _ref.style,
-        to = _ref.to,
-        innerRef = _ref.innerRef,
-        rest = _objectWithoutPropertiesLoose$1(_ref, ["aria-current", "activeClassName", "activeStyle", "className", "exact", "isActive", "location", "sensitive", "strict", "style", "to", "innerRef"]);
-
-    return react.createElement(context.Consumer, null, function (context) {
-      !context ?  invariant(false, "You should not use <NavLink> outside a <Router>")  : void 0;
-      var currentLocation = locationProp || context.location;
-      var toLocation = normalizeToLocation(resolveToLocation(to, currentLocation), currentLocation);
-      var path = toLocation.pathname; // Regex taken from: https://github.com/pillarjs/path-to-regexp/blob/master/index.js#L202
-
-      var escapedPath = path && path.replace(/([.+*?=^!:${}()[\]|/\\])/g, "\\$1");
-      var match = escapedPath ? matchPath(currentLocation.pathname, {
-        path: escapedPath,
-        exact: exact,
-        sensitive: sensitive,
-        strict: strict
-      }) : null;
-      var isActive = !!(isActiveProp ? isActiveProp(match, currentLocation) : match);
-      var className = isActive ? joinClassnames(classNameProp, activeClassName) : classNameProp;
-      var style = isActive ? _extends({}, styleProp, {}, activeStyle) : styleProp;
-
-      var props = _extends({
-        "aria-current": isActive && ariaCurrent || null,
-        className: className,
-        style: style,
-        to: toLocation
-      }, rest); // React 15 compat
-
-
-      if (forwardRefShim$1 !== forwardRef$1) {
-        props.ref = forwardedRef || innerRef;
-      } else {
-        props.innerRef = innerRef;
-      }
-
-      return react.createElement(Link, props);
-    });
-  });
-
-  {
-    NavLink.displayName = "NavLink";
-    var ariaCurrentType = propTypes.oneOf(["page", "step", "location", "date", "time", "true"]);
-    NavLink.propTypes = _extends({}, Link.propTypes, {
-      "aria-current": ariaCurrentType,
-      activeClassName: propTypes.string,
-      activeStyle: propTypes.object,
-      className: propTypes.string,
-      exact: propTypes.bool,
-      isActive: propTypes.func,
-      location: propTypes.object,
-      sensitive: propTypes.bool,
-      strict: propTypes.bool,
-      style: propTypes.object
-    });
-  }
-
   var screens = [[Splash, 'Home'], [about, 'About'], [games, 'Games'], [stream, 'Stream'], [devlog, 'Devlog']];
-  var styles$e = makeStyles$1({
+  var styles$d = makeStyles$1({
     root: {
       width: '200px',
       height: '100%',
@@ -57429,11 +57693,9 @@
   });
 
   var Browser = function Browser() {
-    var classes = styles$e();
+    var classes = styles$d();
 
     var _React$useState = react.useState({
-      icon: faBars,
-      nextIcon: faTimes,
       navOpen: false
     }),
         _React$useState2 = _slicedToArray(_React$useState, 2),
@@ -57441,14 +57703,14 @@
         setState = _React$useState2[1];
 
     var toggleDrawer = function toggleDrawer(open) {
-      setState(_objectSpread2(_objectSpread2({}, state), {}, {
+      setState({
         navOpen: open
-      }));
+      });
     };
 
     return /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement(FontAwesomeIcon, {
       className: "toggle-button",
-      icon: state.icon,
+      icon: faBars,
       onClick: function onClick() {
         return toggleDrawer(true);
       }

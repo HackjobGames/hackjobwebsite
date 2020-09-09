@@ -41,18 +41,16 @@ const styles = makeStyles({
 const Browser = function () {
   const classes = styles()
   const [state, setState] = React.useState({
-    icon: faBars,
-    nextIcon: faTimes,
     navOpen: false
   })
 
   const toggleDrawer = (open) => { 
-    setState({ ...state, navOpen: open });
+    setState({ navOpen: open });
   }
 
   return (
     <div>
-      <FontAwesomeIcon className='toggle-button' icon={state.icon} onClick={() => toggleDrawer(true)} />
+      <FontAwesomeIcon className='toggle-button' icon={faBars} onClick={() => toggleDrawer(true)} />
       <Router>
         <div>
           <Drawer open={state.navOpen} onClose={() => toggleDrawer(false)}>
@@ -72,5 +70,5 @@ const Browser = function () {
   )
 }
 
-ReactDOM.render(<Browser />, document.getElementById('app'))
+ReactDOM.render(<Browser/>, document.getElementById('app'))
 

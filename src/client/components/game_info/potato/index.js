@@ -21,5 +21,7 @@ export default {
       </p>
     </div>,
   name: 'plant-the-potato',
+  displayName: 'Plant The Potato',
+  img: './lib/images/PlantThePotatoTitle.png',
   itchId: '1776960'
 }

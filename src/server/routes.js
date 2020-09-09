@@ -7,7 +7,14 @@ const router = new Router()
 
 router.get('/devlog/:page', devlog.get)
 router.get('(.*)', async (ctx, next) => {
-  if(ctx.request.url !== '/index.js' && ctx.request.url !== '/index.js.map') ctx.request.url = '/'
+  if (ctx.request.url.includes('/index.js')) {
+    ctx.request.url = '/index.js'
+  } else if (ctx.request.url.includes('/index.map.js')) {
+    ctx.request.url = '/index.map.js'
+  } else if (ctx.request.url.includes('lib')) {
+  } else if(ctx.request.url !== '/index.js' && ctx.request.url !== '/index.js.map') {
+    ctx.request.url = '/'
+  } 
   await serve(path.resolve('./dist'))(ctx, next)
 })
 

@@ -46,5 +46,7 @@ export default {
             your next poop will be many time bigger and grosser. I'm sorry about the sound, but I'm not changing it lol.</p>
   </div>,
   name: 'birds-away',
+  displayName: 'Birds Away',
+  img: './lib/images/BirdsAwayTitle.png',
   itchId: '1917788'
 }
