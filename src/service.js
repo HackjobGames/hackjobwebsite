@@ -3,7 +3,7 @@ const Service = require('node-windows').Service
 const svc = new Service({
   name:'HackjobGamesWebService',
   description: 'Root Service for all HackjobGames Websites',
-  script: './src/service/index.js',
+  script: './src/service.js',
   nodeOptions: [
     '--harmony',
   ]
