@@ -5,8 +5,9 @@
   "scripts": {
     "test": "test",
     "start": "node ./index.js",
-    "build": "rollup -c",
+    "build": "bash build.sh",
     "dev": "bash dev.sh",
+    "deploy": "bash deploy.sh",
     "serve": "node ./src"
   },
   "author": "",
