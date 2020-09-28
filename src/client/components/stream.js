@@ -6,7 +6,7 @@ export class stream extends React.Component {
     new Twitch.Embed("twitch-embed", {
       width: 1280,
       height: 720,
-      channel: "greengogg"
+      channel: "hackjobgames"
     })
   }
   render() {
