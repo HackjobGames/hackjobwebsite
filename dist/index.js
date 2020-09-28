@@ -2504,7 +2504,7 @@
     name: 'plant-the-potato',
     displayName: 'Plant The Potato',
     img: './lib/images/PlantThePotatoTitle.png',
-    itchId: '1776960'
+    itchId: '2727988'
   };
 
   var birds = {

@@ -23,7 +23,7 @@ export class Splash extends React.Component {
           <div className="text-box">
             <h1 id="heading-primary">
               <span id="heading-primary-main">Hackjob Games</span>
-              <span id="heading-primary-sub">Making sub-par games since 2019</span>
+              <span id="heading-primary-sub">Making quality games since 2019</span>
             </h1>
           </div>
         </header>
