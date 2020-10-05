@@ -1,9 +1,13 @@
-var sqlite3 = require('sqlite3').verbose()
-var db = new sqlite3.Database('./database')
- 
-export const query = (sql) => new Promise((resolve, reject) => {
-  db.all(sql, (err, rows) => {
-    if (err) reject(err)
-    resolve(rows)
-  })
+import { Client } from 'pg'
+const createClient = () => new Client({
+  PGDATABASE: 'hackjobgames'
 })
+
+ 
+export const query = async (sql) => {
+  const client = createClient()
+  client.connect()
+  const rows = (await client.query(sql)).rows
+  await client.end()
+  return rows
+}
