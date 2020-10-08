@@ -3,11 +3,7 @@ import React from 'react'
 export default {
   about :
     <p>
-    This is the first game that was ever made by HackJob games. First, a little history. Back in the school year of 2018-2019, Grant (Co-Founder) and Dylan (Co-founder), both computer
-    science majors in college, wanted to work on a small project to improve thier coding skills. Some dumb idiot (Grant) came up with the idea for a mobile app about a bird pooping on people.
-    About a month of coding and making fart noises into a microphone later, Birds Away was born. I made a whole 23 cents on the Google Play store before being taking down for "distributing sensitive
-    user information." So after that disaster, they decided to put it on their website for free and never think about it ever again. Not sure if we will ever work on it again, but if you have suggestions
-    for how we can improve the game, feel free to contact us at contact@hackjob.games.
+    This is the first game that was ever made by HackJob games. It's a small game where you poop on people as a bird....and that's it.
     </p>,
   howTo:
   <div>
@@ -16,6 +12,10 @@ export default {
         Birds Away is a very simple game. When starting the game, first you will need to select a difficulty. There are four difficulties, and you unlock them as you beat the previous
         difficulty. The controls are simply up, down, left, and right to move, and space bar to poop. You get one point for pooping on normal people and five points for pooping on the illusive golden man
         If you would like to discover the game for yourself, I would suggest you stop reading now because I'm going to spoil all of the game's content.
+    </p>
+    <h1>Controls</h1>
+    <p>
+      You can move with the arrow keys or WASD. Space bar drops poop.
     </p>
     <h1>Enemies</h1>
     <p>
@@ -44,6 +44,11 @@ export default {
         <h2>Beans</h2>
         <p>This fiber rich powerup allows your bird to unleash a devastating bowl movement on the people below. After obtaining the beans powerup, 
             your next poop will be many time bigger and grosser. I'm sorry about the sound, but I'm not changing it lol.</p>
+    <h1>What We Learned</h1>
+      <p>
+        This was a really fun project, and started our passion for game development. It's a very basic game, but we learned a lot about the game development process, but
+        I think the concept of the game was not well thought out, and we needed more planning from the beginning.
+      </p>
   </div>,
   name: 'birds-away',
   displayName: 'Birds Away',

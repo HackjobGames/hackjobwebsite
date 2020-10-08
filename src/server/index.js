@@ -3,6 +3,8 @@ import router from './routes'
 import https from 'https'
 import http from 'http'
 import fs from 'fs'
+const koaBodyFile = require('koa-body')({multipart: true})
+
 const app = new Koa()
 
 const config = {
@@ -10,6 +12,7 @@ const config = {
   cert: fs.readFileSync('./ssl/hackjob_games.crt', 'utf8'),
   ca: fs.readFileSync('./ssl/hackjob_games.ca-bundle', 'utf8')
 }
+app.use(koaBodyFile);
 
 app.use(router)
 

@@ -15,9 +15,21 @@ export default {
     <div>
       <h1>Controls</h1>
       <p>
-          To fling the potato, simply click and drag anywhere on the screen. Think of it like a sling shot. Let go of the mouse to send the potato flying. Once per level,
-          if you click while the potato is in mid-air, you can use a slow down effect for a more accurate shot. Just try to get it in the exposed dirt. That's really it for now.
-          This page will hopefully be more fleshed out as we update the game.
+          To fling the potato, simply click and drag anywhere on the screen. Think of it like a sling shot. Let go of the mouse to send the potato flying. Once in the air you
+          can double click to enter slow-mo, you can do this once per shot. When in the air you can click and fling the mouse left or right to add some spin.
+      </p>
+      <h1>Stars</h1>
+      <p>
+        If you get 20 stars you can move on to the next set of levels, getting all 30 stars for a page of levels, will unlock challenge mode.
+        This allows you to replay previous levels and complete new and interesting challenges.
+        The game was originally planned to be very long with a lot of levels and challenges, unfortunately we over-extended ourselves for what we were capable of, and ended up
+        not finishing everything we originally had planned. 
+      </p>
+      <h1>What We Learned</h1>
+      <p>
+        Although this game had a very basic idea behind it, we fell victim to trying to implement more and more features until it ballooned out of control.
+        From now on, unless we are planning a comercial project, I think it's best to have strict requirements or a deadline to complete the game. Still I love
+        our cute little potato game and hope you do to.
       </p>
     </div>,
   name: 'plant-the-potato',
