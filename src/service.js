@@ -9,6 +9,9 @@ const svc = new Service({
   ]
 })
 
+svc.logOnAs.account = process.env.USERNAME
+svc.logOnAs.password = process.env.PGPASSWORD
+
 svc.on('install',function(){
   svc.start()
 })
