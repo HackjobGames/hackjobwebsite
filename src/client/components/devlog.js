@@ -74,6 +74,7 @@ const emptyLog = {
 export const devlog = () => {
   const [state, setState] = React.useState({
     logs: [],
+    pullData: true,
     currentLog: {},
     dialogOpen: false,
     isNew: false,
@@ -81,10 +82,9 @@ export const devlog = () => {
     adminFlag: getCookie('admin')
 
   })
-  if (state.logs.length === 0) {
+  if (state.pullData) {
     axios.get('/api/devlog/1').then(res => {
-      console.log(res.data)
-      setState({...state, logs: res.data || [] })
+      setState({...state, logs: res.data || [], pullData: false })
     })
   }
 
