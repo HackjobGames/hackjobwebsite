@@ -3,5 +3,7 @@
 *.crt
 node_modules
 ssl
-dist
+dist/index.js
+dist/index.js.map
+dist/index.html
 daemon
