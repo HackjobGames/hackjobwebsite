@@ -51,27 +51,33 @@ const styles =
 }
 
 const Browser = function () {
-  const [state, setState] = React.useState({
-    navOpen: false
-  })
 
-  const toggleDrawer = (status) => { 
-    setState({ ...state, navOpen: status })
+
+  const Menu = () => {
+    const [state, setState] = React.useState({
+      open: false
+    })
+    const toggleDrawer = (status) => { 
+      setState({ ...state, navOpen: status })
+    }
+    return <div>
+      <FontAwesomeIcon className='toggle-button' icon={faBars} onClick={() => toggleDrawer(true)} />
+      <Drawer open={state.navOpen} onClose={() => toggleDrawer(false)}>
+        <List style={styles.root}>
+          {screens.map(([screen, name]) => {
+            return <Link key={name} to={`/${name.toLowerCase()}`}><ListItem style={styles.item} onClick={() => toggleDrawer(false)}>{name}</ListItem></Link>
+          })}
+          <SignIn/>
+        </List>
+      </Drawer>
+    </div>
   }
 
   return (
     <div>
-      <FontAwesomeIcon className='toggle-button' icon={faBars} onClick={() => toggleDrawer(true)} />
       <Router>
         <div>
-          <Drawer open={state.navOpen} onClose={() => toggleDrawer(false)}>
-            <List style={styles.root}>
-              {screens.map(([screen, name]) => {
-                return <Link key={name} to={`/${name.toLowerCase()}`}><ListItem style={styles.item} onClick={() => toggleDrawer(false)}>{name}</ListItem></Link>
-              })}
-              <SignIn/>
-            </List>
-          </Drawer>
+          <Menu />
           <Switch>
             {screens.map(([Screen, name]) => <Route key={name} path={`/${name.toLowerCase()}`}><Screen /></Route>)}
             <Route path='/'><Splash/></Route>
