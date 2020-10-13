@@ -28,7 +28,8 @@ export const signUp = async (ctx) => {
   } else {
     const salt = await bcrypt.genSalt(10)
     try {
-      await query(`insert into dbo.users (username, hash) values ('${ctx.request.body.username}', '${await bcrypt.hash(ctx.request.body.password, salt)}')`)
+      const user = await query(`insert into dbo.users (username, hash) values ('${ctx.request.body.username}', '${await bcrypt.hash(ctx.request.body.password, salt)}')`)
+      ctx.body = 'User Successfully Created'
       ctx.response.status = 200
     } catch (e) {
       ctx.response.status = 500

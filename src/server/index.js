@@ -7,11 +7,11 @@ const koaBodyFile = require('koa-body')({multipart: true})
 
 const app = new Koa()
 
-const config = {
-  key: fs.readFileSync('./ssl/private.key', 'utf8'),
-  cert: fs.readFileSync('./ssl/hackjob_games.crt', 'utf8'),
-  ca: fs.readFileSync('./ssl/hackjob_games.ca-bundle', 'utf8')
-}
+// const config = {
+//   key: fs.readFileSync('./ssl/private.key', 'utf8'),
+//   cert: fs.readFileSync('./ssl/hackjob_games.crt', 'utf8'),
+//   ca: fs.readFileSync('./ssl/hackjob_games.ca-bundle', 'utf8')
+// }
 app.use(koaBodyFile);
 
 app.use(router)
@@ -20,14 +20,13 @@ app.use(router)
 
 const unsafe = http.createServer(function(req, res) {  
   res.writeHead(302, {
-    'Location': 'https://' + req.headers.host + req.url
+    'Location': 'https://hackjob.games' + req.url
   })
   res.end()
-  
 });
 
-unsafe.listen(80)
+unsafe.listen(3000)
 
-https.createServer(config, app.callback()).listen(443)
+app.listen(3001)
 
 console.log('Listening...')

@@ -74,6 +74,7 @@ const emptyLog = {
 export const devlog = () => {
   const [state, setState] = React.useState({
     logs: [],
+    pullData: true,
     currentLog: {},
     dialogOpen: false,
     isNew: false,
@@ -81,10 +82,9 @@ export const devlog = () => {
     adminFlag: getCookie('admin')
 
   })
-  if (state.logs.length === 0) {
+  if (state.pullData) {
     axios.get('/api/devlog/1').then(res => {
-      console.log(res.data)
-      setState({...state, logs: res.data || [] })
+      setState({...state, logs: res.data || [], pullData: false })
     })
   }
 
@@ -96,7 +96,7 @@ export const devlog = () => {
         setState({ ...state, isNew: false, dialogOpen: false })
       })
     } else {
-      axios.post('/api/devlog/create', {token: state.token, ...state.currentLog}).then(res => {
+      axios.put('/api/devlog/create', {token: state.token, ...state.currentLog}).then(res => {
         setState({...state, isNew: false, dialogOpen: false, logs: [res.data, ...state.logs]})
       })
     }
@@ -140,7 +140,7 @@ export const devlog = () => {
         const blob = items[i].getAsFile();
         let data = new FormData();
         data.append('file', blob, 'image.png');
-        axios.post('/api/devlog/image/' + state.currentLog.id, data, {
+        axios.put('/api/devlog/image/' + state.currentLog.id, data, {
           headers: {
             'accept': 'application/json',
             'Accept-Language': 'en-US,en;q=0.8',
