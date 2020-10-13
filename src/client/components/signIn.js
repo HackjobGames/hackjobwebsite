@@ -66,8 +66,8 @@ export const SignIn = () => {
   }
 
   const signUp = () => {
-    axios.post('/api/users/signUp', state).then(res => {
-      setState({ ...state, response: { severity: 'success', message: 'User Created Successfully, You May Sign In' }, username: '', password: ''  })
+    axios.put('/api/users/signUp/', state).then(res => {
+      setState({ ...state, response: { severity: 'success', message: res.data }, username: '', password: ''  })
     }).catch(err => {
       setState({ ...state, response: { severity: 'error', message: err.response.data}, username: '', password: ''  })
     })
