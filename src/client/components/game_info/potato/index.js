@@ -34,6 +34,6 @@ export default {
     </div>,
   name: 'plant-the-potato',
   displayName: 'Plant The Potato',
-  img: './lib/images/PlantThePotatoTitle.png',
+  img: './images/games/PlantThePotatoTitle.png',
   itchId: '2727988'
 }
