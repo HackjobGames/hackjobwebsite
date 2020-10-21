@@ -3,7 +3,8 @@ import fs from 'fs'
 import { v4 } from 'uuid'
 import extra from 'fs-extra'
 
-const isAdmin = async (token) => {
+const isAdmin = async (ctx) => { 
+  let token = ctx.request.header.cookie.match(/(?<=session=)[A-Za-z0-9-]*(?=(;|$))/)[0]
   token = token.replace(/'/g, '')
   const username = (await query(`select * from dbo.active where id = '${token}'`))[0].username
   return (await query(`select * from dbo.users where username = '${username}'`))[0].admin
@@ -23,7 +24,7 @@ export const get = async (ctx) => {
 
 export const update = async (ctx) => {
   try {
-    if (!await(isAdmin(ctx.request.body.token))) {
+    if (!await(isAdmin(ctx))) {
       ctx.response.status = 401
       return
     }
@@ -41,7 +42,7 @@ export const update = async (ctx) => {
 
 export const create = async (ctx) => {
   try {
-    if (!await(isAdmin(ctx.request.body.token))) {
+    if (!await(isAdmin(ctx))) {
       ctx.response.status = 401
       return
     }
@@ -58,8 +59,7 @@ export const create = async (ctx) => {
 }
 
 export const saveImage = async (ctx) => {
-  console.log('save Image')
-  if (!await(isAdmin(ctx.request.body.token))) {
+  if (!await(isAdmin(ctx))) {
     ctx.response.status = 401
     return
   }
