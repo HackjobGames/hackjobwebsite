@@ -24,6 +24,7 @@ export const get = async (ctx) => {
 
 export const update = async (ctx) => {
   try {
+    console.log(ctx)
     if (!await(isAdmin(ctx))) {
       ctx.response.status = 401
       return
@@ -59,6 +60,7 @@ export const create = async (ctx) => {
 }
 
 export const saveImage = async (ctx) => {
+  console.log(ctx)
   if (!await(isAdmin(ctx))) {
     ctx.response.status = 401
     return
