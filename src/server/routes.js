@@ -21,7 +21,7 @@ router.get('(.*)', async (ctx, next) => {
   } else if(ctx.request.url !== '/index.js' && ctx.request.url !== '/index.js.map') {
     ctx.request.url = '/'
   } 
-  await serve(path.join(globals.appRoot, './dist'))(ctx, next)
+  await serve(path.join(global.appRoot, './dist'))(ctx, next)
 })
 
 export default router.routes()
