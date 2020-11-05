@@ -3,11 +3,12 @@ import router from './routes'
 import https from 'https'
 import http from 'http'
 import fs from 'fs'
+import path from path
 const koaBodyFile = require('koa-body')({multipart: true})
 
 const app = new Koa()
 
-console.log(process.cwd())
+console.log(path.resolve('./'))
 
 const config = {
   key: fs.readFileSync('./ssl/server.key', 'utf8'),
