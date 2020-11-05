@@ -52,6 +52,6 @@ export default {
   </div>,
   name: 'birds-away',
   displayName: 'Birds Away',
-  img: './lib/images/BirdsAwayTitle.png',
+  img: './images/games/BirdsAwayTitle.png',
   itchId: '1917788'
 }

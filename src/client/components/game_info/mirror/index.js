@@ -32,6 +32,6 @@ export default {
   </div>,
   name: 'mirror-match',
   displayName: 'Mirror Match',
-  img: './lib/images/MirrorMatchTitle.png',
+  img: './images/games/MirrorMatchTitle.png',
   itchId: '2772720'
 }
