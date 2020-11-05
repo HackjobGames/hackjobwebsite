@@ -1,2 +1,2 @@
 require = require('esm')(module)
-require('./server')
+require('./src/server')
