@@ -10,9 +10,9 @@ const app = new Koa()
 
 
 const config = {
-  key: fs.readFileSync(path.join(global.appRoot),'/ssl/server.key'), 'utf8'),
-  cert: fs.readFileSync(path.join(global.appRoot),'./ssl/server.crt'), 'utf8'),
-  ca: fs.readFileSync(path.join(global.appRoot),'./ssl/server.ca-bundle'), 'utf8')
+  key: fs.readFileSync(path.join(global.appRoot,'/ssl/server.key'), 'utf8'),
+  cert: fs.readFileSync(path.join(global.appRoot,'./ssl/server.crt'), 'utf8'),
+  ca: fs.readFileSync(path.join(global.appRoot,'./ssl/server.ca-bundle'), 'utf8')
 }
 
 app.use(koaBodyFile);
