@@ -7,6 +7,8 @@ const koaBodyFile = require('koa-body')({multipart: true})
 
 const app = new Koa()
 
+console.log(process.cwd())
+
 const config = {
   key: fs.readFileSync('./ssl/server.key', 'utf8'),
   cert: fs.readFileSync('./ssl/server.crt', 'utf8'),
