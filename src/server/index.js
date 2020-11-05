@@ -8,9 +8,9 @@ const koaBodyFile = require('koa-body')({multipart: true})
 const app = new Koa()
 
 const config = {
-  key: fs.readFileSync('./ssl/private.key', 'utf8'),
-  cert: fs.readFileSync('./ssl/hackjob_games.crt', 'utf8'),
-  ca: fs.readFileSync('./ssl/hackjob_games.ca-bundle', 'utf8')
+  key: fs.readFileSync('./ssl/server.key', 'utf8'),
+  cert: fs.readFileSync('./ssl/server.crt', 'utf8'),
+  ca: fs.readFileSync('./ssl/server.ca-bundle', 'utf8')
 }
 
 app.use(koaBodyFile);
