@@ -3,4 +3,6 @@ git reset --hard origin/master
 npm install
 npm run build
 npx prisma migrate deploy
-sudo npm run serve
+sudo systemctl daemon-reload
+sudo systemctl restart hackjobgames.service
+sudo journalctl -f -u hackjobgames
