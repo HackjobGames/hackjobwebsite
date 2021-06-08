@@ -1,27 +1,25 @@
 
-import './css/style.css'
-import { Splash } from './components/splash.js'
-import { about } from './components/about.js'
+import './index.css'
 import { games } from './components/games.js'
 import { stream } from './components/stream.js'
 import { devlog } from './components/devlog.js'
 import { SignIn } from './components/signIn.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { Drawer, List, ListItem, Button, Dialog, DialogTitle, DialogActions, DialogContent, TextField} from '@material-ui/core'
+import { faBars, faTimes, faCamera, faEdit, faGamepad } from '@fortawesome/free-solid-svg-icons'
+
+import { Drawer, List, ListItem, BottomNavigation, BottomNavigationAction} from '@material-ui/core'
 import { Alert } from '@material-ui/lab'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { withStyles } from '@material-ui/core/styles'
 import axios from 'axios/dist/axios'
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  useHistory
 } from "react-router-dom";
-
-const screens = [[Splash, 'Home'], [about, 'About'], [games, 'Games'], [stream, 'Stream'], [devlog, 'Devlog']]
 
 const styles = 
 {
@@ -50,39 +48,69 @@ const styles =
   }
 }
 
-const Browser = function () {
-
+const Browser = () => {
+  const [state, setState] = React.useState({
+    nav: '',
+  })
 
   const Menu = () => {
-    const [state, setState] = React.useState({
-      open: false
+    const [mState, setMState] = React.useState({
+      open: false,
     })
     const toggleDrawer = (status) => { 
-      setState({ ...state, navOpen: status })
+      setMState({ ...mState, navOpen: status })
     }
-    return <div>
+    return <div style={{ position: 'fixed', top: '10px', left: '10px' }}>
       <FontAwesomeIcon className='toggle-button' icon={faBars} onClick={() => toggleDrawer(true)} />
-      <Drawer open={state.navOpen} onClose={() => toggleDrawer(false)}>
+      <Drawer open={mState.navOpen} onClose={() => toggleDrawer(false)}>
         <List style={styles.root}>
-          {screens.map(([screen, name]) => {
-            return <Link key={name} to={`/${name.toLowerCase()}`}><ListItem style={styles.item} onClick={() => toggleDrawer(false)}>{name}</ListItem></Link>
-          })}
           <SignIn/>
         </List>
       </Drawer>
     </div>
   }
 
+  const setNav = (event, value) => {
+    setState({ ...state, nav: value })
+  }
+
+  const Navigation = () => {
+    const history = useHistory()
+
+    const changeRoute = (path) => {
+      history.push(path)
+    }
+
+    return <BottomNavigation
+    value={state.nav}
+    onChange={setNav}
+    showLabels
+    style={
+      {
+        height: '16vh',
+        backgroundColor: 'black',
+        color: '#45b80b'
+      }
+    }
+  >
+      <BottomNavigationAction onClick={() => changeRoute('/devlog')} style={{ maxWidth: '1000000px' }} icon={<FontAwesomeIcon fontSize="20em" color="#45b80b" icon={faEdit} />} />
+      <BottomNavigationAction onClick={() => changeRoute('/stream')} style={{ maxWidth: '1000000px' }} icon={<FontAwesomeIcon fontSize="20em" color="#45b80b" icon={faCamera} />} />
+      <BottomNavigationAction onClick={() => changeRoute('/games')} style={{ maxWidth: '1000000px' }} icon={<FontAwesomeIcon fontSize="20em" color="#45b80b" icon={faGamepad} />} />
+    </BottomNavigation>
+  }
+
   return (
     <div>
       <Router>
-        <div>
           <Menu />
+          <div>
+            <h1 id="heading-primary-main">Hackjob Games</h1>
+          </div>
           <Switch>
-            {screens.map(([Screen, name]) => <Route key={name} path={`/${name.toLowerCase()}`}><Screen /></Route>)}
-            <Route path='/'><Splash/></Route>
+            {[[devlog, 'devlog'], [games, 'games'], [stream, 'stream']].map(([Screen, name]) => <Route key={name} path={`/${name.toLowerCase()}`}><Screen /></Route>)}
           </Switch>
-        </div>
+          <div style={{ bottom: '0', postion: 'absolute', height: '25vh', width: '100%', border: '1px solid black' }}></div>   
+        <Navigation/>
       </Router>
     </div>
   )

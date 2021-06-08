@@ -22,9 +22,6 @@ const styles = {
     width: '30vw',
     height: '30vw'
   },
-  container: {
-    width: '70%'
-  },
   button: {
     width: '200px',
     border: '2px #45b80b',
@@ -69,14 +66,13 @@ export const games = () => {
   const GameScreen = (props) => {
     const game = props.game
     return (
-      <Container className='center' styles={styles.container}>
-        
+      <div className='center'> 
         <iframe frameBorder="0" src={`https://itch.io/embed-upload/${game.itchId}?color=333333`} 
           allowFullScreen={true} width="1000" height="660">
           <a href={`https://hackjobgames.itch.io/${game.name}`}>Play Plant The Potato on itch.io</a>
         </iframe>
         <BrowserData game={game}/>
-      </Container>
+      </div>
     )
   }
 

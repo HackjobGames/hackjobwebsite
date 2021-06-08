@@ -1,4 +1,5 @@
 .vscode
+.env
 *.key
 *.crt
 node_modules
