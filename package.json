@@ -8,7 +8,7 @@
     "build": "bash build.sh",
     "dev": "bash dev.sh",
     "deploy": "bash deploy.sh",
-    "serve": "node ./"
+    "serve": "node -r dotenv/config ./"
   },
   "author": "",
   "license": "ISC",
@@ -33,6 +33,7 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "axios": "^0.19.2",
     "bcrypt": "^5.0.0",
+    "dotenv": "^10.0.0",
     "esm": "^3.2.25",
     "koa": "^2.11.0",
     "koa-body": "^4.2.0",

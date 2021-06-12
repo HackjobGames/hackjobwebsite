@@ -11,6 +11,8 @@ router.put('/api/devlog/create', api.devlog.create)
 router.put('/api/devlog/image/:id', api.devlog.saveImage)
 router.put('/api/users/signIn', api.users.signIn)
 router.put('/api/users/signUp', api.users.signUp)
+router.get('/api/feedback', api.feedback.get)
+router.put('/api/feedback', api.feedback.create)
 
 router.get('(.*)', async (ctx, next) => {
   if (ctx.request.url.includes('/index.js')) {

@@ -74,7 +74,7 @@ const emptyLog = {
   id: v4()
 }
 
-export const devlog = () => {
+export const Devlog = () => {
   const history = useHistory()
 
   const [state, setState] = React.useState({
@@ -108,7 +108,6 @@ export const devlog = () => {
   }
 
   const updateMarkdown = (event) => {
-    console.log(event)
     setState({ ...state, currentLog: {...state.currentLog, markdown: event.target.value } })
   }
 
@@ -139,6 +138,7 @@ export const devlog = () => {
 
   const handlePaste = (event) => {
     const items = event.clipboardData.items || []
+    console.log(event)
 
     for (let i = 0; i < items.length; i++) {
         if (!items[i].type.includes('image')) {
@@ -167,7 +167,7 @@ export const devlog = () => {
 
   return (
     <div>
-      <Route exact path={'/devlog'}>
+      <Route exact path={'/'}>
         <CreateButton admin={state.adminFlag}/>
         <Dialog open={state.dialogOpen} >
           <DialogTitle style={styles.button}>

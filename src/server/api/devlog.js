@@ -6,13 +6,13 @@ import extra from 'fs-extra'
 const isAdmin = async (ctx) => { 
   let token = ctx.request.header.cookie.match(/(?<=session=)[A-Za-z0-9-]*(?=(;|$))/)[0]
   token = token.replace(/'/g, '')
-  const username = (await query(`select * from dbo.active where id = '${token}'`))[0].username
-  return (await query(`select * from dbo.users where username = '${username}'`))[0].admin
+  const username = (await query(`select * from public.active where id = '${token}'`))[0].username
+  return (await query(`select * from public.users where username = '${username}'`))[0].admin
 }
 
 export const get = async (ctx) => {
   try {
-    ctx.body = await query(`SELECT * FROM api.Devlog
+    ctx.body = await query(`SELECT * FROM public.Devlog
                             order by created desc`)
     ctx.response.status = 200
   } catch (e) {
@@ -28,7 +28,7 @@ export const update = async (ctx) => {
       ctx.response.status = 401
       return
     }
-    await query(`update api.devlog set 
+    await query(`update public.Devlog set 
                   markdown = '${ctx.request.body.markdown.replace(/'/g, '')}',
                   title = '${ctx.request.body.title.replace(/'/g, '')}'
                   where id = '${ctx.request.body.id.replace(/'/g, '')}'`)
@@ -46,7 +46,7 @@ export const create = async (ctx) => {
       ctx.response.status = 401
       return
     }
-    ctx.body = (await query(`insert into api.devlog (id, title, markdown)
+    ctx.body = (await query(`insert into public.Devlog (id, title, markdown)
                  values ('${ctx.request.body.id}', '${ctx.request.body.title.replace(/'/g, '')}', '${ctx.request.body.markdown.replace(/'/g, '')}') returning *`))[0]
     if (!fs.existsSync('./dist/images/devlog/' + ctx.body.id)) {
       fs.mkdirSync('./dist/images/devlog/' + ctx.body.id)

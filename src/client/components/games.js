@@ -34,7 +34,7 @@ const styles = {
 
 const gameComponents = [birds, potato, mirror]
 
-export const games = () => {
+export const Games = () => {
 
   const BrowserData = (props) => {
     const game = props.game

@@ -1,9 +1,10 @@
 
 import './index.css'
-import { games } from './components/games.js'
-import { stream } from './components/stream.js'
-import { devlog } from './components/devlog.js'
+import { Games } from './components/games.js'
+import { Stream } from './components/stream.js'
+import { Devlog } from './components/devlog.js'
 import { SignIn } from './components/signIn.js'
+import { Feedback } from './components/feedback.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes, faCamera, faEdit, faGamepad } from '@fortawesome/free-solid-svg-icons'
 
@@ -36,7 +37,6 @@ const styles =
     borderBottom: '1px solid rgba(100, 100, 100, .3)',
     cursor: 'pointer'
   },
-
   dialog: {
     backgroundColor: '#151719',
     color: '#45b80b',
@@ -54,63 +54,57 @@ const Browser = () => {
   })
 
   const Menu = () => {
+    const history = useHistory()
+
+    const changeRoute = (route) => {
+      history.push(route)
+      setState({...state, nav: route})
+    }
+
     const [mState, setMState] = React.useState({
       open: false,
     })
+
     const toggleDrawer = (status) => { 
       setMState({ ...mState, navOpen: status })
     }
+
     return <div style={{ position: 'fixed', top: '10px', left: '10px' }}>
       <FontAwesomeIcon className='toggle-button' icon={faBars} onClick={() => toggleDrawer(true)} />
       <Drawer open={mState.navOpen} onClose={() => toggleDrawer(false)}>
         <List style={styles.root}>
+          <ListItem style={styles.item} onClick={() => changeRoute('/')}>
+            <a>Home</a>
+          </ListItem>
+          <ListItem style={styles.item} onClick={() => changeRoute('/games')}>
+            <a>Games</a>
+          </ListItem>
+          <ListItem style={styles.item} onClick={() => changeRoute('/stream')}>
+            <a>Watch</a>
+          </ListItem>
+          <ListItem style={styles.item} onClick={() => changeRoute('/feedback')}>
+            <a>Watch</a>
+          </ListItem>
           <SignIn/>
         </List>
       </Drawer>
     </div>
   }
 
-  const setNav = (event, value) => {
-    setState({ ...state, nav: value })
-  }
-
-  const Navigation = () => {
-    const history = useHistory()
-
-    const changeRoute = (path) => {
-      history.push(path)
-    }
-
-    return <BottomNavigation
-    value={state.nav}
-    onChange={setNav}
-    showLabels
-    style={
-      {
-        height: '16vh',
-        backgroundColor: 'black',
-        color: '#45b80b'
-      }
-    }
-  >
-      <BottomNavigationAction onClick={() => changeRoute('/devlog')} style={{ maxWidth: '1000000px' }} icon={<FontAwesomeIcon fontSize="20em" color="#45b80b" icon={faEdit} />} />
-      <BottomNavigationAction onClick={() => changeRoute('/stream')} style={{ maxWidth: '1000000px' }} icon={<FontAwesomeIcon fontSize="20em" color="#45b80b" icon={faCamera} />} />
-      <BottomNavigationAction onClick={() => changeRoute('/games')} style={{ maxWidth: '1000000px' }} icon={<FontAwesomeIcon fontSize="20em" color="#45b80b" icon={faGamepad} />} />
-    </BottomNavigation>
-  }
-
   return (
     <div>
       <Router>
-          <Menu />
-          <div>
-            <h1 id="heading-primary-main">Hackjob Games</h1>
-          </div>
-          <Switch>
-            {[[devlog, 'devlog'], [games, 'games'], [stream, 'stream']].map(([Screen, name]) => <Route key={name} path={`/${name.toLowerCase()}`}><Screen /></Route>)}
-          </Switch>
-          <div style={{ bottom: '0', postion: 'absolute', height: '25vh', width: '100%', border: '1px solid black' }}></div>   
-        <Navigation/>
+        <Menu />
+        <div>
+          <h1 id="heading-primary-main">Hackjob Games</h1>
+        </div>
+        <Switch>
+          <Route key={'games'} path={`/games`}><Games/></Route>
+          <Route key={'stream'} path={`/stream`}><Stream/></Route>
+          <Route key={'devlog'} path={'/feedback'}><Feedback/></Route>
+          <Route key={'devlog'} path={'/'}><Devlog/></Route>
+        </Switch>
+        <div style={{ bottom: '0', postion: 'absolute', height: '25vh', width: '100%', border: '1px solid black' }}></div>   
       </Router>
     </div>
   )
