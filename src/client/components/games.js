@@ -1,7 +1,8 @@
 import React from 'react'
 import potato from './game_info/potato'
-import birds from './game_info/birdsaway'
+import birds from './game_info/birdsAway'
 import mirror from './game_info/mirror'
+import rogue from './game_info/rogueGrappler'
 import { GridList, GridListTile } from '@material-ui/core'
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab'
 import { styles } from 'styles'
@@ -10,7 +11,7 @@ import {
   Link
 } from "react-router-dom";
 
-const gameComponents = [birds, potato, mirror]
+const gameComponents = [birds, potato, mirror, rogue]
 
 export const Games = () => {
 
