@@ -2,35 +2,13 @@ import React from 'react'
 import potato from './game_info/potato'
 import birds from './game_info/birdsaway'
 import mirror from './game_info/mirror'
-import { Container, GridList, GridListTile } from '@material-ui/core'
+import { GridList, GridListTile } from '@material-ui/core'
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab'
+import { styles } from 'styles'
 import {
-  BrowserRouter as Router,
-  Switch,
   Route,
   Link
 } from "react-router-dom";
-
-const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden'
-  },
-  tile: {
-    width: '30vw',
-    height: '30vw'
-  },
-  button: {
-    width: '200px',
-    border: '2px #45b80b',
-    color: '#45b80b',
-    fontFamily: 'VT323, monospace',
-    fontSize: '2em'
-  }
-}
-
 
 const gameComponents = [birds, potato, mirror]
 
@@ -47,7 +25,7 @@ export const Games = () => {
       <ToggleButtonGroup
         value={state.browserData}
         exclusive
-        onChange={(event, data) => setState({ browserData: data || state.browserData })}
+        onChange={(_, data) => setState({ browserData: data || state.browserData })}
       >
         <ToggleButton selected value={game.about} style={styles.button} className="button">
           About
@@ -79,13 +57,13 @@ export const Games = () => {
 
 
   return (
-    <div style={styles.root}>
+    <div style={styles.gameRoot}>
       <Route exact path='/games'>
-        <GridList spacing={10} style={styles.gridList} className={'center'} cellHeight='auto' cols={2}>
+        <GridList spacing={10} className={'center'} cellHeight='auto' cols={2}>
           {gameComponents.map(game => 
             <GridListTile key={game.name} cols={1}>
               <Link key={game.name} to={`/games/${game.name}`} >
-                <img style={styles.tile} src={game.img}/>
+                <img style={styles.gameButton} src={game.img}/>
               </Link>
             </GridListTile>
           )}

@@ -1,7 +1,6 @@
 import { query } from '../query'
 import fs from 'fs'
 import { v4 } from 'uuid'
-import extra from 'fs-extra'
 
 const isAdmin = async (ctx) => { 
   let token = ctx.request.header.cookie.match(/(?<=session=)[A-Za-z0-9-]*(?=(;|$))/)[0]
@@ -59,7 +58,6 @@ export const create = async (ctx) => {
 }
 
 export const saveImage = async (ctx) => {
-  console.log(ctx)
   if (!await(isAdmin(ctx))) {
     ctx.response.status = 401
     return

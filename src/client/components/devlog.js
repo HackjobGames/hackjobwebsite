@@ -5,68 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import { getCookie } from '../../util'
 import v4 from 'uuid-browser/v4'
+import { styles } from 'styles'
 import {
   Route,
-  Link,
   useHistory
 } from "react-router-dom";
 import marked from 'marked'
 
-const styles = {
-  grid: {
-    width: '75%',
-    margin: 'auto',
-    textAlign: 'center',
-    paddingTop: '8vh'
-  },
-  item: {
-    borderStyle: 'solid',
-    borderColor: '#45b80b',
-    marginTop: '5px',
-    marginBottom: '5px',
-    cursor: 'pointer'
-  },
-  text: {
-    position: 'relative',
-    top: '50%',
-    fontSize: '50px',
-    transform: 'translateY(-50%)',
-  },
-  textContainer: {
-    width: '100%',
-    height: '100%',
-    color: 'white',
-    textDecoration: 'none',
-  },
-  pencil: {
-    color: '#45b80b',
-    position: 'absolute',
-    top: '0%',
-    right: '0%',
-    fontSize: '2em',
-    zIndex: '100'
-  },
-  create: {
-    backgroundColor: '#45b80b',
-    position: 'absolute',
-    top: '0%',
-    right: '0%',
-    fontSize: '.8em',
-  },
-  button: {
-    backgroundColor: '#151719',
-    color: '#45b80b'
-  },
-  input: {
-    color: '#45b80b',
-    borderBottom: '#45b80b 2px'
-  },
-  log: {
-    width: '80%',
-    top: '10%',
-    margin: 'auto'
-  }
-}
 
 const emptyLog = {
   markdown: '',
@@ -101,7 +46,7 @@ export const Devlog = () => {
         setState({ ...state, isNew: false, dialogOpen: false })
       })
     } else {
-      axios.put('/api/devlog/create', state.currentLog).then(res => {
+      axios.post('/api/devlog/create', state.currentLog).then(res => {
         setState({...state, isNew: false, dialogOpen: false, logs: [res.data, ...state.logs]})
       })
     }
@@ -188,7 +133,7 @@ export const Devlog = () => {
           </DialogContent>
           <DialogActions style={styles.button}>
             <Button onClick={save} style={styles.button}>
-              Save
+              Post
             </Button>
             <Button onClick={() => setState({...state, dialogOpen: false})} style={styles.button}>
               Cancel

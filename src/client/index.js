@@ -6,14 +6,12 @@ import { Devlog } from './components/devlog.js'
 import { SignIn } from './components/signIn.js'
 import { Feedback } from './components/feedback.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faTimes, faCamera, faEdit, faGamepad } from '@fortawesome/free-solid-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
-import { Drawer, List, ListItem, BottomNavigation, BottomNavigationAction} from '@material-ui/core'
-import { Alert } from '@material-ui/lab'
+import { Drawer, List, ListItem} from '@material-ui/core'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { withStyles } from '@material-ui/core/styles'
-import axios from 'axios/dist/axios'
+import { styles } from 'styles'
 
 import {
   BrowserRouter as Router,
@@ -21,32 +19,6 @@ import {
   Route,
   useHistory
 } from "react-router-dom";
-
-const styles = 
-{
-  root: {
-    width: '200px',
-    height: '100%',
-    background: '#151719',
-    zIndex: 99999
-  },
-  item: {
-    color: '#45b80b',
-    listStyle: 'none',
-    padding: '15px 10px',
-    borderBottom: '1px solid rgba(100, 100, 100, .3)',
-    cursor: 'pointer'
-  },
-  dialog: {
-    backgroundColor: '#151719',
-    color: '#45b80b',
-    borderBottom: '#45b80b 2px'
-  },
-  input: {
-    color: '#45b80b',
-    borderBottom: '#45b80b 2px'
-  }
-}
 
 const Browser = () => {
   const [state, setState] = React.useState({
@@ -73,17 +45,17 @@ const Browser = () => {
       <FontAwesomeIcon className='toggle-button' icon={faBars} onClick={() => toggleDrawer(true)} />
       <Drawer open={mState.navOpen} onClose={() => toggleDrawer(false)}>
         <List style={styles.root}>
-          <ListItem style={styles.item} onClick={() => changeRoute('/')}>
+          <ListItem style={styles.navButton} onClick={() => changeRoute('/')}>
             <a>Home</a>
           </ListItem>
-          <ListItem style={styles.item} onClick={() => changeRoute('/games')}>
+          <ListItem style={styles.navButton} onClick={() => changeRoute('/games')}>
             <a>Games</a>
           </ListItem>
-          <ListItem style={styles.item} onClick={() => changeRoute('/stream')}>
+          <ListItem style={styles.navButton} onClick={() => changeRoute('/stream')}>
             <a>Watch</a>
           </ListItem>
-          <ListItem style={styles.item} onClick={() => changeRoute('/feedback')}>
-            <a>Watch</a>
+          <ListItem style={styles.navButton} onClick={() => changeRoute('/feedback')}>
+            <a>Feedback</a>
           </ListItem>
           <SignIn/>
         </List>

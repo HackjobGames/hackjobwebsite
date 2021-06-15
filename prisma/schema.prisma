@@ -24,7 +24,7 @@ model devlog {
 
 model feedback {
   id        String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  name      String
+  username      String
   created   DateTime @default(now()) @db.Timestamptz(6)
   content   String 
 }

@@ -4,35 +4,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios/dist/axios'
 import { getCookie } from '../../util'
-
-
-const styles = 
-{
-  root: {
-    width: '200px',
-    height: '100%',
-    background: '#151719',
-    zIndex: 99999
-  },
-  item: {
-    color: '#45b80b',
-    listStyle: 'none',
-    padding: '15px 10px',
-    borderBottom: '1px solid rgba(100, 100, 100, .3)',
-    cursor: 'pointer'
-  },
-
-  dialog: {
-    backgroundColor: '#151719',
-    color: '#45b80b',
-    borderBottom: '#45b80b 2px'
-  },
-  input: {
-    color: '#45b80b',
-    borderBottom: '#45b80b 2px'
-  }
-}
-
+import { styles } from 'styles'
 
 const initial = {
   dialogOpen: false,
@@ -66,7 +38,7 @@ export const SignIn = () => {
   }
 
   const signUp = () => {
-    axios.put('/api/users/signUp/', state).then(res => {
+    axios.post('/api/users/signUp/', state).then(res => {
       setState({ ...state, response: { severity: 'success', message: res.data }, username: '', password: ''  })
     }).catch(err => {
       setState({ ...state, response: { severity: 'error', message: err.response.data}, username: '', password: ''  })
@@ -89,11 +61,11 @@ export const SignIn = () => {
 
   const SignInButton = () => {
     if (getCookie('session') === '') {
-      return <ListItem style={styles.item} onClick={() => toggleDialog(true)}>
+      return <ListItem style={styles.navButton} onClick={() => toggleDialog(true)}>
         <a>Sign In</a>
       </ListItem>
     } else {
-      return <ListItem style={styles.item} onClick={() => {
+      return <ListItem style={styles.navButton} onClick={() => {
         document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
         document.cookie = "admin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
         location.reload()

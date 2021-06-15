@@ -1,6 +1,9 @@
 import { query } from '../query'
 
-const regex = /[\d\w\s\.?!\"\']/g
+const cleanse = (string) => {
+  const regex = /[\d\w\s\-\.?!\"\']/g
+  return string.match(regex).join('').replace(/'/g, '\'\'')
+}
 
 export const get = async (ctx) => {
   try {
@@ -16,10 +19,10 @@ export const get = async (ctx) => {
 
 export const create = async (ctx) => {
   try {
-    const valid = (await query(`select * from public.active where username = '${ctx.username}' and id = '${ctx.token}'`))
-    if (valid && !username.match(/\'/)) {
-      ctx.body = (await query(`insert into public.feedback (name, content)
-      values ('${ctx.request.username}', '${ctx.request.content.match(regex).join('').replace(/'/g, '\'\'')}') returning *`))[0]
+    const valid = await query(`select username from public.active where id = '${cleanse(ctx.request.body.token)}'`)
+    if (valid.length > 0) {
+      ctx.body = (await query(`insert into public.feedback (username, content)
+      values ('${valid[0].username}', '${cleanse(ctx.request.body.content)}') returning *`))[0]
       ctx.response.status = 200
     } else {
       ctx.body = 'Invalid Request'
