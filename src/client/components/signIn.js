@@ -59,17 +59,23 @@ export const SignIn = () => {
     }
   }
 
+  const signOut = () => {
+    axios.delete(`/api/users/signOut/${getCookie('session')}`).then(() => {
+      document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+      document.cookie = "admin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+      location.reload()
+    }) 
+  }
+
   const SignInButton = () => {
     if (getCookie('session') === '') {
       return <ListItem style={styles.navButton} onClick={() => toggleDialog(true)}>
         <a>Sign In</a>
       </ListItem>
     } else {
-      return <ListItem style={styles.navButton} onClick={() => {
-        document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
-        document.cookie = "admin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
-        location.reload()
-      }}>Sign Out</ListItem>
+      return <ListItem style={styles.navButton} onClick={signOut}>
+        Sign Out
+      </ListItem>
     }
   }
 

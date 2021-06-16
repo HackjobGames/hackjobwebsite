@@ -10,12 +10,13 @@ router.put('/api/devlog/save', api.devlog.update)
 router.post('/api/devlog/create', api.devlog.create)
 router.put('/api/devlog/image/:id', api.devlog.saveImage)
 router.put('/api/users/signIn', api.users.signIn)
+router.delete('/api/users/signOut/:token', api.users.signOut)
 router.post('/api/users/signUp', api.users.signUp)
 router.get('/api/feedback', api.feedback.get)
 router.post('/api/feedback', api.feedback.create)
 
 router.get('(.*)', async (ctx, next) => {
-  if (ctx.request.url.includes('/index.js')) {
+if (ctx.request.url.includes('/index.js')) {
     ctx.request.url = '/index.js'
   } else if (ctx.request.url.includes('/index.map.js')) {
     ctx.request.url = '/index.map.js'

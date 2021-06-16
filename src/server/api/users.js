@@ -18,6 +18,19 @@ export const signIn = async (ctx) => {
   }
 }
 
+export const signOut = async (ctx) => {
+  try {
+    const token = ctx.request.params.token.replace(/'/g, '')
+    const sql = `delete from public.active where id = '${token}'`
+    await query(sql)
+    ctx.response.status = 200
+  } catch (e) {
+    console.log(e)
+    ctx.response.status = 500
+  }
+
+}
+
 export const signUp = async (ctx) => {
   if(!ctx.request.body.username.match('^[A-Za-z0-9_-]*$')) {
     ctx.response.status = 500
