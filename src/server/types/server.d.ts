@@ -1,11 +1,13 @@
 
-import { Context, Request } from "koa"
+import { Context } from "koa"
 
 
 declare global {
   export type KoaContext = Context & {
-    req: {
-      logout: any
-    }
+    request: {
+      logout: any,
+      files: any
+    },
+    user: user
   }
 }

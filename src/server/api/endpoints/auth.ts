@@ -4,13 +4,14 @@ import { query } from '../../util'
 import bcrypt from 'bcrypt'
 
 
-// passport.serializeUser((user: user, done) => {
-//   done(null, user.username)
-// })
+passport.serializeUser((user: user, done) => {
+  done(null, user.username)
+})
 
-// passport.deserializeUser((username: string, done) => {
-
-// })
+passport.deserializeUser(async (username: string, done) => {
+  const user = (await query(`select * from users where username = ${username}`))[0]
+  done(null, user)
+})
 
 passport.use(new LocalStrategy(async (username: string, password: string, done) => {
   const user: user = (await query(`select * from users where username = '${username}' or email = '${username}'`))[0]
@@ -60,9 +61,10 @@ export const signIn = async (ctx: AuthContext, next) => {
 }
 
 export const signOut = async (ctx: KoaContext, next) => {
-  ctx.req.logout(function(err) {
+  ctx.request.logout(function(err) {
     if (err) { return next(err); }
     ctx.redirect('/');
   });
   ctx.response.status = 200
 }
+
