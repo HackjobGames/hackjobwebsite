@@ -7,8 +7,6 @@ const router = new Router()
 router.use()
 
 
-// router.get('/users', api.auth.users)
-
 router.post('/signIn', api.auth.signIn)
 router.post('/signUp', api.auth.signUp)
 router.post('/signOut', api.auth.signOut)
@@ -22,7 +20,7 @@ router.get('(.*)', async (ctx, next) => {
   } else if(ctx.request.url !== '/index.js' && ctx.request.url !== '/index.js.map') {
     ctx.request.url = '/'
   } 
-  await serve('./dist/client')(ctx, next)
+  await serve('../client')(ctx, next)
 })
 
 export default router.routes()

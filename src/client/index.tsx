@@ -1,83 +1,77 @@
-import React from 'react'
-import { Main } from './components/main'
-import axios from 'axios/dist/axios'
+import './index.css'
+import { Games } from './components/games.js'
+import { Stream } from './components/stream.js'
+import { Devlog } from './components/devlog.js'
+import { SignIn } from './components/signIn.js'
+import { Feedback } from './components/feedback.js'
 
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { styles } from 'styles'
 
 import {
   BrowserRouter as Router,
+  Switch,
   Route,
-  Switch
+  useHistory
 } from "react-router-dom";
 
-import { createRoot } from 'react-dom/client';
-
-axios.get('/users').then(res => {
-  console.log('RESPONSE FROM SERVER: ', res.data)
-})
-
-const styles = {}
-
 const Browser = () => {
-  
-  const [payload, setPayload] = React.useState({username: '', password: ''})
+  const [state, setState] = React.useState({
+    nav: '',
+  })
 
+  const Menu = () => {
+    const history = useHistory()
 
-  const updateUsername = (event) => {
-    setPayload({...payload, username: event.target.value})
-  }
+    const changeRoute = (route) => {
+      history.push(route)
+      setState({...state, nav: route})
+    }
 
-  const updatePassword = (event) => {
-    setPayload({...payload, password: event.target.value})
-  }
+    const [navOpen, setNavOpen] = React.useState(false)
 
-  const signIn = () => {
-    axios.post('/signIn', payload)
-  }
+    const toggleDrawer = (status: boolean) => { 
+      setNavOpen(status)
+    }
 
-  const signUp = () => {
-    axios.post('/signUp', payload)
-  }
-
-  const signOut = () => {
-    axios.post('/signOut', payload)
+    return <div style={{ position: 'fixed', top: '10px', left: '10px' }}>
+        <ul style={styles.root}>
+          <li style={styles.navButton} onClick={() => changeRoute('/')}>
+            <a>Home</a>
+          </li>
+          <li style={styles.navButton} onClick={() => changeRoute('/games')}>
+            <a>Games</a>
+          </li>
+          <li style={styles.navButton} onClick={() => changeRoute('/stream')}>
+            <a>Watch</a>
+          </li>
+          <li style={styles.navButton} onClick={() => changeRoute('/feedback')}>
+            <a>Feedback</a>
+          </li>
+          <SignIn/>
+        </ul>
+    </div>
   }
 
   return (
-  <div>
-    <nav className="navbar navbar-light bg-light justify-content-end">
-      <div>
-        Text
-      </div>
-      <div className="p-1">
-        Username or Email
-        <input onChange={updateUsername}/>
-        Password
-        <input onChange={updatePassword} type="password"/>
-        <button onClick={signIn} className="btn button-primary bg-primary">
-          Sign In
-        </button>
-        <button onClick={signUp} className="btn button-primary bg-primary">
-          Sign Up
-        </button>
-        <button onClick={signOut} className="btn button-primary bg-primary">
-          Sign Out
-        </button>
-      </div>
-    </nav>
-
-    <Router>
-      <Switch>
-        <Route key="home" path="/"><Main/></Route>
-      </Switch>
-    </Router>
-
-  </div>
+    <div>
+      <Router>
+        <Menu />
+        <div>
+          <h1 id="heading-primary-main">Hackjob Games</h1>
+        </div>
+        <Switch>
+          <Route key={'games'} path={`/games`}><Games/></Route>
+          <Route key={'stream'} path={`/stream`}><Stream/></Route>
+          <Route key={'devlog'} path={'/feedback'}><Feedback/></Route>
+          <Route key={'devlog'} path={'/'}><Devlog/></Route>
+        </Switch>
+        <div style={{ bottom: '0', height: '25vh', width: '100%', border: '1px solid black' }}></div>   
+      </Router>
+    </div>
   )
 }
 
-createRoot(document.getElementById('app')).render(<Browser/>)
-
-
-
-
+ReactDOM.render(<Browser/>, document.getElementById('app'))
 

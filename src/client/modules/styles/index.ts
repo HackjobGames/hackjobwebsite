@@ -60,7 +60,6 @@ export const styles = {
   },
   gamesRoot: {
     display: 'flex',
-    flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden'
   },

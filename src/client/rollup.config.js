@@ -19,9 +19,9 @@ const plugins = [
       'prop-types': ['elementType'],
       'react-js': ['isValidElementType', 'isValidElement', 'isFragment'],
       'react-is': ['ForwardRef', 'Memo', 'isFragment', 'isValidElementType'],
-      'react-router-dom': ['BrowserRouter', 'Switch', 'Route'],
-      'react/jsx-runtime': ['jsx', 'jsxs']
-
+      'react-router-dom': ['BrowserRouter', 'Switch', 'Route', 'useHistory'],
+      'react/jsx-runtime': ['jsx', 'jsxs'],
+      'pg': ['Pool']
     }
   }),
   typescript({
@@ -39,10 +39,10 @@ const plugins = [
   }),
   copy({
     targets: [
-      { src: 'src/client/index.html', dest: 'dist/client' },
-      { src: 'src/client/index.css', dest: 'dist/client' },
-      { src: 'src/client/extensions/*', dest: 'dist/client/extensions' },
-      { src: 'src/client/resources/*', dest: 'dist/client/resources' }
+      { src: 'index.html', dest: '../../dist/client' },
+      { src: 'index.css', dest: '../../dist/client' },
+      { src: 'extensions/*', dest: '../../dist/client/extensions' },
+      { src: 'resources/*', dest: '../../dist/client/resources' }
     ]
   }),
   json(),
@@ -55,9 +55,9 @@ const plugins = [
 
 module.exports = {
   plugins,
-  input: './src/client/index.tsx',
+  input: './index.tsx',
   output: {
-    file: `./dist/client/index.js`,
+    file: `../../dist/client/index.js`,
     format: 'cjs',
     name: 'Template',
     sourcemap: true,

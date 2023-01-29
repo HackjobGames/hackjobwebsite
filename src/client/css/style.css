@@ -1,0 +1,146 @@
+body{
+    background-color: black;
+    color:white;
+    font-family: "VT323", monospace;
+}
+p{
+    font-size: 20px;
+}
+.body-shift {
+    margin-left: 0px;
+}
+
+.body-unshift {
+    margin-left: -200px;
+}
+
+.button{
+    height: 50px;
+    width: 100px;
+    background-color: black;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    border: 2px solid black;
+    color: gray;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button:hover{
+    color: white
+}
+.center{
+    margin: auto;
+    text-align: center;
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo{
+    height: 35px;
+}
+
+.text-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.heading-end {
+    border-right: 0px solid #45b80b;
+}
+
+
+.toggle-button {
+    display: block;
+    color: #45b80b;
+    margin: 5px 0px;
+    position: absolute;
+    cursor: pointer;
+    font-size: 2em;
+    background-repeat:no-repeat; 
+}
+.how_to_text {
+    text-align: left;
+}
+.how_to_image {
+    width:50%;
+    text-align: right;
+}
+#heading-primary{
+    
+    text-transform: uppercase;
+}
+
+#heading-primary-main{
+    top: 0%;
+    position: relative;
+    margin: auto;
+    display: block;
+    font-size: 30px;
+    letter-spacing: 10px;
+    line-height: 1.7;
+    color: #45b80b;
+    animation: main-text-animation 1.5s steps(13);
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    width: 60%;
+    min-height: 20%;
+    height: 20%;
+}
+
+#twitch-embed{
+    margin-left: 75px;
+}
+
+#home_img {
+    position: absolute;
+    top: 2%;
+    right: 15%;
+}
+
+#about_img {
+    position: absolute;
+    top: 7.25%;
+    right: 15%;
+}
+#live_img{
+    visibility: hidden;
+    height: 10%;
+    width: 10%;
+}
+#games_img {
+    position: absolute;
+    top: 12.5%;
+    right: 15%;
+}
+#games_text {
+    text-decoration: none;
+    color: #45b80b;
+}
+@keyframes main-text-animation{
+    0% {
+      width: 0%;
+      border-right: 4px solid #45b80b;
+    }
+    99% {
+      width : 60%;
+      border-right: 4px solid #45b80b;
+    }
+    100% {
+        width : 60%;
+        border-right: 0px;
+    }
+}
