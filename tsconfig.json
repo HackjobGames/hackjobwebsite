@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["./node_modules/@types", "./src/client/types"],
+    "allowSyntheticDefaultImports": true,
+    "rootDir": "src",
+    "jsx": "react-jsx",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "paths": {
+      "*": ["./node_modules/*", "./src/*"]
+    }
+  },
+}

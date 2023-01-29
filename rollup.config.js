@@ -1,54 +1,67 @@
-import json from '@rollup/plugin-json'
-import postcss from 'rollup-plugin-postcss'
-import replace from '@rollup/plugin-replace'
-import resolve from '@rollup/plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
-import babel from 'rollup-plugin-babel'
+const json = require('@rollup/plugin-json')
+const postcss = require('rollup-plugin-postcss')
+const commonjs = require('rollup-plugin-commonjs')
+const { nodeResolve } = require('@rollup/plugin-node-resolve')
+const { babel } = require('@rollup/plugin-babel')
+const copy = require('rollup-plugin-copy')
+const typescript = require('@rollup/plugin-typescript')
+const replace = require('@rollup/plugin-replace')
 
 const isProduction = !process.env.ROLLUP_WATCH
 
 const plugins = [
-  babel({ 
-    exclude: 'node_modules/**',
-    presets: ['@babel/preset-react', '@babel/env']
-  }),
-  resolve(),
-  postcss({
-    extensions: [ '.css' ]
-  }),
-  json(),
   commonjs({
     namedExports: {
       'react': ['isValidElement', 'Children', 'cloneElement', 'useRef', 'useEffect', 'useState','memo',
-      'Fragment', 'createElement', 'forwardRef', 'useMemo', 'createContext', 'findDOMNode',
-      'useCallback', 'useImperativeHandle', 'useContext', 'useLayoutEffect', 'Component', 'useDebugValue'],
-      'react-dom': ['findDOMNode', 'createPortal'],
+      'Fragment', 'createElement', 'forwardRef', 'createRef', 'useMemo', 'createContext', 'findDOMNode',
+      'useCallback', 'useImperativeHandle', 'useContext', 'useLayoutEffect', 'Component', 'useDebugValue', 'useReducer'],
+      'react-dom': ['findDOMNode', 'createPortal', 'render', 'unmountComponentAtNode'],
       'prop-types': ['elementType'],
       'react-js': ['isValidElementType', 'isValidElement', 'isFragment'],
-      'react-is': ['ForwardRef', 'Memo', 'isFragment', 'isValidElementType']
-    }
-  })
+      'react-is': ['ForwardRef', 'Memo', 'isFragment', 'isValidElementType'],
+      'react-router-dom': ['BrowserRouter', 'Switch', 'Route'],
+      'react/jsx-runtime': ['jsx', 'jsxs']
 
+    }
+  }),
+  typescript({
+    tsconfig: './tsconfig.json',
+    declaration: true,
+    declarationDir: 'dist',
+  }),
+  babel({ 
+    exclude: 'node_modules/**',
+    presets: ['@babel/preset-react', '@babel/env'],
+    babelHelpers: "bundled"
+  }),
+  postcss({
+    extensions: [ '.css', 'scss' ]
+  }),
+  copy({
+    targets: [
+      { src: 'src/client/index.html', dest: 'dist/client' },
+      { src: 'src/client/index.css', dest: 'dist/client' },
+      { src: 'src/client/extensions/*', dest: 'dist/client/extensions' },
+      { src: 'src/client/resources/*', dest: 'dist/client/resources' }
+    ]
+  }),
+  json(),
+  nodeResolve(),
+  replace({
+    'process.env.NODE_ENV': isProduction ? '"production"' : '"development"',
+    preventAssignment: true
+  })
 ]
-if(isProduction){
-  plugins.push(replace({
-    'hackjobgames': 'https://hackjob.games/backendServer',
-    'process.env.NODE_ENV': JSON.stringify('production')
-  }))
-}
-else {
-  plugins.push(replace({
-    'process.env.NODE_ENV': JSON.stringify('development')
-  }))
-}
-export default {
+
+module.exports = {
   plugins,
-  input: 'src/index.js',
+  input: './src/client/index.tsx',
   output: {
-    file: `./dist/client.js`,
-    format: 'iife',
-    name: 'HackjobWebsite',
+    file: `./dist/client/index.js`,
+    format: 'cjs',
+    name: 'Template',
     sourcemap: true,
     intro: 'const global = window;'
-  }
+  },
 }
+
