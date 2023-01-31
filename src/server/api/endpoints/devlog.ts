@@ -50,7 +50,7 @@ export const create = async (ctx: DevlogContext) => {
   }
 }
 
-export const saveImage = async (ctx: FeedbackContext) => {
+export const saveImage = async (ctx: DevlogContext) => {
   if (!ctx.user.admin) {
     ctx.response.status = 401
     return

@@ -22,10 +22,3 @@ model devlog {
   title     String?
   username  String?
 }
-
-model feedback {
-  id        String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  username      String
-  created   DateTime @default(now()) @db.Timestamptz(6)
-  content   String 
-}

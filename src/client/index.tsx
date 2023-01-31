@@ -3,10 +3,10 @@ import { Games } from './components/games.js'
 import { Stream } from './components/stream.js'
 import { Devlog } from './components/devlog.js'
 import { SignIn } from './components/signIn.js'
-import { Feedback } from './components/feedback.js'
 
-import React from 'react'
+import { useRef, useState } from 'react'
 import ReactDOM from 'react-dom'
+import bootstrap from 'bootstrap'
 import { styles } from 'styles'
 
 import {
@@ -17,7 +17,7 @@ import {
 } from "react-router-dom";
 
 const Browser = () => {
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     nav: '',
   })
 
@@ -29,42 +29,36 @@ const Browser = () => {
       setState({...state, nav: route})
     }
 
-    const [navOpen, setNavOpen] = React.useState(false)
-
-    const toggleDrawer = (status: boolean) => { 
-      setNavOpen(status)
-    }
-
-    return <div style={{ position: 'fixed', top: '10px', left: '10px' }}>
+    return (
+      <div className='offcanvas h-100 bg-black' tabIndex={-1} id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <ul style={styles.root}>
           <li style={styles.navButton} onClick={() => changeRoute('/')}>
-            <a>Home</a>
+            <button type='button' data-bs-dismiss="offcanvas" aria-label="Close">Home</button>
           </li>
           <li style={styles.navButton} onClick={() => changeRoute('/games')}>
-            <a>Games</a>
+            <button type='button' data-bs-dismiss="offcanvas" aria-label="Close">Games</button>
           </li>
-          <li style={styles.navButton} onClick={() => changeRoute('/stream')}>
-            <a>Watch</a>
-          </li>
-          <li style={styles.navButton} onClick={() => changeRoute('/feedback')}>
-            <a>Feedback</a>
+          <li style={styles.navButton} onClick={() => changeRoute('/news')}>
+            <button type='button' data-bs-dismiss="offcanvas" aria-label="Close">News</button>
           </li>
           <SignIn/>
         </ul>
     </div>
+    )
   }
 
   return (
     <div>
+      
       <Router>
         <Menu />
+        <a className='btn btn-primary' data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"></a>
         <div>
           <h1 id="heading-primary-main">Hackjob Games</h1>
         </div>
         <Switch>
           <Route key={'games'} path={`/games`}><Games/></Route>
           <Route key={'stream'} path={`/stream`}><Stream/></Route>
-          <Route key={'feedback'} path={'/feedback'}><Feedback/></Route>
           <Route key={'devlog'} path={'/devlog'}><Devlog/></Route>
         </Switch>
         <div style={{ bottom: '0', height: '25vh', width: '100%', border: '1px solid black' }}></div>   

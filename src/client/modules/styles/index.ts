@@ -75,8 +75,4 @@ export const styles = {
     borderBottom: '1px solid rgba(100, 100, 100, .3)',
     cursor: 'pointer'
   },
-  gameButton: {
-    width: '30vw',
-    height: '30vw'
-  }
 }

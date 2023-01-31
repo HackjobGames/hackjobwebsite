@@ -10,6 +10,6 @@ export default {
   </div>,
   name: 'rogue-grappler',
   displayName: 'Rogue Grappler',
-  img: './images/games/RogueGrappler.png',
+  img: './images/games/RogueGrapplerTitle.png',
   itchId: '4025163'
 }

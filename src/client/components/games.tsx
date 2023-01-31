@@ -23,12 +23,12 @@ export const Games = () => {
         <button onClick={() => { setState(game.about) }} value={game.about} style={styles.button}>
           About
         </button>
-        <button onClick={() => { setState(game.about) }} style={styles.button}>
+        <button onClick={() => { setState(game.howTo) }} style={styles.button}>
           How To Play
         </button>
       </div>
 
-      <div>{state.browserData}</div>
+      <div>{state}</div>
     </div>
 
     )
@@ -50,13 +50,13 @@ export const Games = () => {
 
 
   return (
-    <div style={styles.gamesRoot}>
+    <div style={styles.gamesRoot} className="container text-center">
       <Route exact path='/games'>
-        <div className='row'>
+        <div className='row align-items-start display-flex'>
           {gameComponents.map(game => 
-            <div className='col'>
+            <div className='col-sm-6 col-lg-3'>
               <Link key={game.name} to={`/games/${game.name}`} >
-                <img style={styles.gameButton} src={game.img}/>
+                <img className="img-thumbnail" src={game.img}/>
               </Link>
             </div>
           )}
