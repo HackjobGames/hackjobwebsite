@@ -19,7 +19,7 @@ const plugins = [
       'prop-types': ['elementType'],
       'react-js': ['isValidElementType', 'isValidElement', 'isFragment'],
       'react-is': ['ForwardRef', 'Memo', 'isFragment', 'isValidElementType'],
-      'react-router-dom': ['BrowserRouter', 'Switch', 'Route', 'useHistory'],
+      'react-router-dom': ['BrowserRouter', 'Switch', 'Route', 'useHistory', 'Link'],
       'react/jsx-runtime': ['jsx', 'jsxs'],
       'pg': ['Pool']
     }
@@ -41,6 +41,7 @@ const plugins = [
     targets: [
       { src: 'index.html', dest: '../../dist/client' },
       { src: 'index.css', dest: '../../dist/client' },
+      { src: 'images/*', dest: '../../dist/client/images' },
       { src: 'extensions/*', dest: '../../dist/client/extensions' },
       { src: 'resources/*', dest: '../../dist/client/resources' }
     ]

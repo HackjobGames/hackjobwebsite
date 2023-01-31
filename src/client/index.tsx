@@ -64,8 +64,8 @@ const Browser = () => {
         <Switch>
           <Route key={'games'} path={`/games`}><Games/></Route>
           <Route key={'stream'} path={`/stream`}><Stream/></Route>
-          <Route key={'devlog'} path={'/feedback'}><Feedback/></Route>
-          <Route key={'devlog'} path={'/'}><Devlog/></Route>
+          <Route key={'feedback'} path={'/feedback'}><Feedback/></Route>
+          <Route key={'devlog'} path={'/devlog'}><Devlog/></Route>
         </Switch>
         <div style={{ bottom: '0', height: '25vh', width: '100%', border: '1px solid black' }}></div>   
       </Router>

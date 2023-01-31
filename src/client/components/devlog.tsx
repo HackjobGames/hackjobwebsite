@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios/dist/axios'
-// import { GridList, GridListTile, Dialog, DialogContent, DialogActions, DialogTitle, TextareaAutosize, Button, TextField } from '@material-ui/core'
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import { getCookie } from 'getCookie'
 import v4 from 'uuid-browser/v4'

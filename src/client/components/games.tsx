@@ -3,7 +3,6 @@ import potato from './game_info/potato'
 import birds from './game_info/birdsAway'
 import mirror from './game_info/mirror'
 import rogue from './game_info/rogueGrappler'
-// import { GridList, GridListTile } from '@material-ui/core'
 import { styles } from 'styles'
 import {
   Route,
@@ -16,24 +15,18 @@ export const Games = () => {
 
   const BrowserData = (props) => {
     const game = props.game
-    const [state, setState] = React.useState({
-      browserData: game.about
-    })
+    const [state, setState] = React.useState(null)
 
     return (
     <div>
-      {/* <ToggleButtonGroup
-        value={state.browserData}
-        exclusive
-        onChange={(_, data) => setState({ browserData: data || state.browserData })}
-      >
-        <ToggleButton selected value={game.about} style={styles.button} className="button">
+      <div className="btn-group" role="group" aria-label="Basic example">
+        <button onClick={() => { setState(game.about) }} value={game.about} style={styles.button}>
           About
-        </ToggleButton>
-        <ToggleButton value={game.howTo} style={styles.button} className="button">
+        </button>
+        <button onClick={() => { setState(game.about) }} style={styles.button}>
           How To Play
-        </ToggleButton>
-      </ToggleButtonGroup> */}
+        </button>
+      </div>
 
       <div>{state.browserData}</div>
     </div>
@@ -59,15 +52,15 @@ export const Games = () => {
   return (
     <div style={styles.gamesRoot}>
       <Route exact path='/games'>
-        {/* <GridList spacing={10} className={'center'} cellHeight='auto' cols={2}>
+        <div className='row'>
           {gameComponents.map(game => 
-            <GridListTile key={game.name} cols={1}>
+            <div className='col'>
               <Link key={game.name} to={`/games/${game.name}`} >
                 <img style={styles.gameButton} src={game.img}/>
               </Link>
-            </GridListTile>
+            </div>
           )}
-        </GridList> */}
+        </div>
       </Route>
       {gameComponents.map(game =>
           <Route key={game.name} exact path={`/games/${game.name}`}>
