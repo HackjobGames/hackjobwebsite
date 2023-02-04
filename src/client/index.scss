@@ -1,0 +1,82 @@
+
+
+$primary: black;
+$green: #45b80b;
+$button-background: rgb(58, 58, 58);
+
+@import "~bootstrap/scss/bootstrap";
+
+.drawerButton {
+  background: black;
+  color: $green;
+  border: 0px;
+}
+
+body{
+    background-color: black;
+    color:white;
+    font-family: "VT323", monospace;
+}
+
+p{
+    font-size: 20px;
+}
+
+#heading-primary-main{
+    top: 0%;
+    position: relative;
+    margin: auto;
+    display: block;
+    font-size: 30px;
+    letter-spacing: 10px;
+    line-height: 1.7;
+    color: #45b80b;
+    animation: main-text-animation 1.5s steps(13);
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    width: 40%;
+    min-height: 20%;
+    height: 20%;
+}
+
+@keyframes main-text-animation{
+    0% {
+      width: 0%;
+      border-right: 4px solid #45b80b;
+    }
+    99% {
+      width : 40%;
+      border-right: 4px solid #45b80b;
+    }
+    100% {
+        width : 40%;
+        border-right: 0px;
+    }
+}
+
+.root {
+    height: 100%;
+    background: black;
+    z-index: 99999;
+}
+
+.gameButton {
+  background-color: $button-background;
+  color: $green;
+  width: 120px;
+}
+
+.navButton {
+  color: #45b80b;
+  width: 100%;
+  list-style: none;
+  padding: 15px 10px;
+  border-bottom: 2px solid gray;
+  cursor: pointer;
+  background-color: black;
+}
+
+.navButton:hover {
+  background: gray
+}

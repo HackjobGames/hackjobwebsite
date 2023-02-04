@@ -8,7 +8,8 @@ declare global {
         markdown: string,
         title: string,
         id: string,
-      }
+      },
+      files: any
     }
   }
 }

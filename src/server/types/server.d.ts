@@ -8,6 +8,6 @@ declare global {
       logout: any,
       files: any
     },
-    user: user
+    user: user,
   }
 }

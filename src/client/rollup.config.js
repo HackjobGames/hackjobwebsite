@@ -40,7 +40,7 @@ const plugins = [
   copy({
     targets: [
       { src: 'index.html', dest: '../../dist/client' },
-      { src: 'index.css', dest: '../../dist/client' },
+      // { src: 'index.css', dest: '../../dist/client' },
       { src: 'images/*', dest: '../../dist/client/images' },
       { src: 'extensions/*', dest: '../../dist/client/extensions' },
       { src: 'resources/*', dest: '../../dist/client/resources' }

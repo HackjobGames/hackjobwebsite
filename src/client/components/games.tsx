@@ -3,7 +3,6 @@ import potato from './game_info/potato'
 import birds from './game_info/birdsAway'
 import mirror from './game_info/mirror'
 import rogue from './game_info/rogueGrappler'
-import { styles } from 'styles'
 import {
   Route,
   Link
@@ -20,14 +19,13 @@ export const Games = () => {
     return (
     <div>
       <div className="btn-group" role="group" aria-label="Basic example">
-        <button onClick={() => { setState(game.about) }} value={game.about} style={styles.button}>
+        <button onClick={() => { setState(game.about) }} className="gameButton">
           About
         </button>
-        <button onClick={() => { setState(game.howTo) }} style={styles.button}>
+        <button onClick={() => { setState(game.howTo) }} className="gameButton">
           How To Play
         </button>
       </div>
-
       <div>{state}</div>
     </div>
 
@@ -50,13 +48,13 @@ export const Games = () => {
 
 
   return (
-    <div style={styles.gamesRoot} className="container text-center">
+    <div className="container-fluid text-center">
       <Route exact path='/games'>
-        <div className='row align-items-start display-flex'>
+        <div className='row align-items-start display-flex mx-auto'>
           {gameComponents.map(game => 
-            <div className='col-sm-6 col-lg-3'>
+            <div className='col-sm-6 col-lg-3 my-2 mx-auto'>
               <Link key={game.name} to={`/games/${game.name}`} >
-                <img className="img-thumbnail" src={game.img}/>
+                <img style={{height: '100%'}} className="img-thumbnail" src={game.img}/>
               </Link>
             </div>
           )}

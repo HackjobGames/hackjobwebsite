@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios/dist/axios'
 import { getCookie } from 'getCookie'
-import { styles } from 'styles'
 
 const initial = {
   dialogOpen: false,

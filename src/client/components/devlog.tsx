@@ -3,7 +3,6 @@ import axios from 'axios/dist/axios'
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import { getCookie } from 'getCookie'
 import v4 from 'uuid-browser/v4'
-import { styles } from 'styles'
 import {
   Route,
   useHistory
@@ -148,11 +147,11 @@ export const Devlog = () => {
         )}
         </GridList> */}
       </Route>
-      {state.logs.map(log =>
+      {/* {state.logs.map(log =>
         <Route key={log.id} exact path={'/devlog/' + log.id}>
           <article style={styles.log} dangerouslySetInnerHTML={{ __html: marked(log.markdown) }}/>
         </Route>
-      )}
+      )} */}
     </div>
   )
 } 
