@@ -8,7 +8,7 @@
     "dev": "bash build.sh -w",
     "serve": "cd ./src/server && tsc --project ./tsconfig.json && node -r dotenv/config -r esm ../../dist/server/index.js",
     "migrate": "npx prisma migrate deploy",
-    "start": "npm ci && npm run build && npm run serve"
+    "start": "npm install && npm run build && npm run serve"
   },
   "author": "",
   "license": "ISC",
