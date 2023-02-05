@@ -5,6 +5,10 @@ steps:
   args: ['install']
 - name: 'gcr.io/cloud-builders/npm'
   env:
+  entrypoint: 'npx'
+  args: ['prisma', 'migrate', 'deploy']
+- name: 'gcr.io/cloud-builders/npm'
+  env:
   entrypoint: 'npm'
   args: ['run', 'build-client']
 - name: 'gcr.io/cloud-builders/npm'
@@ -14,4 +18,10 @@ steps:
 - name: 'gcr.io/cloud-builders/npm'
   env:
   entrypoint: 'npm'
+  env:
+  - 'DB_NAME=${_DB_NAME}'
+  - 'DB_PASS=${_DB_PASS}'
+  - 'DB_PORT=${_DB_PORT}'
+  - 'DB_USER=${_DB_USER}'
+  - 'DB_HOST=${_DB_HOST}'
   args: ['run', 'start']
