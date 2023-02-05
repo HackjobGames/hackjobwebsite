@@ -5,6 +5,6 @@ steps:
     - 'DB_PASS=${_DB_PASS}'
     - 'DB_PORT=${_DB_PORT}'
     - 'DB_USER=${_DB_USER}'
-    - 'INSTANCE_UNIX_SOCKET=${_INSTANCE_UNIX_SOCKET}'
+    - 'DB_HOST=${_DB_HOST}'
   entrypoint: 'npm'
   args: ['run', 'start']
