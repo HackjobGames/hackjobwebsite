@@ -3,6 +3,12 @@ steps:
   env:
   entrypoint: 'npm'
   args: ['install']
+- id: proxy-install
+  name: gcr.io/cloud-builders/npm
+  entrypoint: sh
+  args:
+    - "-c"
+    - "wget https://storage.googleapis.com/cloudsql-proxy/v1.20.1/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy && chmod +x cloud_sql_proxy"
 - name: 'gcr.io/cloud-builders/npm'
   env:
   - 'DATABASE_URL=${_DATABASE_URL}'
