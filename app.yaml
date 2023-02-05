@@ -1,6 +1,6 @@
 steps:
- - name: 'test variables'
-   args: ['echo', '$_DB_NAME']
+- name: 'var test'
+  args: ['echo', '$_DB_NAME']
 # - name: 'gcr.io/cloud-builders/npm'
 #   entrypoint: 'npm'
 #   args: ['run', 'start']
