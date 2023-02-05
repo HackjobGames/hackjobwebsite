@@ -6,4 +6,8 @@ steps:
 - name: 'gcr.io/cloud-builders/npm'
   env:
   entrypoint: 'npm'
-  args: ['run', 'build']
+  args: ['run', 'build-client']
+- name: 'gcr.io/cloud-builders/npm'
+  env:
+  entrypoint: 'npm'
+  args: ['run', 'build-server']
