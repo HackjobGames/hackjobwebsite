@@ -2,7 +2,7 @@ import { query } from '../../util'
 import fs from 'fs'
 import { v4 } from 'uuid'
 
-export const get = async (ctx) => {
+export const get = async (ctx: KoaContext) => {
   try {
     ctx.body = await query(`SELECT * FROM public.Devlog
                             order by created desc`)

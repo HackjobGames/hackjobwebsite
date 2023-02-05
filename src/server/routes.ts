@@ -11,6 +11,8 @@ router.post('/signIn', api.auth.signIn)
 router.post('/signUp', api.auth.signUp)
 router.post('/signOut', api.auth.signOut)
 
+router.get('/api/devlog', api.devlog.get)
+
 router.get('(.*)', async (ctx, next) => {
   if (ctx.request.url.includes('/index.js')) {
     ctx.request.url = '/index.js'

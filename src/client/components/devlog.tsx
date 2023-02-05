@@ -8,6 +8,7 @@ import {
   useHistory
 } from "react-router-dom";
 import { marked } from 'marked'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const emptyLog = {
   markdown: '',
@@ -29,7 +30,7 @@ export const Devlog = () => {
 
   })
   if (state.pullData) {
-    axios.get('/api/devlog/1').then(res => {
+    axios.get('/api/devlog').then(res => {
       setState({...state, logs: res.data || [], pullData: false })
     })
   }
@@ -63,18 +64,16 @@ export const Devlog = () => {
   }
 
   const EditIcon = (props) => {
-    return null
-      // <FontAwesomeIcon 
-      //   onClick={() => setState({...state, dialogOpen: true, currentLog: props.log})}
-      //   icon={faPencilAlt}
-      //   style={styles.pencil}
-      // /> : <div></div>
+    return (
+      <FontAwesomeIcon 
+        onClick={() => setState({...state, dialogOpen: true, currentLog: props.log})}
+        icon={faPencilAlt}
+      />
+    )
   }
   
   const CreateButton = (props) => {
-    return props.admin === 'true' ? null
-      // <Button style={styles.create} onClick={newLog}>Create New Devlog</Button>
-    : <div></div>
+    return props.admin === 'true' ? <button onClick={newLog}>Create New Devlog</button> : <div></div>
   }
 
   const handlePaste = (event) => {
@@ -110,48 +109,39 @@ export const Devlog = () => {
     <div>
       <Route exact path={'/'}>
         <CreateButton admin={state.adminFlag}/>
-        {/* <Dialog open={state.dialogOpen} >
-          <DialogTitle style={styles.button}>
-            <TextField
-              label="Title"
+        <div className='modal'>
+          <div className='modal-title'>
+            <textarea
               value={state.currentLog ? state.currentLog.title : ''}
               onChange={updateTitle}
-              InputLabelProps={{
-                style: styles.button
-              }}
-              InputProps= {{
-                style: styles.input
-              }}
             />
-          </DialogTitle>
-          <DialogContent style={styles.button}>
-            <TextareaAutosize rows={50} cols={70} style={styles.button} onPaste={handlePaste}  onChange={updateMarkdown} value={state.currentLog ? state.currentLog.markdown : ''} />
-          </DialogContent>
-          <DialogActions style={styles.button}>
-            <Button onClick={save} style={styles.button}>
+          </div>
+          <div className='modal-body'>
+            <textarea rows={50} cols={70} onPaste={handlePaste}  onChange={updateMarkdown} value={state.currentLog ? state.currentLog.markdown : ''} />
+          </div>
+          <div className='modal-footer'>
+            <button className='btn' onClick={save}>
               Post
-            </Button>
-            <Button onClick={() => setState({...state, dialogOpen: false})} style={styles.button}>
+            </button>
+            <button onClick={() => setState({...state, dialogOpen: false})}>
               Cancel
-            </Button>
-          </DialogActions>
-        </Dialog>
-        <GridList style={styles.grid} cellHeight={300} cols={1}>   
+            </button>
+          </div>
+        </div>
         {state.logs.map(log =>
-          <GridListTile style={styles.item} key={log.id}>
+          <div className='row' key={log.id}>
             <EditIcon admin={state.adminFlag} log={log}/>
-            <div onClick={() => goToLog(log)} style={styles.textContainer} >
-              <div style={styles.text}>{log.title}</div>
+            <div onClick={() => goToLog(log)}>
+              <div>{log.title}</div>
             </div>
-          </GridListTile>
+          </div>
         )}
-        </GridList> */}
       </Route>
-      {/* {state.logs.map(log =>
+      {state.logs.map(log =>
         <Route key={log.id} exact path={'/devlog/' + log.id}>
-          <article style={styles.log} dangerouslySetInnerHTML={{ __html: marked(log.markdown) }}/>
+          <article dangerouslySetInnerHTML={{ __html: marked(log.markdown) }}/>
         </Route>
-      )} */}
+      )}
     </div>
   )
 } 

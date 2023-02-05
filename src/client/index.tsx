@@ -1,7 +1,7 @@
-import { Games } from './components/games.js'
-import { Stream } from './components/stream.js'
-import { Devlog } from './components/devlog.js'
-import { SignIn } from './components/signIn.js'
+import { Games } from './components/games'
+import { Devlog } from './components/devlog'
+import { SignIn } from './components/signIn'
+import { About } from './components/about'
 
 import { useState } from 'react'
 import ReactDOM from 'react-dom'
@@ -70,14 +70,13 @@ const Browser = () => {
           <FontAwesomeIcon icon={faBars}/>
         </a>
         <div>
-          <h1 id="heading-primary-main">Hackjob Games</h1>
+          <h1 id="heading-primary-main">HACKJOB GAMES</h1>
         </div>
         <Switch>
-          <Route key={'games'} path={`/games`}><Games/></Route>
-          <Route key={'stream'} path={`/stream`}><Stream/></Route>
-          <Route key={'devlog'} path={'/news'}><Devlog/></Route>
+          <Route key='home' path='/home'><About/></Route>
+          <Route key='games' path='/games'><Games/></Route>
+          <Route key='devlog' path='/news'><Devlog/></Route>
         </Switch>
-        <div style={{ bottom: '0', height: '25vh', width: '100%', border: '1px solid black' }}></div>   
       </Router>
     </div>
   )
