@@ -5,6 +5,7 @@ steps:
   args: ['install']
 - name: 'gcr.io/cloud-builders/npm'
   env:
+  - 'DATABASE_URL=${_DATABASE_URL}'
   entrypoint: 'npx'
   args: ['prisma', 'migrate', 'deploy']
 - name: 'gcr.io/cloud-builders/npm'
