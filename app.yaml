@@ -13,7 +13,7 @@ steps:
   env:
   - 'DATABASE_URL=${_DATABASE_URL}'
   entrypoint: 'npx'
-  args: ['prisma', 'migrate', 'deploy']
+  args: ['(./cloud_sql_proxy -dir=/cloudsql -instances=<CLOUD_SQL_CONNECTION> & sleep 2) && prisma migrate deploy']
 - name: 'gcr.io/cloud-builders/npm'
   env:
   entrypoint: 'npm'
@@ -24,11 +24,9 @@ steps:
   args: ['run', 'build-server']
 - name: 'gcr.io/cloud-builders/npm'
   env:
-  entrypoint: 'npm'
-  env:
   - 'DB_NAME=${_DB_NAME}'
   - 'DB_PASS=${_DB_PASS}'
   - 'DB_PORT=${_DB_PORT}'
   - 'DB_USER=${_DB_USER}'
   - 'DB_HOST=${_DB_HOST}'
-  args: ['run', 'start']
+  args: ['(./cloud_sql_proxy -dir=/cloudsql -instances=<CLOUD_SQL_CONNECTION> & sleep 2) && npm run start']
