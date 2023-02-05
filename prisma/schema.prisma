@@ -9,9 +9,10 @@ datasource db {
 
 model users {
   id       String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  username String   @unique
+  username String
   hash     String
   admin    Boolean?
+  @@unique([username], name: "username_unique")
 }
 
 model devlog {
