@@ -4,10 +4,8 @@
   "description": "The Website For Finding Competition",
   "type": "module",
   "scripts": {
-    "test": "test",
-    "build": "bash build.sh",
-    "dev": "bash build.sh -w",
-    "serve": "tsc && node -r dotenv/config -r esm ./dist/server/index.js"
+    "build": "npx rollup -c",
+    "dev": "npx rollup -c -w"
   },
   "author": "",
   "license": "ISC",

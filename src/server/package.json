@@ -4,9 +4,6 @@
   "description": "",
   "type": "commonjs",
   "scripts": {
-    "test": "test",
-    "build": "bash build.sh",
-    "dev": "bash build.sh -w",
     "serve": "tsc --project ./tsconfig.json && node -r dotenv/config -r esm ../../dist/server/index.js"
   },
   "author": "",
