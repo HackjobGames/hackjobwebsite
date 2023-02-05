@@ -2,12 +2,12 @@
   "name": "HackjobGamesWebClient",
   "version": "1.0.0",
   "description": "The Website For Finding Competition",
-  "type": "module",
   "scripts": {
     "build": "npx rollup -c",
     "dev": "npx rollup -c -w"
   },
   "author": "",
+  "type": "module",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.8.4",

@@ -1,11 +1,11 @@
-const json = require('@rollup/plugin-json')
-const postcss = require('rollup-plugin-postcss')
-const commonjs = require('rollup-plugin-commonjs')
-const { nodeResolve } = require('@rollup/plugin-node-resolve')
-const { babel } = require('@rollup/plugin-babel')
-const copy = require('rollup-plugin-copy')
-const typescript = require('@rollup/plugin-typescript')
-const replace = require('@rollup/plugin-replace')
+import json from '@rollup/plugin-json'
+import postcss from 'rollup-plugin-postcss'
+import commonjs from 'rollup-plugin-commonjs'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import { babel } from '@rollup/plugin-babel'
+import copy from 'rollup-plugin-copy'
+import typescript from '@rollup/plugin-typescript'
+import replace from '@rollup/plugin-replace'
 
 const isProduction = !process.env.ROLLUP_WATCH
 

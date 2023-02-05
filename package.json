@@ -7,8 +7,8 @@
     "build": "cd ./src/client && npm run build",
     "dev": "bash build.sh -w",
     "serve": "cd ./src/server && tsc --project ./tsconfig.json && node -r dotenv/config -r esm ../../dist/server/index.js",
-    "migrate": "npx prisma migrate dev",
-    "start": "npm run migrate && npm run build && npm run serve"
+    "migrate": "npx prisma migrate deploy",
+    "start": "npm ci && npm run build && npm run serve"
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +19,8 @@
   "dependencies": {
     "@prisma/client": "^4.9.0",
     "prisma": "^4.9.0"
+  },
+  "engines" : { 
+    "node" : ">=16.0.0 <17.0.0"
   }
 }
