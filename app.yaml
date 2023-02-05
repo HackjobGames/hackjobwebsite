@@ -1,7 +1,9 @@
 steps:
 - name: bash
+  env:
+    - 'DB_NAME=${_DB_NAME}'
   script: 
-    echo $_DB_NAME
+    echo $DB_NAME
 
 # - name: 'gcr.io/cloud-builders/npm'
 #   entrypoint: 'npm'
