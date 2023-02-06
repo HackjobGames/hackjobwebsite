@@ -9,7 +9,8 @@
     "build-client": "cd ./src/client && npm run build",
     "migrate": "npx prisma migrate deploy",
     "start": "node -r dotenv/config -r esm ./dist/server/index.js",
-    "serve": "npm run build-server && npm run start"
+    "serve": "npm run build-server && npm run start",
+    "hello": "echo hello"
   },
   "author": "",
   "license": "ISC",
