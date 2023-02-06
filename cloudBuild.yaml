@@ -31,4 +31,4 @@ steps:
   - 'DB_USER=${_DB_USER}'
   - 'DB_HOST=${_DB_HOST}'
   entrypoint: 'sh'
-  args: ['-c', '(./cloud_sql_proxy -dir=/cloudsql -instances=hackjobgameswebsite:us-east1:hackjobgamesdatabase & sleep 2)']
+  args: ['-c', 'pkg install node']
