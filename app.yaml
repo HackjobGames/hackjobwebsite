@@ -3,17 +3,11 @@ steps:
   env:
   entrypoint: 'npm'
   args: ['install']
-- id: proxy-install
-  name: gcr.io/cloud-builders/npm
-  entrypoint: sh
-  args:
-    - "-c"
-    - "wget https://storage.googleapis.com/cloudsql-proxy/v1.20.1/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy && chmod +x cloud_sql_proxy"
 - name: 'gcr.io/cloud-builders/npm'
   env:
   - 'DATABASE_URL=${_DATABASE_URL}'
-  entrypoint: 'sh'
-  args: ['-c', '(./cloud_sql_proxy -dir=/cloudsql -instances=hackjobgameswebsite:us-east1:hackjobgamesdatabase=tcp:0.0.0.0:3306 & sleep 2) && npx prisma migrate deploy']
+  entrypoint: 'npx'
+  args: ['prisma migrate deploy']
 - name: 'gcr.io/cloud-builders/npm'
   env:
   entrypoint: 'npm'
@@ -28,5 +22,6 @@ steps:
   - 'DB_PASS=${_DB_PASS}'
   - 'DB_PORT=${_DB_PORT}'
   - 'DB_USER=${_DB_USER}'
-  entrypoint: 'sh'
-  args: ['-c', '(./cloud_sql_proxy -dir=/cloudsql -instances=hackjobgameswebsite:us-east1:hackjobgamesdatabase=tcp:0.0.0.0:3306 & sleep 2) && npm run start']
+  - 'DB_HOST=${_DB_HOST}'
+  entrypoint: 'npm'
+  args: ['run start']
