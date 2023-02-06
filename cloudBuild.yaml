@@ -33,6 +33,6 @@ steps:
   - '--image'
   - 'gcr.io/$PROJECT_ID/hackjobwebsite:$COMMIT_SHA'
   - '--region'
-  - 'us-east1-b'
+  - 'us-central1'
 images:
 - 'gcr.io/$PROJECT_ID/hackjobwebsite:$COMMIT_SHA'
