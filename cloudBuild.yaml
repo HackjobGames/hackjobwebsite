@@ -1,8 +1,8 @@
 steps:
-# - name: 'gcr.io/cloud-builders/npm'
-#   env:
-#   entrypoint: 'npm'
-#   args: ['install']
+- name: 'gcr.io/cloud-builders/npm'
+  env:
+  entrypoint: 'npm'
+  args: ['install']
 - id: proxy-install
   name: gcr.io/cloud-builders/npm
   entrypoint: sh
@@ -14,16 +14,16 @@ steps:
 #   - 'DATABASE_URL=${_DATABASE_URL}'
 #   entrypoint: 'sh'
 #   args: ['-c', '(./cloud_sql_proxy -dir=/cloudsql -instances=hackjobgameswebsite:us-east1:hackjobgamesdatabase & sleep 2) && npx prisma migrate deploy']
-# - name: 'gcr.io/cloud-builders/npm'
-#   env:
-#   entrypoint: 'npm'
-#   args: ['run', 'build-client']
-# - name: 'gcr.io/cloud-builders/npm'
-#   env:
-#   entrypoint: 'npm'
-#   args: ['run', 'build-server']
-
 - name: 'gcr.io/cloud-builders/npm'
+  env:
+  entrypoint: 'npm'
+  args: ['run', 'build-client']
+- name: 'gcr.io/cloud-builders/npm'
+  env:
+  entrypoint: 'npm'
+  args: ['run', 'build-server']
+
+- name: 'gcr.io/cloud-builders/gloud'
   env:
   - 'DB_NAME=${_DB_NAME}'
   - 'DB_PASS=${_DB_PASS}'
@@ -31,4 +31,4 @@ steps:
   - 'DB_USER=${_DB_USER}'
   - 'DB_HOST=${_DB_HOST}'
   entrypoint: 'sh'
-  args: ['-c', '(./cloud_sql_proxy -dir=/cloudsql -instances=hackjobgameswebsite:us-east1:hackjobgamesdatabase & sleep 2) && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash']
+  args: ['-c', '(./cloud_sql_proxy -dir=/cloudsql -instances=hackjobgameswebsite:us-east1:hackjobgamesdatabase & sleep 2) && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash && npm run start']
