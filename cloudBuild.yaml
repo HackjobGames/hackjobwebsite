@@ -22,7 +22,8 @@ steps:
   env:
   entrypoint: 'npm'
   args: ['run', 'build-server']
-- name: 'gcr.io/cloud-builders/npm'
+
+- name: 'gcr.io/cloud-builders/gcloud'
   env:
   - 'DB_NAME=${_DB_NAME}'
   - 'DB_PASS=${_DB_PASS}'
