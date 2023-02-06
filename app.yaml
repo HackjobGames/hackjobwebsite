@@ -1,6 +1,3 @@
-beta_settings:
-  cloud_sql_instances: hackjobgameswebsite:us-east1:hackjobgamesdatabase
-
 steps:
 - name: 'gcr.io/cloud-builders/npm'
   env:
