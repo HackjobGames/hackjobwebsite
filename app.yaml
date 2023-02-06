@@ -12,7 +12,8 @@ steps:
 - name: 'gcr.io/cloud-builders/npm'
   env:
   - 'DATABASE_URL=${_DATABASE_URL}'
-  args: ['(./cloud_sql_proxy -dir=/cloudsql -instances=hackjobgameswebsite:us-east1:hackjobgamesdatabase & sleep 2) && npx prisma migrate deploy']
+  entrypoint: 'sh'
+  args: ['-c', '(./cloud_sql_proxy -dir=/cloudsql -instances=hackjobgameswebsite:us-east1:hackjobgamesdatabase & sleep 2) && npx prisma migrate deploy']
 - name: 'gcr.io/cloud-builders/npm'
   env:
   entrypoint: 'npm'
@@ -28,4 +29,5 @@ steps:
   - 'DB_PORT=${_DB_PORT}'
   - 'DB_USER=${_DB_USER}'
   - 'DB_HOST=${_DB_HOST}'
-  args: ['(./cloud_sql_proxy -dir=/cloudsql -instances=hackjobgameswebsite:us-east1:hackjobgamesdatabase & sleep 2) && npm run start']
+  entrypoint: 'sh'
+  args: ['-c', '(./cloud_sql_proxy -dir=/cloudsql -instances=hackjobgameswebsite:us-east1:hackjobgamesdatabase & sleep 2) && npm run start']
