@@ -9,11 +9,11 @@ steps:
   args:
     - "-c"
     - "wget https://storage.googleapis.com/cloudsql-proxy/v1.20.1/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy && chmod +x cloud_sql_proxy"
-# - name: 'gcr.io/cloud-builders/npm'
-#   env:
-#   - 'DATABASE_URL=${_DATABASE_URL}'
-#   entrypoint: 'sh'
-#   args: ['-c', '(./cloud_sql_proxy -dir=/cloudsql -instances=hackjobgameswebsite:us-east1:hackjobgamesdatabase & sleep 2) && npx prisma migrate deploy']
+- name: 'gcr.io/cloud-builders/npm'
+  env:
+  - 'DATABASE_URL=${_DATABASE_URL}'
+  entrypoint: 'sh'
+  args: ['-c', '(./cloud_sql_proxy -dir=/cloudsql -instances=hackjobgameswebsite:us-east1:hackjobgamesdatabase & sleep 2) && npx prisma migrate deploy']
 - name: 'gcr.io/cloud-builders/npm'
   env:
   entrypoint: 'npm'
