@@ -23,9 +23,9 @@ steps:
   entrypoint: 'npm'
   args: ['run', 'build-server']
 - name: 'gcr.io/cloud-builders/docker'
-  env:
-  entrypoint: 'docker'
-  args: ['build', './']
+  args: [ 'build', '-t', 'us-west2-docker.pkg.dev/$PROJECT_ID/docker-images/hackjobgameswebsite:$COMMIT_SHA', '.' ]
+images:
+- 'us-west2-docker.pkg.dev/$PROJECT_ID/quickstart-docker-repo/quickstart-image:$COMMIT_SHA'
 
 
 # - name: 'gcr.io/cloud-builders/gcloud'
@@ -38,9 +38,6 @@ steps:
 #   entrypoint: 'sh'
 #   args: ['-c', '(./cloud_sql_proxy -dir=/cloudsql -instances=hackjobgameswebsite:us-east1:hackjobgamesdatabase & sleep 2) && curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash && [ -s "/builder/home/.nvm/nvm.sh" ] && \. "/builder/home/.nvm/nvm.sh"  && nvm install 18 && npm run start']
 
-
-images:
-- 'gcr.io/$PROJECT_ID/hackjobwebsite:$COMMIT_SHA'
 # - name: 'gcr.io/cloud-builders/gcloud'
 #   env:
 #   - 'DB_NAME=${_DB_NAME}'
