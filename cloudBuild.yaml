@@ -22,6 +22,11 @@ steps:
   env:
   entrypoint: 'npm'
   args: ['run', 'build-server']
+- name: 'gcr.io/cloud-builders/docker'
+  env:
+  entrypoint: 'docker'
+  args: ['build']
+
 
 # - name: 'gcr.io/cloud-builders/gcloud'
 #   env:
