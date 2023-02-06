@@ -32,7 +32,5 @@ steps:
   - 'hackjobwebsite'
   - '--image'
   - 'gcr.io/$PROJECT_ID/hackjobwebsite:$COMMIT_SHA'
-  - '--region'
-  - 'REGION'
 images:
 - 'gcr.io/$PROJECT_ID/hackjobwebsite:$COMMIT_SHA'
