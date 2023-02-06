@@ -25,7 +25,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'us-west2-docker.pkg.dev/$PROJECT_ID/docker-images/hackjobgameswebsite:$COMMIT_SHA', '.' ]
 images:
-- 'us-west2-docker.pkg.dev/$PROJECT_ID/quickstart-docker-repo/quickstart-image:$COMMIT_SHA'
+- 'us-west2-docker.pkg.dev/$PROJECT_ID/docker-images/hackjobgameswebsite:$COMMIT_SHA'
 
 
 # - name: 'gcr.io/cloud-builders/gcloud'
