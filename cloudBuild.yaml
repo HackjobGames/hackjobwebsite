@@ -23,9 +23,9 @@ steps:
   entrypoint: 'npm'
   args: ['run', 'build-server']
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'us-west2-docker.pkg.dev/$PROJECT_ID/docker-images/hackjobgameswebsite:$COMMIT_SHA', '.' ]
+  args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/hackjobwebsite:$COMMIT_SHA', '.' ]
 images:
-- 'us-west2-docker.pkg.dev/$PROJECT_ID/docker-images/hackjobgameswebsite:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/hackjobwebsite:$COMMIT_SHA'
 
 
 # - name: 'gcr.io/cloud-builders/gcloud'
