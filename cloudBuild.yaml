@@ -35,7 +35,7 @@ steps:
 
 
 images:
-- 'gcr.io/$PROJECT_ID/SERVICE-NAME:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/hackjobwebsite:$COMMIT_SHA'
 # - name: 'gcr.io/cloud-builders/gcloud'
 #   env:
 #   - 'DB_NAME=${_DB_NAME}'
