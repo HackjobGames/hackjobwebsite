@@ -8,8 +8,8 @@
     "build-server": "cd ./src/server && tsc --project ./tsconfig.json",
     "build-client": "cd ./src/client && npm run build",
     "migrate": "npx prisma migrate deploy",
-    "start": "node -r dotenv/config -r esm ./dist/server/index.js",
-    "serve": "npm run build-server && npm run start",
+    "start": "node ./dist/server/index.js",
+    "serve": "npm run build-server && node -r dotenv/config -r esm ./dist/server/index.js",
     "hello": "echo hello"
   },
   "author": "",
