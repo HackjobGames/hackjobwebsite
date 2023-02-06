@@ -1,4 +1,3 @@
-logsBucket: 'gs://mylogsbucket'
 steps:
 - name: 'gcr.io/cloud-builders/npm'
   env:
