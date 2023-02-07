@@ -9,7 +9,7 @@ steps:
   args:
     - "-c"
     - "wget https://storage.googleapis.com/cloudsql-proxy/v1.20.1/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy && chmod +x cloud_sql_proxy"
-- name: 'gcr.io/cloud-builders/npm'
+- name: 'gcr.io/cloud-builders/gcloud'
   env:
   - 'DATABASE_URL=${_DATABASE_URL}'
   entrypoint: 'sh'
