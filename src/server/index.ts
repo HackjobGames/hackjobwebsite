@@ -14,25 +14,24 @@ app.use(koaBodyFile);
 
 app.use(router)
 
-// if (!(process.env.ENVIRONMENT === "DEVELOPMENT")) {
-//   const config = {
-//     key: fs.readFileSync('/etc/letsencrypt/live/snackplease.com/privkey.pem', 'utf8'),
-//     cert: fs.readFileSync('/etc/letsencrypt/live/snackplease.com/fullchain.pem', 'utf8')
-//   }
+if (!(process.env.ENVIRONMENT === "DEVELOPMENT")) {
+  const config = {
+    key: fs.readFileSync('C:\\Certbot\\live\\hackjob.games\\privkey.pem', 'utf8'),
+    cert: fs.readFileSync('C:\\Certbot\\live\\hackjob.games\\fullchain.pem', 'utf8')
+  }
 
-//   const unsafe = http.createServer(function(req, res) {  
-//     res.writeHead(302, {
-//       'Location': process.env.WEBSITE_URL + req.url
-//     })
-//     res.end()
-//   });
+  const unsafe = http.createServer(function(req, res) {  
+    res.writeHead(302, {
+      'Location': process.env.WEBSITE_URL + req.url
+    })
+    res.end()
+  });
 
-//   unsafe.listen(80)
+  unsafe.listen(80)
 
-//   https.createServer(config, app.callback()).listen(443)
-// } else {
-//   http.createServer(app.callback()).listen(4400)
-// }
-http.createServer(app.callback()).listen(process.env.PORT || 4400)
+  https.createServer(config, app.callback()).listen(443)
+} else {
+  http.createServer(app.callback()).listen(4400)
+}
 
 console.log('Listening...')
