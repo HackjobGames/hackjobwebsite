@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "type": "commonjs",
-  "scripts": {
-    "serve": "tsc --project ./tsconfig.json && node -r dotenv/config -r esm ../../dist/server/index.js"
-  },
   "author": "",
   "license": "ISC",
   "devDependencies": {

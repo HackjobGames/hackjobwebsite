@@ -1,12 +1,19 @@
-import React from 'react'
 export const About = () => {
   return (
-    <h1 className='center mx-4'>
-      This site is being developed in the free time of some very busy indivduals, but we are passionate about what we do. 
-      First, a little history. Back in the school year of 2018-2019, Grant (Co-Founder) and Dylan (Co-Founder), both computer
-      science majors in college, wanted to work on a small project to improve thier coding skills.
-      They both love video games, so making a game in Unity seemed like a natural fit. And with that HackjobGames was born.
-      I hope you enjoy your time here and feel free to contact us at contact@hackjob.games with any questions.
-    </h1>
+    <div>
+      <div className='row gx-0'>
+        <h1 className='col-8 d-flex align-items-center justify-content-center'>
+          Frog Fight Now Available on Steam!
+        </h1>
+        <div className='col-4 d-flex align-items-center justify-content-center py-4 pe-5' >
+          <a href='https://store.steampowered.com/app/1666970/Frog_Fight/'>
+            <img className='w-100 cursor-pointer' src='https://partner.steamgames.com/public/images/steam_logo_white_small.png'/>
+          </a>
+        </div>
+      </div>
+      <div className=" d-flex align-items-center justify-content-center embed-responsive embed-responsive-16by9">
+        <iframe height={480} width={854} className="embed-responsive-item" src="https://www.youtube.com/embed/KsVOkCW2Afg?rel=0"></iframe>
+      </div>
+    </div>
   )
 } 

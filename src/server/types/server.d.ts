@@ -1,6 +1,4 @@
-
 import { Context } from "koa"
-
 
 declare global {
   export type KoaContext = Context & {
