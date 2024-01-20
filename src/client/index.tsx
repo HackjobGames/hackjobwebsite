@@ -50,6 +50,7 @@ const Browser = () => {
           <Route key='home' path='/home'><About/></Route>
           <Route key='games' path='/games'><Games/></Route>
           <Route key='devlog' path='/news'><Devlog/></Route>
+          <Route key='home' path='/'><About/></Route>
         </Switch>
       </Router>
       <div className="container">
