@@ -1,14 +1,14 @@
 import React from 'react'
 import potato from './game_info/potato'
 import birds from './game_info/birdsAway'
-import mirror from './game_info/mirror'
 import rogue from './game_info/rogueGrappler'
+import dad from './game_info/divorcedDad'
 import {
   Route,
   Link
 } from "react-router-dom";
 
-const gameComponents = [birds, potato, mirror, rogue]
+const gameComponents = [birds, potato, rogue, dad]
 
 export const Games = () => {
 
@@ -52,8 +52,8 @@ export const Games = () => {
       <Route exact path='/games'>
         <div className='row align-items-start display-flex mx-auto'>
           {gameComponents.map(game => 
-            <div className='col-sm-6 col-lg-3 my-2 mx-auto'>
-              <Link key={game.name} to={`/games/${game.name}`} >
+            <div key={game.name} className='col-sm-6 col-lg-3 my-2 mx-auto'>
+              <Link to={`/games/${game.name}`} >
                 <img style={{height: '100%'}} className="img-thumbnail" src={game.img}/>
               </Link>
             </div>
