@@ -36,7 +36,7 @@ export const Games = () => {
     const game = props.game
     return (
       <div className='center'> 
-        <iframe frameBorder="0" src={`https://itch.io/embed-upload/${game.itchId}?color=333333`} 
+        <iframe frameBorder="0"  src={`https://itch.io/embed-upload/${game.itchId}?color=333333`}
           allowFullScreen={true} width="1000" height="660">
           <a href={`https://hackjobgames.itch.io/${game.name}`}>Play Plant The Potato on itch.io</a>
         </iframe>

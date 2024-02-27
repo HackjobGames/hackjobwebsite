@@ -51,5 +51,5 @@ export default {
   name: 'divorced-dad-simulator',
   displayName: 'Divorced Dad Simulator',
   img: './images/games/DivorcedDadTitle.png',
-  itchId: '9579305'
+  itchId: '9820976'
 }
