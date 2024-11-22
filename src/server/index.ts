@@ -1,3 +1,4 @@
+require("dotenv").config()
 import Koa from 'koa'
 import router from './routes'
 import https from 'https'
@@ -16,8 +17,8 @@ app.use(router)
 
 if (!(process.env.ENVIRONMENT === "DEVELOPMENT")) {
   const config = {
-    key: fs.readFileSync('C:\\Certbot\\live\\hackjob.games\\privkey.pem', 'utf8'),
-    cert: fs.readFileSync('C:\\Certbot\\live\\hackjob.games\\fullchain.pem', 'utf8')
+    key: fs.readFileSync('/etc/letsencrypt/live/hackjob.games/privkey.pem', 'utf8'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/hackjob.games/fullchain.pem', 'utf8')
   }
 
   const unsafe = http.createServer(function(req, res) {  

@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios/dist/axios'
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
-import { getCookie } from 'getCookie'
+import { getCookie } from '../modules/getCookie'
 import v4 from 'uuid-browser/v4'
 import {
   Route,
